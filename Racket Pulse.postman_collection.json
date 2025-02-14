@@ -1,0 +1,242 @@
+{
+	"info": {
+		"_postman_id": "c4eab441-c44c-4b90-988b-d642dde2a2e0",
+		"name": "Racket Pulse",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17673405"
+	},
+	"item": [
+		{
+			"name": "ruta index",
+			"item": [
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}",
+							"host": [
+								"{{host}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Ruta principal para verificar la ejecución del servicio backend"
+		},
+		{
+			"name": "ruta users",
+			"item": [
+				{
+					"name": "create user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"usuario@example.com\",\r\n  \"password\": \"contraseñaSegura123\",\r\n  \"full_name\": \"Juan Pérez\",\r\n  \"gender\": \"male\",\r\n  \"phone\": \"+521234567890\",\r\n  \"height\": 1.75,\r\n  \"birthday\": \"1990-01-01\",\r\n  \"location\": \"Ciudad de México\",\r\n\"nationality_id\": 120\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/users",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/users",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get user (token)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ1c3VhcmlvQGV4YW1wbGUuY29tIiwibmFtZSI6Ikp1YW4gUMOpcmV6IiwiaWF0IjoxNzM5Mzk1MzA5LCJleHAiOjE3MzkzOTg5MDl9.P-ep65yNzUtSkHyGGCeoY5i0XPFX2-RNRLe0YsrMRpE",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/users/3",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update user",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"nuevo_usuario@example.com\",\r\n  \"password\": \"nuevaContraseña123\",\r\n  \"full_name\": \"Ana López\",\r\n  \"gender\": \"female\",\r\n  \"phone\": \"+521234567891\",\r\n  \"height\": 1.8,\r\n  \"birthday\": \"1995-05-15\",\r\n  \"location\": \"Guadalajara\",\r\n  \"nationality_id\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/users/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete user",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/users/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Esta ruta permite acceder a los servicios correspondientes a la gestión de usuarios tipo jugadores (players).  \n  \nActualmente solo la ruta get user está asegurada con jwt y validación de datos propios, los demas se dejan libres de token temporalmente para pruebas."
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"usuario@example.com\",\r\n  \"password\": \"contraseñaSegura123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/auth/login",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "refresh token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJ1c3VhcmlvQGV4YW1wbGUuY29tIiwibmFtZSI6Ikp1YW4gUMOpcmV6IiwiaWF0IjoxNzM5MzQ3NDY4LCJleHAiOjE3Mzk5NTIyNjh9.rBNICxjKzkA3DujiP4by5ecYksZKRT8tUHOwO2boy9g\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/auth/refresh",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"auth",
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "rutas para el control de usuarios (login, obtención de token y refrescado de tokens)"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"value": "",
+			"type": "string",
+			"disabled": true
+		},
+		{
+			"key": "host",
+			"value": "https://dev.api.racketpulse.com",
+			"type": "default"
+		}
+	]
+}
