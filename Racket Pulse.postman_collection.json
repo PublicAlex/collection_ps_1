@@ -79,18 +79,18 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ1c3VhcmlvQGV4YW1wbGUuY29tIiwibmFtZSI6Ikp1YW4gUMOpcmV6IiwiaWF0IjoxNzM5Mzk1MzA5LCJleHAiOjE3MzkzOTg5MDl9.P-ep65yNzUtSkHyGGCeoY5i0XPFX2-RNRLe0YsrMRpE",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ1c3VhcmlvQGV4YW1wbGUuY29tIiwibmFtZSI6Ikp1YW4gUMOpcmV6IiwidHlwZSI6InVzZXIiLCJpYXQiOjE3Mzk1MDgxMTYsImV4cCI6MTczOTUxMTcxNn0.ijcZgRLJIpZ8kvc_I8yV6lg3qI4gD3-B7YUJ2fSNdMs",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "{{host}}/users/3",
+							"raw": "{{host}}/users/1",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"users",
-								"3"
+								"1"
 							]
 						}
 					},
@@ -145,6 +145,124 @@
 			"description": "Esta ruta permite acceder a los servicios correspondientes a la gestión de usuarios tipo jugadores (players).  \n  \nActualmente solo la ruta get user está asegurada con jwt y validación de datos propios, los demas se dejan libres de token temporalmente para pruebas."
 		},
 		{
+			"name": "ruta clubs",
+			"item": [
+				{
+					"name": "create club",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"clubpadel@example.com\",\r\n  \"password\": \"securepassword123\",\r\n  \"club_name\": \"Club de Pádel Elite\",\r\n  \"club_admin_full_name\": \"Jorge Cardozo\",\r\n  \"club_admin_phone\": \"+52 1234567890\",\r\n  \"club_logo\": \"https://example.com/logo.png\",\r\n  \"location\": \"Avenida Principal 123, Ciudad Padel\",\r\n  \"courtsAvailable\": 5,\r\n  \"openMatches\": 2,\r\n  \"events\": \"Torneo de Verano 2025\",\r\n  \"status\": \"open\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/clubs",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"clubs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get clubs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/clubs",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"clubs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get club (token)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJjbHVicGFkZWxAZXhhbXBsZS5jb20iLCJuYW1lIjoiQ2x1YiBkZSBQw6FkZWwgRWxpdGUiLCJ0eXBlIjoiY2x1YiIsImlhdCI6MTczOTUwNzgxOSwiZXhwIjoxNzM5NTExNDE5fQ.qOsWilLwBk57ruxa41On94BfZdB90nyG50x1BpZObWs",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/clubs/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"clubs",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update club",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"clubpadel@example.com\",\r\n  \"password\": \"securepassword123\",\r\n  \"club_name\": \"Club de Pádel Elite\",\r\n  \"club_admin_full_name\": \"Jorge Cardozo\",\r\n  \"club_admin_phone\": \"+52 1234567890\",\r\n  \"club_logo\": \"https://example.com/logo.png\",\r\n  \"location\": \"Avenida Principal 123, Ciudad Padel\",\r\n  \"courtsAvailable\": 5,\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/clubs/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"clubs",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete club",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/clubs/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"clubs",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Esta ruta permite acceder a los servicios correspondientes a la gestión de usuarios tipo jugadores (players).  \n  \nActualmente solo la ruta get user está asegurada con jwt y validación de datos propios, los demas se dejan libres de token temporalmente para pruebas."
+		},
+		{
 			"name": "auth",
 			"item": [
 				{
@@ -169,6 +287,33 @@
 							"path": [
 								"auth",
 								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "club - login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"clubpadel@example.com\",\r\n  \"password\": \"securepassword123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/auth/club-login",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"auth",
+								"club-login"
 							]
 						}
 					},
