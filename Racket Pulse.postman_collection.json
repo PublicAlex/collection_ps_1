@@ -27,7 +27,7 @@
 			"description": "Ruta principal para verificar la ejecución del servicio backend"
 		},
 		{
-			"name": "ruta users",
+			"name": "rutas users",
 			"item": [
 				{
 					"name": "create user",
@@ -56,7 +56,7 @@
 					"response": []
 				},
 				{
-					"name": "get users",
+					"name": "get users (admin)",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -79,28 +79,34 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ1c3VhcmlvQGV4YW1wbGUuY29tIiwibmFtZSI6Ikp1YW4gUMOpcmV6IiwidHlwZSI6InVzZXIiLCJpYXQiOjE3Mzk1MDgxMTYsImV4cCI6MTczOTUxMTcxNn0.ijcZgRLJIpZ8kvc_I8yV6lg3qI4gD3-B7YUJ2fSNdMs",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ1c3VhcmlvQGV4YW1wbGUuY29tIiwibmFtZSI6Ikp1YW4gUMOpcmV6IiwidHlwZSI6InVzZXIiLCJpYXQiOjE3Mzk3NjAzNjYsImV4cCI6MTczOTc2Mzk2Nn0.X9RNaX-pz47dHbc8TX6EpDhiR2U5Kbn046xDH0DNqGc",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "{{host}}/users/1",
+							"raw": "{{host}}/users/2",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"users",
-								"1"
+								"2"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "update user",
+					"name": "update user (token)",
 					"request": {
 						"method": "PATCH",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ1c3VhcmlvQGV4YW1wbGUuY29tIiwibmFtZSI6Ikp1YW4gUMOpcmV6IiwidHlwZSI6InVzZXIiLCJpYXQiOjE3Mzk3NjAzNjYsImV4cCI6MTczOTc2Mzk2Nn0.X9RNaX-pz47dHbc8TX6EpDhiR2U5Kbn046xDH0DNqGc",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\r\n  \"email\": \"nuevo_usuario@example.com\",\r\n  \"password\": \"nuevaContraseña123\",\r\n  \"full_name\": \"Ana López\",\r\n  \"gender\": \"female\",\r\n  \"phone\": \"+521234567891\",\r\n  \"height\": 1.8,\r\n  \"birthday\": \"1995-05-15\",\r\n  \"location\": \"Guadalajara\",\r\n  \"nationality_id\": 1\r\n}",
@@ -111,41 +117,47 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}/users/1",
+							"raw": "{{host}}/users/4",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"users",
-								"1"
+								"4"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "delete user",
+					"name": "delete user (token)",
 					"request": {
 						"method": "DELETE",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ1c3VhcmlvQGV4YW1wbGUuY29tIiwibmFtZSI6Ikp1YW4gUMOpcmV6IiwidHlwZSI6InVzZXIiLCJpYXQiOjE3Mzk3NjAzNjYsImV4cCI6MTczOTc2Mzk2Nn0.X9RNaX-pz47dHbc8TX6EpDhiR2U5Kbn046xDH0DNqGc",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "{{host}}/users/1",
+							"raw": "{{host}}/users/3",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"users",
-								"1"
+								"3"
 							]
 						}
 					},
 					"response": []
 				}
 			],
-			"description": "Esta ruta permite acceder a los servicios correspondientes a la gestión de usuarios tipo jugadores (players).  \n  \nActualmente solo la ruta get user está asegurada con jwt y validación de datos propios, los demas se dejan libres de token temporalmente para pruebas."
+			"description": "Estas rutas permite acceder a los servicios correspondientes a la gestión de usuarios tipo jugadores (players).\n\nActualmente solo la ruta get user está asegurada con jwt y validación de datos propios, los demas se dejan libres de token temporalmente para pruebas."
 		},
 		{
-			"name": "ruta clubs",
+			"name": "rutas clubs",
 			"item": [
 				{
 					"name": "create club",
@@ -174,7 +186,7 @@
 					"response": []
 				},
 				{
-					"name": "get clubs",
+					"name": "get clubs (admin)",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -197,25 +209,25 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJjbHVicGFkZWxAZXhhbXBsZS5jb20iLCJuYW1lIjoiQ2x1YiBkZSBQw6FkZWwgRWxpdGUiLCJ0eXBlIjoiY2x1YiIsImlhdCI6MTczOTUwNzgxOSwiZXhwIjoxNzM5NTExNDE5fQ.qOsWilLwBk57ruxa41On94BfZdB90nyG50x1BpZObWs",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ1c3VhcmlvQGV4YW1wbGUuY29tIiwibmFtZSI6Ikp1YW4gUMOpcmV6IiwidHlwZSI6ImFkbWluIiwiaWF0IjoxNzM5NzYwMzY2LCJleHAiOjE3Mzk3NjM5NjZ9.X1qEmbNaOqbK1E3I0Il9xufKD417FuBBXD24GmD4dos",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "{{host}}/clubs/1",
+							"raw": "{{host}}/clubs/2",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"clubs",
-								"1"
+								"2"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "update club",
+					"name": "update club (token)",
 					"request": {
 						"method": "PATCH",
 						"header": [],
@@ -242,7 +254,7 @@
 					"response": []
 				},
 				{
-					"name": "delete club",
+					"name": "delete club (token)",
 					"request": {
 						"method": "DELETE",
 						"header": [],
@@ -260,7 +272,7 @@
 					"response": []
 				}
 			],
-			"description": "Esta ruta permite acceder a los servicios correspondientes a la gestión de usuarios tipo jugadores (players).  \n  \nActualmente solo la ruta get user está asegurada con jwt y validación de datos propios, los demas se dejan libres de token temporalmente para pruebas."
+			"description": "Estas rutas permite acceder a los servicios correspondientes a la gestión de usuarios tipo jugadores (players).\n\nActualmente solo la ruta get user está asegurada con jwt y validación de datos propios, los demas se dejan libres de token temporalmente para pruebas."
 		},
 		{
 			"name": "auth",
