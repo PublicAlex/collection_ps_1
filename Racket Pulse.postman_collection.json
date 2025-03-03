@@ -7,7 +7,7 @@
 	},
 	"item": [
 		{
-			"name": "ruta index",
+			"name": "INDEX",
 			"item": [
 				{
 					"name": "index",
@@ -27,420 +27,747 @@
 			"description": "Ruta principal para verificar la ejecución del servicio backend"
 		},
 		{
-			"name": "rutas users",
+			"name": "RUTAS APP",
 			"item": [
 				{
-					"name": "create user",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"email\": \"aragonantar@gmail.com\",\r\n  \"password\": \"contraseñaSegura123\",\r\n  \"full_name\": \"Juan Pérez\",\r\n  \"gender\": \"male\",\r\n  \"phone\": \"+521234567890\",\r\n  \"photo\":\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAApgAAAKYB3X3/OAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAANCSURBVEiJtZZPbBtFFMZ/M7ubXdtdb1xSFyeilBapySVU8h8OoFaooFSqiihIVIpQBKci6KEg9Q6H9kovIHoCIVQJJCKE1ENFjnAgcaSGC6rEnxBwA04Tx43t2FnvDAfjkNibxgHxnWb2e/u992bee7tCa00YFsffekFY+nUzFtjW0LrvjRXrCDIAaPLlW0nHL0SsZtVoaF98mLrx3pdhOqLtYPHChahZcYYO7KvPFxvRl5XPp1sN3adWiD1ZAqD6XYK1b/dvE5IWryTt2udLFedwc1+9kLp+vbbpoDh+6TklxBeAi9TL0taeWpdmZzQDry0AcO+jQ12RyohqqoYoo8RDwJrU+qXkjWtfi8Xxt58BdQuwQs9qC/afLwCw8tnQbqYAPsgxE1S6F3EAIXux2oQFKm0ihMsOF71dHYx+f3NND68ghCu1YIoePPQN1pGRABkJ6Bus96CutRZMydTl+TvuiRW1m3n0eDl0vRPcEysqdXn+jsQPsrHMquGeXEaY4Yk4wxWcY5V/9scqOMOVUFthatyTy8QyqwZ+kDURKoMWxNKr2EeqVKcTNOajqKoBgOE28U4tdQl5p5bwCw7BWquaZSzAPlwjlithJtp3pTImSqQRrb2Z8PHGigD4RZuNX6JYj6wj7O4TFLbCO/Mn/m8R+h6rYSUb3ekokRY6f/YukArN979jcW+V/S8g0eT/N3VN3kTqWbQ428m9/8k0P/1aIhF36PccEl6EhOcAUCrXKZXXWS3XKd2vc/TRBG9O5ELC17MmWubD2nKhUKZa26Ba2+D3P+4/MNCFwg59oWVeYhkzgN/JDR8deKBoD7Y+ljEjGZ0sosXVTvbc6RHirr2reNy1OXd6pJsQ+gqjk8VWFYmHrwBzW/n+uMPFiRwHB2I7ih8ciHFxIkd/3Omk5tCDV1t+2nNu5sxxpDFNx+huNhVT3/zMDz8usXC3ddaHBj1GHj/As08fwTS7Kt1HBTmyN29vdwAw+/wbwLVOJ3uAD1wi/dUH7Qei66PfyuRj4Ik9is+hglfbkbfR3cnZm7chlUWLdwmprtCohX4HUtlOcQjLYCu+fzGJH2QRKvP3UNz8bWk1qMxjGTOMThZ3kvgLI5AzFfo379UAAAAASUVORK5CYII=\",\r\n  \"height\": 1.75,\r\n  \"birthday\": \"1990-01-01\",\r\n  \"location\": \"Ciudad de México\",\r\n\"nationality_id\": 120\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+					"name": "login control",
+					"item": [
+						{
+							"name": "login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"usuario@example.com\",\r\n  \"password\": \"contraseñaSegura123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/auth/login",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
 								}
-							}
+							},
+							"response": []
 						},
-						"url": {
-							"raw": "{{host}}/users",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"users"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "get users (admin)",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{host}}/users",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"users"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "get user (token)",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ1c3VhcmlvQGV4YW1wbGUuY29tIiwibmFtZSI6Ikp1YW4gUMOpcmV6IiwidHlwZSI6InVzZXIiLCJpYXQiOjE3Mzk3NjAzNjYsImV4cCI6MTczOTc2Mzk2Nn0.X9RNaX-pz47dHbc8TX6EpDhiR2U5Kbn046xDH0DNqGc",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{host}}/users/2",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"users",
-								"2"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "update user (token)",
-					"request": {
-						"method": "PATCH",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ1c3VhcmlvQGV4YW1wbGUuY29tIiwibmFtZSI6Ikp1YW4gUMOpcmV6IiwidHlwZSI6InVzZXIiLCJpYXQiOjE3Mzk3NjAzNjYsImV4cCI6MTczOTc2Mzk2Nn0.X9RNaX-pz47dHbc8TX6EpDhiR2U5Kbn046xDH0DNqGc",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"email\": \"nuevo_usuario@example.com\",\r\n  \"password\": \"nuevaContraseña123\",\r\n  \"full_name\": \"Ana López\",\r\n  \"gender\": \"female\",\r\n  \"phone\": \"+521234567891\",\r\n  \"height\": 1.8,\r\n  \"birthday\": \"1995-05-15\",\r\n  \"location\": \"Guadalajara\",\r\n  \"nationality_id\": 1\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+						{
+							"name": "login_otp",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"aragonantar@gmail.com\"  // enviar unicamente el email para envío de código OTP al email del usuario\r\n // ,\"password\": \"735488\"          // descomentar y enviar junto con el email, tambien el password para verificar código\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/auth/login_otp",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"auth",
+										"login_otp"
+									]
 								}
-							}
+							},
+							"response": []
 						},
-						"url": {
-							"raw": "{{host}}/users/4",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"users",
-								"4"
-							]
+						{
+							"name": "refresh token Copy",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJ1c3VhcmlvQGV4YW1wbGUuY29tIiwibmFtZSI6Ikp1YW4gUMOpcmV6IiwiaWF0IjoxNzM5MzQ3NDY4LCJleHAiOjE3Mzk5NTIyNjh9.rBNICxjKzkA3DujiP4by5ecYksZKRT8tUHOwO2boy9g\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/auth/refresh",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"auth",
+										"refresh"
+									]
+								}
+							},
+							"response": []
 						}
-					},
-					"response": []
+					]
 				},
 				{
-					"name": "delete user (token)",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ1c3VhcmlvQGV4YW1wbGUuY29tIiwibmFtZSI6Ikp1YW4gUMOpcmV6IiwidHlwZSI6InVzZXIiLCJpYXQiOjE3Mzk3NjAzNjYsImV4cCI6MTczOTc2Mzk2Nn0.X9RNaX-pz47dHbc8TX6EpDhiR2U5Kbn046xDH0DNqGc",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{host}}/users/3",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"users",
-								"3"
-							]
+					"name": "users control",
+					"item": [
+						{
+							"name": "create user",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"aragonantar@gmail.com\",\r\n  \"password\": \"contraseñaSegura123\",\r\n  \"full_name\": \"Juan Pérez\",\r\n  \"gender\": \"male\",\r\n  \"phone\": \"+521234567890\",\r\n  \"photo\":\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAApgAAAKYB3X3/OAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAANCSURBVEiJtZZPbBtFFMZ/M7ubXdtdb1xSFyeilBapySVU8h8OoFaooFSqiihIVIpQBKci6KEg9Q6H9kovIHoCIVQJJCKE1ENFjnAgcaSGC6rEnxBwA04Tx43t2FnvDAfjkNibxgHxnWb2e/u992bee7tCa00YFsffekFY+nUzFtjW0LrvjRXrCDIAaPLlW0nHL0SsZtVoaF98mLrx3pdhOqLtYPHChahZcYYO7KvPFxvRl5XPp1sN3adWiD1ZAqD6XYK1b/dvE5IWryTt2udLFedwc1+9kLp+vbbpoDh+6TklxBeAi9TL0taeWpdmZzQDry0AcO+jQ12RyohqqoYoo8RDwJrU+qXkjWtfi8Xxt58BdQuwQs9qC/afLwCw8tnQbqYAPsgxE1S6F3EAIXux2oQFKm0ihMsOF71dHYx+f3NND68ghCu1YIoePPQN1pGRABkJ6Bus96CutRZMydTl+TvuiRW1m3n0eDl0vRPcEysqdXn+jsQPsrHMquGeXEaY4Yk4wxWcY5V/9scqOMOVUFthatyTy8QyqwZ+kDURKoMWxNKr2EeqVKcTNOajqKoBgOE28U4tdQl5p5bwCw7BWquaZSzAPlwjlithJtp3pTImSqQRrb2Z8PHGigD4RZuNX6JYj6wj7O4TFLbCO/Mn/m8R+h6rYSUb3ekokRY6f/YukArN979jcW+V/S8g0eT/N3VN3kTqWbQ428m9/8k0P/1aIhF36PccEl6EhOcAUCrXKZXXWS3XKd2vc/TRBG9O5ELC17MmWubD2nKhUKZa26Ba2+D3P+4/MNCFwg59oWVeYhkzgN/JDR8deKBoD7Y+ljEjGZ0sosXVTvbc6RHirr2reNy1OXd6pJsQ+gqjk8VWFYmHrwBzW/n+uMPFiRwHB2I7ih8ciHFxIkd/3Omk5tCDV1t+2nNu5sxxpDFNx+huNhVT3/zMDz8usXC3ddaHBj1GHj/As08fwTS7Kt1HBTmyN29vdwAw+/wbwLVOJ3uAD1wi/dUH7Qei66PfyuRj4Ik9is+hglfbkbfR3cnZm7chlUWLdwmprtCohX4HUtlOcQjLYCu+fzGJH2QRKvP3UNz8bWk1qMxjGTOMThZ3kvgLI5AzFfo379UAAAAASUVORK5CYII=\",\r\n  \"height\": 1.75,\r\n  \"birthday\": \"1990-01-01\",\r\n  \"location\": \"Ciudad de México\",\r\n\"nationality_id\": 120\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/users",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get users (admin)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/users",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get user (token)",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ1c3VhcmlvQGV4YW1wbGUuY29tIiwibmFtZSI6Ikp1YW4gUMOpcmV6IiwidHlwZSI6InVzZXIiLCJpYXQiOjE3Mzk3NjAzNjYsImV4cCI6MTczOTc2Mzk2Nn0.X9RNaX-pz47dHbc8TX6EpDhiR2U5Kbn046xDH0DNqGc",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/users/2",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"users",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update user (token)",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ1c3VhcmlvQGV4YW1wbGUuY29tIiwibmFtZSI6Ikp1YW4gUMOpcmV6IiwidHlwZSI6InVzZXIiLCJpYXQiOjE3Mzk3NjAzNjYsImV4cCI6MTczOTc2Mzk2Nn0.X9RNaX-pz47dHbc8TX6EpDhiR2U5Kbn046xDH0DNqGc",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"nuevo_usuario@example.com\",\r\n  \"password\": \"nuevaContraseña123\",\r\n  \"full_name\": \"Ana López\",\r\n  \"gender\": \"female\",\r\n  \"phone\": \"+521234567891\",\r\n  \"height\": 1.8,\r\n  \"birthday\": \"1995-05-15\",\r\n  \"location\": \"Guadalajara\",\r\n  \"nationality_id\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/users/4",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"users",
+										"4"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete user (token)",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ1c3VhcmlvQGV4YW1wbGUuY29tIiwibmFtZSI6Ikp1YW4gUMOpcmV6IiwidHlwZSI6InVzZXIiLCJpYXQiOjE3Mzk3NjAzNjYsImV4cCI6MTczOTc2Mzk2Nn0.X9RNaX-pz47dHbc8TX6EpDhiR2U5Kbn046xDH0DNqGc",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/users/3",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"users",
+										"3"
+									]
+								}
+							},
+							"response": []
 						}
-					},
-					"response": []
+					]
 				}
 			],
 			"description": "Estas rutas permite acceder a los servicios correspondientes a la gestión de usuarios tipo jugadores (players).\n\nActualmente solo la ruta get user está asegurada con jwt y validación de datos propios, los demas se dejan libres de token temporalmente para pruebas."
 		},
 		{
-			"name": "rutas clubs",
+			"name": "RUTAS BACKOFFICE",
 			"item": [
 				{
-					"name": "create organization user",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"organization\": {\r\n    \"name\": \"Padel Centro Organization\"\r\n  },\r\n  \"clubUser\": {\r\n    \"email\": \"clubpadel10@example.com\",\r\n    \"password\": \"securepassword123\",\r\n    \"full_name\": \"Juan Pérez\",\r\n    \"phone\": \"+34612345678\"\r\n  },\r\n  \"club\": {\r\n    \"club_name\": \"Club de Pádel Elite\",\r\n    \"club_logo\": \"data:image/png;base64,iV....\",\r\n    \"location\": \"Avenida Principal 123, Ciudad Padel\",\r\n    \"location_coordinate\": \"40.4168,-3.7038\",\r\n    \"courtsAvailable\": 5,\r\n    \"openMatches\": 2,\r\n    \"status\": \"enabled\"\r\n  }\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+					"name": "login control",
+					"item": [
+						{
+							"name": "organization_login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"clubpadel@example.com\",\r\n  \"password\": \"securepassword123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/auth/club_login",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"auth",
+										"club_login"
+									]
 								}
-							}
+							},
+							"response": []
 						},
-						"url": {
-							"raw": "{{host}}/club_users/organization",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"club_users",
-								"organization"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "create club user",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"organization_id\":1,\r\n  \"email\": \"aragonantar02@gmail.com\",\r\n  \"password\": \"securepassword123\",\r\n  \"club_name\": \"Club de Pádel Elite Centro\",\r\n  \"club_admin_full_name\": \"Jorge Cardozo\",\r\n  \"club_admin_phone\": \"+52 1234567890\",\r\n  \"location\": \"Avenida Principal 123, Ciudad Padel\",\r\n  \"courtsAvailable\": 5,\r\n  \"openMatches\": 2,\r\n  \"events\": \"Torneo de Verano 2025\",\r\n  \"status\": \"enabled\",\r\n  \"role\":\"coach\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+						{
+							"name": "organization_login_otp",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"aragonantar@gmail.com\"  // enviar unicamente el email para envío de código OTP al email del usuario\r\n // ,\"password\": \"735488\"          // descomentar y enviar junto con el email, tambien el password para verificar código\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/auth/club_login_otp",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"auth",
+										"club_login_otp"
+									]
 								}
-							}
+							},
+							"response": []
 						},
-						"url": {
-							"raw": "{{host}}/club_users",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"club_users"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "get clubs (admin)",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{host}}/clubs",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"clubs"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "get club (token)",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ1c3VhcmlvQGV4YW1wbGUuY29tIiwibmFtZSI6Ikp1YW4gUMOpcmV6IiwidHlwZSI6ImFkbWluIiwiaWF0IjoxNzM5NzYwMzY2LCJleHAiOjE3Mzk3NjM5NjZ9.X1qEmbNaOqbK1E3I0Il9xufKD417FuBBXD24GmD4dos",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{host}}/clubs/2",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"clubs",
-								"2"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "update club (token)",
-					"request": {
-						"method": "PATCH",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"email\": \"clubpadel@example.com\",\r\n  \"password\": \"securepassword123\",\r\n  \"club_name\": \"Club de Pádel Elite\",\r\n  \"club_admin_full_name\": \"Jorge Cardozo\",\r\n  \"club_admin_phone\": \"+52 1234567890\",\r\n  \"club_logo\": \"https://example.com/logo.png\",\r\n  \"location\": \"Avenida Principal 123, Ciudad Padel\",\r\n  \"courtsAvailable\": 5,\r\n\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+						{
+							"name": "refresh token",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJ1c3VhcmlvQGV4YW1wbGUuY29tIiwibmFtZSI6Ikp1YW4gUMOpcmV6IiwiaWF0IjoxNzM5MzQ3NDY4LCJleHAiOjE3Mzk5NTIyNjh9.rBNICxjKzkA3DujiP4by5ecYksZKRT8tUHOwO2boy9g\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/auth/refresh",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"auth",
+										"refresh"
+									]
 								}
-							}
-						},
-						"url": {
-							"raw": "{{host}}/clubs/1",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"clubs",
-								"1"
-							]
+							},
+							"response": []
 						}
-					},
-					"response": []
+					]
 				},
 				{
-					"name": "delete club (token)",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "{{host}}/clubs/1",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"clubs",
-								"1"
-							]
+					"name": "users control",
+					"item": [
+						{
+							"name": "create club user",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"clubpadel@example.com\",\r\n  \"password\": \"securepassword123\",\r\n  \"club_admin_full_name\": \"Juan Pérez\",\r\n  \"club_admin_phone\": \"+34612345678\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/club_users",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"club_users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all club users (admin)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/club_users",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"club_users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get club user (token)",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJjbHVicGFkZWxAZXhhbXBsZS5jb20iLCJpbWFnZSI6InVwbG9hZHMvcHJvZmlsZXMvaW1hZ2UtOWZmMTE1MTEtZTgyZi00MDRkLTg0MDUtNGMzMWVhYWEwMjU2LnBuZyIsIm5hbWUiOiJKdWFuIFDDqXJleiIsInR5cGUiOiJjbHViIiwiY2x1YnMiOlt7ImNsdWJJZCI6MSwiY2x1Yk5hbWUiOiJDbHViIGRlIFDDoWRlbCBFbGl0ZSIsImNsdWJMb2dvIjoidXBsb2Fkcy9wcm9maWxlcy9pbWFnZS05ZmYxMTUxMS1lODJmLTQwNGQtODQwNS00YzMxZWFhYTAyNTYucG5nIiwicm9sZSI6Im1hbmFnZXIifSx7ImNsdWJJZCI6MywiY2x1Yk5hbWUiOiJDbHViIGRlIFDDoWRlbCBFbGl0ZSIsImNsdWJMb2dvIjoidXBsb2Fkcy9wcm9maWxlcy9pbWFnZS1jODQ4NDYzNy03NTExLTRmMDMtOTg1ZS1iOTUxZDYwMmE2YjAucG5nIiwicm9sZSI6Im1hbmFnZXIifSx7ImNsdWJJZCI6MiwiY2x1Yk5hbWUiOiJDbHViIGRlIFDDoWRlbCBFbGl0ZSIsImNsdWJMb2dvIjoidXBsb2Fkcy9wcm9maWxlcy9pbWFnZS03MDQ5MjMyMi1kM2M0LTRiNmMtYTc1My1iZmY0Y2QzNjJjMjYucG5nIiwicm9sZSI6ImNvYWNoIn1dLCJjbHViUm9sZXMiOnsiMSI6Im1hbmFnZXIiLCIyIjoiY29hY2giLCIzIjoibWFuYWdlciJ9LCJvcmdhbml6YXRpb25zIjpbeyJvcmdhbml6YXRpb25JZCI6MSwib3JnYW5pemF0aW9uTmFtZSI6IlNwb3J0cyBPcmdhbml6YXRpb24ifSx7Im9yZ2FuaXphdGlvbklkIjoyLCJvcmdhbml6YXRpb25OYW1lIjoiUGFkZWwgQ2VudHJvIE9yZ2FuaXphdGlvbiJ9XSwicGhvbmUiOiIrMzQ2MTIzNDU2NzgiLCJpYXQiOjE3NDA5OTU5NjEsImV4cCI6MTc0MDk5OTU2MX0.SNdMNJwLhtgBlMy-LmJpObatvLz9MHAbGmhfaM4b5W8",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/club_users/2",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"club_users",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update club user(token)",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"updated2padel@example.com\",\r\n  \"password\": \"updatedsecurepassword123\",\r\n  \"club_admin_full_name\": \"updated Jorge Cardozo\",\r\n  \"club_admin_phone\": \"+52 1234567890\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/club_users/5",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"club_users",
+										"5"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete club user (token)",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/club_users/5",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"club_users",
+										"5"
+									]
+								}
+							},
+							"response": []
 						}
-					},
-					"response": []
+					]
+				},
+				{
+					"name": "organization control",
+					"item": [
+						{
+							"name": "create organization",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Padel Organization\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/organizations",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"organizations"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all organizations",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/organizations",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"organizations"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get organization",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/organizations/1",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"organizations",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update organizations",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Updated Padel Organization\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/organizations/1",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"organizations",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete organization",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/organizations/2",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"organizations",
+										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "clubs control",
+					"item": [
+						{
+							"name": "create club",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"club_name\": \"Club de Pádel Elite\",\r\n  \"club_logo\": \"data:image/png;base64,iV....\",\r\n  \"location\": \"Avenida Principal 123, Ciudad Padel\",\r\n  \"location_coordinate\": \"40.4168,-3.7038\",\r\n  \"status\": \"enabled\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/clubs",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"clubs"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all clubs",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"club_name\": \"Club de Pádel Elite\",\r\n  \"club_logo\": \"data:image/png;base64,iV....\",\r\n  \"location\": \"Avenida Principal 123, Ciudad Padel\",\r\n  \"location_coordinate\": \"40.4168,-3.7038\",\r\n  \"status\": \"enabled\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/clubs",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"clubs"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get club",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"club_name\": \"Club de Pádel Elite\",\r\n  \"club_logo\": \"data:image/png;base64,iV....\",\r\n  \"location\": \"Avenida Principal 123, Ciudad Padel\",\r\n  \"location_coordinate\": \"40.4168,-3.7038\",\r\n  \"status\": \"enabled\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/clubs/1",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"clubs",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update club",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"club_name\": \"updated Club de Pádel Elite\",\r\n  \"club_logo\": \"data:image/png;base64,iV.... updated\",\r\n  \"location\": \"updated Avenida Principal 123, Ciudad Padel\",\r\n  \"location_coordinate\": \" updated 40.4168,-3.7038\",\r\n  \"status\": \"disabled\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/clubs/1",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"clubs",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete club",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/clubs/1",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"clubs",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "primer registro organization",
+					"item": [
+						{
+							"name": "create organization user",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"organization\": {\r\n    \"name\": \"Padel Organization 1\"\r\n  },\r\n  \"clubUser\": {\r\n    \"email\": \"clubpadel10@example.com\",\r\n    \"password\": \"securepassword123\",\r\n    \"full_name\": \"Juan Pérez\",\r\n    \"phone\": \"+34612345678\"\r\n  },\r\n  \"club\": {\r\n    \"club_name\": \"Club de Pádel Elite\",\r\n    \"club_logo\": \"data:image/png;base64,iV....\",\r\n    \"location\": \"Avenida Principal 123, Ciudad Padel\",\r\n    \"location_coordinate\": \"40.4168,-3.7038\",\r\n    \"courtsAvailable\": 5,\r\n    \"openMatches\": 2,\r\n    \"status\": \"enabled\"\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/club_users/organization",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"club_users",
+										"organization"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "control de sub-users de la organización",
+					"item": [],
+					"description": "conjunto de requests para el registro de subcuentas a la organización y/o a sus clubs\n\n(aun por definir el flujo)"
 				}
 			],
 			"description": "Estas rutas permite acceder a los servicios correspondientes a la gestión de usuarios tipo jugadores (players).\n\nActualmente solo la ruta get user está asegurada con jwt y validación de datos propios, los demas se dejan libres de token temporalmente para pruebas."
-		},
-		{
-			"name": "auth",
-			"item": [
-				{
-					"name": "login",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"email\": \"usuario@example.com\",\r\n  \"password\": \"contraseñaSegura123\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{host}}/auth/login",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"auth",
-								"login"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "login_otp",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"email\": \"aragonantar@gmail.com\"  // enviar unicamente el email para envío de código OTP al email del usuario\r\n // ,\"password\": \"735488\"          // descomentar y enviar junto con el email, tambien el password para verificar código\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{host}}/auth/login_otp",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"auth",
-								"login_otp"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "club_login",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"email\": \"clubpadel@example.com\",\r\n  \"password\": \"securepassword123\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{host}}/auth/club_login",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"auth",
-								"club_login"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "club_login_otp",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"email\": \"aragonantar@gmail.com\"  // enviar unicamente el email para envío de código OTP al email del usuario\r\n // ,\"password\": \"735488\"          // descomentar y enviar junto con el email, tambien el password para verificar código\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{host}}/auth/club_login_otp",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"auth",
-								"club_login_otp"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "refresh token",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJ1c3VhcmlvQGV4YW1wbGUuY29tIiwibmFtZSI6Ikp1YW4gUMOpcmV6IiwiaWF0IjoxNzM5MzQ3NDY4LCJleHAiOjE3Mzk5NTIyNjh9.rBNICxjKzkA3DujiP4by5ecYksZKRT8tUHOwO2boy9g\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{host}}/auth/refresh",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"auth",
-								"refresh"
-							]
-						}
-					},
-					"response": []
-				}
-			],
-			"description": "rutas para el control de usuarios (login, obtención de token y refrescado de tokens)"
 		}
 	],
 	"event": [
