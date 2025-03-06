@@ -366,10 +366,19 @@
 							"response": []
 						},
 						{
-							"name": "get all club users (admin)",
+							"name": "create club user",
 							"request": {
-								"method": "GET",
+								"method": "POST",
 								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"clubpadel@example.com\",\r\n  \"password\": \"securepassword123\",\r\n  \"club_admin_full_name\": \"Juan Pérez\",\r\n  \"club_admin_phone\": \"+34612345678\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
 								"url": {
 									"raw": "{{host}}/club_users",
 									"host": [
@@ -377,6 +386,51 @@
 									],
 									"path": [
 										"club_users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get clubs users relations (admin)",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJjbHVicGFkZWwxMEBleGFtcGxlLmNvbSIsImltYWdlIjoidXBsb2Fkcy9wcm9maWxlcy9pbWFnZS03MDQ5MjMyMi1kM2M0LTRiNmMtYTc1My1iZmY0Y2QzNjJjMjYucG5nIiwibmFtZSI6Ikp1YW4gUMOpcmV6IiwidHlwZSI6ImNsdWIiLCJjbHVicyI6W3siY2x1YklkIjoyLCJjbHViTmFtZSI6IkNsdWIgZGUgUMOhZGVsIEVsaXRlIiwiY2x1YkxvZ28iOiJ1cGxvYWRzL3Byb2ZpbGVzL2ltYWdlLTcwNDkyMzIyLWQzYzQtNGI2Yy1hNzUzLWJmZjRjZDM2MmMyNi5wbmciLCJyb2xlIjoibWFuYWdlciJ9XSwiY2x1YlJvbGVzIjp7IjIiOiJtYW5hZ2VyIn0sIm9yZ2FuaXphdGlvbnMiOlt7Im9yZ2FuaXphdGlvbklkIjoyLCJvcmdhbml6YXRpb25OYW1lIjoiUGFkZWwgQ2VudHJvIE9yZ2FuaXphdGlvbiJ9XSwicGhvbmUiOiIrMzQ2MTIzNDU2NzgiLCJpYXQiOjE3NDEyMzk0MDUsImV4cCI6MTc0MTI0MzAwNX0.4VilJ1I6rZdoA5dkl-F-rLmUVKHnmF7R0aga3hkWnCo",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/club_gestor",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"club_gestor"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get club user relations (token)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/club_gestor/3",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"club_gestor",
+										"3"
 									]
 								}
 							},
@@ -595,7 +649,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"club_name\": \"Club de Pádel Elite\",\r\n  \"club_logo\": \"data:image/png;base64,iV....\",\r\n  \"location\": \"Avenida Principal 123, Ciudad Padel\",\r\n  \"location_coordinate\": \"40.4168,-3.7038\",\r\n  \"status\": \"enabled\"\r\n}",
+									"raw": "{\r\n  \"club_name\": \"Club de Pádel Elite Norte\",\r\n  \"club_logo\": \"data:image/png;base64,iV....\",\r\n  \"location\": \"Avenida Principal 125, Ciudad Padel\",\r\n  \"location_coordinate\": \"40.4268,-3.7138\",\r\n  \"status\": \"enabled\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -722,6 +776,130 @@
 									"path": [
 										"clubs",
 										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "courts control",
+					"item": [
+						{
+							"name": "create court (token)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"club_id\": 3,\r\n  \"court_name\": \"Cancha #1 de Padel\",\r\n  \"court_type\": \"open\",\r\n  \"status\": \"enabled\"\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/courts",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"courts"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get courts by club id (token)",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/courts/club/3",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"courts",
+										"club",
+										"3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create court prices (token)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"court_id\": 2,\r\n  \"price\": 55,\r\n  \"description\":\"Horario de alta/baja demanda\",\r\n  // posibilidad de agregar definiciónd eunidad minima de reserva desde aqui mismo\r\n  \"start_time\": \"2024-02-25T15:00:00Z\",  // crear un filtro slider para determinar las horas desde mínimo\r\n  \"end_time\": \"2024-02-25T22:00:00Z\" // hasta maximo, internamente usaré solo las horas omitiendo las fechas, se podra modificar segun se defina la unidad minima de reserva.\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/court_prices",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"court_prices"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get court prices (token)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/court_prices/court/1",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"court_prices",
+										"court",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get reservations",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/reservations",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"reservations"
 									]
 								}
 							},
