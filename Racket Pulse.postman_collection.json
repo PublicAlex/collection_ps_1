@@ -418,7 +418,7 @@
 					"description": "Requests para el registro, lectura y control en general de las canchas.  \nSe pueden efectuar operaciones como:  \n\n- crear canchas.\n    \n- obtener el listado de canchas registradas de un club.\n    \n- registrar costos por el uso de una cancha empleando un rango de horas.\n    \n- obtener listado de canchas disponibles para nueva reserva."
 				},
 				{
-					"name": "Matchs control",
+					"name": "matchs control",
 					"item": [
 						{
 							"name": "create match (token)",
@@ -441,6 +441,39 @@
 									],
 									"path": [
 										"matches"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "find users (token)",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ1c3VhcmlvQGV4YW1wbGUuY29tIiwibmFtZSI6Ikp1YW4gUMOpcmV6IiwidHlwZSI6InVzZXIiLCJpYXQiOjE3Mzk3NjAzNjYsImV4cCI6MTczOTc2Mzk2Nn0.X9RNaX-pz47dHbc8TX6EpDhiR2U5Kbn046xDH0DNqGc",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"full_name\":\"jorge\" // ó \"email\":\"usuario\" ó \"phone\":null\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/users/find",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"users",
+										"find"
 									]
 								}
 							},
@@ -503,6 +536,79 @@
 										"matches",
 										"user",
 										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "scores control",
+					"item": [
+						{
+							"name": "get completed matches (token)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/matches/user/5/completed",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"matches",
+										"user",
+										"5",
+										"completed"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get statistics matches (token)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/matches/user/5/statistics",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"matches",
+										"user",
+										"5",
+										"statistics"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "patch match score (token)",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"team1_scores\": [\r\n    \"6\",\r\n    \"7\",\r\n    \"6\"\r\n  ],\r\n  \"team2_scores\": [\r\n    \"4\",\r\n    \"5\",\r\n    \"4\"\r\n  ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/matches/38/scores",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"matches",
+										"38",
+										"scores"
 									]
 								}
 							},
@@ -1033,7 +1139,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"club_id\": 1,\r\n  \"court_name\": \"Cancha #1 de Padel\",\r\n  \"court_type\": \"open\",\r\n  \"status\": \"enabled\"\r\n}",
+									"raw": "{\r\n  \"club_id\": 1,\r\n  \"court_name\": \"Cancha #1 de Padel\",\r\n  \"court_type\": \"open\",\r\n  \"status\": \"enabled\",\r\n  \"court_booking_interval\": 60 // tiempo en minutos\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1090,7 +1196,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"court_id\": 1,\r\n  \"price\": 55,\r\n  \"description\":\"Horario de alta demanda \",\r\n  //agregar definición de unidad minima de reserva desde aqui mismo ofrecer intervalos de 30 minutos a 60 minutos para una mayor facilidad de integración \r\n  \"start_time\": \"2024-02-25T13:00:00Z\",  // crear un filtro slider para determinar las horas desde mínimo\r\n  \"end_time\": \"2024-02-25T22:00:00Z\" // hasta maximo, internamente usaré solo las horas omitiendo las fechas.\r\n}",
+									"raw": "{\r\n  \"court_id\": 1,\r\n  \"price\": 55,\r\n  \"description\":\"Horario de alta demanda \",\r\n  //agregar definición de unidad minima de reserva desde aqui mismo ofrecer intervalos de 30 minutos a 60 minutos para una mayor facilidad de integración \r\n  \"start_time\": \"2025-02-25T13:00:00Z\",  // crear un filtro slider para determinar las horas desde mínimo\r\n  \"end_time\": \"2025-02-25T22:00:00Z\" // hasta maximo, internamente usaré solo las horas omitiendo las fechas.\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1115,7 +1221,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{host}}/courts_availables?date=2025-03-10",
+									"raw": "{{host}}/courts_availables?date=2025-02-25",
 									"host": [
 										"{{host}}"
 									],
@@ -1125,7 +1231,7 @@
 									"query": [
 										{
 											"key": "date",
-											"value": "2025-03-10"
+											"value": "2025-02-25"
 										}
 									]
 								}
@@ -1136,7 +1242,7 @@
 					"description": "Requests para el registro, lectura y control en general de las canchas.  \nSe pueden efectuar operaciones como:  \n\n- crear canchas.\n    \n- obtener el listado de canchas registradas de un club.\n    \n- registrar costos por el uso de una cancha empleando un rango de horas.\n    \n- obtener listado de canchas disponibles para nueva reserva."
 				},
 				{
-					"name": "Matchs control",
+					"name": "matchs control",
 					"item": [
 						{
 							"name": "create match (token)",
@@ -1159,6 +1265,65 @@
 									],
 									"path": [
 										"matches"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "find users (token)",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ1c3VhcmlvQGV4YW1wbGUuY29tIiwibmFtZSI6Ikp1YW4gUMOpcmV6IiwidHlwZSI6InVzZXIiLCJpYXQiOjE3Mzk3NjAzNjYsImV4cCI6MTczOTc2Mzk2Nn0.X9RNaX-pz47dHbc8TX6EpDhiR2U5Kbn046xDH0DNqGc",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"full_name\":\"jorge\" // ó \"email\":\"usuario\" ó \"phone\":null\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/users/find",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"users",
+										"find"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "assign match teams (token)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"match_id\": 17, // match de ejemplo previamente creado con ID #17\r\n  \"user_id\": 1,   // usuario de ejemplo previamente creado con ID #1\r\n  \"team\": \"team1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/match_teams",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"match_teams"
 									]
 								}
 							},
@@ -1195,6 +1360,79 @@
 										"matches",
 										"club",
 										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "scores control",
+					"item": [
+						{
+							"name": "get completed matches (token)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/matches/user/5/completed",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"matches",
+										"user",
+										"5",
+										"completed"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "patch match score (token)",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"team1_scores\": [\r\n    \"6\",\r\n    \"7\",\r\n    \"6\"\r\n  ],\r\n  \"team2_scores\": [\r\n    \"4\",\r\n    \"5\",\r\n    \"4\"\r\n  ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/matches/38/scores",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"matches",
+										"38",
+										"scores"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get statistics matches (token)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/matches/user/5/statistics",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"matches",
+										"user",
+										"5",
+										"statistics"
 									]
 								}
 							},
