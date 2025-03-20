@@ -1251,7 +1251,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"date\": \"2025-03-10\",\r\n  \"court_id\": 1,\r\n  \"start_time\": \"09:00\",\r\n  \"end_time\": \"11:00\",\r\n  \"match_description\": \"Partido amistoso de padel #1, en la cancha #1\",\r\n  \"type\": \"publico\"\r\n}",
+									"raw": "{\r\n  \"dates\": [\"2025-02-25\",\"2025-02-26\",\"2025-02-28\"],\r\n  \"court_id\": 1,\r\n  \"start_time\": \"11:00\",\r\n  \"end_time\": \"12:00\",\r\n  \"match_description\": \"Partido amistoso de padel #1, en la cancha #1\",\r\n  \"type\": \"publico\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1391,6 +1391,26 @@
 							"response": []
 						},
 						{
+							"name": "get statistics matches (token)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/matches/user/5/statistics",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"matches",
+										"user",
+										"5",
+										"statistics"
+									]
+								}
+							},
+							"response": []
+						},
+						{
 							"name": "patch match score (token)",
 							"request": {
 								"method": "PATCH",
@@ -1413,26 +1433,6 @@
 										"matches",
 										"38",
 										"scores"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "get statistics matches (token)",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{host}}/matches/user/5/statistics",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"matches",
-										"user",
-										"5",
-										"statistics"
 									]
 								}
 							},
