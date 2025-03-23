@@ -148,7 +148,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"email\": \"usuario@example.com\",\r\n  \"password\": \"contraseñaSegura123\"\r\n}",
+									"raw": "{\r\n  \"email\": \"usuario3@example.com\",\r\n  \"password\": \"contraseñaSegura123\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1196,7 +1196,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"court_id\": 1,\r\n  \"price\": 55,\r\n  \"description\":\"Horario de alta demanda \",\r\n  //agregar definición de unidad minima de reserva desde aqui mismo ofrecer intervalos de 30 minutos a 60 minutos para una mayor facilidad de integración \r\n  \"start_time\": \"2025-02-25T13:00:00Z\",  // crear un filtro slider para determinar las horas desde mínimo\r\n  \"end_time\": \"2025-02-25T22:00:00Z\" // hasta maximo, internamente usaré solo las horas omitiendo las fechas.\r\n}",
+									"raw": "{\r\n  \"court_id\": 1,\r\n  \"price\": 55,\r\n  \"description\":\"Horario de alta demanda \",\r\n  //agregar definición de unidad minima de reserva desde aqui mismo ofrecer intervalos de 30 minutos a 60 minutos para una mayor facilidad de integración \r\n  \"start_time\": \"2025-03-25T13:00:00Z\",  // crear un filtro slider para determinar las horas desde mínimo\r\n  \"end_time\": \"2025-05-25T22:00:00Z\" // hasta maximo, internamente usaré solo las horas omitiendo las fechas.\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1221,7 +1221,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{host}}/courts_availables?date=2025-02-25",
+									"raw": "{{host}}/courts_availables?date=2025-03-25",
 									"host": [
 										"{{host}}"
 									],
@@ -1231,7 +1231,7 @@
 									"query": [
 										{
 											"key": "date",
-											"value": "2025-02-25"
+											"value": "2025-03-25"
 										}
 									]
 								}
@@ -1251,7 +1251,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"dates\": [\"2025-02-25\",\"2025-02-26\",\"2025-02-28\"],\r\n  \"court_id\": 1,\r\n  \"start_time\": \"11:00\",\r\n  \"end_time\": \"12:00\",\r\n  \"match_description\": \"Partido amistoso de padel #1, en la cancha #1\",\r\n  \"type\": \"publico\"\r\n}",
+									"raw": "{\r\n  \"dates\": [\"2025-03-25\"],\r\n  \"court_id\": 1,\r\n  \"start_time\": \"13:00\",\r\n  \"end_time\": \"14:00\",\r\n  \"match_description\": \"Partido amistoso de padel #2, en la cancha #1\",\r\n  \"type\": \"publico\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1310,7 +1310,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"match_id\": 17, // match de ejemplo previamente creado con ID #17\r\n  \"user_id\": 1,   // usuario de ejemplo previamente creado con ID #1\r\n  \"team\": \"team1\"\r\n}",
+									"raw": "{\r\n  \"match_id\": 43, // match de ejemplo previamente creado con ID #17\r\n  \"user_id\": 5,   // usuario de ejemplo previamente creado con ID #1\r\n  \"team\": \"team2\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1465,6 +1465,110 @@
 									"path": [
 										"club_users",
 										"organization"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "sysadmin control",
+					"item": [
+						{
+							"name": "get qr status",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/whatsapp/status",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"whatsapp",
+										"status"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get qr",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/whatsapp/qr",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"whatsapp",
+										"qr"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "send examples",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"phone\": \"+57 (320)-306 3817\",\r\n  \"message\": \"👋 *Hola, Alexander!* Espero que estés teniendo un gran día.\\n\\n📌 Aquí tienes algunos ejemplos de formato en WhatsApp:\\n\\n🔹 *Negrita* y _cursiva_ para resaltar texto.\\n🔹 ~Texto tachado~ si necesitas mostrar correcciones.\\n🔹 ```Texto monoespaciado``` para código o información técnica.\\n🔹 Listas con emojis:\\n   ✅ Terminar el reporte\\n   ✅ Llamar a clientes\\n   ❌ Revisar correos\\n\\n📢 *Mensaje importante:* 🚨 *No compartas tu código con nadie.*\\n\\nTu código de verificación es: ```123456```.\\n\\n🔗 Aquí tienes un enlace útil: https://racketscore.com/acept-termns\\n\\n@1234567890 (mención en grupos, si aplica).\\n\\n¡Nos vemos pronto! 😊\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/whatsapp/send_txt_test",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"whatsapp",
+										"send_txt_test"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "reconnect",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/whatsapp/reconnect",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"whatsapp",
+										"reconnect"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "disconnect",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/whatsapp/disconnect",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"whatsapp",
+										"disconnect"
 									]
 								}
 							},
