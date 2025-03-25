@@ -1196,7 +1196,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"court_id\": 1,\r\n  \"price\": 55,\r\n  \"description\":\"Horario de alta demanda \",\r\n  //agregar definición de unidad minima de reserva desde aqui mismo ofrecer intervalos de 30 minutos a 60 minutos para una mayor facilidad de integración \r\n  \"start_time\": \"2025-03-25T13:00:00Z\",  // crear un filtro slider para determinar las horas desde mínimo\r\n  \"end_time\": \"2025-05-25T22:00:00Z\" // hasta maximo, internamente usaré solo las horas omitiendo las fechas.\r\n}",
+									"raw": "{\r\n  \"court_id\": 2,\r\n  \"price\": 150,\r\n  \"description\": \"Precio especial para fines de semana\",\r\n  \"startDate\": \"2025-03-24\",\r\n  \"endDate\": \"2025-03-24\",\r\n  \"startTime\": \"01:00\",\r\n  \"endTime\": \"06:00\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1221,7 +1221,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{host}}/courts_availables?date=2025-03-25",
+									"raw": "{{host}}/courts_availables?date=2025-03-24T03:00:00.000Z",
 									"host": [
 										"{{host}}"
 									],
@@ -1231,7 +1231,7 @@
 									"query": [
 										{
 											"key": "date",
-											"value": "2025-03-25"
+											"value": "2025-03-24T03:00:00.000Z"
 										}
 									]
 								}
@@ -1518,7 +1518,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"phone\": \"+57 (320)-306 3817\",\r\n  \"message\": \"👋 *Hola, Alexander!* Espero que estés teniendo un gran día.\\n\\n📌 Aquí tienes algunos ejemplos de formato en WhatsApp:\\n\\n🔹 *Negrita* y _cursiva_ para resaltar texto.\\n🔹 ~Texto tachado~ si necesitas mostrar correcciones.\\n🔹 ```Texto monoespaciado``` para código o información técnica.\\n🔹 Listas con emojis:\\n   ✅ Terminar el reporte\\n   ✅ Llamar a clientes\\n   ❌ Revisar correos\\n\\n📢 *Mensaje importante:* 🚨 *No compartas tu código con nadie.*\\n\\nTu código de verificación es: ```123456```.\\n\\n🔗 Aquí tienes un enlace útil: https://racketscore.com/acept-termns\\n\\n@1234567890 (mención en grupos, si aplica).\\n\\n¡Nos vemos pronto! 😊\"\r\n}",
+									"raw": "{\r\n  \"phone\": \"+57 3226665544\",\r\n  \"message\": \"👋 *Hola, Alexander2!* Espero que estés teniendo un gran día.\\n\\n📌 Aquí tienes algunos ejemplos de formato en WhatsApp:\\n\\n🔹 *Negrita* y _cursiva_ para resaltar texto.\\n🔹 ~Texto tachado~ si necesitas mostrar correcciones.\\n🔹 ```Texto monoespaciado``` para código o información técnica.\\n🔹 Listas con emojis:\\n   ✅ Terminar el reporte\\n   ✅ Llamar a clientes\\n   ❌ Revisar correos\\n\\n📢 *Mensaje importante:* 🚨 *No compartas tu código con nadie.*\\n\\nTu código de verificación es: ```123456```.\\n\\n🔗 Aquí tienes un enlace útil: https://racketscore.com/acept-termns\\n\\n@1234567890 (mención en grupos, si aplica).\\n\\n¡Nos vemos pronto! 😊\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1583,6 +1583,164 @@
 				}
 			],
 			"description": "Estas rutas permite acceder a los servicios correspondientes a la gestión de usuarios tipo jugadores (players).\n\nActualmente solo la ruta get user está asegurada con jwt y validación de datos propios, los demas se dejan libres de token temporalmente para pruebas."
+		},
+		{
+			"name": "ELO LEVEL",
+			"item": [
+				{
+					"name": "health",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{elohost}}/api/v1/health",
+							"host": [
+								"{{elohost}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"health"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Initialize Score",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"guessed_level\": 5,\r\n    \"n_levels\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{elohost}}/api/v1/scores/initialize",
+							"host": [
+								"{{elohost}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"scores",
+								"initialize"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Scores",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-API-Key",
+								"value": "1234",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"scores_team_1\": [0.7, 0.5],\r\n    \"scores_team_2\": [0.6, 0.9],\r\n    \"outcome\": [9, 8]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{elohost}}/api/v1/scores/update",
+							"host": [
+								"{{elohost}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"scores",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Convert Scores",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-API-Key",
+								"value": "1234",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"scores\": [0.7, 0.5],\r\n    \"n_levels\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{elohost}}/api/v1/scores/convert-to-level",
+							"host": [
+								"{{elohost}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"scores",
+								"convert-to-level"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Smooth Scores",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-API-Key",
+								"value": "1234",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"scores_history\": [0.5, 0.6, 0.5, 0.4, 0.4, 0.5]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{elohost}}/api/v1/scores/smooth",
+							"host": [
+								"{{elohost}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"scores",
+								"smooth"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	],
 	"event": [
@@ -1616,6 +1774,11 @@
 		{
 			"key": "host",
 			"value": "https://dev.api.racketpulse.com",
+			"type": "default"
+		},
+		{
+			"key": "elohost",
+			"value": "https://elo.racketpulse.com/",
 			"type": "default"
 		}
 	]
