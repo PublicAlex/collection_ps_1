@@ -60,6 +60,33 @@
 							"response": []
 						},
 						{
+							"name": "login/register-google",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"full_name\": \"Juan Pérez\",\r\n  \"email\": \"juanperez@gmail.com\",\r\n  \"photo\": \"https://lh3.googleusercontent.com/a-/AOh14GgRs_BS9oeB56diTvKw_8rCZD3XMHvlU-8YN2=s96-c\",\r\n  \"googleId\": \"12534534523541\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/auth/google-auth",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"auth",
+										"google-auth"
+									]
+								}
+							},
+							"response": []
+						},
+						{
 							"name": "login_otp",
 							"request": {
 								"method": "POST",
@@ -148,7 +175,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"email\": \"usuario3@example.com\",\r\n  \"password\": \"contraseñaSegura123\"\r\n}",
+									"raw": "{\r\n  \"email\": \"usuario5@example.com\",\r\n  \"password\": \"contraseñaSegura123\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -174,7 +201,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"email\": \"usuario@example.com\",\r\n  \"password\": \"contraseñaSegura123\",\r\n  \"phone\": \"+521234567890\",\r\n  \"nationality_id\": 120\r\n}",
+									"raw": "{\r\n  \"email\": \"usuario99@example.com\",\r\n  \"password\": \"contraseñaSegura123\",\r\n  \"phone\": \"+521234567890\",\r\n  \"nationality_id\": 120,\r\n  \"photo\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAApgAAAKYB3X3/OAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAANCSURBVEiJtZZPbBtFFMZ/M7ubXdtdb1xSFyeilBapySVU8h8OoFaooFSqiihIVIpQBKci6KEg9Q6H9kovIHoCIVQJJCKE1ENFjnAgcaSGC6rEnxBwA04Tx43t2FnvDAfjkNibxgHxnWb2e/u992bee7tCa00YFsffekFY+nUzFtjW0LrvjRXrCDIAaPLlW0nHL0SsZtVoaF98mLrx3pdhOqLtYPHChahZcYYO7KvPFxvRl5XPp1sN3adWiD1ZAqD6XYK1b/dvE5IWryTt2udLFedwc1+9kLp+vbbpoDh+6TklxBeAi9TL0taeWpdmZzQDry0AcO+jQ12RyohqqoYoo8RDwJrU+qXkjWtfi8Xxt58BdQuwQs9qC/afLwCw8tnQbqYAPsgxE1S6F3EAIXux2oQFKm0ihMsOF71dHYx+f3NND68ghCu1YIoePPQN1pGRABkJ6Bus96CutRZMydTl+TvuiRW1m3n0eDl0vRPcEysqdXn+jsQPsrHMquGeXEaY4Yk4wxWcY5V/9scqOMOVUFthatyTy8QyqwZ+kDURKoMWxNKr2EeqVKcTNOajqKoBgOE28U4tdQl5p5bwCw7BWquaZSzAPlwjlithJtp3pTImSqQRrb2Z8PHGigD4RZuNX6JYj6wj7O4TFLbCO/Mn/m8R+h6rYSUb3ekokRY6f/YukArN979jcW+V/S8g0eT/N3VN3kTqWbQ428m9/8k0P/1aIhF36PccEl6EhOcAUCrXKZXXWS3XKd2vc/TRBG9O5ELC17MmWubD2nKhUKZa26Ba2+D3P+4/MNCFwg59oWVeYhkzgN/JDR8deKBoD7Y+ljEjGZ0sosXVTvbc6RHirr2reNy1OXd6pJsQ+gqjk8VWFYmHrwBzW/n+uMPFiRwHB2I7ih8ciHFxIkd/3Omk5tCDV1t+2nNu5sxxpDFNx+huNhVT3/zMDz8usXC3ddaHBj1GHj/As08fwTS7Kt1HBTmyN29vdwAw+/wbwLVOJ3uAD1wi/dUH7Qei66PfyuRj4Ik9is+hglfbkbfR3cnZm7chlUWLdwmprtCohX4HUtlOcQjLYCu+fzGJH2QRKvP3UNz8bWk1qMxjGTOMThZ3kvgLI5AzFfo379UAAAAASUVORK5CYII=\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -229,6 +256,40 @@
 									"path": [
 										"users",
 										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "set initial player level (token)",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ1c3VhcmlvQGV4YW1wbGUuY29tIiwibmFtZSI6Ikp1YW4gUMOpcmV6IiwidHlwZSI6InVzZXIiLCJpYXQiOjE3Mzk3NjAzNjYsImV4cCI6MTczOTc2Mzk2Nn0.X9RNaX-pz47dHbc8TX6EpDhiR2U5Kbn046xDH0DNqGc",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"playerLevel\":\"3.6\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/users/9/initial-level",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"users",
+										"9",
+										"initial-level"
 									]
 								}
 							},
@@ -423,11 +484,21 @@
 						{
 							"name": "create match (token)",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJjbHVicGFkZWwyQGV4YW1wbGUuY29tIiwiaW1hZ2UiOiJ1cGxvYWRzL3Byb2ZpbGVzL2ltYWdlLTZhOTdjZjk1LTVhOTgtNDlmYi1iNDFlLWU5MzAxODVjMzI3Yy5wbmciLCJuYW1lIjoiSnVhbiBQw6lyZXoiLCJ0eXBlIjoiY2x1YiIsImNsdWJzIjpbeyJjbHViSWQiOjMsImNsdWJOYW1lIjoiQ2x1YiBkZSBQw6FkZWwgRWxpdGUgIzIiLCJjbHViTG9nbyI6InVwbG9hZHMvcHJvZmlsZXMvaW1hZ2UtNmE5N2NmOTUtNWE5OC00OWZiLWI0MWUtZTkzMDE4NWMzMjdjLnBuZyIsInJvbGUiOiJvcmdhbml6YXRpb24ifV0sImNsdWJSb2xlcyI6eyIzIjoib3JnYW5pemF0aW9uIn0sIm9yZ2FuaXphdGlvbnMiOlt7Im9yZ2FuaXphdGlvbklkIjozLCJvcmdhbml6YXRpb25OYW1lIjoiUGFkZWwgT3JnYW5pemF0aW9uICMyIn1dLCJwaG9uZSI6IiszNDYxMjM0NTY3OCIsImlhdCI6MTc0MjAwMTAxNywiZXhwIjoxNzQyMDA0NjE3fQ.1TvzyYP_1B_N40YQ0lypHymLCSkdp1PIQW-Yc7RE_50",
+											"type": "string"
+										}
+									]
+								},
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"date\": \"2025-03-10\",\r\n  \"court_id\": 1,\r\n  \"start_time\": \"05:00\",\r\n  \"end_time\": \"07:00\",\r\n  \"match_description\": \"Partido amistoso de padel #1\",\r\n  \"type\": \"publico\"\r\n}",
+									"raw": "{\r\n  \"dates\": [\"2025-03-28\"],\r\n  \"court_id\": 1,\r\n  \"creator_id\": 5,\r\n  \"start_time\": \"14:00\",\r\n  \"end_time\": \"14:30\",\r\n  \"match_description\": \"Partido amistoso de padel #4, en la cancha #1\",\r\n  \"type\": \"publico\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -486,7 +557,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"match_id\": 17, // match de ejemplo previamente creado con ID #17\r\n  \"user_id\": 1,   // usuario de ejemplo previamente creado con ID #1\r\n  \"team\": \"team1\"\r\n}",
+									"raw": "{\r\n  \"match_id\": 59, // match de ejemplo previamente creado con ID #17\r\n  \"user_id\": 9,   // usuario de ejemplo previamente creado con ID #1\r\n  \"team\": \"team1\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -523,19 +594,37 @@
 							"response": []
 						},
 						{
+							"name": "get match (token)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/matches/3",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"matches",
+										"3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
 							"name": "get user matches (token)",
 							"request": {
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{host}}/matches/user/1",
+									"raw": "{{host}}/matches/user/9",
 									"host": [
 										"{{host}}"
 									],
 									"path": [
 										"matches",
 										"user",
-										"1"
+										"9"
 									]
 								}
 							},
@@ -587,13 +676,13 @@
 							"response": []
 						},
 						{
-							"name": "patch match score (token)",
+							"name": "set match score (token)",
 							"request": {
 								"method": "PATCH",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"team1_scores\": [\r\n    \"6\",\r\n    \"7\",\r\n    \"6\"\r\n  ],\r\n  \"team2_scores\": [\r\n    \"4\",\r\n    \"5\",\r\n    \"4\"\r\n  ]\r\n}",
+									"raw": "{\r\n  \"team1_scores\": [\r\n    \"9\",\r\n    \"3\",\r\n    \"5\"\r\n  ],\r\n  \"team2_scores\": [\r\n    \"2\",\r\n    \"5\",\r\n    \"3\"\r\n  ]\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -601,13 +690,13 @@
 									}
 								},
 								"url": {
-									"raw": "{{host}}/matches/38/scores",
+									"raw": "{{host}}/matches/59/scores",
 									"host": [
 										"{{host}}"
 									],
 									"path": [
 										"matches",
-										"38",
+										"59",
 										"scores"
 									]
 								}
@@ -1221,7 +1310,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{host}}/courts_availables?date=2025-03-24T03:00:00.000Z",
+									"raw": "{{host}}/courts_availables?date=2025-04-22T03:00:00.000Z",
 									"host": [
 										"{{host}}"
 									],
@@ -1231,7 +1320,7 @@
 									"query": [
 										{
 											"key": "date",
-											"value": "2025-03-24T03:00:00.000Z"
+											"value": "2025-04-22T03:00:00.000Z"
 										}
 									]
 								}
@@ -1251,7 +1340,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"dates\": [\"2025-03-25\"],\r\n  \"court_id\": 1,\r\n  \"start_time\": \"13:00\",\r\n  \"end_time\": \"14:00\",\r\n  \"match_description\": \"Partido amistoso de padel #2, en la cancha #1\",\r\n  \"type\": \"publico\"\r\n}",
+									"raw": "{\r\n  \"dates\": [\"2025-03-30\"],\r\n  \"court_id\": 2,\r\n  \"start_time\": \"18:30\",\r\n  \"end_time\": \"19:00\",\r\n  \"match_description\": \"Partido amistoso de padel #4, en la cancha #1\",\r\n  \"type\": \"publico\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1310,7 +1399,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"match_id\": 43, // match de ejemplo previamente creado con ID #17\r\n  \"user_id\": 5,   // usuario de ejemplo previamente creado con ID #1\r\n  \"team\": \"team2\"\r\n}",
+									"raw": "{\r\n  \"match_id\": 3, // match de ejemplo previamente creado con ID #17\r\n  \"user_id\": 9,   // usuario de ejemplo previamente creado con ID #1\r\n  \"team\": \"team1\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
