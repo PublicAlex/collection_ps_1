@@ -201,7 +201,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"email\": \"usuario99@example.com\",\r\n  \"password\": \"contraseñaSegura123\",\r\n  \"phone\": \"+521234567890\",\r\n  \"nationality_id\": 120,\r\n  \"photo\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAApgAAAKYB3X3/OAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAANCSURBVEiJtZZPbBtFFMZ/M7ubXdtdb1xSFyeilBapySVU8h8OoFaooFSqiihIVIpQBKci6KEg9Q6H9kovIHoCIVQJJCKE1ENFjnAgcaSGC6rEnxBwA04Tx43t2FnvDAfjkNibxgHxnWb2e/u992bee7tCa00YFsffekFY+nUzFtjW0LrvjRXrCDIAaPLlW0nHL0SsZtVoaF98mLrx3pdhOqLtYPHChahZcYYO7KvPFxvRl5XPp1sN3adWiD1ZAqD6XYK1b/dvE5IWryTt2udLFedwc1+9kLp+vbbpoDh+6TklxBeAi9TL0taeWpdmZzQDry0AcO+jQ12RyohqqoYoo8RDwJrU+qXkjWtfi8Xxt58BdQuwQs9qC/afLwCw8tnQbqYAPsgxE1S6F3EAIXux2oQFKm0ihMsOF71dHYx+f3NND68ghCu1YIoePPQN1pGRABkJ6Bus96CutRZMydTl+TvuiRW1m3n0eDl0vRPcEysqdXn+jsQPsrHMquGeXEaY4Yk4wxWcY5V/9scqOMOVUFthatyTy8QyqwZ+kDURKoMWxNKr2EeqVKcTNOajqKoBgOE28U4tdQl5p5bwCw7BWquaZSzAPlwjlithJtp3pTImSqQRrb2Z8PHGigD4RZuNX6JYj6wj7O4TFLbCO/Mn/m8R+h6rYSUb3ekokRY6f/YukArN979jcW+V/S8g0eT/N3VN3kTqWbQ428m9/8k0P/1aIhF36PccEl6EhOcAUCrXKZXXWS3XKd2vc/TRBG9O5ELC17MmWubD2nKhUKZa26Ba2+D3P+4/MNCFwg59oWVeYhkzgN/JDR8deKBoD7Y+ljEjGZ0sosXVTvbc6RHirr2reNy1OXd6pJsQ+gqjk8VWFYmHrwBzW/n+uMPFiRwHB2I7ih8ciHFxIkd/3Omk5tCDV1t+2nNu5sxxpDFNx+huNhVT3/zMDz8usXC3ddaHBj1GHj/As08fwTS7Kt1HBTmyN29vdwAw+/wbwLVOJ3uAD1wi/dUH7Qei66PfyuRj4Ik9is+hglfbkbfR3cnZm7chlUWLdwmprtCohX4HUtlOcQjLYCu+fzGJH2QRKvP3UNz8bWk1qMxjGTOMThZ3kvgLI5AzFfo379UAAAAASUVORK5CYII=\"\r\n}",
+									"raw": "{\r\n  \"email\": \"usuario5@example.com\",\r\n  \"password\": \"contraseñaSegura123\",\r\n  \"phone\": \"+57 3203063817\",\r\n  \"nationality_id\": 120,\r\n  \"photo\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAApgAAAKYB3X3/OAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAANCSURBVEiJtZZPbBtFFMZ/M7ubXdtdb1xSFyeilBapySVU8h8OoFaooFSqiihIVIpQBKci6KEg9Q6H9kovIHoCIVQJJCKE1ENFjnAgcaSGC6rEnxBwA04Tx43t2FnvDAfjkNibxgHxnWb2e/u992bee7tCa00YFsffekFY+nUzFtjW0LrvjRXrCDIAaPLlW0nHL0SsZtVoaF98mLrx3pdhOqLtYPHChahZcYYO7KvPFxvRl5XPp1sN3adWiD1ZAqD6XYK1b/dvE5IWryTt2udLFedwc1+9kLp+vbbpoDh+6TklxBeAi9TL0taeWpdmZzQDry0AcO+jQ12RyohqqoYoo8RDwJrU+qXkjWtfi8Xxt58BdQuwQs9qC/afLwCw8tnQbqYAPsgxE1S6F3EAIXux2oQFKm0ihMsOF71dHYx+f3NND68ghCu1YIoePPQN1pGRABkJ6Bus96CutRZMydTl+TvuiRW1m3n0eDl0vRPcEysqdXn+jsQPsrHMquGeXEaY4Yk4wxWcY5V/9scqOMOVUFthatyTy8QyqwZ+kDURKoMWxNKr2EeqVKcTNOajqKoBgOE28U4tdQl5p5bwCw7BWquaZSzAPlwjlithJtp3pTImSqQRrb2Z8PHGigD4RZuNX6JYj6wj7O4TFLbCO/Mn/m8R+h6rYSUb3ekokRY6f/YukArN979jcW+V/S8g0eT/N3VN3kTqWbQ428m9/8k0P/1aIhF36PccEl6EhOcAUCrXKZXXWS3XKd2vc/TRBG9O5ELC17MmWubD2nKhUKZa26Ba2+D3P+4/MNCFwg59oWVeYhkzgN/JDR8deKBoD7Y+ljEjGZ0sosXVTvbc6RHirr2reNy1OXd6pJsQ+gqjk8VWFYmHrwBzW/n+uMPFiRwHB2I7ih8ciHFxIkd/3Omk5tCDV1t+2nNu5sxxpDFNx+huNhVT3/zMDz8usXC3ddaHBj1GHj/As08fwTS7Kt1HBTmyN29vdwAw+/wbwLVOJ3uAD1wi/dUH7Qei66PfyuRj4Ik9is+hglfbkbfR3cnZm7chlUWLdwmprtCohX4HUtlOcQjLYCu+fzGJH2QRKvP3UNz8bWk1qMxjGTOMThZ3kvgLI5AzFfo379UAAAAASUVORK5CYII=\",\r\n  \"full_name\": \"Juan Carlos Rodríguez 4\",\r\n  \"gender\": \"male\",\r\n  \"height\": 178.5,\r\n  \"birthday\": \"1990-05-15T00:00:00.000Z\",\r\n  \"location\": \"Bogotá, Colombia\",\r\n  \"location_coordinate\": \"4.7110,-74.0721\",\r\n  \"postal_code\": \"110111\",\r\n  \"preferred_range\": 15,\r\n  \"racket_brand\": \"Head\",\r\n  \"racket_model\": \"Speed Pro\",\r\n  \"shoes_brand\": \"Asics\",\r\n  \"shoes_model\": \"Gel Resolution 8\",\r\n  \"currentPartner\": \"Ricardo Pérez\",\r\n  \"playingHand\": \"right\",\r\n  \"preferredCourtSide\": \"left\",\r\n  \"gameModePreference\": \"friendly\",\r\n  \"preferredTimeframe\": \"morning\",\r\n  \"playerLevel\": 2.2\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -599,13 +599,13 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{host}}/matches/3",
+									"raw": "{{host}}/matches/1",
 									"host": [
 										"{{host}}"
 									],
 									"path": [
 										"matches",
-										"3"
+										"1"
 									]
 								}
 							},
@@ -617,14 +617,14 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{host}}/matches/user/9",
+									"raw": "{{host}}/matches/user/1",
 									"host": [
 										"{{host}}"
 									],
 									"path": [
 										"matches",
 										"user",
-										"9"
+										"1"
 									]
 								}
 							},
@@ -721,7 +721,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"email\": \"clubpadel@example.com\",\r\n  \"password\": \"securepassword123\"\r\n}",
+									"raw": "{\r\n  \"email\": \"clubpadel1@example.com\",\r\n  \"password\": \"securepassword123\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -807,7 +807,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"email\": \"clubpadel@example.com\",\r\n  \"password\": \"securepassword123\",\r\n  \"club_admin_full_name\": \"Juan Pérez\",\r\n  \"club_admin_phone\": \"+34612345678\"\r\n}",
+									"raw": "{\r\n  \"email\": \"clubpadel1@example.com\",\r\n  \"password\": \"securepassword123\",\r\n  \"club_admin_full_name\": \"Juan Pérez1\",\r\n  \"club_admin_phone\": \"+34612345678\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1104,6 +1104,32 @@
 							"response": []
 						},
 						{
+							"name": "assign organization-club",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"clubId\": 1,\r\n  \"organizationId\": 1,\r\n  \"role\": \"manager\",\r\n  \"clubUserId\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/club_gestor",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"club_gestor"
+									]
+								}
+							},
+							"response": []
+						},
+						{
 							"name": "get all clubs",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -1228,7 +1254,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"club_id\": 1,\r\n  \"court_name\": \"Cancha #1 de Padel\",\r\n  \"court_type\": \"open\",\r\n  \"status\": \"enabled\",\r\n  \"court_booking_interval\": 60 // tiempo en minutos\r\n}",
+									"raw": "{\r\n  \"club_id\": 1,\r\n  \"court_name\": \"Cancha #1\",\r\n  \"court_type\": \"open\", // Opciones: \"cover\" o \"open\"\r\n  \"status\": \"enabled\", // Opciones: \"enabled\" o \"disabled\"\r\n  \"color\": \"blue\", // Opciones: \"red\", \"blue\", \"green\", \"yellow\", \"orange\", \"purple\", \"pink\", \"brown\", \"black\", \"teal\" (opcional)\r\n  \"has_lights\": true, // true si tiene iluminación para juegos nocturnos, false si no (opcional)\r\n  \"court_booking_interval\": 60 // tiempo en minutos (opcional, mínimo 30)\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1285,7 +1311,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"court_id\": 2,\r\n  \"price\": 150,\r\n  \"description\": \"Precio especial para fines de semana\",\r\n  \"startDate\": \"2025-03-24\",\r\n  \"endDate\": \"2025-03-24\",\r\n  \"startTime\": \"01:00\",\r\n  \"endTime\": \"06:00\"\r\n}",
+									"raw": "{\r\n  \"court_id\": 1,\r\n  \"price\": 35,\r\n  \"description\": \"Precio de alta demanda\",\r\n  \"startDate\": \"2025-04-01\",\r\n  \"endDate\": \"2025-04-30\",\r\n  \"startTime\": \"11:00\",\r\n  \"endTime\": \"22:00\",\r\n  \"currency\": \"USD\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1340,7 +1366,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"dates\": [\"2025-03-30\"],\r\n  \"court_id\": 2,\r\n  \"start_time\": \"18:30\",\r\n  \"end_time\": \"19:00\",\r\n  \"match_description\": \"Partido amistoso de padel #4, en la cancha #1\",\r\n  \"type\": \"publico\"\r\n}",
+									"raw": "{\r\n  \"dates\": [\"2025-04-05\"],\r\n  \"court_id\": 2,\r\n  \"start_time\": \"09:00\",\r\n  \"end_time\": \"10:00\",\r\n  \"match_description\": \"Partido amistoso de padel, en la cancha #1\",\r\n  \"type\": \"open\", // Opciones: \"open\", \"private\", \"training\", \"tournament\", \"external\"\r\n  \"minimum_level\": 1.5, // Rango: 1.0 - 10.0 (con un decimal)\r\n  \"maximum_level\": 3.5, // Rango: 1.0 - 10.0 (con un decimal)\r\n  \"game_mode\": \"competitive\", // Opciones: \"competitive\", \"friendly\"\r\n  \"player_filter\": \"all\", // Opciones: \"all\", \"mens\", \"womens\"\r\n  \"creator_id\": 1 // ID del usuario creador del partido\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1465,14 +1491,14 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{host}}/matches/user/5/completed",
+									"raw": "{{host}}/matches/user/1/completed",
 									"host": [
 										"{{host}}"
 									],
 									"path": [
 										"matches",
 										"user",
-										"5",
+										"1",
 										"completed"
 									]
 								}
