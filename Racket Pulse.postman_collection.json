@@ -879,20 +879,21 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{host}}/matches/calendar/club/1?date=2025-04-22T03:00:00.000Z",
+									"raw": "{{host}}/matches/calendar/view/club/1?date=2025-04-10T03:00:00.000Z",
 									"host": [
 										"{{host}}"
 									],
 									"path": [
 										"matches",
 										"calendar",
+										"view",
 										"club",
 										"1"
 									],
 									"query": [
 										{
 											"key": "date",
-											"value": "2025-04-22T03:00:00.000Z"
+											"value": "2025-04-10T03:00:00.000Z"
 										}
 									]
 								}
