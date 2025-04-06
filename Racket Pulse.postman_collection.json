@@ -498,7 +498,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"dates\": [\"2025-03-28\"],\r\n  \"court_id\": 1,\r\n  \"creator_id\": 5,\r\n  \"start_time\": \"14:00\",\r\n  \"end_time\": \"14:30\",\r\n  \"match_description\": \"Partido amistoso de padel #4, en la cancha #1\",\r\n  \"type\": \"publico\"\r\n}",
+									"raw": "{\r\n  \"dates\": [\"2025-04-06\"],\r\n  \"court_id\": 1,\r\n  \"start_time\": \"09:00\",\r\n  \"end_time\": \"10:00\",\r\n  \"match_description\": \"Partido amistoso de padel, en la cancha #1\",\r\n  \"type\": \"open\", // Opciones: \"open\", \"private\", \"training\", \"tournament\", \"external\"\r\n  \"minimum_level\": 2.5, // Rango: 1.0 - 10.0 (con un decimal)\r\n  \"maximum_level\": 3.5, // Rango: 1.0 - 10.0 (con un decimal)\r\n  \"game_mode\": \"competitive\", // Opciones: \"competitive\", \"friendly\"\r\n  \"player_filter\": \"all\", // Opciones: \"all\", \"mens\", \"womens\"\r\n  \"creator_id\": 1 // ID del usuario creador del partido\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -594,6 +594,25 @@
 							"response": []
 						},
 						{
+							"name": "get availables pending matches",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/matches/availables/pending",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"matches",
+										"availables",
+										"pending"
+									]
+								}
+							},
+							"response": []
+						},
+						{
 							"name": "get match (token)",
 							"request": {
 								"method": "GET",
@@ -641,14 +660,14 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{host}}/matches/user/5/completed",
+									"raw": "{{host}}/matches/user/1/completed",
 									"host": [
 										"{{host}}"
 									],
 									"path": [
 										"matches",
 										"user",
-										"5",
+										"1",
 										"completed"
 									]
 								}
@@ -1633,7 +1652,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"phone\": \"+57 3226665544\",\r\n  \"message\": \"👋 *Hola, Alexander2!* Espero que estés teniendo un gran día.\\n\\n📌 Aquí tienes algunos ejemplos de formato en WhatsApp:\\n\\n🔹 *Negrita* y _cursiva_ para resaltar texto.\\n🔹 ~Texto tachado~ si necesitas mostrar correcciones.\\n🔹 ```Texto monoespaciado``` para código o información técnica.\\n🔹 Listas con emojis:\\n   ✅ Terminar el reporte\\n   ✅ Llamar a clientes\\n   ❌ Revisar correos\\n\\n📢 *Mensaje importante:* 🚨 *No compartas tu código con nadie.*\\n\\nTu código de verificación es: ```123456```.\\n\\n🔗 Aquí tienes un enlace útil: https://racketscore.com/acept-termns\\n\\n@1234567890 (mención en grupos, si aplica).\\n\\n¡Nos vemos pronto! 😊\"\r\n}",
+									"raw": "{\r\n  \"phone\": \"+57 3203063817\",\r\n  \"message\": \"👋 *Hola, Alexander2!* Espero que estés teniendo un gran día.\\n\\n📌 Aquí tienes algunos ejemplos de formato en WhatsApp:\\n\\n🔹 *Negrita* y _cursiva_ para resaltar texto.\\n🔹 ~Texto tachado~ si necesitas mostrar correcciones.\\n🔹 ```Texto monoespaciado``` para código o información técnica.\\n🔹 Listas con emojis:\\n   ✅ Terminar el reporte\\n   ✅ Llamar a clientes\\n   ❌ Revisar correos\\n\\n📢 *Mensaje importante:* 🚨 *No compartas tu código con nadie.*\\n\\nTu código de verificación es: ```123456```.\\n\\n🔗 Aquí tienes un enlace útil: https://racketscore.com/acept-termns\\n\\n@1234567890 (mención en grupos, si aplica).\\n\\n¡Nos vemos pronto! 😊\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
