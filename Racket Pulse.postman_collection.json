@@ -439,14 +439,14 @@
 									}
 								},
 								"url": {
-									"raw": "{{host}}/courts/club/3",
+									"raw": "{{host}}/courts/club/2",
 									"host": [
 										"{{host}}"
 									],
 									"path": [
 										"courts",
 										"club",
-										"3"
+										"2"
 									]
 								}
 							},
@@ -458,7 +458,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{host}}/courts_availables?date=2025-03-10",
+									"raw": "{{host}}/courts_availables?date=2025-04-06T03:00:00.000Z",
 									"host": [
 										"{{host}}"
 									],
@@ -468,7 +468,7 @@
 									"query": [
 										{
 											"key": "date",
-											"value": "2025-03-10"
+											"value": "2025-04-06T03:00:00.000Z"
 										}
 									]
 								}
@@ -557,7 +557,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"match_id\": 59, // match de ejemplo previamente creado con ID #17\r\n  \"user_id\": 9,   // usuario de ejemplo previamente creado con ID #1\r\n  \"team\": \"team1\"\r\n}",
+									"raw": "{\r\n  \"match_id\": 5, // match de ejemplo previamente creado con ID #17\r\n  \"user_id\": 4,   // usuario de ejemplo previamente creado con ID #1\r\n  \"team\": \"team2\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -588,25 +588,6 @@
 									],
 									"path": [
 										"matches"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "get availables pending matches",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{host}}/matches/availables/pending",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"matches",
-										"availables",
-										"pending"
 									]
 								}
 							},
@@ -646,6 +627,33 @@
 										"1"
 									]
 								}
+							},
+							"response": []
+						},
+						{
+							"name": "get availables pending matches",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/matches/availables/pending",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"matches",
+										"availables",
+										"pending"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "New Request",
+							"request": {
+								"method": "GET",
+								"header": []
 							},
 							"response": []
 						}
@@ -730,6 +738,163 @@
 		{
 			"name": "RUTAS BACKOFFICE",
 			"item": [
+				{
+					"name": "DASHBOARD-VIEW",
+					"item": [
+						{
+							"name": "get Dashboard Stats",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/matches/dashboard/stats?startDate=2025-04-01T00:00:00.000Z&endDate=2025-04-05T23:59:59.999Z&courtIds=1,2,3,4,5&gameTypes=open,tournament&playerLevels=1,2,3",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"matches",
+										"dashboard",
+										"stats"
+									],
+									"query": [
+										{
+											"key": "startDate",
+											"value": "2025-04-01T00:00:00.000Z"
+										},
+										{
+											"key": "endDate",
+											"value": "2025-04-05T23:59:59.999Z"
+										},
+										{
+											"key": "courtIds",
+											"value": "1,2,3,4,5"
+										},
+										{
+											"key": "gameTypes",
+											"value": "open,tournament"
+										},
+										{
+											"key": "playerLevels",
+											"value": "1,2,3"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get activity per day/week/month",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/matches/dashboard/chart?groupBy=day",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"matches",
+										"dashboard",
+										"chart"
+									],
+									"query": [
+										{
+											"key": "groupBy",
+											"value": "day"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "sub rutas para alimentar el backoffice en si vista de dashboard espeficifcamente"
+				},
+				{
+					"name": "CALENDAR-VIEW",
+					"item": [
+						{
+							"name": "get Games Stats",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/matches/calendar/stats?startDate=2025-04-05T00:00:00.000Z&endDate=2025-04-10T00:00:00.000Z",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"matches",
+										"calendar",
+										"stats"
+									],
+									"query": [
+										{
+											"key": "startDate",
+											"value": "2025-04-05T00:00:00.000Z"
+										},
+										{
+											"key": "endDate",
+											"value": "2025-04-10T00:00:00.000Z"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get All Calendar Data",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/matches/calendar/view?date=2025-04-06T00:00:00.000Z",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"matches",
+										"calendar",
+										"view"
+									],
+									"query": [
+										{
+											"key": "date",
+											"value": "2025-04-06T00:00:00.000Z"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get Club Calendar Data",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/matches/calendar/club/1?date=2025-04-22T03:00:00.000Z",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"matches",
+										"calendar",
+										"club",
+										"1"
+									],
+									"query": [
+										{
+											"key": "date",
+											"value": "2025-04-22T03:00:00.000Z"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
 				{
 					"name": "login control",
 					"item": [
