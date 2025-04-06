@@ -747,14 +747,16 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{host}}/matches/dashboard/stats?startDate=2025-04-01T00:00:00.000Z&endDate=2025-04-05T23:59:59.999Z&courtIds=1,2,3,4,5&gameTypes=open,tournament&playerLevels=1,2,3",
+									"raw": "{{host}}/matches/dashboard/stats/club/1?startDate=2025-04-01T00:00:00.000Z&endDate=2025-04-11T23:59:59.999Z&courtIds=1,2,3,4,5&gameTypes=open,tournament&playerLevels=0,1,2,3",
 									"host": [
 										"{{host}}"
 									],
 									"path": [
 										"matches",
 										"dashboard",
-										"stats"
+										"stats",
+										"club",
+										"1"
 									],
 									"query": [
 										{
@@ -763,7 +765,7 @@
 										},
 										{
 											"key": "endDate",
-											"value": "2025-04-05T23:59:59.999Z"
+											"value": "2025-04-11T23:59:59.999Z"
 										},
 										{
 											"key": "courtIds",
@@ -775,7 +777,7 @@
 										},
 										{
 											"key": "playerLevels",
-											"value": "1,2,3"
+											"value": "0,1,2,3"
 										}
 									]
 								}
@@ -788,14 +790,16 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{host}}/matches/dashboard/chart?groupBy=day",
+									"raw": "{{host}}/matches/dashboard/chart/club/1?groupBy=day",
 									"host": [
 										"{{host}}"
 									],
 									"path": [
 										"matches",
 										"dashboard",
-										"chart"
+										"chart",
+										"club",
+										"1"
 									],
 									"query": [
 										{
@@ -819,14 +823,16 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{host}}/matches/calendar/stats?startDate=2025-04-05T00:00:00.000Z&endDate=2025-04-10T00:00:00.000Z",
+									"raw": "{{host}}/matches/calendar/stats/club/1?startDate=2025-04-05T00:00:00.000Z&endDate=2025-04-10T00:00:00.000Z",
 									"host": [
 										"{{host}}"
 									],
 									"path": [
 										"matches",
 										"calendar",
-										"stats"
+										"stats",
+										"club",
+										"1"
 									],
 									"query": [
 										{
