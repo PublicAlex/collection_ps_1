@@ -530,7 +530,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"full_name\":\"a\" // ó \"email\":\"usuario\" ó \"phone\":null\r\n}",
+									"raw": "{\r\n    \"searchTerm\":\"2\" // busca dentro de los campos de full_name, email y phone.\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
