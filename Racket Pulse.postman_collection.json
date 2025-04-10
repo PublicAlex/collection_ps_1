@@ -404,13 +404,13 @@
 									}
 								},
 								"url": {
-									"raw": "{{host}}/clubs/1",
+									"raw": "{{host}}/clubs/2",
 									"host": [
 										"{{host}}"
 									],
 									"path": [
 										"clubs",
-										"1"
+										"2"
 									]
 								}
 							},
@@ -530,7 +530,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"full_name\":\"jorge\" // ó \"email\":\"usuario\" ó \"phone\":null\r\n}",
+									"raw": "{\r\n    \"full_name\":\"a\" // ó \"email\":\"usuario\" ó \"phone\":null\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -594,6 +594,25 @@
 							"response": []
 						},
 						{
+							"name": "get availables pending matches",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/matches/availables/pending",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"matches",
+										"availables",
+										"pending"
+									]
+								}
+							},
+							"response": []
+						},
+						{
 							"name": "get match (token)",
 							"request": {
 								"method": "GET",
@@ -625,25 +644,6 @@
 										"matches",
 										"user",
 										"1"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "get availables pending matches",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{host}}/matches/availables/pending",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"matches",
-										"availables",
-										"pending"
 									]
 								}
 							},
@@ -894,6 +894,72 @@
 										{
 											"key": "date",
 											"value": "2025-04-10T03:00:00.000Z"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "PLAYERS-VIEW",
+					"item": [
+						{
+							"name": "get players stats",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/users/club/stats?clubId=1",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"users",
+										"club",
+										"stats"
+									],
+									"query": [
+										{
+											"key": "clubId",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get players list from club",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/users/search/players?clubId=2&page=1&limit=20",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"users",
+										"search",
+										"players"
+									],
+									"query": [
+										{
+											"key": "clubId",
+											"value": "2",
+											"description": "campo opcional para filtrar players por clubs"
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"description": "contador de pagina"
+										},
+										{
+											"key": "limit",
+											"value": "20",
+											"description": "limite de registros por pagina"
 										}
 									]
 								}
@@ -1589,7 +1655,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"full_name\":\"jorge\" // ó \"email\":\"usuario\" ó \"phone\":null\r\n}",
+									"raw": "{\r\n    \"searchTerm\":\"2\" // busca dentro de los campos de full_name, email y phone.\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
