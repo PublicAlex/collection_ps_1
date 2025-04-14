@@ -648,20 +648,65 @@
 								}
 							},
 							"response": []
-						},
-						{
-							"name": "New Request",
-							"request": {
-								"method": "GET",
-								"header": []
-							},
-							"response": []
 						}
 					]
 				},
 				{
 					"name": "scores control",
 					"item": [
+						{
+							"name": "post score proposal (token)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"match_id\": 28,   // identificador del match\r\n  \"user_id\": 1,   // identificador del user que registra el score propuesto\r\n  \"team1_scores\": [\r\n    \"3\",\r\n    \"7\",\r\n    \"1\"\r\n  ],\r\n  \"team2_scores\": [\r\n    \"6\",\r\n    \"6\",\r\n    \"9\"\r\n  ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/match_score_proposals",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"match_score_proposals"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "post score vote (token)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"user_id\": 16,\r\n  \"match_id\": 23,\r\n  \"approved\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/match_score_proposals/vote",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"match_score_proposals",
+										"vote"
+									]
+								}
+							},
+							"response": []
+						},
 						{
 							"name": "get completed matches (token)",
 							"request": {
@@ -677,6 +722,25 @@
 										"user",
 										"1",
 										"completed"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get score history (token)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/score_history/match/27",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"score_history",
+										"match",
+										"27"
 									]
 								}
 							},
@@ -747,7 +811,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{host}}/matches/dashboard/stats/club/1?startDate=2025-04-01T00:00:00.000Z&endDate=2025-04-11T23:59:59.999Z&courtIds=1,2,3,4,5&gameTypes=open,tournament&playerLevels=0,1,2,3",
+									"raw": "{{host}}/matches/dashboard/stats/club/1?startDate=2025-04-01T00:00:00.000Z&endDate=2025-04-11T23:59:59.999Z&gameTypes=open,tournament&playerLevelFrom=3&playerLevelTo=4",
 									"host": [
 										"{{host}}"
 									],
@@ -769,15 +833,20 @@
 										},
 										{
 											"key": "courtIds",
-											"value": "1,2,3,4,5"
+											"value": "1,2,3,4,5",
+											"disabled": true
 										},
 										{
 											"key": "gameTypes",
 											"value": "open,tournament"
 										},
 										{
-											"key": "playerLevels",
-											"value": "0,1,2,3"
+											"key": "playerLevelFrom",
+											"value": "3"
+										},
+										{
+											"key": "playerLevelTo",
+											"value": "4"
 										}
 									]
 								}
@@ -1623,7 +1692,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"dates\": [\"2025-04-05\"],\r\n  \"court_id\": 2,\r\n  \"start_time\": \"09:00\",\r\n  \"end_time\": \"10:00\",\r\n  \"match_description\": \"Partido amistoso de padel, en la cancha #1\",\r\n  \"type\": \"open\", // Opciones: \"open\", \"private\", \"training\", \"tournament\", \"external\"\r\n  \"minimum_level\": 1.5, // Rango: 1.0 - 10.0 (con un decimal)\r\n  \"maximum_level\": 3.5, // Rango: 1.0 - 10.0 (con un decimal)\r\n  \"game_mode\": \"competitive\", // Opciones: \"competitive\", \"friendly\"\r\n  \"player_filter\": \"all\", // Opciones: \"all\", \"mens\", \"womens\"\r\n  \"creator_id\": 1 // ID del usuario creador del partido\r\n}",
+									"raw": "{\r\n  \"dates\": [\"2025-04-13\"],\r\n  \"court_id\": 2,\r\n  \"start_time\": \"09:00\",\r\n  \"end_time\": \"10:00\",\r\n  \"match_description\": \"Partido amistoso de padel, en la cancha #2\",\r\n  \"type\": \"open\", // Opciones: \"open\", \"private\", \"training\", \"tournament\", \"external\"\r\n  \"minimum_level\": 0.0, // Rango: 0.0 - 10.0 (con un decimal)\r\n  \"maximum_level\": 3.5, // Rango: 0.0 - 10.0 (con un decimal)\r\n  \"game_mode\": \"competitive\", // Opciones: \"competitive\", \"friendly\"\r\n  \"player_filter\": \"all\", // Opciones: \"all\", \"mens\", \"womens\"\r\n  \"creator_id\": 17 // ID del usuario creador del partido\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1682,7 +1751,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"match_id\": 3, // match de ejemplo previamente creado con ID #17\r\n  \"user_id\": 9,   // usuario de ejemplo previamente creado con ID #1\r\n  \"team\": \"team1\"\r\n}",
+									"raw": "{\r\n  \"match_id\": 23, // match de ejemplo previamente creado con ID #17\r\n  \"user_id\": 13,   // usuario de ejemplo previamente creado con ID #1\r\n  \"team\": \"team2\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1743,6 +1812,59 @@
 					"name": "scores control",
 					"item": [
 						{
+							"name": "post score proposal (token)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"match_id\": 27,   // identificador del match\r\n  \"user_id\": 17,   // identificador del user que registra el score propuesto\r\n  \"team1_scores\": [\r\n    \"3\",\r\n    \"7\",\r\n    \"1\"\r\n  ],\r\n  \"team2_scores\": [\r\n    \"6\",\r\n    \"6\",\r\n    \"9\"\r\n  ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/match_score_proposals",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"match_score_proposals"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "post score vote (token)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"user_id\": 16,\r\n  \"match_id\": 23,\r\n  \"approved\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/match_score_proposals/vote",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"match_score_proposals",
+										"vote"
+									]
+								}
+							},
+							"response": []
+						},
+						{
 							"name": "get completed matches (token)",
 							"request": {
 								"method": "GET",
@@ -1757,6 +1879,25 @@
 										"user",
 										"1",
 										"completed"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get score history (token)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/score-history/match/27",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"score-history",
+										"match",
+										"27"
 									]
 								}
 							},
