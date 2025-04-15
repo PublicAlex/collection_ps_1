@@ -687,7 +687,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"user_id\": 16,\r\n  \"match_id\": 23,\r\n  \"approved\": true\r\n}",
+									"raw": "{\r\n  \"user_id\": 16,\r\n  \"match_id\": 28,\r\n  \"approved\": true\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -702,6 +702,25 @@
 									"path": [
 										"match_score_proposals",
 										"vote"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get  score vote (token)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/match_score_proposals/match/28",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"match_score_proposals",
+										"match",
+										"28"
 									]
 								}
 							},
@@ -745,54 +764,6 @@
 								}
 							},
 							"response": []
-						},
-						{
-							"name": "get statistics matches (token)",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{host}}/matches/user/5/statistics",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"matches",
-										"user",
-										"5",
-										"statistics"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "set match score (token)",
-							"request": {
-								"method": "PATCH",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"team1_scores\": [\r\n    \"9\",\r\n    \"3\",\r\n    \"5\"\r\n  ],\r\n  \"team2_scores\": [\r\n    \"2\",\r\n    \"5\",\r\n    \"3\"\r\n  ]\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{host}}/matches/59/scores",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"matches",
-										"59",
-										"scores"
-									]
-								}
-							},
-							"response": []
 						}
 					]
 				}
@@ -811,7 +782,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{host}}/matches/dashboard/stats/club/1?startDate=2025-04-01T00:00:00.000Z&endDate=2025-04-11T23:59:59.999Z&gameTypes=open,tournament&playerLevelFrom=3&playerLevelTo=4",
+									"raw": "{{host}}/matches/dashboard/stats/club/1?startDate=2025-04-01T00:00:00.000Z&endDate=2025-04-11T23:59:59.999Z&courtIds=1,2,3,4,5&gameTypes=open,tournament&playerLevels=0,1",
 									"host": [
 										"{{host}}"
 									],
@@ -833,8 +804,7 @@
 										},
 										{
 											"key": "courtIds",
-											"value": "1,2,3,4,5",
-											"disabled": true
+											"value": "1,2,3,4,5"
 										},
 										{
 											"key": "gameTypes",
@@ -842,11 +812,17 @@
 										},
 										{
 											"key": "playerLevelFrom",
-											"value": "3"
+											"value": "0",
+											"disabled": true
 										},
 										{
 											"key": "playerLevelTo",
-											"value": "4"
+											"value": "4",
+											"disabled": true
+										},
+										{
+											"key": "playerLevels",
+											"value": "0,1"
 										}
 									]
 								}
