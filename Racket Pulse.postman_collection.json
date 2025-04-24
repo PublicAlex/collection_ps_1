@@ -458,7 +458,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{host}}/courts_availables?date=2025-04-06T03:00:00.000Z",
+									"raw": "{{host}}/courts_availables?date=2025-04-24T03:00:00.000Z&clubId=1",
 									"host": [
 										"{{host}}"
 									],
@@ -468,7 +468,11 @@
 									"query": [
 										{
 											"key": "date",
-											"value": "2025-04-06T03:00:00.000Z"
+											"value": "2025-04-24T03:00:00.000Z"
+										},
+										{
+											"key": "clubId",
+											"value": "1"
 										}
 									]
 								}
@@ -563,7 +567,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"userIds\": [1,2,3,4],\r\n    \"matchId\": 38,\r\n    \"matchKey\": \"MATCH_D07PEY\"\r\n}",
+									"raw": "{\r\n  \"recipients\": [1,2,\r\n    {\"phone\": \"+573203063817\", \"name\": \"Juan Pérez\"},\r\n    {\"phone\": \"+573114567890\", \"name\": \"Ana Gómez\"}\r\n  ],\r\n    \"matchId\": 38,\r\n    \"matchKey\": \"MATCH_D07PEY\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -800,6 +804,32 @@
 							"response": []
 						}
 					]
+				},
+				{
+					"name": "checkversion",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"so\": \"ios\",\r\n  \"current_version\": 0.4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/check_version",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"check_version"
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"description": "Estas rutas permite acceder a los servicios correspondientes a la gestión de usuarios tipo jugadores (players).\n\nActualmente solo la ruta get user está asegurada con jwt y validación de datos propios, los demas se dejan libres de token temporalmente para pruebas."
