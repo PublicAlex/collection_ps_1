@@ -595,7 +595,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"match_id\": 5, // match de ejemplo previamente creado con ID #17\r\n  \"user_id\": 4,   // usuario de ejemplo previamente creado con ID #1\r\n  \"team\": \"team2\"\r\n}",
+									"raw": "{\r\n  \"match_id\": 69, // match de ejemplo previamente creado con ID #17\r\n  \"user_id\": 2,   // usuario de ejemplo previamente creado con ID #1\r\n  \"team\": \"team1\",\r\n  \"position\": \"left\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1066,7 +1066,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{host}}/users/search/players?clubId=2&page=1&limit=20",
+									"raw": "{{host}}/users/search/players?clubId=2&page=1&limit=20&sortBy=name&sortOrder=DESC",
 									"host": [
 										"{{host}}"
 									],
@@ -1090,6 +1090,14 @@
 											"key": "limit",
 											"value": "20",
 											"description": "limite de registros por pagina"
+										},
+										{
+											"key": "sortBy",
+											"value": "name"
+										},
+										{
+											"key": "sortOrder",
+											"value": "DESC"
 										}
 									]
 								}
@@ -1698,7 +1706,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"court_id\": 1,\r\n  \"price\": 35,\r\n  \"description\": \"Precio de alta demanda\",\r\n  \"startDate\": \"2025-04-01\",\r\n  \"endDate\": \"2025-04-30\",\r\n  \"startTime\": \"11:00\",\r\n  \"endTime\": \"22:00\",\r\n  \"currency\": \"USD\"\r\n}",
+									"raw": "{\r\n  \"court_id\": 2,\r\n  \"price\": 35,\r\n  \"description\": \"Precio de alta demanda\",\r\n  \"startDate\": \"2025-05-01\",\r\n  \"endDate\": \"2025-05-31\",\r\n  \"startTime\": \"11:00\",\r\n  \"endTime\": \"22:00\",\r\n  \"currency\": \"USD\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
