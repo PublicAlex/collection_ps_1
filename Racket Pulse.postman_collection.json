@@ -502,7 +502,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"dates\": [\"2025-04-06\"],\r\n  \"court_id\": 1,\r\n  \"start_time\": \"09:00\",\r\n  \"end_time\": \"10:00\",\r\n  \"match_description\": \"Partido amistoso de padel, en la cancha #1\",\r\n  \"type\": \"open\", // Opciones: \"open\", \"private\", \"training\", \"tournament\", \"external\"\r\n  \"minimum_level\": 2.5, // Rango: 1.0 - 10.0 (con un decimal)\r\n  \"maximum_level\": 3.5, // Rango: 1.0 - 10.0 (con un decimal)\r\n  \"game_mode\": \"competitive\", // Opciones: \"competitive\", \"friendly\"\r\n  \"player_filter\": \"all\", // Opciones: \"all\", \"mens\", \"womens\"\r\n  \"creator_id\": 1 // ID del usuario creador del partido\r\n}",
+									"raw": "{\r\n  \"dates\": [\"2025-05-05\"],\r\n  \"court_id\": 1,\r\n  \"start_time\": \"15:00\",\r\n  \"end_time\": \"16:00\",\r\n  \"match_description\": \"Partido amistoso de padel, en la cancha #1\",\r\n  \"type\": \"open\", // Opciones: \"open\", \"private\", \"training\", \"tournament\", \"external\"\r\n  \"minimum_level\": 2.5, // Rango: 1.0 - 10.0 (con un decimal)\r\n  \"maximum_level\": 3.5, // Rango: 1.0 - 10.0 (con un decimal)\r\n  \"game_mode\": \"competitive\", // Opciones: \"competitive\", \"friendly\"\r\n  \"player_filter\": \"all\", // Opciones: \"all\", \"mens\", \"womens\"\r\n  \"creator_id\": 1 // ID del usuario creador del partido\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -595,7 +595,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"match_id\": 69, // match de ejemplo previamente creado con ID #17\r\n  \"user_id\": 2,   // usuario de ejemplo previamente creado con ID #1\r\n  \"team\": \"team1\",\r\n  \"position\": \"left\"\r\n}",
+									"raw": "{\r\n  \"match_id\": 78, // match de ejemplo previamente creado con ID #17\r\n  \"user_id\": 1,   // usuario de ejemplo previamente creado con ID #1\r\n  \"team\": \"team1\",\r\n  \"position\": \"left\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -633,11 +633,23 @@
 						},
 						{
 							"name": "get availables pending matches",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"request": {
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{host}}/matches/availables/pending",
+									"raw": "{{host}}/matches/availables/pending?latitude=40.462777&longitude=-3.665601&maxDistance=15&minLevel=1&maxLevel=5&courtPosition=right&gender=Mens&sortBy=proximity&sortOrder=ASC&startDate=2025-05-07T00:00:00Z",
 									"host": [
 										"{{host}}"
 									],
@@ -645,6 +657,56 @@
 										"matches",
 										"availables",
 										"pending"
+									],
+									"query": [
+										{
+											"key": "latitude",
+											"value": "40.462777"
+										},
+										{
+											"key": "longitude",
+											"value": "-3.665601"
+										},
+										{
+											"key": "maxDistance",
+											"value": "15",
+											"description": "Valor predeterminado: 10"
+										},
+										{
+											"key": "minLevel",
+											"value": "1",
+											"description": "Filtra partidos donde el nivel máximo del partido es mayor o igual a este valor"
+										},
+										{
+											"key": "maxLevel",
+											"value": "5",
+											"description": "Filtra partidos donde el nivel mínimo del partido es menor o igual a este valor"
+										},
+										{
+											"key": "courtPosition",
+											"value": "right",
+											"description": "Opciones: left, right"
+										},
+										{
+											"key": "gender",
+											"value": "Mens",
+											"description": "Opciones: Mens, Womans"
+										},
+										{
+											"key": "sortBy",
+											"value": "proximity",
+											"description": "Opciones: proximity,date, level, available_spots"
+										},
+										{
+											"key": "sortOrder",
+											"value": "ASC",
+											"description": "Opciones: ASC , DESC"
+										},
+										{
+											"key": "startDate",
+											"value": "2025-05-07T00:00:00Z",
+											"description": "Ejemplo: startDate=2025-05-10T00:00:00Z"
+										}
 									]
 								}
 							},
@@ -682,6 +744,67 @@
 										"matches",
 										"user",
 										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "low level player approve or reject",
+					"item": [
+						{
+							"name": "approve out level player",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"voting_player_id\":3, // jugador que está votando \r\n\"player_id\":2 // jugador que se encuentra en estado pendiente\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/match_teams/78/approve-player",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"match_teams",
+										"78",
+										"approve-player"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "reject out level player",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"voting_player_id\":1, // jugador que está votando \r\n\"player_id\":2 // jugador que se encuentra en estado pendiente\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/match_teams/78/reject-player",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"match_teams",
+										"78",
+										"reject-player"
 									]
 								}
 							},
@@ -1066,7 +1189,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{host}}/users/search/players?clubId=2&page=1&limit=20&sortBy=name&sortOrder=DESC",
+									"raw": "{{host}}/users/search/players?clubId=2&page=1&limit=20&sortBy=name&sortOrder=-",
 									"host": [
 										"{{host}}"
 									],
@@ -1097,7 +1220,7 @@
 										},
 										{
 											"key": "sortOrder",
-											"value": "DESC"
+											"value": "-"
 										}
 									]
 								}
