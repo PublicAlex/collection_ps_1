@@ -1022,7 +1022,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{host}}/matches/dashboard/chart/club/1?groupBy=day",
+									"raw": "{{host}}/matches/dashboard/chart/club/1?groupBy=day&startDate=2025-04-01T00:00:00.000Z&endDate=2025-04-21T23:59:59.999Z",
 									"host": [
 										"{{host}}"
 									],
@@ -1037,6 +1037,14 @@
 										{
 											"key": "groupBy",
 											"value": "day"
+										},
+										{
+											"key": "startDate",
+											"value": "2025-04-01T00:00:00.000Z"
+										},
+										{
+											"key": "endDate",
+											"value": "2025-04-21T23:59:59.999Z"
 										}
 									]
 								}
@@ -1055,7 +1063,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{host}}/matches/calendar/stats/club/1?startDate=2025-04-05T00:00:00.000Z&endDate=2025-04-10T00:00:00.000Z",
+									"raw": "{{host}}/matches/calendar/stats/club/1",
 									"host": [
 										"{{host}}"
 									],
@@ -1069,11 +1077,15 @@
 									"query": [
 										{
 											"key": "startDate",
-											"value": "2025-04-05T00:00:00.000Z"
+											"value": "2025-04-05T00:00:00.000Z",
+											"description": "opcional",
+											"disabled": true
 										},
 										{
 											"key": "endDate",
-											"value": "2025-04-10T00:00:00.000Z"
+											"value": "2025-04-10T00:00:00.000Z",
+											"description": "opcional",
+											"disabled": true
 										}
 									]
 								}
