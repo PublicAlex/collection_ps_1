@@ -1201,7 +1201,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{host}}/users/search/players?clubId=2&page=1&limit=20&sortBy=name&sortOrder=-",
+									"raw": "{{host}}/users/search/players?clubId=2&page=1&limit=20&sortBy=email&sortOrder=+&search=copernicus",
 									"host": [
 										"{{host}}"
 									],
@@ -1228,11 +1228,17 @@
 										},
 										{
 											"key": "sortBy",
-											"value": "name"
+											"value": "email",
+											"description": "name,email,level,register,games,lastGame"
 										},
 										{
 											"key": "sortOrder",
-											"value": "-"
+											"value": "+"
+										},
+										{
+											"key": "search",
+											"value": "copernicus",
+											"description": "busca por nombre o por email"
 										}
 									]
 								}
