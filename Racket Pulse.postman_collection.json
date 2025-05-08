@@ -713,6 +713,38 @@
 							"response": []
 						},
 						{
+							"name": "get user pending matches",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/matches/user/1/pending",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"matches",
+										"user",
+										"1",
+										"pending"
+									]
+								}
+							},
+							"response": []
+						},
+						{
 							"name": "get match (token)",
 							"request": {
 								"method": "GET",
@@ -744,6 +776,38 @@
 										"matches",
 										"user",
 										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get user pending matches",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/matches/user/1/pending",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"matches",
+										"user",
+										"1",
+										"pending"
 									]
 								}
 							},
