@@ -649,7 +649,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{host}}/matches/availables/pending?latitude=40.462777&longitude=-3.665601&maxDistance=15&minLevel=1&maxLevel=5&courtPosition=right&gender=Mens&sortBy=proximity&sortOrder=ASC&startDate=2025-05-07T00:00:00Z",
+									"raw": "{{host}}/matches/availables/pending?gender=Mens&sortBy=proximity&sortOrder=ASC&userId=13",
 									"host": [
 										"{{host}}"
 									],
@@ -661,31 +661,37 @@
 									"query": [
 										{
 											"key": "latitude",
-											"value": "40.462777"
+											"value": "40.462777",
+											"disabled": true
 										},
 										{
 											"key": "longitude",
-											"value": "-3.665601"
+											"value": "-3.665601",
+											"disabled": true
 										},
 										{
 											"key": "maxDistance",
 											"value": "15",
-											"description": "Valor predeterminado: 10"
+											"description": "Valor predeterminado: 10",
+											"disabled": true
 										},
 										{
 											"key": "minLevel",
 											"value": "1",
-											"description": "Filtra partidos donde el nivel máximo del partido es mayor o igual a este valor"
+											"description": "Filtra partidos donde el nivel máximo del partido es mayor o igual a este valor",
+											"disabled": true
 										},
 										{
 											"key": "maxLevel",
 											"value": "5",
-											"description": "Filtra partidos donde el nivel mínimo del partido es menor o igual a este valor"
+											"description": "Filtra partidos donde el nivel mínimo del partido es menor o igual a este valor",
+											"disabled": true
 										},
 										{
 											"key": "courtPosition",
 											"value": "right",
-											"description": "Opciones: left, right"
+											"description": "Opciones: left, right",
+											"disabled": true
 										},
 										{
 											"key": "gender",
@@ -704,8 +710,13 @@
 										},
 										{
 											"key": "startDate",
-											"value": "2025-05-07T00:00:00Z",
-											"description": "Ejemplo: startDate=2025-05-10T00:00:00Z"
+											"value": "2025-05-10T00:00:00Z",
+											"description": "Ejemplo: startDate=2025-05-10T00:00:00Z",
+											"disabled": true
+										},
+										{
+											"key": "userId",
+											"value": "13"
 										}
 									]
 								}
@@ -730,14 +741,14 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{host}}/matches/user/1/pending",
+									"raw": "{{host}}/matches/user/13/pending",
 									"host": [
 										"{{host}}"
 									],
 									"path": [
 										"matches",
 										"user",
-										"1",
+										"13",
 										"pending"
 									]
 								}
@@ -776,38 +787,6 @@
 										"matches",
 										"user",
 										"1"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "get user pending matches",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											""
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{host}}/matches/user/1/pending",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"matches",
-										"user",
-										"1",
-										"pending"
 									]
 								}
 							},
@@ -912,7 +891,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"user_id\": 3,\r\n  \"match_id\": 28,  // Por defecto cuando solo se envía un voto usando el match_id, usará como referencia por defecto la propuesta más votada\r\n  \"approved\": true\r\n}",
+									"raw": "{\r\n  \"user_id\": 3,\r\n  \"match_id\": 28,  // Por defecto cuando solo se envía un voto usando el match_id, usará como referencia por defecto la propuesta más votada\r\n  \"approved\": true,\r\n  \"proposal_id\": 99   // campo opcional \r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1214,7 +1193,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{host}}/matches/calendar/list/club/1",
+									"raw": "{{host}}/matches/calendar/list/club/1?sortOrder=-&sortBy=court_level",
 									"host": [
 										"{{host}}"
 									],
@@ -1224,6 +1203,48 @@
 										"list",
 										"club",
 										"1"
+									],
+									"query": [
+										{
+											"key": "startDate",
+											"value": "2025-04-01T00:00:00.000Z",
+											"disabled": true
+										},
+										{
+											"key": "endDate",
+											"value": "2025-05-15T00:00:00.000Z",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "10",
+											"disabled": true
+										},
+										{
+											"key": "status",
+											"value": "confirmed",
+											"description": "confirmed ó cancelled ó pending ó completed",
+											"disabled": true
+										},
+										{
+											"key": "search",
+											"value": "Copernicu",
+											"description": "opción de search para los campos (book id, court name, player name)",
+											"disabled": true
+										},
+										{
+											"key": "sortOrder",
+											"value": "-"
+										},
+										{
+											"key": "sortBy",
+											"value": "court_level"
+										}
 									]
 								}
 							},
@@ -1265,7 +1286,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{host}}/users/search/players?clubId=2&page=1&limit=20&sortBy=email&sortOrder=+&search=copernicus",
+									"raw": "{{host}}/users/search/players?clubId=2&page=1&limit=20&sortBy=level&sortOrder=+",
 									"host": [
 										"{{host}}"
 									],
@@ -1292,7 +1313,7 @@
 										},
 										{
 											"key": "sortBy",
-											"value": "email",
+											"value": "level",
 											"description": "name,email,level,register,games,lastGame"
 										},
 										{
@@ -1302,7 +1323,8 @@
 										{
 											"key": "search",
 											"value": "copernicus",
-											"description": "busca por nombre o por email"
+											"description": "busca por nombre o por email",
+											"disabled": true
 										}
 									]
 								}
