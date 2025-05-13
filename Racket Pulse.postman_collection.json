@@ -555,40 +555,6 @@
 							"response": []
 						},
 						{
-							"name": "send match invitation (token)",
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ1c3VhcmlvQGV4YW1wbGUuY29tIiwibmFtZSI6Ikp1YW4gUMOpcmV6IiwidHlwZSI6InVzZXIiLCJpYXQiOjE3Mzk3NjAzNjYsImV4cCI6MTczOTc2Mzk2Nn0.X9RNaX-pz47dHbc8TX6EpDhiR2U5Kbn046xDH0DNqGc",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"recipients\": [1,2,\r\n    {\"phone\": \"+573203063817\", \"name\": \"Juan Pérez\"},\r\n    {\"phone\": \"+573114567890\", \"name\": \"Ana Gómez\"}\r\n  ],\r\n    \"matchId\": 38,\r\n    \"matchKey\": \"MATCH_D07PEY\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{host}}/matches/invitations/send",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"matches",
-										"invitations",
-										"send"
-									]
-								}
-							},
-							"response": []
-						},
-						{
 							"name": "assign match teams (token)",
 							"request": {
 								"method": "POST",
@@ -795,6 +761,186 @@
 					]
 				},
 				{
+					"name": "matchs invitations",
+					"item": [
+						{
+							"name": "send match invitation (token)",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ1c3VhcmlvQGV4YW1wbGUuY29tIiwibmFtZSI6Ikp1YW4gUMOpcmV6IiwidHlwZSI6InVzZXIiLCJpYXQiOjE3Mzk3NjAzNjYsImV4cCI6MTczOTc2Mzk2Nn0.X9RNaX-pz47dHbc8TX6EpDhiR2U5Kbn046xDH0DNqGc",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"recipients\": [1,2,\r\n    {\"phone\": \"+573203063817\", \"name\": \"Juan Pérez\"},\r\n    {\"phone\": \"+573114567890\", \"name\": \"Ana Gómez\"}\r\n  ],\r\n    \"matchId\": 38,\r\n    \"matchKey\": \"MATCH_D07PEY\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/matches/invitations/send",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"matches",
+										"invitations",
+										"send"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get user notifications",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ1c3VhcmlvQGV4YW1wbGUuY29tIiwibmFtZSI6Ikp1YW4gUMOpcmV6IiwidHlwZSI6InVzZXIiLCJpYXQiOjE3Mzk3NjAzNjYsImV4cCI6MTczOTc2Mzk2Nn0.X9RNaX-pz47dHbc8TX6EpDhiR2U5Kbn046xDH0DNqGc",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/notifications/user/2?includeRead=true",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"notifications",
+										"user",
+										"2"
+									],
+									"query": [
+										{
+											"key": "includeRead",
+											"value": "true",
+											"description": "incluir los mensajes ya leidos por el user?"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get user notifications Copy",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ1c3VhcmlvQGV4YW1wbGUuY29tIiwibmFtZSI6Ikp1YW4gUMOpcmV6IiwidHlwZSI6InVzZXIiLCJpYXQiOjE3Mzk3NjAzNjYsImV4cCI6MTczOTc2Mzk2Nn0.X9RNaX-pz47dHbc8TX6EpDhiR2U5Kbn046xDH0DNqGc",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id_invitacion\": \"123e4567-e89b-12d3-a456-426614174000\", // id de la notifiacion de invitaci+on\r\n  \"accepted\": true   // definir si se acepta o no la invitación, si se acepta se marca como aceptada la invitación y se cambian los demas estados de la invitación para no volver a verla. y si no se acepta igualmente se cambian los estados para no verla y se marca como invitación denegada.\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/notifications/invitation/status?includeRead=true",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"notifications",
+										"invitation",
+										"status"
+									],
+									"query": [
+										{
+											"key": "includeRead",
+											"value": "true",
+											"description": "incluir los mensajes ya leidos por el user?"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get user notifications Copy 2",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ1c3VhcmlvQGV4YW1wbGUuY29tIiwibmFtZSI6Ikp1YW4gUMOpcmV6IiwidHlwZSI6InVzZXIiLCJpYXQiOjE3Mzk3NjAzNjYsImV4cCI6MTczOTc2Mzk2Nn0.X9RNaX-pz47dHbc8TX6EpDhiR2U5Kbn046xDH0DNqGc",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"accessCode\": \"2AC2X8\" // match_key, se cambío al forma antigua de matchkeys \"MATCH_XXXXXX\" A XXXXXX\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/notifications/matches/find-by-acces-code",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"notifications",
+										"matches",
+										"find-by-acces-code"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get user notifications Copy 2",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ1c3VhcmlvQGV4YW1wbGUuY29tIiwibmFtZSI6Ikp1YW4gUMOpcmV6IiwidHlwZSI6InVzZXIiLCJpYXQiOjE3Mzk3NjAzNjYsImV4cCI6MTczOTc2Mzk2Nn0.X9RNaX-pz47dHbc8TX6EpDhiR2U5Kbn046xDH0DNqGc",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"accessCode\": \"2AC2X8\" // match_key, se cambío al forma antigua de matchkeys \"MATCH_XXXXXX\" A XXXXXX\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/notifications/matches/find-by-acces-code",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"notifications",
+										"matches",
+										"find-by-acces-code"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
 					"name": "low level player approve or reject",
 					"item": [
 						{
@@ -992,6 +1138,67 @@
 							],
 							"path": [
 								"check_version"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "send error report",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"category\": \"Technical issue\", // categorías/tipos de reportes\r\n  \"description\": \"The app crashed when I tried to update my profile picture\",\r\n  \"user_id\": 1  // id del user que genera el reporte\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/error_reports/report_error",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"error_reports",
+								"report_error"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "send error report Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/error_reports",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"error_reports"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "send error report Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/error_reports",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"error_reports"
 							]
 						}
 					},
