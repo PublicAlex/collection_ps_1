@@ -329,6 +329,39 @@
 							"response": []
 						},
 						{
+							"name": "update/assing clugs favoristes",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ1c3VhcmlvQGV4YW1wbGUuY29tIiwibmFtZSI6Ikp1YW4gUMOpcmV6IiwidHlwZSI6InVzZXIiLCJpYXQiOjE3Mzk3NjAzNjYsImV4cCI6MTczOTc2Mzk2Nn0.X9RNaX-pz47dHbc8TX6EpDhiR2U5Kbn046xDH0DNqGc",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\r\n\"favoriteClubs\": [\"1\",\"5\",\"2\"]\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/users/36",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"users",
+										"36"
+									]
+								}
+							},
+							"response": []
+						},
+						{
 							"name": "delete user (token)",
 							"request": {
 								"method": "DELETE",
@@ -615,7 +648,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{host}}/matches/availables/pending?gender=Mens&sortBy=proximity&sortOrder=ASC&userId=13",
+									"raw": "{{host}}/matches/availables/pending?gender=Mens&sortBy=proximity&sortOrder=ASC&startDate=2025-05-10T00:00:00Z&endDate=2025-05-15T00:00:00Z&userId=13",
 									"host": [
 										"{{host}}"
 									],
@@ -676,9 +709,11 @@
 										},
 										{
 											"key": "startDate",
-											"value": "2025-05-10T00:00:00Z",
-											"description": "Ejemplo: startDate=2025-05-10T00:00:00Z",
-											"disabled": true
+											"value": "2025-05-10T00:00:00Z"
+										},
+										{
+											"key": "endDate",
+											"value": "2025-05-15T00:00:00Z"
 										},
 										{
 											"key": "userId",
@@ -776,7 +811,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"recipients\": [1,2,\r\n    {\"phone\": \"+573203063817\", \"name\": \"Juan Pérez\"},\r\n    {\"phone\": \"+573114567890\", \"name\": \"Ana Gómez\"}\r\n  ],\r\n    \"matchId\": 38,\r\n    \"matchKey\": \"MATCH_D07PEY\"\r\n}",
+									"raw": "{\r\n  \"recipients\": [17\r\n  ],\r\n    \"matchId\": 111,\r\n    \"matchKey\": \"MATCH_YYYYYY\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -809,7 +844,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{host}}/notifications/user/2?includeRead=true",
+									"raw": "{{host}}/notifications/user/2?includeRead=false",
 									"host": [
 										"{{host}}"
 									],
@@ -821,7 +856,7 @@
 									"query": [
 										{
 											"key": "includeRead",
-											"value": "true",
+											"value": "false",
 											"description": "incluir los mensajes ya leidos por el user?"
 										}
 									]
@@ -830,7 +865,7 @@
 							"response": []
 						},
 						{
-							"name": "get user notifications Copy",
+							"name": "set invitation acceptance",
 							"request": {
 								"method": "PATCH",
 								"header": [
@@ -871,7 +906,7 @@
 							"response": []
 						},
 						{
-							"name": "get user notifications Copy 2",
+							"name": "find match by match key",
 							"request": {
 								"method": "POST",
 								"header": [
@@ -883,7 +918,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"accessCode\": \"2AC2X8\" // match_key, se cambío al forma antigua de matchkeys \"MATCH_XXXXXX\" A XXXXXX\r\n}",
+									"raw": "{\r\n  \"accessCode\": \"XSK1T4\" // match_key, se cambío al forma antigua de matchkeys \"MATCH_XXXXXX\" A XXXXXX\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -891,48 +926,14 @@
 									}
 								},
 								"url": {
-									"raw": "{{host}}/notifications/matches/find-by-acces-code",
+									"raw": "{{host}}/notifications/matches/find-by-access-code",
 									"host": [
 										"{{host}}"
 									],
 									"path": [
 										"notifications",
 										"matches",
-										"find-by-acces-code"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "get user notifications Copy 2",
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ1c3VhcmlvQGV4YW1wbGUuY29tIiwibmFtZSI6Ikp1YW4gUMOpcmV6IiwidHlwZSI6InVzZXIiLCJpYXQiOjE3Mzk3NjAzNjYsImV4cCI6MTczOTc2Mzk2Nn0.X9RNaX-pz47dHbc8TX6EpDhiR2U5Kbn046xDH0DNqGc",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"accessCode\": \"2AC2X8\" // match_key, se cambío al forma antigua de matchkeys \"MATCH_XXXXXX\" A XXXXXX\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{host}}/notifications/matches/find-by-acces-code",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"notifications",
-										"matches",
-										"find-by-acces-code"
+										"find-by-access-code"
 									]
 								}
 							},
@@ -1011,7 +1012,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"match_id\": 28,   // identificador del match\r\n  \"user_id\": 1,   // identificador del user que registra el score propuesto\r\n  \"team1_scores\": [\r\n    \"3\",\r\n    \"7\",\r\n    \"1\"\r\n  ],\r\n  \"team2_scores\": [\r\n    \"6\",\r\n    \"6\",\r\n    \"9\"\r\n  ]\r\n}",
+									"raw": "{\r\n  \"match_id\": 104,   // identificador del match\r\n  \"user_id\": 1,   // identificador del user que registra el score propuesto\r\n  \"team1_scores\": [\r\n    \"3\",\r\n    \"7\",\r\n    \"1\"\r\n  ],\r\n  \"team2_scores\": [\r\n    \"9\",\r\n    \"6\",\r\n    \"9\"\r\n  ]\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1037,7 +1038,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"user_id\": 3,\r\n  \"match_id\": 28,  // Por defecto cuando solo se envía un voto usando el match_id, usará como referencia por defecto la propuesta más votada\r\n  \"approved\": true,\r\n  \"proposal_id\": 99   // campo opcional \r\n}",
+									"raw": "{\r\n  \"user_id\": 1,\r\n  \"match_id\": 104,  // Por defecto cuando solo se envía un voto usando el match_id, usará como referencia por defecto la propuesta más votada\r\n  \"approved\": true\r\n  //\"proposal_id\": 99   // campo opcional \r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1114,6 +1115,26 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "recalculate hours played by user",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/match_score_proposals/user/1/recalculate_hours",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"match_score_proposals",
+										"user",
+										"1",
+										"recalculate_hours"
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				},
@@ -1171,24 +1192,7 @@
 					"response": []
 				},
 				{
-					"name": "send error report Copy",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{host}}/error_reports",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"error_reports"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "send error report Copy",
+					"name": "get error reports",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -1373,7 +1377,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{host}}/matches/calendar/view/club/2?date=2025-04-15T00:00:00.000Z",
+									"raw": "{{host}}/matches/calendar/view/club/1?date=2025-05-23",
 									"host": [
 										"{{host}}"
 									],
@@ -1382,12 +1386,22 @@
 										"calendar",
 										"view",
 										"club",
-										"2"
+										"1"
 									],
 									"query": [
 										{
 											"key": "date",
-											"value": "2025-04-15T00:00:00.000Z"
+											"value": "2025-05-23"
+										},
+										{
+											"key": "search",
+											"value": "ivan",
+											"disabled": true
+										},
+										{
+											"key": "",
+											"value": "",
+											"disabled": true
 										}
 									]
 								}
@@ -1493,7 +1507,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{host}}/users/search/players?clubId=2&page=1&limit=20&sortBy=level&sortOrder=+",
+									"raw": "{{host}}/users/search/players?clubId=2&page=1&limit=3&sortBy=level&sortOrder=+",
 									"host": [
 										"{{host}}"
 									],
@@ -1515,7 +1529,7 @@
 										},
 										{
 											"key": "limit",
-											"value": "20",
+											"value": "3",
 											"description": "limite de registros por pagina"
 										},
 										{
