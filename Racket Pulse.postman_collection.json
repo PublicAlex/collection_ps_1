@@ -535,7 +535,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"dates\": [\"2025-05-05\"],\r\n  \"court_id\": 1,\r\n  \"start_time\": \"15:00\",\r\n  \"end_time\": \"16:00\",\r\n  \"match_description\": \"Partido amistoso de padel, en la cancha #1\",\r\n  \"type\": \"open\", // Opciones: \"open\", \"private\", \"training\", \"tournament\", \"external\"\r\n  \"minimum_level\": 2.5, // Rango: 1.0 - 10.0 (con un decimal)\r\n  \"maximum_level\": 3.5, // Rango: 1.0 - 10.0 (con un decimal)\r\n  \"game_mode\": \"competitive\", // Opciones: \"competitive\", \"friendly\"\r\n  \"player_filter\": \"all\", // Opciones: \"all\", \"mens\", \"womens\"\r\n  \"creator_id\": 1 // ID del usuario creador del partido\r\n}",
+									"raw": "{\r\n  \"dates\": [\"2025-05-23\"],\r\n  \"court_id\": 1,\r\n  \"start_time\": \"15:00\",\r\n  \"end_time\": \"16:00\",\r\n  \"match_description\": \"Partido amistoso de padel, en la cancha #1\",\r\n  \"type\": \"open\", // Opciones: \"open\", \"private\", \"training\", \"tournament\", \"external\"\r\n  \"minimum_level\": 2.5, // Rango: 1.0 - 10.0 (con un decimal)\r\n  \"maximum_level\": 3.5, // Rango: 1.0 - 10.0 (con un decimal)\r\n  \"game_mode\": \"competitive\", // Opciones: \"competitive\", \"friendly\"\r\n  \"player_filter\": \"all\", // Opciones: \"all\", \"mens\", \"womens\"\r\n  \"creator_id\": 1 // ID del usuario creador del partido\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -742,15 +742,27 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{host}}/matches/user/13/pending",
+									"raw": "{{host}}/matches/user/6/pending?sortBy=start_date&sortOrder=ASC",
 									"host": [
 										"{{host}}"
 									],
 									"path": [
 										"matches",
 										"user",
-										"13",
+										"6",
 										"pending"
+									],
+									"query": [
+										{
+											"key": "sortBy",
+											"value": "start_date",
+											"description": "Opciones: start_date, end_date, date_created, id.  Por defecto: start_date"
+										},
+										{
+											"key": "sortOrder",
+											"value": "ASC",
+											"description": "Opciones: ASC, DESC, +, -.  Por defecto: DESC"
+										}
 									]
 								}
 							},
@@ -1117,20 +1129,19 @@
 							"response": []
 						},
 						{
-							"name": "recalculate hours played by user",
+							"name": "recalculate hours/games played by user",
 							"request": {
 								"method": "POST",
 								"header": [],
 								"url": {
-									"raw": "{{host}}/match_score_proposals/user/1/recalculate_hours",
+									"raw": "{{host}}/match_score_proposals/user/recalculate-all-users-stats",
 									"host": [
 										"{{host}}"
 									],
 									"path": [
 										"match_score_proposals",
 										"user",
-										"1",
-										"recalculate_hours"
+										"recalculate-all-users-stats"
 									]
 								}
 							},
