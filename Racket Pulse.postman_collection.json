@@ -856,20 +856,25 @@
 									}
 								],
 								"url": {
-									"raw": "{{host}}/notifications/user/2?includeRead=false",
+									"raw": "{{host}}/notifications/user/6?includeRead=true&types=MATCH_INVITATION",
 									"host": [
 										"{{host}}"
 									],
 									"path": [
 										"notifications",
 										"user",
-										"2"
+										"6"
 									],
 									"query": [
 										{
 											"key": "includeRead",
-											"value": "false",
+											"value": "true",
 											"description": "incluir los mensajes ya leidos por el user?"
+										},
+										{
+											"key": "types",
+											"value": "MATCH_INVITATION",
+											"description": "tipos de notificaciones"
 										}
 									]
 								}
@@ -1654,6 +1659,33 @@
 				{
 					"name": "users control",
 					"item": [
+						{
+							"name": "create player user",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"aragonantar@gmail.com\",\r\n  \"full_name\": \"Juan Pérez\",\r\n  \"gender\": \"male\",\r\n  \"phone\": \"+5219876543210\",\r\n  \"nationality_id\": 1,\r\n  \"location\": \"Ciudad de México, México\",\r\n  \"club_id\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/users/create",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"users",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
 						{
 							"name": "create club user",
 							"request": {
