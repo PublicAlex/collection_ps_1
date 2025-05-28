@@ -408,12 +408,18 @@
 									}
 								},
 								"url": {
-									"raw": "{{host}}/clubs",
+									"raw": "{{host}}/clubs?userId=111",
 									"host": [
 										"{{host}}"
 									],
 									"path": [
 										"clubs"
+									],
+									"query": [
+										{
+											"key": "userId",
+											"value": "111"
+										}
 									]
 								}
 							},
@@ -567,7 +573,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"searchTerm\":\"2\" // busca dentro de los campos de full_name, email y phone.\r\n}",
+									"raw": "{\r\n    \"searchTerm\":\"\", // busca dentro de los campos de full_name, email y phone.\r\n    \"matchId\": 158\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -792,14 +798,47 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{host}}/matches/user/1",
+									"raw": "{{host}}/matches/user/2?rivalLevelMin=0&rivalLevelMax=5.5&selectedClub=all&selectedResult=lose&selectedSide=right&dateFrom=2025-02-27T00:00:00.000Z&dateTo=2025-06-28T23:59:59.999Z",
 									"host": [
 										"{{host}}"
 									],
 									"path": [
 										"matches",
 										"user",
-										"1"
+										"2"
+									],
+									"query": [
+										{
+											"key": "rivalLevelMin",
+											"value": "0"
+										},
+										{
+											"key": "rivalLevelMax",
+											"value": "5.5"
+										},
+										{
+											"key": "selectedClub",
+											"value": "all",
+											"description": "all ó clubid"
+										},
+										{
+											"key": "selectedResult",
+											"value": "lose",
+											"description": "'win', 'lose', 'pending', 'ongoing', 'completed', 'cancelled'"
+										},
+										{
+											"key": "selectedSide",
+											"value": "right",
+											"description": "'left', 'right'"
+										},
+										{
+											"key": "dateFrom",
+											"value": "2025-02-27T00:00:00.000Z"
+										},
+										{
+											"key": "dateTo",
+											"value": "2025-06-28T23:59:59.999Z"
+										}
 									]
 								}
 							},
