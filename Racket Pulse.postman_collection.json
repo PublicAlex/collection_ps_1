@@ -408,7 +408,7 @@
 									}
 								},
 								"url": {
-									"raw": "{{host}}/clubs?userId=111",
+									"raw": "{{host}}/clubs",
 									"host": [
 										"{{host}}"
 									],
@@ -418,7 +418,13 @@
 									"query": [
 										{
 											"key": "userId",
-											"value": "111"
+											"value": "111",
+											"disabled": true
+										},
+										{
+											"key": "",
+											"value": "",
+											"disabled": true
 										}
 									]
 								}
@@ -2072,12 +2078,24 @@
 									}
 								},
 								"url": {
-									"raw": "{{host}}/clubs",
+									"raw": "{{host}}/clubs?clubId=2",
 									"host": [
 										"{{host}}"
 									],
 									"path": [
 										"clubs"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "clubId",
+											"value": "2",
+											"description": "// este filtro es para backoffice"
+										}
 									]
 								}
 							},
