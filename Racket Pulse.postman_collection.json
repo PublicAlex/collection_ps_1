@@ -1,9 +1,10 @@
 {
 	"info": {
-		"_postman_id": "c4eab441-c44c-4b90-988b-d642dde2a2e0",
+		"_postman_id": "fcfa63c4-47fb-41bc-8ebd-7df4961729b0",
 		"name": "Racket Pulse",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "17673405"
+		"_exporter_id": "17673405",
+		"_collection_link": "https://racketpulse-frontend-team.postman.co/workspace/racketpulse-frontend-team-Works~c5b9d715-5300-4824-be68-06c48212c32b/collection/17673405-fcfa63c4-47fb-41bc-8ebd-7df4961729b0?action=share&source=collection_link&creator=17673405"
 	},
 	"item": [
 		{
@@ -201,7 +202,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"email\": \"usuario5@example.com\",\r\n  \"password\": \"contraseñaSegura123\",\r\n  \"phone\": \"+57 3203063817\",\r\n  \"nationality_id\": 120,\r\n  \"photo\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAApgAAAKYB3X3/OAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAANCSURBVEiJtZZPbBtFFMZ/M7ubXdtdb1xSFyeilBapySVU8h8OoFaooFSqiihIVIpQBKci6KEg9Q6H9kovIHoCIVQJJCKE1ENFjnAgcaSGC6rEnxBwA04Tx43t2FnvDAfjkNibxgHxnWb2e/u992bee7tCa00YFsffekFY+nUzFtjW0LrvjRXrCDIAaPLlW0nHL0SsZtVoaF98mLrx3pdhOqLtYPHChahZcYYO7KvPFxvRl5XPp1sN3adWiD1ZAqD6XYK1b/dvE5IWryTt2udLFedwc1+9kLp+vbbpoDh+6TklxBeAi9TL0taeWpdmZzQDry0AcO+jQ12RyohqqoYoo8RDwJrU+qXkjWtfi8Xxt58BdQuwQs9qC/afLwCw8tnQbqYAPsgxE1S6F3EAIXux2oQFKm0ihMsOF71dHYx+f3NND68ghCu1YIoePPQN1pGRABkJ6Bus96CutRZMydTl+TvuiRW1m3n0eDl0vRPcEysqdXn+jsQPsrHMquGeXEaY4Yk4wxWcY5V/9scqOMOVUFthatyTy8QyqwZ+kDURKoMWxNKr2EeqVKcTNOajqKoBgOE28U4tdQl5p5bwCw7BWquaZSzAPlwjlithJtp3pTImSqQRrb2Z8PHGigD4RZuNX6JYj6wj7O4TFLbCO/Mn/m8R+h6rYSUb3ekokRY6f/YukArN979jcW+V/S8g0eT/N3VN3kTqWbQ428m9/8k0P/1aIhF36PccEl6EhOcAUCrXKZXXWS3XKd2vc/TRBG9O5ELC17MmWubD2nKhUKZa26Ba2+D3P+4/MNCFwg59oWVeYhkzgN/JDR8deKBoD7Y+ljEjGZ0sosXVTvbc6RHirr2reNy1OXd6pJsQ+gqjk8VWFYmHrwBzW/n+uMPFiRwHB2I7ih8ciHFxIkd/3Omk5tCDV1t+2nNu5sxxpDFNx+huNhVT3/zMDz8usXC3ddaHBj1GHj/As08fwTS7Kt1HBTmyN29vdwAw+/wbwLVOJ3uAD1wi/dUH7Qei66PfyuRj4Ik9is+hglfbkbfR3cnZm7chlUWLdwmprtCohX4HUtlOcQjLYCu+fzGJH2QRKvP3UNz8bWk1qMxjGTOMThZ3kvgLI5AzFfo379UAAAAASUVORK5CYII=\",\r\n  \"full_name\": \"Juan Carlos Rodríguez 4\",\r\n  \"gender\": \"male\",\r\n  \"height\": 178.5,\r\n  \"birthday\": \"1990-05-15T00:00:00.000Z\",\r\n  \"location\": \"Bogotá, Colombia\",\r\n  \"location_coordinate\": \"4.7110,-74.0721\",\r\n  \"postal_code\": \"110111\",\r\n  \"preferred_range\": 15,\r\n  \"racket_brand\": \"Head\",\r\n  \"racket_model\": \"Speed Pro\",\r\n  \"shoes_brand\": \"Asics\",\r\n  \"shoes_model\": \"Gel Resolution 8\",\r\n  \"currentPartner\": \"Ricardo Pérez\",\r\n  \"playingHand\": \"right\",\r\n  \"preferredCourtSide\": \"left\",\r\n  \"gameModePreference\": \"friendly\",\r\n  \"preferredTimeframe\": \"morning\",\r\n  \"playerLevel\": 2.2\r\n}",
+									"raw": "{\r\n  \"email\": \"usuario6@example.com\",\r\n  \"password\": \"contraseñaSegura123\",\r\n  \"phone\": \"+57 3203063879\",\r\n  \"nationality_id\": 120,\r\n  \"name\": \"Juan Carlos\",\r\n  \"lastname\": \"Rodríguez Hurtado\",\r\n  \"gender\": \"male\",\r\n  \"height\": 178.5,\r\n  \"birthday\": \"1990-05-15T00:00:00.000Z\",\r\n  \"location\": \"Bogotá, Colombia\",\r\n  \"location_coordinate\": \"4.7110,-74.0721\",\r\n  \"postal_code\": \"110111\",\r\n  \"preferred_range\": 15,\r\n  \"racket_brand\": \"Head\",\r\n  \"racket_model\": \"Speed Pro\",\r\n  \"shoes_brand\": \"Asics\",\r\n  \"shoes_model\": \"Gel Resolution 8\",\r\n  \"currentPartner\": \"Ricardo Pérez\",\r\n  \"playingHand\": \"right\",\r\n  \"preferredCourtSide\": \"left\",\r\n  \"gameModePreference\": \"friendly\",\r\n  \"preferredTimeframe\": \"morning\",\r\n  \"playerLevel\": 2.2\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1200,6 +1201,185 @@
 					]
 				},
 				{
+					"name": "events control",
+					"item": [
+						{
+							"name": "create event",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer YOUR_JWT_TOKEN"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Summer Tournament 2025\",\r\n  \"description\": \"Friendly tournament for all levels with prizes\",\r\n  \"event_type\": \"tournament\",\r\n  \"from_date\": \"2025-07-15T09:00:00.000Z\",\r\n  \"to_date\": \"2025-07-16T18:00:00.000Z\",\r\n  \"club_id\": 1,\r\n  \"country_iso\": \"COP\",\r\n  \"min_level\": 2.0,\r\n  \"max_level\": 5.0,\r\n  \"gender\": \"all\",\r\n  \"format\": \"single_elimination\",\r\n  \"category\": \"mixed\",\r\n  \"price\": 50.0,\r\n  \"registration_start\": \"2025-06-01T09:00:00.000Z\",\r\n  \"registration_end\": \"2025-07-10T18:00:00.000Z\",\r\n  \"cancellation_deadline\": \"2025-07-05T18:00:00.000Z\",\r\n  \"event_image\": \"https://www.padelfip.com/wp-content/uploads/2025/01/WhatsApp-Image-2025-01-29-at-13.32.12-212x300.jpeg\",\r\n  \"creator_id\": 1,\r\n  \"event_subtype\": \"Championship\",\r\n  \"income\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/events",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"events"
+									]
+								},
+								"description": "Generated from cURL: curl --location '{{host}}/events' \\\r\n--header 'Accept: application/json' \\\r\n--header 'Content-Type: application/json' \\\r\n--header 'Authorization: Bearer YOUR_JWT_TOKEN' \\\r\n--data '{\r\n  \"name\": \"Summer Tournament 2025\",\r\n  \"description\": \"Friendly tournament for all levels with prizes\",\r\n  \"event_type\": \"tournament\",\r\n  \"from_date\": \"2025-07-15T09:00:00.000Z\",\r\n  \"to_date\": \"2025-07-16T18:00:00.000Z\",\r\n  \"club_id\": 1,\r\n  \"country_iso\": \"COP\",\r\n  \"min_level\": 2.0,\r\n  \"max_level\": 5.0,\r\n  \"gender\": \"all\",\r\n  \"format\": \"single_elimination\",\r\n  \"participants_count\": 32,\r\n  \"category\": \"mixed\",\r\n  \"price\": 50.0,\r\n  \"registration_start\": \"2025-06-01T09:00:00.000Z\",\r\n  \"registration_end\": \"2025-07-10T18:00:00.000Z\",\r\n  \"cancellation_deadline\": \"2025-07-05T18:00:00.000Z\",\r\n  \"event_image\": \"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQ... or https://example.com/image.jpg\",\r\n  \"creator_id\": 1,\r\n  \"event_subtype\": \"Championship\",\r\n  \"income\": 0\r\n}'\r\n# Uses: Create tournaments, events, clinics. Same day events (from_date = to_date). Image as base64 or URL. All fields optional except name, dates, club_id"
+							},
+							"response": []
+						},
+						{
+							"name": "get event",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/events/3",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"events",
+										"3"
+									]
+								},
+								"description": "Generated from cURL: curl --location '{{host}}/events/1' \\\r\n--header 'Accept: application/json' \\\r\n--header 'Content-Type: application/json'\r\n# Uses: Get event details, includes relations (club, creator, event_users)"
+							},
+							"response": []
+						},
+						{
+							"name": "get events by region",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/events/by-region?country_region=COP&from_date=2025-03-01T00:00:00.000Z&to_date=2025-03-31T23:59:59.999Z",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"events",
+										"by-region"
+									],
+									"query": [
+										{
+											"key": "country_region",
+											"value": "COP",
+											"description": "all, ESP, COP, ..."
+										},
+										{
+											"key": "from_date",
+											"value": "2025-03-01T00:00:00.000Z"
+										},
+										{
+											"key": "to_date",
+											"value": "2025-03-31T23:59:59.999Z"
+										}
+									]
+								},
+								"description": "Generated from cURL: curl --location '{{host}}/events/by-region?country_region=COP&from_date=2025-03-01T00:00:00.000Z&to_date=2025-03-31T23:59:59.999Z' \\\r\n--header 'Accept: application/json' \\\r\n--header 'Content-Type: application/json'\r\n# Uses: Filter by country (COP, ESP, all), date ranges, regional events"
+							},
+							"response": []
+						},
+						{
+							"name": "get all events with filters",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/events/search?countryIso=COP&eventType=tournament&minLevel=2.5&maxLevel=4.5&gender=all&fromDate=2025-03-01T00:00:00.000Z&toDate=2025-12-31T23:59:59.999Z&clubId=1",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"events",
+										"search"
+									],
+									"query": [
+										{
+											"key": "countryIso",
+											"value": "COP",
+											"description": "all, COP, ESP"
+										},
+										{
+											"key": "eventType",
+											"value": "tournament"
+										},
+										{
+											"key": "minLevel",
+											"value": "2.5"
+										},
+										{
+											"key": "maxLevel",
+											"value": "4.5"
+										},
+										{
+											"key": "gender",
+											"value": "all"
+										},
+										{
+											"key": "fromDate",
+											"value": "2025-03-01T00:00:00.000Z"
+										},
+										{
+											"key": "toDate",
+											"value": "2025-12-31T23:59:59.999Z"
+										},
+										{
+											"key": "clubId",
+											"value": "1"
+										}
+									]
+								},
+								"description": "Generated from cURL: curl --location '{{host}}/events?countryIso=COP&eventType=tournament&gender=male&fromDate=2025-03-01T00:00:00.000Z&toDate=2025-12-31T23:59:59.999Z&clubId=1' \\\r\n--header 'Accept: application/json' \\\r\n--header 'Content-Type: application/json'\r\n# Uses: All optional filters - countryIso, eventType (tournament/event/clinic), gender (male/female/all), dates, clubId"
+							},
+							"response": []
+						}
+					]
+				},
+				{
 					"name": "checkversion",
 					"request": {
 						"method": "POST",
@@ -1451,10 +1631,6 @@
 									],
 									"query": [
 										{
-											"key": "date",
-											"value": "2025-05-23"
-										},
-										{
 											"key": "search",
 											"value": "ivan",
 											"disabled": true
@@ -1463,6 +1639,10 @@
 											"key": "",
 											"value": "",
 											"disabled": true
+										},
+										{
+											"key": "date",
+											"value": "2025-05-23"
 										}
 									]
 								}
@@ -1711,7 +1891,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"email\": \"aragonantar@gmail.com\",\r\n  \"full_name\": \"Juan Pérez\",\r\n  \"gender\": \"male\",\r\n  \"phone\": \"+5219876543210\",\r\n  \"nationality_id\": 1,\r\n  \"location\": \"Ciudad de México, México\",\r\n  \"club_id\": 1\r\n}",
+									"raw": "{\r\n  \"email\": \"azton97@gmail.com\",\r\n  \"name\": \"Alexander\",\r\n  \"lastname\":\"Aragones silva\",\r\n  \"gender\": \"male\",\r\n  \"phone\": \"+5219876543210\",\r\n  \"nationality_id\": 1,\r\n  \"location\": \"Ciudad de México, México\",\r\n  \"club_id\": 1\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
