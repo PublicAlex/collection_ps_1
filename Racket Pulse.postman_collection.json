@@ -147,6 +147,103 @@
 					"name": "users control",
 					"item": [
 						{
+							"name": "locations control",
+							"item": [
+								{
+									"name": "create location from map",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"user_id\": 1,  // solo agregar el id del user\r\n  \"location_name\": \"My Home\",   // el nombre que quiera colocarle a su ubicación (ej: ciudad x vacaciones)\r\n  \"latitude\": 2.9062021,   // .... todos los demas datos son los que retorna el módulo de mapa tal cual.\r\n  \"longitude\": -75.2615,\r\n  \"address\": \"Carrera 15B, El Vergel, Comuna Sur, Perímetro Urbano Neiva, Neiva, Norte, Huila, RAP (Especial) Central, 410006, Colombia\",\r\n  \"addressComponents\": {\r\n    \"street\": \"Carrera 15B\",\r\n    \"house_number\": null,\r\n    \"road\": \"Carrera 15B\",\r\n    \"neighbourhood\": \"El Vergel\",\r\n    \"village\": null,\r\n    \"city\": \"Perímetro Urbano Neiva\",\r\n    \"county\": \"Neiva\",\r\n    \"state\": \"Huila\",\r\n    \"country\": \"Colombia\",\r\n    \"country_code\": \"co\",\r\n    \"postcode\": \"410006\",\r\n    \"amenity\": null,\r\n    \"place_type\": \"residential\"\r\n  },\r\n  \"timestamp\": \"2025-06-13T21:10:34.239Z\",\r\n  \"source\": \"geolocation\",\r\n  \"is_current\": true, // definir si va a ser la ubicacion actual del jugador o no\r\n  \"is_favorite\": false // \r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/user_locations/from_map",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"user_locations",
+												"from_map"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get current user location",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}/user_locations/user/1/current",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"user_locations",
+												"user",
+												"1",
+												"current"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get user locations",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}/user_locations/user/\"user id\"",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"user_locations",
+												"user",
+												"\"user id\""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "delete user location",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{host}}/user_locations/\"location id\"",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"user_locations",
+												"\"location id\""
+											],
+											"query": [
+												{
+													"key": "",
+													"value": null,
+													"description": "es un soft delete (cambio de estado en is_active)",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
 							"name": "get countrys",
 							"request": {
 								"method": "GET",
@@ -504,7 +601,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{host}}/courts_availables?date=2025-04-24T03:00:00.000Z&clubId=1",
+									"raw": "{{host}}/courts_availables?date=2025-06-24T03:00:00.000Z&clubId=1",
 									"host": [
 										"{{host}}"
 									],
@@ -514,7 +611,7 @@
 									"query": [
 										{
 											"key": "date",
-											"value": "2025-04-24T03:00:00.000Z"
+											"value": "2025-06-24T03:00:00.000Z"
 										},
 										{
 											"key": "clubId",
@@ -548,7 +645,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"dates\": [\"2025-05-23\"],\r\n  \"court_id\": 1,\r\n  \"start_time\": \"15:00\",\r\n  \"end_time\": \"16:00\",\r\n  \"match_description\": \"Partido amistoso de padel, en la cancha #1\",\r\n  \"type\": \"open\", // Opciones: \"open\", \"private\", \"training\", \"tournament\", \"external\"\r\n  \"minimum_level\": 2.5, // Rango: 1.0 - 10.0 (con un decimal)\r\n  \"maximum_level\": 3.5, // Rango: 1.0 - 10.0 (con un decimal)\r\n  \"game_mode\": \"competitive\", // Opciones: \"competitive\", \"friendly\"\r\n  \"player_filter\": \"all\", // Opciones: \"all\", \"mens\", \"womens\"\r\n  \"creator_id\": 1 // ID del usuario creador del partido\r\n}",
+									"raw": "{\r\n  \"dates\": [\"2025-06-13\"],\r\n  \"court_id\": 1,\r\n  \"start_time\": \"13:00\",\r\n  \"end_time\": \"14:00\",\r\n  \"match_description\": \"Partido amistoso de padel, en la cancha #1\",\r\n  \"type\": \"open\", // Opciones: \"open\", \"private\", \"training\", \"tournament\", \"external\"\r\n  \"minimum_level\": 2.5, // Rango: 1.0 - 10.0 (con un decimal)\r\n  \"maximum_level\": 3.5, // Rango: 1.0 - 10.0 (con un decimal)\r\n  \"game_mode\": \"competitive\", // Opciones: \"competitive\", \"friendly\"\r\n  \"player_filter\": \"women\", // Opciones: \"all\", \"men\", \"women\"\r\n  \"creator_id\": 4, // ID del usuario creador del partido\r\n  \"players_can_invite\": false  // por defecto al no enviarlo, siempre será true. Se debe especificar false en caso de requerir limitar\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -607,7 +704,2305 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"match_id\": 78, // match de ejemplo previamente creado con ID #17\r\n  \"user_id\": 1,   // usuario de ejemplo previamente creado con ID #1\r\n  \"team\": \"team1\",\r\n  \"position\": \"left\"\r\n}",
+									"raw": "{\r\n  \"match_id\": 180, // match de ejemplo previamente creado con ID #17\r\n  \"user_id\": 2,   // usuario de ejemplo previamente creado con ID #1\r\n  \"team\": \"team1\",\r\n  \"position\": \"right\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/match_teams",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"match_teams"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all matches (admin)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/matches",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"matches"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get availables pending matches",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/matches/availables/pending?gender=Mens&sortBy=proximity&sortOrder=ASC&startDate=2025-05-10T00:00:00Z&endDate=2025-05-15T00:00:00Z&userId=13",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"matches",
+										"availables",
+										"pending"
+									],
+									"query": [
+										{
+											"key": "latitude",
+											"value": "40.462777",
+											"disabled": true
+										},
+										{
+											"key": "longitude",
+											"value": "-3.665601",
+											"disabled": true
+										},
+										{
+											"key": "maxDistance",
+											"value": "15",
+											"description": "Valor predeterminado: 10",
+											"disabled": true
+										},
+										{
+											"key": "minLevel",
+											"value": "1",
+											"description": "Filtra partidos donde el nivel máximo del partido es mayor o igual a este valor",
+											"disabled": true
+										},
+										{
+											"key": "maxLevel",
+											"value": "5",
+											"description": "Filtra partidos donde el nivel mínimo del partido es menor o igual a este valor",
+											"disabled": true
+										},
+										{
+											"key": "courtPosition",
+											"value": "right",
+											"description": "Opciones: left, right",
+											"disabled": true
+										},
+										{
+											"key": "gender",
+											"value": "Mens",
+											"description": "Opciones: Mens, Womans"
+										},
+										{
+											"key": "sortBy",
+											"value": "proximity",
+											"description": "Opciones: proximity,date, level, available_spots"
+										},
+										{
+											"key": "sortOrder",
+											"value": "ASC",
+											"description": "Opciones: ASC , DESC"
+										},
+										{
+											"key": "startDate",
+											"value": "2025-05-10T00:00:00Z"
+										},
+										{
+											"key": "endDate",
+											"value": "2025-05-15T00:00:00Z"
+										},
+										{
+											"key": "userId",
+											"value": "13"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get user pending matches",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/matches/user/6/pending?sortBy=start_date&sortOrder=ASC",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"matches",
+										"user",
+										"6",
+										"pending"
+									],
+									"query": [
+										{
+											"key": "sortBy",
+											"value": "start_date",
+											"description": "Opciones: start_date, end_date, date_created, id.  Por defecto: start_date"
+										},
+										{
+											"key": "sortOrder",
+											"value": "ASC",
+											"description": "Opciones: ASC, DESC, +, -.  Por defecto: DESC"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get match (token)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/matches/180",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"matches",
+										"180"
+									],
+									"query": [
+										{
+											"key": "sortBy",
+											"value": "start_date",
+											"description": "Opciones: start_date, end_date, date_created, id.  Por defecto: start_date",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get user matches (token)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/matches/user/2?rivalLevelMin=0&rivalLevelMax=5.5&selectedClub=all&selectedResult=lose&selectedSide=right&dateFrom=2025-02-27T00:00:00.000Z&dateTo=2025-06-28T23:59:59.999Z",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"matches",
+										"user",
+										"2"
+									],
+									"query": [
+										{
+											"key": "rivalLevelMin",
+											"value": "0"
+										},
+										{
+											"key": "rivalLevelMax",
+											"value": "5.5"
+										},
+										{
+											"key": "selectedClub",
+											"value": "all",
+											"description": "all ó clubid"
+										},
+										{
+											"key": "selectedResult",
+											"value": "lose",
+											"description": "'win', 'lose', 'pending', 'ongoing', 'completed', 'cancelled'"
+										},
+										{
+											"key": "selectedSide",
+											"value": "right",
+											"description": "'left', 'right'"
+										},
+										{
+											"key": "dateFrom",
+											"value": "2025-02-27T00:00:00.000Z"
+										},
+										{
+											"key": "dateTo",
+											"value": "2025-06-28T23:59:59.999Z"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "accept user outleve",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"player_id\":46,\r\n    \"voting_player_id\":1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/match_teams/180/approve-player",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"match_teams",
+										"180",
+										"approve-player"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "reject user outleve",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"player_id\":2,\r\n    \"voting_player_id\":39\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/match_teams/180/reject-player",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"match_teams",
+										"180",
+										"reject-player"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "matchs invitations",
+					"item": [
+						{
+							"name": "send match invitation (token)",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ1c3VhcmlvQGV4YW1wbGUuY29tIiwibmFtZSI6Ikp1YW4gUMOpcmV6IiwidHlwZSI6InVzZXIiLCJpYXQiOjE3Mzk3NjAzNjYsImV4cCI6MTczOTc2Mzk2Nn0.X9RNaX-pz47dHbc8TX6EpDhiR2U5Kbn046xDH0DNqGc",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"recipients\": [17\r\n  ],\r\n    \"matchId\": 111,\r\n    \"matchKey\": \"MATCH_YYYYYY\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/matches/invitations/send",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"matches",
+										"invitations",
+										"send"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get user notifications",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ1c3VhcmlvQGV4YW1wbGUuY29tIiwibmFtZSI6Ikp1YW4gUMOpcmV6IiwidHlwZSI6InVzZXIiLCJpYXQiOjE3Mzk3NjAzNjYsImV4cCI6MTczOTc2Mzk2Nn0.X9RNaX-pz47dHbc8TX6EpDhiR2U5Kbn046xDH0DNqGc",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/notifications/user/6?includeRead=true&types=MATCH_INVITATION",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"notifications",
+										"user",
+										"6"
+									],
+									"query": [
+										{
+											"key": "includeRead",
+											"value": "true",
+											"description": "incluir los mensajes ya leidos por el user?"
+										},
+										{
+											"key": "types",
+											"value": "MATCH_INVITATION",
+											"description": "tipos de notificaciones"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "set invitation acceptance",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ1c3VhcmlvQGV4YW1wbGUuY29tIiwibmFtZSI6Ikp1YW4gUMOpcmV6IiwidHlwZSI6InVzZXIiLCJpYXQiOjE3Mzk3NjAzNjYsImV4cCI6MTczOTc2Mzk2Nn0.X9RNaX-pz47dHbc8TX6EpDhiR2U5Kbn046xDH0DNqGc",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id_invitacion\": \"123e4567-e89b-12d3-a456-426614174000\", // id de la notifiacion de invitaci+on\r\n  \"accepted\": true   // definir si se acepta o no la invitación, si se acepta se marca como aceptada la invitación y se cambian los demas estados de la invitación para no volver a verla. y si no se acepta igualmente se cambian los estados para no verla y se marca como invitación denegada.\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/notifications/invitation/status?includeRead=true",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"notifications",
+										"invitation",
+										"status"
+									],
+									"query": [
+										{
+											"key": "includeRead",
+											"value": "true",
+											"description": "incluir los mensajes ya leidos por el user?"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "find match by match key",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ1c3VhcmlvQGV4YW1wbGUuY29tIiwibmFtZSI6Ikp1YW4gUMOpcmV6IiwidHlwZSI6InVzZXIiLCJpYXQiOjE3Mzk3NjAzNjYsImV4cCI6MTczOTc2Mzk2Nn0.X9RNaX-pz47dHbc8TX6EpDhiR2U5Kbn046xDH0DNqGc",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"accessCode\": \"XSK1T4\" // match_key, se cambío al forma antigua de matchkeys \"MATCH_XXXXXX\" A XXXXXX\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/notifications/matches/find-by-access-code",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"notifications",
+										"matches",
+										"find-by-access-code"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "low level player approve or reject",
+					"item": [
+						{
+							"name": "approve out level player",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"voting_player_id\":3, // jugador que está votando \r\n\"player_id\":2 // jugador que se encuentra en estado pendiente\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/match_teams/78/approve-player",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"match_teams",
+										"78",
+										"approve-player"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "reject out level player",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"voting_player_id\":1, // jugador que está votando \r\n\"player_id\":2 // jugador que se encuentra en estado pendiente\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/match_teams/78/reject-player",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"match_teams",
+										"78",
+										"reject-player"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "scores control",
+					"item": [
+						{
+							"name": "post score proposal (token)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"match_id\": 170,   // identificador del match\r\n  \"user_id\": 1,   // identificador del user que registra el score propuesto\r\n  \"team1_scores\": [\r\n    \"9\",\r\n    \"1\",\r\n    \"8\"\r\n  ],\r\n  \"team2_scores\": [\r\n    \"3\",\r\n    \"2\",\r\n    \"4\"\r\n  ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/match_score_proposals",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"match_score_proposals"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "post score vote (token)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"user_id\": 1,\r\n  \"match_id\": 104,  // Por defecto cuando solo se envía un voto usando el match_id, usará como referencia por defecto la propuesta más votada\r\n  \"approved\": true\r\n  //\"proposal_id\": 99   // campo opcional \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/match_score_proposals/vote",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"match_score_proposals",
+										"vote"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get  score vote (token)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/match_score_proposals/match/28",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"match_score_proposals",
+										"match",
+										"28"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get completed matches (token)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/matches/user/1/completed",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"matches",
+										"user",
+										"1",
+										"completed"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get score history (token)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/score_history/match/27",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"score_history",
+										"match",
+										"27"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "recalculate hours/games played by user",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/match_score_proposals/user/recalculate-all-users-stats",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"match_score_proposals",
+										"user",
+										"recalculate-all-users-stats"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "ranking control",
+					"item": [
+						{
+							"name": "get club ranking",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ1c3VhcmlvQGV4YW1wbGUuY29tIiwibmFtZSI6Ikp1YW4gUMOpcmV6IiwidHlwZSI6InVzZXIiLCJpYXQiOjE3Mzk3NjAzNjYsImV4cCI6MTczOTc2Mzk2Nn0.X9RNaX-pz47dHbc8TX6EpDhiR2U5Kbn046xDH0DNqGc",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/user-rankings/club/1?page=1&limit=20&userId=2&gender=male",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"user-rankings",
+										"club",
+										"1"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1",
+											"description": "paginador"
+										},
+										{
+											"key": "limit",
+											"value": "20",
+											"description": "limite"
+										},
+										{
+											"key": "userId",
+											"value": "2",
+											"description": "buscar la posicion de un jugador especifico"
+										},
+										{
+											"key": "search",
+											"value": "Juan",
+											"description": "buscador de nombres",
+											"disabled": true
+										},
+										{
+											"key": "gender",
+											"value": "male",
+											"description": "male,female,other"
+										},
+										{
+											"key": "minPlayerLevel",
+											"value": "0",
+											"disabled": true
+										},
+										{
+											"key": "maxPlayerLevel",
+											"value": "5",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get local ranking",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ1c3VhcmlvQGV4YW1wbGUuY29tIiwibmFtZSI6Ikp1YW4gUMOpcmV6IiwidHlwZSI6InVzZXIiLCJpYXQiOjE3Mzk3NjAzNjYsImV4cCI6MTczOTc2Mzk2Nn0.X9RNaX-pz47dHbc8TX6EpDhiR2U5Kbn046xDH0DNqGc",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/user-rankings/local/nearby?page=1&limit=20&userId=1&radius=115&minPlayerLevel=1&maxPlayerLevel=5",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"user-rankings",
+										"local",
+										"nearby"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "20"
+										},
+										{
+											"key": "userId",
+											"value": "1"
+										},
+										{
+											"key": "radius",
+											"value": "115",
+											"description": "rango de proximidad con otros jugadores para crear el listado de ranking local"
+										},
+										{
+											"key": "search",
+											"value": "a",
+											"description": "buscador de nombres de jugadores",
+											"disabled": true
+										},
+										{
+											"key": "gender",
+											"value": "other",
+											"description": "male, female, other",
+											"disabled": true
+										},
+										{
+											"key": "minPlayerLevel",
+											"value": "1"
+										},
+										{
+											"key": "maxPlayerLevel",
+											"value": "5"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get country ranking",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/user-rankings/user/20/country?page=1&limit=20",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"user-rankings",
+										"user",
+										"20",
+										"country"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "20"
+										},
+										{
+											"key": "search",
+											"value": "a",
+											"disabled": true
+										},
+										{
+											"key": "minPlayerLevel",
+											"value": "0",
+											"disabled": true
+										},
+										{
+											"key": "maxPlayerLevel",
+											"value": "5",
+											"disabled": true
+										},
+										{
+											"key": "gender",
+											"value": "male",
+											"description": "male, female, other",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get global ranking",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/user-rankings/user/1/global?page=1&limit=20&minPlayerLevel=0&mixPlayerLevel=5&gender=male",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"user-rankings",
+										"user",
+										"1",
+										"global"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "20"
+										},
+										{
+											"key": "search",
+											"value": "L",
+											"disabled": true
+										},
+										{
+											"key": "minPlayerLevel",
+											"value": "0"
+										},
+										{
+											"key": "mixPlayerLevel",
+											"value": "5"
+										},
+										{
+											"key": "gender",
+											"value": "male",
+											"description": "male, female, other"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "events control",
+					"item": [
+						{
+							"name": "create event",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer YOUR_JWT_TOKEN"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Summer Tournament 2025\",\r\n  \"description\": \"Friendly tournament for all levels with prizes\",\r\n  \"event_type\": \"tournament\",\r\n  \"from_date\": \"2025-07-15T09:00:00.000Z\",\r\n  \"to_date\": \"2025-07-16T18:00:00.000Z\",\r\n  \"club_id\": 1,\r\n  \"country_iso\": \"COP\",\r\n  \"min_level\": 2.0,\r\n  \"max_level\": 5.0,\r\n  \"gender\": \"all\",\r\n  \"format\": \"single_elimination\",\r\n  \"category\": \"mixed\",\r\n  \"price\": 50.0,\r\n  \"registration_start\": \"2025-06-01T09:00:00.000Z\",\r\n  \"registration_end\": \"2025-07-10T18:00:00.000Z\",\r\n  \"cancellation_deadline\": \"2025-07-05T18:00:00.000Z\",\r\n  \"event_image\": \"https://www.padelfip.com/wp-content/uploads/2025/01/WhatsApp-Image-2025-01-29-at-13.32.12-212x300.jpeg\",\r\n  \"creator_id\": 1,\r\n  \"event_subtype\": \"Championship\",\r\n  \"income\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/events",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"events"
+									]
+								},
+								"description": "Generated from cURL: curl --location '{{host}}/events' \\\r\n--header 'Accept: application/json' \\\r\n--header 'Content-Type: application/json' \\\r\n--header 'Authorization: Bearer YOUR_JWT_TOKEN' \\\r\n--data '{\r\n  \"name\": \"Summer Tournament 2025\",\r\n  \"description\": \"Friendly tournament for all levels with prizes\",\r\n  \"event_type\": \"tournament\",\r\n  \"from_date\": \"2025-07-15T09:00:00.000Z\",\r\n  \"to_date\": \"2025-07-16T18:00:00.000Z\",\r\n  \"club_id\": 1,\r\n  \"country_iso\": \"COP\",\r\n  \"min_level\": 2.0,\r\n  \"max_level\": 5.0,\r\n  \"gender\": \"all\",\r\n  \"format\": \"single_elimination\",\r\n  \"participants_count\": 32,\r\n  \"category\": \"mixed\",\r\n  \"price\": 50.0,\r\n  \"registration_start\": \"2025-06-01T09:00:00.000Z\",\r\n  \"registration_end\": \"2025-07-10T18:00:00.000Z\",\r\n  \"cancellation_deadline\": \"2025-07-05T18:00:00.000Z\",\r\n  \"event_image\": \"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQ... or https://example.com/image.jpg\",\r\n  \"creator_id\": 1,\r\n  \"event_subtype\": \"Championship\",\r\n  \"income\": 0\r\n}'\r\n# Uses: Create tournaments, events, clinics. Same day events (from_date = to_date). Image as base64 or URL. All fields optional except name, dates, club_id"
+							},
+							"response": []
+						},
+						{
+							"name": "get event",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/events/3",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"events",
+										"3"
+									]
+								},
+								"description": "Generated from cURL: curl --location '{{host}}/events/1' \\\r\n--header 'Accept: application/json' \\\r\n--header 'Content-Type: application/json'\r\n# Uses: Get event details, includes relations (club, creator, event_users)"
+							},
+							"response": []
+						},
+						{
+							"name": "get events by region",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/events/by-region?country_region=COP&from_date=2025-03-01T00:00:00.000Z&to_date=2025-03-31T23:59:59.999Z",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"events",
+										"by-region"
+									],
+									"query": [
+										{
+											"key": "country_region",
+											"value": "COP",
+											"description": "all, ESP, COP, ..."
+										},
+										{
+											"key": "from_date",
+											"value": "2025-03-01T00:00:00.000Z"
+										},
+										{
+											"key": "to_date",
+											"value": "2025-03-31T23:59:59.999Z"
+										}
+									]
+								},
+								"description": "Generated from cURL: curl --location '{{host}}/events/by-region?country_region=COP&from_date=2025-03-01T00:00:00.000Z&to_date=2025-03-31T23:59:59.999Z' \\\r\n--header 'Accept: application/json' \\\r\n--header 'Content-Type: application/json'\r\n# Uses: Filter by country (COP, ESP, all), date ranges, regional events"
+							},
+							"response": []
+						},
+						{
+							"name": "get all events with filters",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/events/search?gender=women",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"events",
+										"search"
+									],
+									"query": [
+										{
+											"key": "countryIso",
+											"value": "COP",
+											"description": "all, COP, ESP",
+											"disabled": true
+										},
+										{
+											"key": "eventType",
+											"value": "tournament",
+											"description": "tournament, event, clinic",
+											"disabled": true
+										},
+										{
+											"key": "minLevel",
+											"value": "2.5",
+											"disabled": true
+										},
+										{
+											"key": "maxLevel",
+											"value": "4.5",
+											"disabled": true
+										},
+										{
+											"key": "gender",
+											"value": "women",
+											"description": "all, men , women"
+										},
+										{
+											"key": "fromDate",
+											"value": "2025-03-01T00:00:00.000Z",
+											"disabled": true
+										},
+										{
+											"key": "toDate",
+											"value": "2025-12-31T23:59:59.999Z",
+											"disabled": true
+										},
+										{
+											"key": "clubId",
+											"value": "1",
+											"disabled": true
+										}
+									]
+								},
+								"description": "Generated from cURL: curl --location '{{host}}/events?countryIso=COP&eventType=tournament&gender=male&fromDate=2025-03-01T00:00:00.000Z&toDate=2025-12-31T23:59:59.999Z&clubId=1' \\\r\n--header 'Accept: application/json' \\\r\n--header 'Content-Type: application/json'\r\n# Uses: All optional filters - countryIso, eventType (tournament/event/clinic), gender (male/female/all), dates, clubId"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "checkversion",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"so\": \"ios\",\r\n  \"current_version\": 0.4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/check_version",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"check_version"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "send error report",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"category\": \"Technical issue\", // categorías/tipos de reportes\r\n  \"description\": \"The app crashed when I tried to update my profile picture\",\r\n  \"user_id\": 1  // id del user que genera el reporte\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/error_reports/report_error",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"error_reports",
+								"report_error"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get error reports",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/error_reports",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"error_reports"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Estas rutas permite acceder a los servicios correspondientes a la gestión de usuarios tipo jugadores (players).\n\nActualmente solo la ruta get user está asegurada con jwt y validación de datos propios, los demas se dejan libres de token temporalmente para pruebas."
+		},
+		{
+			"name": "RUTAS BACKOFFICE",
+			"item": [
+				{
+					"name": "Custom calls for views",
+					"item": [
+						{
+							"name": "DASHBOARD-VIEW",
+							"item": [
+								{
+									"name": "get Dashboard Stats",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}/matches/dashboard/stats/club/1?startDate=2025-04-01T00:00:00.000Z&endDate=2025-04-11T23:59:59.999Z&courtIds=1,2,3,4,5&gameTypes=open,tournament&playerLevels=0,3",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"matches",
+												"dashboard",
+												"stats",
+												"club",
+												"1"
+											],
+											"query": [
+												{
+													"key": "startDate",
+													"value": "2025-04-01T00:00:00.000Z"
+												},
+												{
+													"key": "endDate",
+													"value": "2025-04-11T23:59:59.999Z"
+												},
+												{
+													"key": "courtIds",
+													"value": "1,2,3,4,5"
+												},
+												{
+													"key": "gameTypes",
+													"value": "open,tournament"
+												},
+												{
+													"key": "",
+													"value": "",
+													"disabled": true
+												},
+												{
+													"key": "",
+													"value": "",
+													"disabled": true
+												},
+												{
+													"key": "playerLevels",
+													"value": "0,3"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get activity per day/week/month",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}/matches/dashboard/chart/club/1?groupBy=day&startDate=2025-04-01T00:00:00.000Z&endDate=2025-04-21T23:59:59.999Z",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"matches",
+												"dashboard",
+												"chart",
+												"club",
+												"1"
+											],
+											"query": [
+												{
+													"key": "groupBy",
+													"value": "day"
+												},
+												{
+													"key": "startDate",
+													"value": "2025-04-01T00:00:00.000Z"
+												},
+												{
+													"key": "endDate",
+													"value": "2025-04-21T23:59:59.999Z"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"description": "Rutas para alimentar el backoffice en su vista de Dashboard"
+						},
+						{
+							"name": "GAMES-CALENDAR-VIEW",
+							"item": [
+								{
+									"name": "get Games Stats",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}/matches/calendar/stats/club/1",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"matches",
+												"calendar",
+												"stats",
+												"club",
+												"1"
+											],
+											"query": [
+												{
+													"key": "startDate",
+													"value": "2025-04-05T00:00:00.000Z",
+													"description": "opcional",
+													"disabled": true
+												},
+												{
+													"key": "endDate",
+													"value": "2025-04-10T00:00:00.000Z",
+													"description": "opcional",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get All Calendar Data",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}/matches/calendar/view?date=2025-04-06T00:00:00.000Z",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"matches",
+												"calendar",
+												"view"
+											],
+											"query": [
+												{
+													"key": "date",
+													"value": "2025-04-06T00:00:00.000Z"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get Club Calendar Data",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}/matches/calendar/view/club/1?date=2025-06-4",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"matches",
+												"calendar",
+												"view",
+												"club",
+												"1"
+											],
+											"query": [
+												{
+													"key": "search",
+													"value": "ivan",
+													"disabled": true
+												},
+												{
+													"key": "date",
+													"value": "2025-06-4"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get Club List Data",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}/matches/calendar/list/club/1?sortOrder=-&sortBy=court_level",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"matches",
+												"calendar",
+												"list",
+												"club",
+												"1"
+											],
+											"query": [
+												{
+													"key": "startDate",
+													"value": "2025-04-01T00:00:00.000Z",
+													"disabled": true
+												},
+												{
+													"key": "endDate",
+													"value": "2025-05-15T00:00:00.000Z",
+													"disabled": true
+												},
+												{
+													"key": "page",
+													"value": "1",
+													"disabled": true
+												},
+												{
+													"key": "limit",
+													"value": "10",
+													"disabled": true
+												},
+												{
+													"key": "status",
+													"value": "confirmed",
+													"description": "confirmed ó cancelled ó pending ó completed",
+													"disabled": true
+												},
+												{
+													"key": "search",
+													"value": "Copernicu",
+													"description": "opción de search para los campos (book id, court name, player name)",
+													"disabled": true
+												},
+												{
+													"key": "sortOrder",
+													"value": "-"
+												},
+												{
+													"key": "sortBy",
+													"value": "court_level"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"description": "Rutas para alimentar el backoffice en su vista de Games con Formato List y Calendar"
+						},
+						{
+							"name": "PLAYERS-VIEW",
+							"item": [
+								{
+									"name": "get players stats",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}/users/club/stats?clubId=1",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"users",
+												"club",
+												"stats"
+											],
+											"query": [
+												{
+													"key": "clubId",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get players list from club",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}/users/search/players?clubId=2&page=1&limit=3&sortBy=level&sortOrder=+",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"users",
+												"search",
+												"players"
+											],
+											"query": [
+												{
+													"key": "clubId",
+													"value": "2",
+													"description": "campo opcional para filtrar players por clubs"
+												},
+												{
+													"key": "page",
+													"value": "1",
+													"description": "contador de pagina"
+												},
+												{
+													"key": "limit",
+													"value": "3",
+													"description": "limite de registros por pagina"
+												},
+												{
+													"key": "sortBy",
+													"value": "level",
+													"description": "name,email,level,register,games,lastGame"
+												},
+												{
+													"key": "sortOrder",
+													"value": "+"
+												},
+												{
+													"key": "search",
+													"value": "copernicus",
+													"description": "busca por nombre o por email",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"description": "Rutas para alimentar el backoffice en su vista de Players"
+						}
+					],
+					"description": "Estas llamadas no retornar directamente operaciones básicas crud de un modelo, si no que se realizan integraciones multi modelos para generar estadisticas,"
+				},
+				{
+					"name": "Register module",
+					"item": [
+						{
+							"name": "primer registro organization",
+							"item": [
+								{
+									"name": "create organization user",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"organization\": {\r\n    \"name\": \"Padel Organization 1\"\r\n  },\r\n  \"clubUser\": {\r\n    \"email\": \"clubpadel40@example.com\",\r\n    \"password\": \"securepassword123\",\r\n    \"name\": \"Juan jose\",\r\n    \"last_name\": \"Pérez Macias\",\r\n    \"phone\": \"+34612345678\"\r\n  },\r\n  \"club\": {\r\n    \"club_name\": \"Club de Pádel Elite\",\r\n    \"club_logo\": \"data:image/png;base64,iV....\",\r\n    \"location\": \"Avenida Principal 123, Ciudad Padel\",\r\n    \"location_coordinate\": \"40.4168,-3.7038\",\r\n    \"courtsAvailable\": 5,\r\n    \"openMatches\": 2,\r\n    \"status\": \"enabled\"\r\n  }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/club_users/organization",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"club_users",
+												"organization"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"description": "Ruta custom para facilitar el registro inegrando en un solo llamado los registros de organization, club y club user; relacionandolos automaticamente."
+						}
+					],
+					"description": "Módulo de registro para organizaciones (espacio de trabajo), clubs y clubs users."
+				},
+				{
+					"name": "Login module",
+					"item": [
+						{
+							"name": "club_user login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"clubpadel1@example.com\",\r\n  \"password\": \"securepassword123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/auth/club_login",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"auth",
+										"club_login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "club_user login_otp",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"aragonantar@gmail.com\"  // enviar unicamente el email para envío de código OTP al email del usuario\r\n // ,\"password\": \"735488\"          // descomentar y enviar junto con el email, tambien el password para verificar código\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/auth/club_login_otp",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"auth",
+										"club_login_otp"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "refresh token",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJ1c3VhcmlvQGV4YW1wbGUuY29tIiwibmFtZSI6Ikp1YW4gUMOpcmV6IiwiaWF0IjoxNzM5MzQ3NDY4LCJleHAiOjE3Mzk5NTIyNjh9.rBNICxjKzkA3DujiP4by5ecYksZKRT8tUHOwO2boy9g\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/auth/refresh",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"auth",
+										"refresh"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Módulo de ingreso para clubusers."
+				},
+				{
+					"name": "Players module",
+					"item": [
+						{
+							"name": "create player",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"usuario@example.com\",\r\n  \"name\": \"Juan\",\r\n  \"lastname\": \"Pérez\",\r\n  \"full_name\": \"Juan Pérez\",\r\n  \"gender\": \"male\",\r\n  \"phone\": \"+521234567890\",\r\n  \"nationality_id\": 1,\r\n  \"location\": \"Ciudad de México\",\r\n  \"club_id\": 1,\r\n  \"playingHand\": \"\",   //['left', 'right', 'both']\r\n  \"gameModePreference\": \"\", //['competitive', 'friendly', 'both'],\r\n  \"playerLevel\": 5.0,\r\n  \"photo\": \"base64 ó url\",\r\n  \"preferredCourtSide\": \"\" //['left', 'right', 'both']\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Módulo de jugadores para crear un jugador desde la pataforma backoffice y asignar password aleatorea."
+				},
+				{
+					"name": "Organization module",
+					"item": [
+						{
+							"name": "create organization",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Padel Organization\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/organizations",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"organizations"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all organizations",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/organizations",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"organizations"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get organization",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/organizations/1",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"organizations",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update organizations",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Updated Padel Organization\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/organizations/1",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"organizations",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete organization",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/organizations/2",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"organizations",
+										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Módulo de registro de organización (espacio de trabajo).\n\nPermite crear de forma individual una organización sin enlace automático a un club o club_user previo."
+				},
+				{
+					"name": "Clubs module",
+					"item": [
+						{
+							"name": "create club",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"club_name\": \"Club de Pádel Elite Norte\",\r\n  \"club_logo\": \"data:image/png;base64,iV....\",\r\n  \"location\": \"Avenida Principal 125, Ciudad Padel\",\r\n  \"location_coordinate\": \"40.4268,-3.7138\",\r\n  \"status\": \"enabled\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/clubs",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"clubs"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "assign organization-club",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"clubId\": 1,\r\n  \"organizationId\": 1,\r\n  \"role\": \"manager\",\r\n  \"clubUserId\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/club_gestor",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"club_gestor"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all clubs",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/clubs?clubId=2",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"clubs"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "clubId",
+											"value": "2",
+											"description": "// este filtro es para backoffice"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get club",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/clubs/1",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"clubs",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update club",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"club_name\": \"updated Club de Pádel Elite\",\r\n  \"club_logo\": \"data:image/png;base64,iV.... updated\",\r\n  \"location\": \"updated Avenida Principal 123, Ciudad Padel\",\r\n  \"location_coordinate\": \" updated 40.4168,-3.7038\",\r\n  \"status\": \"disabled\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/clubs/1",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"clubs",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete club",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/clubs/1",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"clubs",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Módulo de registro de clubs (solo información general del club).  \n  \nPermite crear de forma individual un club sin enlace automático a una organización o club_user previo."
+				},
+				{
+					"name": "Club_user module",
+					"item": [
+						{
+							"name": "create club user",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"clubpadel1@example.com\",\r\n  \"password\": \"securepassword123\",\r\n  \"club_admin_full_name\": \"Juan Pérez1\",\r\n  \"club_admin_phone\": \"+34612345678\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/club_users",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"club_users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get clubs users relations (admin)",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJjbHVicGFkZWwxMEBleGFtcGxlLmNvbSIsImltYWdlIjoidXBsb2Fkcy9wcm9maWxlcy9pbWFnZS03MDQ5MjMyMi1kM2M0LTRiNmMtYTc1My1iZmY0Y2QzNjJjMjYucG5nIiwibmFtZSI6Ikp1YW4gUMOpcmV6IiwidHlwZSI6ImNsdWIiLCJjbHVicyI6W3siY2x1YklkIjoyLCJjbHViTmFtZSI6IkNsdWIgZGUgUMOhZGVsIEVsaXRlIiwiY2x1YkxvZ28iOiJ1cGxvYWRzL3Byb2ZpbGVzL2ltYWdlLTcwNDkyMzIyLWQzYzQtNGI2Yy1hNzUzLWJmZjRjZDM2MmMyNi5wbmciLCJyb2xlIjoibWFuYWdlciJ9XSwiY2x1YlJvbGVzIjp7IjIiOiJtYW5hZ2VyIn0sIm9yZ2FuaXphdGlvbnMiOlt7Im9yZ2FuaXphdGlvbklkIjoyLCJvcmdhbml6YXRpb25OYW1lIjoiUGFkZWwgQ2VudHJvIE9yZ2FuaXphdGlvbiJ9XSwicGhvbmUiOiIrMzQ2MTIzNDU2NzgiLCJpYXQiOjE3NDEyMzk0MDUsImV4cCI6MTc0MTI0MzAwNX0.4VilJ1I6rZdoA5dkl-F-rLmUVKHnmF7R0aga3hkWnCo",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/club_gestor",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"club_gestor"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get club user relations (token)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/club_gestor/3",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"club_gestor",
+										"3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get club user (token)",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJjbHVicGFkZWxAZXhhbXBsZS5jb20iLCJpbWFnZSI6InVwbG9hZHMvcHJvZmlsZXMvaW1hZ2UtOWZmMTE1MTEtZTgyZi00MDRkLTg0MDUtNGMzMWVhYWEwMjU2LnBuZyIsIm5hbWUiOiJKdWFuIFDDqXJleiIsInR5cGUiOiJjbHViIiwiY2x1YnMiOlt7ImNsdWJJZCI6MSwiY2x1Yk5hbWUiOiJDbHViIGRlIFDDoWRlbCBFbGl0ZSIsImNsdWJMb2dvIjoidXBsb2Fkcy9wcm9maWxlcy9pbWFnZS05ZmYxMTUxMS1lODJmLTQwNGQtODQwNS00YzMxZWFhYTAyNTYucG5nIiwicm9sZSI6Im1hbmFnZXIifSx7ImNsdWJJZCI6MywiY2x1Yk5hbWUiOiJDbHViIGRlIFDDoWRlbCBFbGl0ZSIsImNsdWJMb2dvIjoidXBsb2Fkcy9wcm9maWxlcy9pbWFnZS1jODQ4NDYzNy03NTExLTRmMDMtOTg1ZS1iOTUxZDYwMmE2YjAucG5nIiwicm9sZSI6Im1hbmFnZXIifSx7ImNsdWJJZCI6MiwiY2x1Yk5hbWUiOiJDbHViIGRlIFDDoWRlbCBFbGl0ZSIsImNsdWJMb2dvIjoidXBsb2Fkcy9wcm9maWxlcy9pbWFnZS03MDQ5MjMyMi1kM2M0LTRiNmMtYTc1My1iZmY0Y2QzNjJjMjYucG5nIiwicm9sZSI6ImNvYWNoIn1dLCJjbHViUm9sZXMiOnsiMSI6Im1hbmFnZXIiLCIyIjoiY29hY2giLCIzIjoibWFuYWdlciJ9LCJvcmdhbml6YXRpb25zIjpbeyJvcmdhbml6YXRpb25JZCI6MSwib3JnYW5pemF0aW9uTmFtZSI6IlNwb3J0cyBPcmdhbml6YXRpb24ifSx7Im9yZ2FuaXphdGlvbklkIjoyLCJvcmdhbml6YXRpb25OYW1lIjoiUGFkZWwgQ2VudHJvIE9yZ2FuaXphdGlvbiJ9XSwicGhvbmUiOiIrMzQ2MTIzNDU2NzgiLCJpYXQiOjE3NDA5OTU5NjEsImV4cCI6MTc0MDk5OTU2MX0.SNdMNJwLhtgBlMy-LmJpObatvLz9MHAbGmhfaM4b5W8",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/club_users/2",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"club_users",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update club user(token)",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"updated2padel@example.com\",\r\n  \"password\": \"updatedsecurepassword123\",\r\n  \"club_admin_full_name\": \"updated Jorge Cardozo\",\r\n  \"club_admin_phone\": \"+52 1234567890\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/club_users/5",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"club_users",
+										"5"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete club user (token)",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/club_users/5",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"club_users",
+										"5"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Módulo de registro de club_user (realciona una organización con un club ademas de permitir agregar datos del club_user en especifico).  \n  \nPermite crear de forma individual un club_user enlazando a un club y una organización creados previamente."
+				},
+				{
+					"name": "Courts module",
+					"item": [
+						{
+							"name": "create court (token)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"club_id\": 1,\r\n  \"court_name\": \"Cancha #1\",\r\n  \"court_type\": \"open\", // Opciones: \"cover\" o \"open\"\r\n  \"status\": \"enabled\", // Opciones: \"enabled\" o \"disabled\"\r\n  \"color\": \"blue\", // Opciones: \"red\", \"blue\", \"green\", \"yellow\", \"orange\", \"purple\", \"pink\", \"brown\", \"black\", \"teal\" (opcional)\r\n  \"has_lights\": true, // true si tiene iluminación para juegos nocturnos, false si no (opcional)\r\n  \"court_booking_interval\": 60 // tiempo en minutos (opcional, mínimo 30)\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/courts",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"courts"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get courts by club id (token)",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/courts/club/3",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"courts",
+										"club",
+										"3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create court prices (token)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"court_id\": 2,\r\n  \"price\": 35,\r\n  \"description\": \"Precio de alta demanda\",\r\n  \"startDate\": \"2025-05-01\",\r\n  \"endDate\": \"2025-05-31\",\r\n  \"startTime\": \"11:00\",\r\n  \"endTime\": \"22:00\",\r\n  \"currency\": \"USD\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/court_prices",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"court_prices"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get courts available(token)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/courts_availables?date=2025-04-22T03:00:00.000Z",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"courts_availables"
+									],
+									"query": [
+										{
+											"key": "date",
+											"value": "2025-04-22T03:00:00.000Z"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Rutas para el registro, lectura y control en general de las canchas.  \nSe pueden efectuar operaciones como:\n\n- crear canchas.\n    \n- obtener el listado de canchas registradas de un club.\n    \n- registrar precio por el uso de una cancha empleando un rango de fechas y horas.\n    \n- obtener listado de canchas disponibles para nuevas reservas."
+				},
+				{
+					"name": "Matchs module",
+					"item": [
+						{
+							"name": "create match (token)",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJjbHVicGFkZWwyQGV4YW1wbGUuY29tIiwiaW1hZ2UiOiJ1cGxvYWRzL3Byb2ZpbGVzL2ltYWdlLTZhOTdjZjk1LTVhOTgtNDlmYi1iNDFlLWU5MzAxODVjMzI3Yy5wbmciLCJuYW1lIjoiSnVhbiBQw6lyZXoiLCJ0eXBlIjoiY2x1YiIsImNsdWJzIjpbeyJjbHViSWQiOjMsImNsdWJOYW1lIjoiQ2x1YiBkZSBQw6FkZWwgRWxpdGUgIzIiLCJjbHViTG9nbyI6InVwbG9hZHMvcHJvZmlsZXMvaW1hZ2UtNmE5N2NmOTUtNWE5OC00OWZiLWI0MWUtZTkzMDE4NWMzMjdjLnBuZyIsInJvbGUiOiJvcmdhbml6YXRpb24ifV0sImNsdWJSb2xlcyI6eyIzIjoib3JnYW5pemF0aW9uIn0sIm9yZ2FuaXphdGlvbnMiOlt7Im9yZ2FuaXphdGlvbklkIjozLCJvcmdhbml6YXRpb25OYW1lIjoiUGFkZWwgT3JnYW5pemF0aW9uICMyIn1dLCJwaG9uZSI6IiszNDYxMjM0NTY3OCIsImlhdCI6MTc0MjAwMTAxNywiZXhwIjoxNzQyMDA0NjE3fQ.1TvzyYP_1B_N40YQ0lypHymLCSkdp1PIQW-Yc7RE_50",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"dates\": [\"2025-06-30\"],\r\n  \"court_id\": 1,\r\n  \"start_time\": \"16:00\",\r\n  \"end_time\": \"17:00\",\r\n  \"match_description\": \"Partido amistoso de padel, en la cancha #1\",\r\n  \"type\": \"open\", // Opciones: \"open\", \"private\", \"training\", \"tournament\", \"external\"\r\n  \"minimum_level\": 2.5, // Rango: 1.0 - 10.0 (con un decimal)\r\n  \"maximum_level\": 3.5, // Rango: 1.0 - 10.0 (con un decimal)\r\n  \"game_mode\": \"competitive\", // Opciones: \"competitive\", \"friendly\"\r\n  \"player_filter\": \"all\", // Opciones: \"all\", \"mens\", \"womens\"\r\n  \"teams\": [1,2,3,4] // ID de los usuarios para integrar al match\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/matches/team",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"matches",
+										"team"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "find users (token)",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ1c3VhcmlvQGV4YW1wbGUuY29tIiwibmFtZSI6Ikp1YW4gUMOpcmV6IiwidHlwZSI6InVzZXIiLCJpYXQiOjE3Mzk3NjAzNjYsImV4cCI6MTczOTc2Mzk2Nn0.X9RNaX-pz47dHbc8TX6EpDhiR2U5Kbn046xDH0DNqGc",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"searchTerm\":\"\", // busca dentro de los campos de full_name, email y phone.\r\n    \"matchId\": 158\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/users/find",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"users",
+										"find"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "assign match teams (token)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"match_id\": 170, // match de ejemplo previamente creado con ID #17\r\n  \"user_id\": 1,   // usuario de ejemplo previamente creado con ID #1\r\n  \"team\": \"team1\",\r\n  \"position\": \"left\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -851,357 +3246,11 @@
 							},
 							"response": []
 						}
-					]
+					],
+					"description": "Rutas para el registro, lectura y control en general de las canchas.  \nSe pueden efectuar operaciones como:\n\n- crear reservas (tambien definido como book, match, vs, etc) .\n    \n- buscar jugadores (para asignar al juego o realizar invitaciones).\n    \n- asignar jugadores a la reserva.\n    \n- obtener listado de reservas de mi club.\n    \n- obtener listado de reservas pendientes (ya agendadas y faltantes de empezar el juego) de un jugador especificado.\n    \n- obtener informacion de una reserva especifica.\n    \n- obtener todas las reservas de un jugador (reservas ya jugadas, canceladas, pendientes, etc)."
 				},
 				{
-					"name": "matchs invitations",
-					"item": [
-						{
-							"name": "send match invitation (token)",
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ1c3VhcmlvQGV4YW1wbGUuY29tIiwibmFtZSI6Ikp1YW4gUMOpcmV6IiwidHlwZSI6InVzZXIiLCJpYXQiOjE3Mzk3NjAzNjYsImV4cCI6MTczOTc2Mzk2Nn0.X9RNaX-pz47dHbc8TX6EpDhiR2U5Kbn046xDH0DNqGc",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"recipients\": [17\r\n  ],\r\n    \"matchId\": 111,\r\n    \"matchKey\": \"MATCH_YYYYYY\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{host}}/matches/invitations/send",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"matches",
-										"invitations",
-										"send"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "get user notifications",
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ1c3VhcmlvQGV4YW1wbGUuY29tIiwibmFtZSI6Ikp1YW4gUMOpcmV6IiwidHlwZSI6InVzZXIiLCJpYXQiOjE3Mzk3NjAzNjYsImV4cCI6MTczOTc2Mzk2Nn0.X9RNaX-pz47dHbc8TX6EpDhiR2U5Kbn046xDH0DNqGc",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{host}}/notifications/user/6?includeRead=true&types=MATCH_INVITATION",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"notifications",
-										"user",
-										"6"
-									],
-									"query": [
-										{
-											"key": "includeRead",
-											"value": "true",
-											"description": "incluir los mensajes ya leidos por el user?"
-										},
-										{
-											"key": "types",
-											"value": "MATCH_INVITATION",
-											"description": "tipos de notificaciones"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "set invitation acceptance",
-							"request": {
-								"method": "PATCH",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ1c3VhcmlvQGV4YW1wbGUuY29tIiwibmFtZSI6Ikp1YW4gUMOpcmV6IiwidHlwZSI6InVzZXIiLCJpYXQiOjE3Mzk3NjAzNjYsImV4cCI6MTczOTc2Mzk2Nn0.X9RNaX-pz47dHbc8TX6EpDhiR2U5Kbn046xDH0DNqGc",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"id_invitacion\": \"123e4567-e89b-12d3-a456-426614174000\", // id de la notifiacion de invitaci+on\r\n  \"accepted\": true   // definir si se acepta o no la invitación, si se acepta se marca como aceptada la invitación y se cambian los demas estados de la invitación para no volver a verla. y si no se acepta igualmente se cambian los estados para no verla y se marca como invitación denegada.\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{host}}/notifications/invitation/status?includeRead=true",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"notifications",
-										"invitation",
-										"status"
-									],
-									"query": [
-										{
-											"key": "includeRead",
-											"value": "true",
-											"description": "incluir los mensajes ya leidos por el user?"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "find match by match key",
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ1c3VhcmlvQGV4YW1wbGUuY29tIiwibmFtZSI6Ikp1YW4gUMOpcmV6IiwidHlwZSI6InVzZXIiLCJpYXQiOjE3Mzk3NjAzNjYsImV4cCI6MTczOTc2Mzk2Nn0.X9RNaX-pz47dHbc8TX6EpDhiR2U5Kbn046xDH0DNqGc",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"accessCode\": \"XSK1T4\" // match_key, se cambío al forma antigua de matchkeys \"MATCH_XXXXXX\" A XXXXXX\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{host}}/notifications/matches/find-by-access-code",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"notifications",
-										"matches",
-										"find-by-access-code"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "low level player approve or reject",
-					"item": [
-						{
-							"name": "approve out level player",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n\"voting_player_id\":3, // jugador que está votando \r\n\"player_id\":2 // jugador que se encuentra en estado pendiente\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{host}}/match_teams/78/approve-player",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"match_teams",
-										"78",
-										"approve-player"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "reject out level player",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n\"voting_player_id\":1, // jugador que está votando \r\n\"player_id\":2 // jugador que se encuentra en estado pendiente\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{host}}/match_teams/78/reject-player",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"match_teams",
-										"78",
-										"reject-player"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "scores control",
-					"item": [
-						{
-							"name": "post score proposal (token)",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"match_id\": 104,   // identificador del match\r\n  \"user_id\": 1,   // identificador del user que registra el score propuesto\r\n  \"team1_scores\": [\r\n    \"3\",\r\n    \"7\",\r\n    \"1\"\r\n  ],\r\n  \"team2_scores\": [\r\n    \"9\",\r\n    \"6\",\r\n    \"9\"\r\n  ]\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{host}}/match_score_proposals",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"match_score_proposals"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "post score vote (token)",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"user_id\": 1,\r\n  \"match_id\": 104,  // Por defecto cuando solo se envía un voto usando el match_id, usará como referencia por defecto la propuesta más votada\r\n  \"approved\": true\r\n  //\"proposal_id\": 99   // campo opcional \r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{host}}/match_score_proposals/vote",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"match_score_proposals",
-										"vote"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "get  score vote (token)",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{host}}/match_score_proposals/match/28",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"match_score_proposals",
-										"match",
-										"28"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "get completed matches (token)",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{host}}/matches/user/1/completed",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"matches",
-										"user",
-										"1",
-										"completed"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "get score history (token)",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{host}}/score_history/match/27",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"score_history",
-										"match",
-										"27"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "recalculate hours/games played by user",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"url": {
-									"raw": "{{host}}/match_score_proposals/user/recalculate-all-users-stats",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"match_score_proposals",
-										"user",
-										"recalculate-all-users-stats"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "events control",
+					"name": "Events module",
 					"item": [
 						{
 							"name": "create event",
@@ -1329,7 +3378,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{host}}/events/search?countryIso=COP&eventType=tournament&minLevel=2.5&maxLevel=4.5&gender=all&fromDate=2025-03-01T00:00:00.000Z&toDate=2025-12-31T23:59:59.999Z&clubId=1",
+									"raw": "{{host}}/events/search?gender=women",
 									"host": [
 										"{{host}}"
 									],
@@ -1341,35 +3390,44 @@
 										{
 											"key": "countryIso",
 											"value": "COP",
-											"description": "all, COP, ESP"
+											"description": "all, COP, ESP",
+											"disabled": true
 										},
 										{
 											"key": "eventType",
-											"value": "tournament"
+											"value": "tournament",
+											"description": "tournament, event, clinic",
+											"disabled": true
 										},
 										{
 											"key": "minLevel",
-											"value": "2.5"
+											"value": "2.5",
+											"disabled": true
 										},
 										{
 											"key": "maxLevel",
-											"value": "4.5"
+											"value": "4.5",
+											"disabled": true
 										},
 										{
 											"key": "gender",
-											"value": "all"
+											"value": "women",
+											"description": "all, men , women"
 										},
 										{
 											"key": "fromDate",
-											"value": "2025-03-01T00:00:00.000Z"
+											"value": "2025-03-01T00:00:00.000Z",
+											"disabled": true
 										},
 										{
 											"key": "toDate",
-											"value": "2025-12-31T23:59:59.999Z"
+											"value": "2025-12-31T23:59:59.999Z",
+											"disabled": true
 										},
 										{
 											"key": "clubId",
-											"value": "1"
+											"value": "1",
+											"disabled": true
 										}
 									]
 								},
@@ -1380,1519 +3438,208 @@
 					]
 				},
 				{
-					"name": "checkversion",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"so\": \"ios\",\r\n  \"current_version\": 0.4\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{host}}/check_version",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"check_version"
-							]
+					"name": "Events_users module",
+					"item": [
+						{
+							"name": "New Request",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
 						}
-					},
-					"response": []
+					]
 				},
 				{
-					"name": "send error report",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"category\": \"Technical issue\", // categorías/tipos de reportes\r\n  \"description\": \"The app crashed when I tried to update my profile picture\",\r\n  \"user_id\": 1  // id del user que genera el reporte\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+					"name": "payments module",
+					"item": [
+						{
+							"name": "club payment config",
+							"item": [
+								{
+									"name": "create club paypal method of payment",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"club_id\": 1,\r\n  \"paypal_client_id\": \"AV8hUnhohie8fVxk6UaiEd60k7ZzBavnzo1ekUe7rxCBsysb406IO2QdBUA2\",\r\n  \"paypal_client_secret\":\"EMOqSQCEmv5XcPZWEcH6ZaJ0qlWrw46ZprjenWZmVrE3JXJiTJTxCnvJu6We0KjND1gcxMo\",\r\n  \"paypal_environment\": \"sandbox\",\r\n  \"is_active\": true\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/club_payment_configs",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"club_payment_configs"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get club paypal method of payment",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}/club_payment_configs",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"club_payment_configs"
+											]
+										}
+									},
+									"response": []
 								}
-							}
+							]
 						},
-						"url": {
-							"raw": "{{host}}/error_reports/report_error",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"error_reports",
-								"report_error"
+						{
+							"name": "users match payment",
+							"item": [
+								{
+									"name": "create match payment",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"user_id\": 1,    // asignamos un pago pendiente para el user con id\r\n  \"match_id\": 223,  // referenciando el match id\r\n  \"club_id\": 1,  // y tambien referenciando al club\r\n  \"success_url\": \"https://dev.api.racketpulse.com/payments/confirm\",\r\n  \"cancel_url\": \"https://dev.api.racketpulse.com/payments/cancel\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/payments",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"payments"
+											]
+										}
+									},
+									"response": []
+								}
 							]
 						}
-					},
-					"response": []
-				},
-				{
-					"name": "get error reports",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{host}}/error_reports",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"error_reports"
-							]
-						}
-					},
-					"response": []
+					]
 				}
 			],
 			"description": "Estas rutas permite acceder a los servicios correspondientes a la gestión de usuarios tipo jugadores (players).\n\nActualmente solo la ruta get user está asegurada con jwt y validación de datos propios, los demas se dejan libres de token temporalmente para pruebas."
 		},
 		{
-			"name": "RUTAS BACKOFFICE",
+			"name": "SYSADMIN SERVICES",
 			"item": [
 				{
-					"name": "DASHBOARD-VIEW",
-					"item": [
-						{
-							"name": "get Dashboard Stats",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{host}}/matches/dashboard/stats/club/1?startDate=2025-04-01T00:00:00.000Z&endDate=2025-04-11T23:59:59.999Z&courtIds=1,2,3,4,5&gameTypes=open,tournament&playerLevels=0,3",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"matches",
-										"dashboard",
-										"stats",
-										"club",
-										"1"
-									],
-									"query": [
-										{
-											"key": "startDate",
-											"value": "2025-04-01T00:00:00.000Z"
-										},
-										{
-											"key": "endDate",
-											"value": "2025-04-11T23:59:59.999Z"
-										},
-										{
-											"key": "courtIds",
-											"value": "1,2,3,4,5"
-										},
-										{
-											"key": "gameTypes",
-											"value": "open,tournament"
-										},
-										{
-											"key": "",
-											"value": "",
-											"disabled": true
-										},
-										{
-											"key": "",
-											"value": "",
-											"disabled": true
-										},
-										{
-											"key": "playerLevels",
-											"value": "0,3"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "get activity per day/week/month",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{host}}/matches/dashboard/chart/club/1?groupBy=day&startDate=2025-04-01T00:00:00.000Z&endDate=2025-04-21T23:59:59.999Z",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"matches",
-										"dashboard",
-										"chart",
-										"club",
-										"1"
-									],
-									"query": [
-										{
-											"key": "groupBy",
-											"value": "day"
-										},
-										{
-											"key": "startDate",
-											"value": "2025-04-01T00:00:00.000Z"
-										},
-										{
-											"key": "endDate",
-											"value": "2025-04-21T23:59:59.999Z"
-										}
-									]
-								}
-							},
-							"response": []
+					"name": "get qr status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/whatsapp/status",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"whatsapp",
+								"status"
+							]
 						}
-					],
-					"description": "sub rutas para alimentar el backoffice en si vista de dashboard espeficifcamente"
+					},
+					"response": []
 				},
 				{
-					"name": "GAMES-CALENDAR-VIEW",
-					"item": [
-						{
-							"name": "get Games Stats",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{host}}/matches/calendar/stats/club/1",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"matches",
-										"calendar",
-										"stats",
-										"club",
-										"1"
-									],
-									"query": [
-										{
-											"key": "startDate",
-											"value": "2025-04-05T00:00:00.000Z",
-											"description": "opcional",
-											"disabled": true
-										},
-										{
-											"key": "endDate",
-											"value": "2025-04-10T00:00:00.000Z",
-											"description": "opcional",
-											"disabled": true
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "get All Calendar Data",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{host}}/matches/calendar/view?date=2025-04-06T00:00:00.000Z",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"matches",
-										"calendar",
-										"view"
-									],
-									"query": [
-										{
-											"key": "date",
-											"value": "2025-04-06T00:00:00.000Z"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "get Club Calendar Data",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{host}}/matches/calendar/view/club/1?date=2025-05-23",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"matches",
-										"calendar",
-										"view",
-										"club",
-										"1"
-									],
-									"query": [
-										{
-											"key": "search",
-											"value": "ivan",
-											"disabled": true
-										},
-										{
-											"key": "",
-											"value": "",
-											"disabled": true
-										},
-										{
-											"key": "date",
-											"value": "2025-05-23"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "get Club List Data",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{host}}/matches/calendar/list/club/1?sortOrder=-&sortBy=court_level",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"matches",
-										"calendar",
-										"list",
-										"club",
-										"1"
-									],
-									"query": [
-										{
-											"key": "startDate",
-											"value": "2025-04-01T00:00:00.000Z",
-											"disabled": true
-										},
-										{
-											"key": "endDate",
-											"value": "2025-05-15T00:00:00.000Z",
-											"disabled": true
-										},
-										{
-											"key": "page",
-											"value": "1",
-											"disabled": true
-										},
-										{
-											"key": "limit",
-											"value": "10",
-											"disabled": true
-										},
-										{
-											"key": "status",
-											"value": "confirmed",
-											"description": "confirmed ó cancelled ó pending ó completed",
-											"disabled": true
-										},
-										{
-											"key": "search",
-											"value": "Copernicu",
-											"description": "opción de search para los campos (book id, court name, player name)",
-											"disabled": true
-										},
-										{
-											"key": "sortOrder",
-											"value": "-"
-										},
-										{
-											"key": "sortBy",
-											"value": "court_level"
-										}
-									]
-								}
-							},
-							"response": []
+					"name": "get qr",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/whatsapp/qr",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"whatsapp",
+								"qr"
+							]
 						}
-					]
+					},
+					"response": []
 				},
 				{
-					"name": "PLAYERS-VIEW",
-					"item": [
-						{
-							"name": "get players stats",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{host}}/users/club/stats?clubId=1",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"users",
-										"club",
-										"stats"
-									],
-									"query": [
-										{
-											"key": "clubId",
-											"value": "1"
-										}
-									]
+					"name": "send examples",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"phone\": \"+57 3203063817\",\r\n  \"message\": \"👋 *Hola, Alexander2!* Espero que estés teniendo un gran día.\\n\\n📌 Aquí tienes algunos ejemplos de formato en WhatsApp:\\n\\n🔹 *Negrita* y _cursiva_ para resaltar texto.\\n🔹 ~Texto tachado~ si necesitas mostrar correcciones.\\n🔹 ```Texto monoespaciado``` para código o información técnica.\\n🔹 Listas con emojis:\\n   ✅ Terminar el reporte\\n   ✅ Llamar a clientes\\n   ❌ Revisar correos\\n\\n📢 *Mensaje importante:* 🚨 *No compartas tu código con nadie.*\\n\\nTu código de verificación es: ```123456```.\\n\\n🔗 Aquí tienes un enlace útil: https://racketscore.com/acept-termns\\n\\n@1234567890 (mención en grupos, si aplica).\\n\\n¡Nos vemos pronto! 😊\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
 								}
-							},
-							"response": []
+							}
 						},
-						{
-							"name": "get players list from club",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{host}}/users/search/players?clubId=2&page=1&limit=3&sortBy=level&sortOrder=+",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"users",
-										"search",
-										"players"
-									],
-									"query": [
-										{
-											"key": "clubId",
-											"value": "2",
-											"description": "campo opcional para filtrar players por clubs"
-										},
-										{
-											"key": "page",
-											"value": "1",
-											"description": "contador de pagina"
-										},
-										{
-											"key": "limit",
-											"value": "3",
-											"description": "limite de registros por pagina"
-										},
-										{
-											"key": "sortBy",
-											"value": "level",
-											"description": "name,email,level,register,games,lastGame"
-										},
-										{
-											"key": "sortOrder",
-											"value": "+"
-										},
-										{
-											"key": "search",
-											"value": "copernicus",
-											"description": "busca por nombre o por email",
-											"disabled": true
-										}
-									]
-								}
-							},
-							"response": []
+						"url": {
+							"raw": "{{host}}/whatsapp/send_txt_test",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"whatsapp",
+								"send_txt_test"
+							]
 						}
-					]
+					},
+					"response": []
 				},
 				{
-					"name": "login control",
-					"item": [
-						{
-							"name": "organization_login",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"email\": \"clubpadel1@example.com\",\r\n  \"password\": \"securepassword123\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{host}}/auth/club_login",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"auth",
-										"club_login"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "organization_login_otp",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"email\": \"aragonantar@gmail.com\"  // enviar unicamente el email para envío de código OTP al email del usuario\r\n // ,\"password\": \"735488\"          // descomentar y enviar junto con el email, tambien el password para verificar código\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{host}}/auth/club_login_otp",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"auth",
-										"club_login_otp"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "refresh token",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJ1c3VhcmlvQGV4YW1wbGUuY29tIiwibmFtZSI6Ikp1YW4gUMOpcmV6IiwiaWF0IjoxNzM5MzQ3NDY4LCJleHAiOjE3Mzk5NTIyNjh9.rBNICxjKzkA3DujiP4by5ecYksZKRT8tUHOwO2boy9g\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{host}}/auth/refresh",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"auth",
-										"refresh"
-									]
-								}
-							},
-							"response": []
+					"name": "reconnect",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/whatsapp/reconnect",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"whatsapp",
+								"reconnect"
+							]
 						}
-					]
+					},
+					"response": []
 				},
 				{
-					"name": "users control",
-					"item": [
-						{
-							"name": "create player user",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"email\": \"azton97@gmail.com\",\r\n  \"name\": \"Alexander\",\r\n  \"lastname\":\"Aragones silva\",\r\n  \"gender\": \"male\",\r\n  \"phone\": \"+5219876543210\",\r\n  \"nationality_id\": 1,\r\n  \"location\": \"Ciudad de México, México\",\r\n  \"club_id\": 1\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{host}}/users/create",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"users",
-										"create"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "create club user",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"email\": \"clubpadel1@example.com\",\r\n  \"password\": \"securepassword123\",\r\n  \"club_admin_full_name\": \"Juan Pérez1\",\r\n  \"club_admin_phone\": \"+34612345678\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{host}}/club_users",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"club_users"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "get clubs users relations (admin)",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJjbHVicGFkZWwxMEBleGFtcGxlLmNvbSIsImltYWdlIjoidXBsb2Fkcy9wcm9maWxlcy9pbWFnZS03MDQ5MjMyMi1kM2M0LTRiNmMtYTc1My1iZmY0Y2QzNjJjMjYucG5nIiwibmFtZSI6Ikp1YW4gUMOpcmV6IiwidHlwZSI6ImNsdWIiLCJjbHVicyI6W3siY2x1YklkIjoyLCJjbHViTmFtZSI6IkNsdWIgZGUgUMOhZGVsIEVsaXRlIiwiY2x1YkxvZ28iOiJ1cGxvYWRzL3Byb2ZpbGVzL2ltYWdlLTcwNDkyMzIyLWQzYzQtNGI2Yy1hNzUzLWJmZjRjZDM2MmMyNi5wbmciLCJyb2xlIjoibWFuYWdlciJ9XSwiY2x1YlJvbGVzIjp7IjIiOiJtYW5hZ2VyIn0sIm9yZ2FuaXphdGlvbnMiOlt7Im9yZ2FuaXphdGlvbklkIjoyLCJvcmdhbml6YXRpb25OYW1lIjoiUGFkZWwgQ2VudHJvIE9yZ2FuaXphdGlvbiJ9XSwicGhvbmUiOiIrMzQ2MTIzNDU2NzgiLCJpYXQiOjE3NDEyMzk0MDUsImV4cCI6MTc0MTI0MzAwNX0.4VilJ1I6rZdoA5dkl-F-rLmUVKHnmF7R0aga3hkWnCo",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{host}}/club_gestor",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"club_gestor"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "get club user relations (token)",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{host}}/club_gestor/3",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"club_gestor",
-										"3"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "get club user (token)",
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJjbHVicGFkZWxAZXhhbXBsZS5jb20iLCJpbWFnZSI6InVwbG9hZHMvcHJvZmlsZXMvaW1hZ2UtOWZmMTE1MTEtZTgyZi00MDRkLTg0MDUtNGMzMWVhYWEwMjU2LnBuZyIsIm5hbWUiOiJKdWFuIFDDqXJleiIsInR5cGUiOiJjbHViIiwiY2x1YnMiOlt7ImNsdWJJZCI6MSwiY2x1Yk5hbWUiOiJDbHViIGRlIFDDoWRlbCBFbGl0ZSIsImNsdWJMb2dvIjoidXBsb2Fkcy9wcm9maWxlcy9pbWFnZS05ZmYxMTUxMS1lODJmLTQwNGQtODQwNS00YzMxZWFhYTAyNTYucG5nIiwicm9sZSI6Im1hbmFnZXIifSx7ImNsdWJJZCI6MywiY2x1Yk5hbWUiOiJDbHViIGRlIFDDoWRlbCBFbGl0ZSIsImNsdWJMb2dvIjoidXBsb2Fkcy9wcm9maWxlcy9pbWFnZS1jODQ4NDYzNy03NTExLTRmMDMtOTg1ZS1iOTUxZDYwMmE2YjAucG5nIiwicm9sZSI6Im1hbmFnZXIifSx7ImNsdWJJZCI6MiwiY2x1Yk5hbWUiOiJDbHViIGRlIFDDoWRlbCBFbGl0ZSIsImNsdWJMb2dvIjoidXBsb2Fkcy9wcm9maWxlcy9pbWFnZS03MDQ5MjMyMi1kM2M0LTRiNmMtYTc1My1iZmY0Y2QzNjJjMjYucG5nIiwicm9sZSI6ImNvYWNoIn1dLCJjbHViUm9sZXMiOnsiMSI6Im1hbmFnZXIiLCIyIjoiY29hY2giLCIzIjoibWFuYWdlciJ9LCJvcmdhbml6YXRpb25zIjpbeyJvcmdhbml6YXRpb25JZCI6MSwib3JnYW5pemF0aW9uTmFtZSI6IlNwb3J0cyBPcmdhbml6YXRpb24ifSx7Im9yZ2FuaXphdGlvbklkIjoyLCJvcmdhbml6YXRpb25OYW1lIjoiUGFkZWwgQ2VudHJvIE9yZ2FuaXphdGlvbiJ9XSwicGhvbmUiOiIrMzQ2MTIzNDU2NzgiLCJpYXQiOjE3NDA5OTU5NjEsImV4cCI6MTc0MDk5OTU2MX0.SNdMNJwLhtgBlMy-LmJpObatvLz9MHAbGmhfaM4b5W8",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{host}}/club_users/2",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"club_users",
-										"2"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "update club user(token)",
-							"request": {
-								"method": "PATCH",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"email\": \"updated2padel@example.com\",\r\n  \"password\": \"updatedsecurepassword123\",\r\n  \"club_admin_full_name\": \"updated Jorge Cardozo\",\r\n  \"club_admin_phone\": \"+52 1234567890\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{host}}/club_users/5",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"club_users",
-										"5"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "delete club user (token)",
-							"request": {
-								"method": "DELETE",
-								"header": [],
-								"url": {
-									"raw": "{{host}}/club_users/5",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"club_users",
-										"5"
-									]
-								}
-							},
-							"response": []
+					"name": "disconnect",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/whatsap/disconnect",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"whatsap",
+								"disconnect"
+							]
 						}
-					]
-				},
-				{
-					"name": "organization control",
-					"item": [
-						{
-							"name": "create organization",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"name\": \"Padel Organization\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{host}}/organizations",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"organizations"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "get all organizations",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{host}}/organizations",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"organizations"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "get organization",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{host}}/organizations/1",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"organizations",
-										"1"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "update organizations",
-							"request": {
-								"method": "PATCH",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"name\": \"Updated Padel Organization\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{host}}/organizations/1",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"organizations",
-										"1"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "delete organization",
-							"request": {
-								"method": "DELETE",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{host}}/organizations/2",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"organizations",
-										"2"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "clubs control",
-					"item": [
-						{
-							"name": "create club",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"club_name\": \"Club de Pádel Elite Norte\",\r\n  \"club_logo\": \"data:image/png;base64,iV....\",\r\n  \"location\": \"Avenida Principal 125, Ciudad Padel\",\r\n  \"location_coordinate\": \"40.4268,-3.7138\",\r\n  \"status\": \"enabled\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{host}}/clubs",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"clubs"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "assign organization-club",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"clubId\": 1,\r\n  \"organizationId\": 1,\r\n  \"role\": \"manager\",\r\n  \"clubUserId\": 1\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{host}}/club_gestor",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"club_gestor"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "get all clubs",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{host}}/clubs?clubId=2",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"clubs"
-									],
-									"query": [
-										{
-											"key": "",
-											"value": "",
-											"disabled": true
-										},
-										{
-											"key": "clubId",
-											"value": "2",
-											"description": "// este filtro es para backoffice"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "get club",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{host}}/clubs/1",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"clubs",
-										"1"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "update club",
-							"request": {
-								"method": "PATCH",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"club_name\": \"updated Club de Pádel Elite\",\r\n  \"club_logo\": \"data:image/png;base64,iV.... updated\",\r\n  \"location\": \"updated Avenida Principal 123, Ciudad Padel\",\r\n  \"location_coordinate\": \" updated 40.4168,-3.7038\",\r\n  \"status\": \"disabled\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{host}}/clubs/1",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"clubs",
-										"1"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "delete club",
-							"request": {
-								"method": "DELETE",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{host}}/clubs/1",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"clubs",
-										"1"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "courts control",
-					"item": [
-						{
-							"name": "create court (token)",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"club_id\": 1,\r\n  \"court_name\": \"Cancha #1\",\r\n  \"court_type\": \"open\", // Opciones: \"cover\" o \"open\"\r\n  \"status\": \"enabled\", // Opciones: \"enabled\" o \"disabled\"\r\n  \"color\": \"blue\", // Opciones: \"red\", \"blue\", \"green\", \"yellow\", \"orange\", \"purple\", \"pink\", \"brown\", \"black\", \"teal\" (opcional)\r\n  \"has_lights\": true, // true si tiene iluminación para juegos nocturnos, false si no (opcional)\r\n  \"court_booking_interval\": 60 // tiempo en minutos (opcional, mínimo 30)\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{host}}/courts",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"courts"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "get courts by club id (token)",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{host}}/courts/club/3",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"courts",
-										"club",
-										"3"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "create court prices (token)",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"court_id\": 2,\r\n  \"price\": 35,\r\n  \"description\": \"Precio de alta demanda\",\r\n  \"startDate\": \"2025-05-01\",\r\n  \"endDate\": \"2025-05-31\",\r\n  \"startTime\": \"11:00\",\r\n  \"endTime\": \"22:00\",\r\n  \"currency\": \"USD\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{host}}/court_prices",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"court_prices"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "get courts available(token)",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{host}}/courts_availables?date=2025-04-22T03:00:00.000Z",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"courts_availables"
-									],
-									"query": [
-										{
-											"key": "date",
-											"value": "2025-04-22T03:00:00.000Z"
-										}
-									]
-								}
-							},
-							"response": []
-						}
-					],
-					"description": "Requests para el registro, lectura y control en general de las canchas.  \nSe pueden efectuar operaciones como:  \n\n- crear canchas.\n    \n- obtener el listado de canchas registradas de un club.\n    \n- registrar costos por el uso de una cancha empleando un rango de horas.\n    \n- obtener listado de canchas disponibles para nueva reserva."
-				},
-				{
-					"name": "matchs control",
-					"item": [
-						{
-							"name": "create match (token)",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"dates\": [\"2025-04-13\"],\r\n  \"court_id\": 2,\r\n  \"start_time\": \"09:00\",\r\n  \"end_time\": \"10:00\",\r\n  \"match_description\": \"Partido amistoso de padel, en la cancha #2\",\r\n  \"type\": \"open\", // Opciones: \"open\", \"private\", \"training\", \"tournament\", \"external\"\r\n  \"minimum_level\": 0.0, // Rango: 0.0 - 10.0 (con un decimal)\r\n  \"maximum_level\": 3.5, // Rango: 0.0 - 10.0 (con un decimal)\r\n  \"game_mode\": \"competitive\", // Opciones: \"competitive\", \"friendly\"\r\n  \"player_filter\": \"all\", // Opciones: \"all\", \"mens\", \"womens\"\r\n  \"creator_id\": 17 // ID del usuario creador del partido\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{host}}/matches",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"matches"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "find users (token)",
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ1c3VhcmlvQGV4YW1wbGUuY29tIiwibmFtZSI6Ikp1YW4gUMOpcmV6IiwidHlwZSI6InVzZXIiLCJpYXQiOjE3Mzk3NjAzNjYsImV4cCI6MTczOTc2Mzk2Nn0.X9RNaX-pz47dHbc8TX6EpDhiR2U5Kbn046xDH0DNqGc",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"searchTerm\":\"2\" // busca dentro de los campos de full_name, email y phone.\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{host}}/users/find",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"users",
-										"find"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "assign match teams (token)",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"match_id\": 23, // match de ejemplo previamente creado con ID #17\r\n  \"user_id\": 13,   // usuario de ejemplo previamente creado con ID #1\r\n  \"team\": \"team2\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{host}}/match_teams",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"match_teams"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "get all matches (admin)",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{host}}/matches",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"matches"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "get club matches (token)",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{host}}/matches/club/1",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"matches",
-										"club",
-										"1"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "scores control",
-					"item": [
-						{
-							"name": "post score proposal (token)",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"match_id\": 27,   // identificador del match\r\n  \"user_id\": 17,   // identificador del user que registra el score propuesto\r\n  \"team1_scores\": [\r\n    \"3\",\r\n    \"7\",\r\n    \"1\"\r\n  ],\r\n  \"team2_scores\": [\r\n    \"6\",\r\n    \"6\",\r\n    \"9\"\r\n  ]\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{host}}/match_score_proposals",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"match_score_proposals"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "post score vote (token)",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"user_id\": 16,\r\n  \"match_id\": 23,\r\n  \"approved\": true\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{host}}/match_score_proposals/vote",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"match_score_proposals",
-										"vote"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "get completed matches (token)",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{host}}/matches/user/1/completed",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"matches",
-										"user",
-										"1",
-										"completed"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "get score history (token)",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{host}}/score-history/match/27",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"score-history",
-										"match",
-										"27"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "get statistics matches (token)",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{host}}/matches/user/5/statistics",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"matches",
-										"user",
-										"5",
-										"statistics"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "patch match score (token)",
-							"request": {
-								"method": "PATCH",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"team1_scores\": [\r\n    \"6\",\r\n    \"7\",\r\n    \"6\"\r\n  ],\r\n  \"team2_scores\": [\r\n    \"4\",\r\n    \"5\",\r\n    \"4\"\r\n  ]\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{host}}/matches/38/scores",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"matches",
-										"38",
-										"scores"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "primer registro organization",
-					"item": [
-						{
-							"name": "create organization user",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"organization\": {\r\n    \"name\": \"Padel Organization 1\"\r\n  },\r\n  \"clubUser\": {\r\n    \"email\": \"clubpadel10@example.com\",\r\n    \"password\": \"securepassword123\",\r\n    \"full_name\": \"Juan Pérez\",\r\n    \"phone\": \"+34612345678\"\r\n  },\r\n  \"club\": {\r\n    \"club_name\": \"Club de Pádel Elite\",\r\n    \"club_logo\": \"data:image/png;base64,iV....\",\r\n    \"location\": \"Avenida Principal 123, Ciudad Padel\",\r\n    \"location_coordinate\": \"40.4168,-3.7038\",\r\n    \"courtsAvailable\": 5,\r\n    \"openMatches\": 2,\r\n    \"status\": \"enabled\"\r\n  }\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{host}}/club_users/organization",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"club_users",
-										"organization"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "sysadmin control",
-					"item": [
-						{
-							"name": "get qr status",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{host}}/whatsapp/status",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"whatsapp",
-										"status"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "get qr",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{host}}/whatsapp/qr",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"whatsapp",
-										"qr"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "send examples",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"phone\": \"+57 3203063817\",\r\n  \"message\": \"👋 *Hola, Alexander2!* Espero que estés teniendo un gran día.\\n\\n📌 Aquí tienes algunos ejemplos de formato en WhatsApp:\\n\\n🔹 *Negrita* y _cursiva_ para resaltar texto.\\n🔹 ~Texto tachado~ si necesitas mostrar correcciones.\\n🔹 ```Texto monoespaciado``` para código o información técnica.\\n🔹 Listas con emojis:\\n   ✅ Terminar el reporte\\n   ✅ Llamar a clientes\\n   ❌ Revisar correos\\n\\n📢 *Mensaje importante:* 🚨 *No compartas tu código con nadie.*\\n\\nTu código de verificación es: ```123456```.\\n\\n🔗 Aquí tienes un enlace útil: https://racketscore.com/acept-termns\\n\\n@1234567890 (mención en grupos, si aplica).\\n\\n¡Nos vemos pronto! 😊\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{host}}/whatsapp/send_txt_test",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"whatsapp",
-										"send_txt_test"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "reconnect",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"url": {
-									"raw": "{{host}}/whatsapp/reconnect",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"whatsapp",
-										"reconnect"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "disconnect",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"url": {
-									"raw": "{{host}}/whatsapp/disconnect",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"whatsapp",
-										"disconnect"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "control de sub-users de la organización",
-					"item": [],
-					"description": "conjunto de requests para el registro de subcuentas a la organización y/o a sus clubs\n\n(aun por definir el flujo)"
+					},
+					"response": []
 				}
-			],
-			"description": "Estas rutas permite acceder a los servicios correspondientes a la gestión de usuarios tipo jugadores (players).\n\nActualmente solo la ruta get user está asegurada con jwt y validación de datos propios, los demas se dejan libres de token temporalmente para pruebas."
+			]
 		},
 		{
 			"name": "ELO LEVEL",
