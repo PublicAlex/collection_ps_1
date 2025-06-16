@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "fcfa63c4-47fb-41bc-8ebd-7df4961729b0",
+		"_postman_id": "25b4d9f0-2fb2-4e22-811e-f9cacd25b23a",
 		"name": "Racket Pulse",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "17673405",
-		"_collection_link": "https://racketpulse-frontend-team.postman.co/workspace/racketpulse-frontend-team-Works~c5b9d715-5300-4824-be68-06c48212c32b/collection/17673405-fcfa63c4-47fb-41bc-8ebd-7df4961729b0?action=share&source=collection_link&creator=17673405"
+		"_collection_link": "https://racketpulse-frontend-team.postman.co/workspace/racketpulse-frontend-team-Works~c5b9d715-5300-4824-be68-06c48212c32b/collection/17673405-25b4d9f0-2fb2-4e22-811e-f9cacd25b23a?action=share&source=collection_link&creator=17673405"
 	},
 	"item": [
 		{
@@ -1781,6 +1781,90 @@
 					]
 				},
 				{
+					"name": "payments module",
+					"item": [
+						{
+							"name": "club payment config",
+							"item": [
+								{
+									"name": "create club paypal method of payment",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"club_id\": 1,\r\n  \"paypal_client_id\": \"AV8hUnhohie8fVxk6UaiEd60k7ZzBavnzo1ekUe7rxCBsysb406IO2QdBUA2\",\r\n  \"paypal_client_secret\":\"EMOqSQCEmv5XcPZWEcH6ZaJ0qlWrw46ZprjenWZmVrE3JXJiTJTxCnvJu6We0KjND1gcxMo\",\r\n  \"paypal_environment\": \"sandbox\",\r\n  \"is_active\": true\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/club_payment_configs",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"club_payment_configs"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get club paypal method of payment",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}/club_payment_configs",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"club_payment_configs"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "users match payment",
+							"item": [
+								{
+									"name": "create match payment",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"user_id\": 1,    // asignamos un pago pendiente para el user con id\r\n  \"match_id\": 223,  // referenciando el match id\r\n  \"club_id\": 1,  // y tambien referenciando al club\r\n  \"success_url\": \"https://dev.api.racketpulse.com/payments/confirm\",\r\n  \"cancel_url\": \"https://dev.api.racketpulse.com/payments/cancel\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/payments",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"payments"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
 					"name": "checkversion",
 					"request": {
 						"method": "POST",
@@ -2341,6 +2425,9 @@
 											"language": "json"
 										}
 									}
+								},
+								"url": {
+									"raw": ""
 								}
 							},
 							"response": []
@@ -3444,7 +3531,10 @@
 							"name": "New Request",
 							"request": {
 								"method": "GET",
-								"header": []
+								"header": [],
+								"url": {
+									"raw": ""
+								}
 							},
 							"response": []
 						}
