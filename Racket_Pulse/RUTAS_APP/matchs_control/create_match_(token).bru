@@ -1,0 +1,33 @@
+meta {
+  name: create match (token)
+  type: http
+}
+
+post {
+  url: {{host}}/matches
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+{
+  "dates": ["2025-12-20"],
+  "court_id": 34,
+  "start_time": "16:00",
+  //"end_time": "14:00",
+  "payment_method": "stripe", // elegir el metodo a usar (quedara registrado en el match y se valdiará en base a este)
+  "interval": 60,
+  "match_description": "Partido amistoso de padel, en la cancha #1",
+  "type": "open", // Opciones: "open", "private", "training", "tournament", "external"
+  "minimum_level": 2.5, // Rango: 1.0 - 10.0 (con un decimal)
+  "maximum_level": 3.5, // Rango: 1.0 - 10.0 (con un decimal)
+  "game_mode": "competitive", // Opciones: "competitive", "friendly"
+  "player_filter": "all", // Opciones: "all", "men", "women"
+  "creator_id": 4, // ID del usuario creador del partido
+  "players_can_invite": false  // por defecto al no enviarlo, siempre será true. Se debe especificar false en caso de requerir limitar
+}
+}

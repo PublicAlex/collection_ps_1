@@ -1,0 +1,14 @@
+meta {
+  name: Restore User
+  type: http
+}
+
+post {
+  url: {{base_url}}/users/:id/restore
+  body: none
+  auth: inherit
+}
+
+headers {
+  Authorization: Bearer {{token}}
+}

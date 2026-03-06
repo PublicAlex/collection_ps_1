@@ -1,0 +1,23 @@
+meta {
+  name: Create Task
+  type: http
+}
+
+post {
+  url: {{host}}/tasks
+  body: json
+  auth: inherit
+}
+
+body:json {
+{
+  "title": "Buy new balls 2",
+  "description": "Call Margaret to ask about new prices.",
+  "due_date": "2025-09-22T00:00:00.000Z",
+  "repeat_frequency": "monthly",
+  "priority": "medium",
+  "club_id": 1,
+  "created_by_id": 1,
+  "assigned_to_id": 1
+}
+}

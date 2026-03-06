@@ -1,0 +1,32 @@
+meta {
+  name: create match (token)
+  type: http
+}
+
+post {
+  url: {{host}}/matches/team
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJjbHVicGFkZWwyQGV4YW1wbGUuY29tIiwiaW1hZ2UiOiJ1cGxvYWRzL3Byb2ZpbGVzL2ltYWdlLTZhOTdjZjk1LTVhOTgtNDlmYi1iNDFlLWU5MzAxODVjMzI3Yy5wbmciLCJuYW1lIjoiSnVhbiBQw6lyZXoiLCJ0eXBlIjoiY2x1YiIsImNsdWJzIjpbeyJjbHViSWQiOjMsImNsdWJOYW1lIjoiQ2x1YiBkZSBQw6FkZWwgRWxpdGUgIzIiLCJjbHViTG9nbyI6InVwbG9hZHMvcHJvZmlsZXMvaW1hZ2UtNmE5N2NmOTUtNWE5OC00OWZiLWI0MWUtZTkzMDE4NWMzMjdjLnBuZyIsInJvbGUiOiJvcmdhbml6YXRpb24ifV0sImNsdWJSb2xlcyI6eyIzIjoib3JnYW5pemF0aW9uIn0sIm9yZ2FuaXphdGlvbnMiOlt7Im9yZ2FuaXphdGlvbklkIjozLCJvcmdhbml6YXRpb25OYW1lIjoiUGFkZWwgT3JnYW5pemF0aW9uICMyIn1dLCJwaG9uZSI6IiszNDYxMjM0NTY3OCIsImlhdCI6MTc0MjAwMTAxNywiZXhwIjoxNzQyMDA0NjE3fQ.1TvzyYP_1B_N40YQ0lypHymLCSkdp1PIQW-Yc7RE_50
+}
+
+body:json {
+{
+  "dates": ["2025-11-10"],
+  "court_id": 1,
+  "start_time": "10:00",
+  //"end_time": "21:00", // Opcional, si no se especifica se asume que el partido dura hasta el final del horario de la cancha
+  "interval": 60, // Duración del partido en minutos, no se usa si tenemos end_time
+  "match_description": "Partido amistoso de padel, en la cancha #1",
+  "type": "open", // Opciones: "open", "private", "training", "tournament", "external"
+  "minimum_level": 2.5, // Rango: 1.0 - 10.0 (con un decimal)
+  "maximum_level": 3.5, // Rango: 1.0 - 10.0 (con un decimal)
+  "game_mode": "competitive", // Opciones: "competitive", "friendly"
+  "player_filter": "all", // Opciones: "all", "mens", "womens"
+  "teams": [1,2,null,4] // ID de los usuarios para integrar al match , para omitir un espacio de se deja null 
+// team 1 (1 left, 2 rigth), team 2 (null left (omite), 4 rigth)
+}
+}

@@ -1,0 +1,23 @@
+meta {
+  name: 5. Verify Completed
+  type: http
+}
+
+get {
+  url: {{base_url}}/payer/payouts/{{payout_id}}
+  body: none
+  auth: inherit
+}
+
+script:post-response {
+test("Payout is completed", function () {
+    expect(res.getStatus()).to.equal(200);
+    var jsonData = res.getBody();
+    expect(jsonData.status).to.eql('completed');
+    expect(jsonData.externalReference).to.not.be.null;
+    expect(jsonData.approvedAt).to.not.be.null;
+    expect(jsonData.processedAt).to.not.be.null;
+});
+
+console.log("Full flow completed successfully!");
+}

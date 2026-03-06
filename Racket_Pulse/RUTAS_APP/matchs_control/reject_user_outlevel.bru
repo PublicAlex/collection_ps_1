@@ -1,0 +1,17 @@
+meta {
+  name: reject user outlevel
+  type: http
+}
+
+post {
+  url: {{host}}/match_teams/180/reject-player
+  body: json
+  auth: inherit
+}
+
+body:json {
+{
+    "player_id":2,
+    "voting_player_id":39
+}
+}

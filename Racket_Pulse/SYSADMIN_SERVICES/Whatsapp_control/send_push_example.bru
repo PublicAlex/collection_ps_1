@@ -1,0 +1,37 @@
+meta {
+  name: send push  example
+  type: http
+}
+
+post {
+  url: {{host}}/device_tokens/test_message
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+ { 
+ "userId": 10, 
+ "title": "Match Invitation", 
+ "body": "You've been invited to play at Tennis Club Madrid", 
+ "data": 
+ { 
+    "matchId": "529", 
+    "accessCode": "ABC123", 
+    "matchDate": "2024-01-15T10:00:00.000Z", 
+    "clubName": "Tennis Club Madrid", 
+    "courtName": "Court 1", 
+    "price": "25.50", 
+    "currency": "EUR", 
+    "duration_hours": "1.5", 
+    "type": "singles", 
+    "sport": "tennis", 
+    "clickAction": "MATCH_INVITATION" 
+ }, 
+ "imageUrl": "https://example.com/image.png" 
+ }
+}

@@ -1,0 +1,10 @@
+meta {
+  name: complete backoffice to do item
+  type: http
+}
+
+patch {
+  url: {{host}}/tasks/setup_progress/:clubId:stepId/redo
+  body: none
+  auth: inherit
+}

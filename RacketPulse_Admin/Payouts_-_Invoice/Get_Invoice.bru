@@ -1,0 +1,26 @@
+meta {
+  name: Get Invoice
+  type: http
+}
+
+get {
+  url: {{base_url}}/payer/payouts/{{payout_id}}/invoice
+  body: none
+  auth: inherit
+}
+
+script:post-response {
+test("Status code is 200", function () {
+    expect(res.getStatus()).to.equal(200);
+});
+
+test("Response has invoice fields", function () {
+    var jsonData = res.getBody();
+    expect(jsonData).to.have.property('id');
+    expect(jsonData).to.have.property('invoiceNumber');
+    expect(jsonData).to.have.property('subtotal');
+    expect(jsonData).to.have.property('totalFees');
+    expect(jsonData).to.have.property('totalAmount');
+    expect(jsonData).to.have.property('pdfUrl');
+});
+}

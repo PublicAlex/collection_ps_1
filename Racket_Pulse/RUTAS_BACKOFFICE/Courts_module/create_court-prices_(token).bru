@@ -1,0 +1,32 @@
+meta {
+  name: create court-prices (token)
+  type: http
+}
+
+post {
+  url: {{host}}/courts/with-prices
+  body: json
+  auth: inherit
+}
+
+body:json {
+{
+  "court_name": "Cancha Ejecutiva 33",
+  "court_type": "cover",
+  "status": "enabled",
+  "color": "blue",
+  "has_lights": true,
+  "club_id": 1,
+  "priceConfiguration": { // with or without price configuration...
+    "price": 35,
+    "description": "Weekday business hours",
+    "startTime": "06:00",
+    "endTime": "18:00",
+    "min_duration": 60,
+    "max_duration": 120,
+    "max_players_per_game": 4,
+    "currency": "EUR",
+    "activeDays": ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
+  }
+}
+}

@@ -1,0 +1,18 @@
+meta {
+  name: send error report
+  type: http
+}
+
+post {
+  url: {{host}}/error_reports/report_error
+  body: json
+  auth: inherit
+}
+
+body:json {
+{
+  "category": "Technical Issue", // categorías/tipos de reportes
+  "description": "The appeasdasdasdasdasdasdasd",
+  "user_id": 1  // id del user que genera el reporte
+}
+}

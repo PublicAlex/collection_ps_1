@@ -1,0 +1,23 @@
+meta {
+  name: user banned
+  type: http
+}
+
+delete {
+  url: {{host}}/club_user_bans
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{acces_token}}
+}
+
+body:json {
+{
+  "userId": 3611, // jugador a desbanear
+  "clubId": 109
+}
+
+
+}

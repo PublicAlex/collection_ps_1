@@ -1,0 +1,10 @@
+meta {
+  name: invoices
+  type: http
+}
+
+get {
+  url: {{host}}/billing-plans/club/61/invoices?page=1&limit=10&sortBy=created&sortOrder=DESC
+  body: none
+  auth: inherit
+}

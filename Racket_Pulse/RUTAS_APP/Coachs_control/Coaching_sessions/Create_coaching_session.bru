@@ -1,0 +1,32 @@
+meta {
+  name: Create coaching session
+  type: http
+}
+
+post {
+  url: {{host}}/matches/team
+  body: json
+  auth: inherit
+}
+
+body:json {
+{
+  "date": "2025-07-20",
+  "court_id": 1,
+  "start_time": "10:00",
+  "end_time": "11:00",
+  "game_mode": "training",
+  "players_can_invite": false,
+
+  "match_description": "Clase de técnica básica de pádel",
+  
+ "type": "coaching",
+  "coach_profile_id": 1,
+  "coaching_max_students": 4,
+  "coaching_target_level": "beginner",
+  "coaching_hourly_rate": 45.00,
+  "coaching_class_description": "Clase enfocada en técnicas básicas de golpeo y posicionamiento en cancha",
+  "coaching_objectives": "Mejorar técnica de drive y revés, trabajar voleas básicas",
+  "coaching_specialties_focus": ["technique", "tactics"]
+}
+}

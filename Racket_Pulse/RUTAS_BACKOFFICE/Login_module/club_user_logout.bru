@@ -1,0 +1,14 @@
+meta {
+  name: club_user logout
+  type: http
+}
+
+post {
+  url: {{host}}/auth/club/logout
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}

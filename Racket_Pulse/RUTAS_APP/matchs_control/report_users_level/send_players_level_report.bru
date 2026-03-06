@@ -1,0 +1,31 @@
+meta {
+  name: send players level report
+  type: http
+}
+
+post {
+  url: {{host}}/player_level_reports
+  body: json
+  auth: inherit
+}
+
+body:json {
+{
+  "match_id": 20,
+  "userReporter": 1,  // se usan de ejemplo los ids de users que pertenecen al match con id 20
+  "ratings": [
+    {
+      "idUser": 2,
+      "rating": "up"
+    },
+    {
+      "idUser": 5,
+      "rating": "down"
+    },
+    {
+      "idUser": 6,
+      "rating": "down"
+    }
+  ]
+}
+}

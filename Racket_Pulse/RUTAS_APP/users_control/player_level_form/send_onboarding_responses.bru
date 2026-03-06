@@ -1,0 +1,36 @@
+meta {
+  name: send onboarding responses
+  type: http
+}
+
+post {
+  url: {{host}}/level_onboarding/process_complete
+  body: json
+  auth: inherit
+}
+
+body:json {
+
+{
+  "step1Level": 4,   // step 1 result
+  "step2Description": "level_4_competitive_amateur",  // step 2 decription key
+  "step3Answers": [  // step 3 responses to refine the player level
+    {
+      "questionKey": "playFrequency",
+      "answerKey": "3_or_more_times_per_week", 
+      "answerValue": "3 or more times per week"
+    },
+    {
+      "questionKey": "opponentLevel",
+      "answerKey": "Amateur_or_semi-professional_players",
+      "answerValue": "Amateur or semi-professional players"
+    },
+    {
+      "questionKey": "competitiveExperience", 
+      "answerKey": "I_regularly_compete_in_amateur_events",
+      "answerValue": "I regularly compete in amateur events"
+    }
+  ],
+  "userId": 1
+}
+}

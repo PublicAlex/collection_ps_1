@@ -1,0 +1,10 @@
+meta {
+  name: get Club List Data
+  type: http
+}
+
+get {
+  url: {{host}}/matches/calendar/list/club/1?sortOrder=-&sortBy=court_level
+  body: none
+  auth: inherit
+}

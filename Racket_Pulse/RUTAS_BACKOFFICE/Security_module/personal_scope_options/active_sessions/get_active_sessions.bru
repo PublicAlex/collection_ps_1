@@ -1,0 +1,14 @@
+meta {
+  name: get active sessions
+  type: http
+}
+
+get {
+  url: {{host}}/club_users/:id/sessions
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}

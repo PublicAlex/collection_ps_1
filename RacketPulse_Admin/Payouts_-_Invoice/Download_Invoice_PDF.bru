@@ -1,0 +1,20 @@
+meta {
+  name: Download Invoice PDF
+  type: http
+}
+
+get {
+  url: {{base_url}}/payer/payouts/{{payout_id}}/invoice/download
+  body: none
+  auth: inherit
+}
+
+script:post-response {
+test("Status code is 200", function () {
+    expect(res.getStatus()).to.equal(200);
+});
+
+test("Content-Type is PDF", function () {
+    expect(pm.response.headers.get('Content-Type')).to.include('application/pdf');
+});
+}

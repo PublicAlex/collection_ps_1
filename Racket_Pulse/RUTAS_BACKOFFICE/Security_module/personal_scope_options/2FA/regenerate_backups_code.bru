@@ -1,0 +1,14 @@
+meta {
+  name: regenerate backups code
+  type: http
+}
+
+post {
+  url: {{host}}/club_users/1/2fa/regenerate-backup-codes
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}

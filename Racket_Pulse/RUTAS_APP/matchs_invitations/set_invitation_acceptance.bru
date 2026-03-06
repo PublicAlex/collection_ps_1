@@ -1,0 +1,21 @@
+meta {
+  name: set invitation acceptance
+  type: http
+}
+
+patch {
+  url: {{host}}/notifications/invitation/status?includeRead=true
+  body: json
+  auth: inherit
+}
+
+headers {
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ1c3VhcmlvQGV4YW1wbGUuY29tIiwibmFtZSI6Ikp1YW4gUMOpcmV6IiwidHlwZSI6InVzZXIiLCJpYXQiOjE3Mzk3NjAzNjYsImV4cCI6MTczOTc2Mzk2Nn0.X9RNaX-pz47dHbc8TX6EpDhiR2U5Kbn046xDH0DNqGc
+}
+
+body:json {
+{
+  "id_invitacion": "123e4567-e89b-12d3-a456-426614174000", // id de la notifiacion de invitaci+on
+  "accepted": true   // definir si se acepta o no la invitación, si se acepta se marca como aceptada la invitación y se cambian los demas estados de la invitación para no volver a verla. y si no se acepta igualmente se cambian los estados para no verla y se marca como invitación denegada.
+}
+}

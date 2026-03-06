@@ -1,0 +1,24 @@
+meta {
+  name: register organization
+  type: http
+}
+
+post {
+  url: {{host}}/club_users/registration/0e5510fe-c679-4ba6-8d02-e9244299b707/organization
+  body: json
+  auth: inherit
+}
+
+body:json {
+
+{
+  "organizationName": "Elite Tennis Network Colombia",
+  "countryId": 1,  // cambiar a countryId 
+  "companyId": "VAT900123456-7",
+  "adminName": "Carlos", // deberian agregar directamente el nombre o no? ... optional 
+  "adminLastName": "Rodriguez", // same ... optional
+  "adminEmail": "hohex84245z@forexru.com",
+  "adminPassword": "SecurePass123",
+  "adminPhone": "+573001234567"
+}
+}

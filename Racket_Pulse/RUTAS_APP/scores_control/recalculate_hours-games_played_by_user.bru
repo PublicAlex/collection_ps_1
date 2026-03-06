@@ -1,0 +1,10 @@
+meta {
+  name: recalculate hours/games played by user
+  type: http
+}
+
+post {
+  url: {{host}}/match_score_proposals/user/recalculate-all-users-stats
+  body: none
+  auth: inherit
+}

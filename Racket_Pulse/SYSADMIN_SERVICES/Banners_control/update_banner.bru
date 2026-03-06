@@ -1,0 +1,18 @@
+meta {
+  name: update banner
+  type: http
+}
+
+patch {
+  url: {{host}}/banners/1
+  body: json
+  auth: inherit
+}
+
+body:json {
+{ 
+    "title": "Título Actualizado", 
+    "isActive": true
+}
+
+}

@@ -1,0 +1,10 @@
+meta {
+  name: get availables pending matches
+  type: http
+}
+
+get {
+  url: {{host}}/matches/availables/pending?startDate=2024-01-10T00:00:00Z&endDate=2025-08-19T00:00:00Z&clubId=1
+  body: none
+  auth: inherit
+}

@@ -1,0 +1,23 @@
+meta {
+  name: Get Payouts - Filter by Club ID
+  type: http
+}
+
+get {
+  url: {{base_url}}/payer/payouts?clubId=56
+  body: none
+  auth: inherit
+}
+
+script:post-response {
+test("Status code is 200", function () {
+    expect(res.getStatus()).to.equal(200);
+});
+
+test("All payouts belong to club 56", function () {
+    var jsonData = res.getBody();
+    jsonData.forEach(function(payout) {
+        expect(payout.clubId).to.eql(56);
+    });
+});
+}

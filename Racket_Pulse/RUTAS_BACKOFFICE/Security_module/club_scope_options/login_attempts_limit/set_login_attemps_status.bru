@@ -1,0 +1,22 @@
+meta {
+  name: set login attemps status
+  type: http
+}
+
+patch {
+  url: {{host}}/club_users/1/security-settings/failed-login-attempts
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+{
+    "limitFailedLoginAttempts": true, // o false
+    "clubId": 1  //   enviar para propagar a todo el club
+
+}
+}

@@ -1,0 +1,18 @@
+meta {
+  name: set recovery option email
+  type: http
+}
+
+post {
+  url: {{host}}/club_users/:id/recovery-options/email
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+
+}

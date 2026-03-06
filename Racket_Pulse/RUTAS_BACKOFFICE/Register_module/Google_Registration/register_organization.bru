@@ -1,0 +1,28 @@
+meta {
+  name: register organization
+  type: http
+}
+
+post {
+  url: {{host}}/club_users/registration/d809032f-3e52-4dfc-903d-fd667d413597/organization
+  body: json
+  auth: inherit
+}
+
+body:json {
+
+{
+  "organizationName": "Elite Tennis Network Colombia 3",
+  "countryId": 1,  // cambiar a countryId 
+  "companyId": "VAT900123456-7",
+  "adminPhone": "+573001234597" //(optional pero recomendado enviar)
+
+  // los demas campos que correspondian a los datos del administrador, se toman por defecto de google y se omite la verificación otp al final del registro.
+  
+  //"adminName": "Carlos", // deberian agregar directamente el nombre o no? ... optional 
+  //"adminLastName": "Rodriguez", // same ... optional
+  //"adminEmail": "hohex84245z@forexru.com",
+  //"adminPassword": "SecurePass123",
+
+}
+}

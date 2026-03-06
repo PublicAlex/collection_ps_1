@@ -1,0 +1,15 @@
+meta {
+  name: get event
+  type: http
+}
+
+get {
+  url: {{host}}/events/3
+  body: none
+  auth: inherit
+}
+
+headers {
+  Accept: application/json
+  Content-Type: application/json
+}

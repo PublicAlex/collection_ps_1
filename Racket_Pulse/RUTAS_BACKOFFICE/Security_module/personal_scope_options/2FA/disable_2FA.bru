@@ -1,0 +1,20 @@
+meta {
+  name: disable 2FA
+  type: http
+}
+
+post {
+  url: {{host}}/club_users/:id/2fa/disable
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+{
+  "token": "123456"
+}
+}

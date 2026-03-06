@@ -1,0 +1,20 @@
+meta {
+  name: verify status 2FA
+  type: http
+}
+
+get {
+  url: {{host}}/club_users/1/2fa/status
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+{
+  "token": "765929"
+}
+}

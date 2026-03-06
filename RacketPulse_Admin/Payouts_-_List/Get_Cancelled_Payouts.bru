@@ -1,0 +1,23 @@
+meta {
+  name: Get Cancelled Payouts
+  type: http
+}
+
+get {
+  url: {{base_url}}/payer/payouts?status=cancelled
+  body: none
+  auth: inherit
+}
+
+script:post-response {
+test("Status code is 200", function () {
+    expect(res.getStatus()).to.equal(200);
+});
+
+test("All payouts are cancelled", function () {
+    var jsonData = res.getBody();
+    jsonData.forEach(function(payout) {
+        expect(payout.status).to.eql('cancelled');
+    });
+});
+}

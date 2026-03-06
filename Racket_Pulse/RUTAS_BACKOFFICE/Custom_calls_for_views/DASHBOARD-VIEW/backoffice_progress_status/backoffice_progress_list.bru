@@ -1,0 +1,10 @@
+meta {
+  name: backoffice progress list
+  type: http
+}
+
+get {
+  url: {{host}}/tasks/setup_progress/1?pending_only=false&completed_limit=10
+  body: none
+  auth: inherit
+}

@@ -1,0 +1,26 @@
+meta {
+  name: Invitar jugadores
+  type: http
+}
+
+post {
+  url: {{host}}/matches/invitations/send
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+{
+  "matchId": 787,
+  "matchKey": "4J86HT",
+  "recipients": [10, 104, 105]
+}
+}

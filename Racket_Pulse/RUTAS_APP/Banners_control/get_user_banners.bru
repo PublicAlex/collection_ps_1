@@ -1,0 +1,14 @@
+meta {
+  name: get user banners
+  type: http
+}
+
+get {
+  url: {{host}}/banners
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}

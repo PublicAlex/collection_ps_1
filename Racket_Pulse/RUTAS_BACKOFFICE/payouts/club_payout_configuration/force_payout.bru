@@ -1,0 +1,16 @@
+meta {
+  name: force payout
+  type: http
+}
+
+post {
+  url: {{host}}/clubs/2/payouts
+  body: json
+  auth: inherit
+}
+
+body:json {
+{
+  "amount": 1500.00  // Transferir 1,500 EUR
+}
+}

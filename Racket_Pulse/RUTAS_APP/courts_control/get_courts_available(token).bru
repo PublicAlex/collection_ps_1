@@ -1,0 +1,14 @@
+meta {
+  name: get courts available(token)
+  type: http
+}
+
+get {
+  url: {{host}}/courts_availables?clubId=1&date=2025-09-15T10:30:00.000Z
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTA4LCJlbWFpbCI6Imp1YW5wZXJlekBnbWFpbC5jb20iLCJpbWFnZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hLS9BT2gxNEdnUnNfQlM5b2VCNTZkaVR2S3dfOHJDWkQzWE1IdmxVLThZTjI9czk2LWMiLCJuYW1lIjoiSnVhbiBQw6lyZXoiLCJ1c2VyTmFtZSI6Ikp1YW4iLCJ1c2VyTGFzdE5hbWUiOiJQw6lyZXoiLCJ0eXBlIjoidXNlciIsImlzRmFzdExvZ2luIjp0cnVlLCJpYXQiOjE3NjM2MDA4MTMsImV4cCI6MTc2MzYwNDQxM30.NQFjeXyZvMMhIs0pnlsRqtte8eqK1gdtY5Q2tk9DqvY
+}

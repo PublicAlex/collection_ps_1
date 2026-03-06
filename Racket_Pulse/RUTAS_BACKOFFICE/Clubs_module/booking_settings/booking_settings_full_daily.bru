@@ -1,0 +1,99 @@
+meta {
+  name: booking settings full daily
+  type: http
+}
+
+post {
+  url: {{host}}/booking_configurations
+  body: json
+  auth: inherit
+}
+
+body:json {
+{
+  "name": "Daily Configuration",
+  "is_hours_global": false,
+  "is_pricing_global": false,
+  "date_range": {
+    "start": "2025-01-01",
+    "end": "2025-12-31"
+  },
+  "working_hours": [
+    {
+      "day": "monday",
+      "start_time": "08:00",
+      "end_time": "20:00",
+      "min_reservation_time": 60,
+      "max_reservation_time": 120,
+      "break": {
+        "start": "12:00",
+        "end": "13:00"
+      },
+      "is_closed": false
+    },
+    {
+      "day": "friday",
+      "start_time": "08:00",
+      "end_time": "22:00",
+      "min_reservation_time": 90,
+      "max_reservation_time": 180,
+      "is_closed": false
+    },
+    {
+      "day": "sunday",
+      "start_time": "10:00",
+      "end_time": "18:00",
+      "min_reservation_time": 60,
+      "max_reservation_time": 120,
+      "is_closed": true
+    }
+  ],
+  "pricing_options": [
+    {
+      "day": "monday",
+      "price": 40,
+      "currency": "EUR",
+      "payment_method_options": [
+        {
+          "name": "stripe",
+          "enabled": true
+        }
+      ],
+      "is_closed": false
+    },
+    {
+      "day": "friday",
+      "price": 70,
+      "currency": "EUR",
+      "payment_method_options": [
+        {
+          "name": "stripe",
+          "enabled": true
+        }
+      ],
+      "is_closed": false
+    },
+    {
+      "day": "sunday",
+      "price": 60,
+      "currency": "EUR",
+      "payment_method_options": [
+        {
+          "name": "stripe",
+          "enabled": true
+        },
+        {
+          "name": "paypal",
+          "enabled": false
+        }
+      ],
+      "is_closed": true
+    }
+  ],
+  "max_players_per_game": 4,
+  "is_active": true,
+  "priority": 3,
+  "description": "Different hours and prices per day, Sunday temporarily closed but config preserved",
+  "club_id": 1
+}
+}

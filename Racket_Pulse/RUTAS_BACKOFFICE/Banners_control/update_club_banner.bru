@@ -1,0 +1,17 @@
+meta {
+  name: update club banner
+  type: http
+}
+
+patch {
+  url: {{host}}/clubs/1/banners/1
+  body: json
+  auth: inherit
+}
+
+body:json {
+{
+    "title": "Nuevo Título", 
+    "isActive": false
+}
+}

@@ -1,0 +1,14 @@
+meta {
+  name: manual counter reset (only for testing)
+  type: http
+}
+
+post {
+  url: {{host}}/club_users/1/security-settings/unlock
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}

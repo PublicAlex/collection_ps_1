@@ -1,0 +1,10 @@
+meta {
+  name: Dissociate User from Club
+  type: http
+}
+
+delete {
+  url: {{host}}/users/:userId/associate-club/:clubId
+  body: none
+  auth: inherit
+}

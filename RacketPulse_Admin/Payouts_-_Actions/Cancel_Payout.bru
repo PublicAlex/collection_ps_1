@@ -1,0 +1,32 @@
+meta {
+  name: Cancel Payout
+  type: http
+}
+
+patch {
+  url: {{base_url}}/payer/payouts/{{payout_id}}/cancel
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+{
+    "reason": "Duplicate payout request",
+    "notes": "Cancelled via Admin Panel"
+}
+}
+
+script:post-response {
+test("Status code is 200", function () {
+    expect(res.getStatus()).to.equal(200);
+});
+
+test("Payout status is cancelled", function () {
+    var jsonData = res.getBody();
+    expect(jsonData.status).to.eql('cancelled');
+});
+}

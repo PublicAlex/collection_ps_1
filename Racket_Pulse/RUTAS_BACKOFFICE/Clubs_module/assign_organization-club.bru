@@ -1,0 +1,19 @@
+meta {
+  name: assign organization-club
+  type: http
+}
+
+post {
+  url: {{host}}/club_gestor
+  body: json
+  auth: inherit
+}
+
+body:json {
+{
+  "clubId": 1,
+  "organizationId": 1,
+  "role": "manager",
+  "clubUserId": 1
+}
+}

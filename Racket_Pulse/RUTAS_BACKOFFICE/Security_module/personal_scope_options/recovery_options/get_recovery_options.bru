@@ -1,0 +1,14 @@
+meta {
+  name: get recovery options
+  type: http
+}
+
+get {
+  url: {{host}}/club_users/1/recovery-options
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}

@@ -1,0 +1,26 @@
+meta {
+  name: 2. Get Pending Payouts
+  type: http
+}
+
+get {
+  url: {{base_url}}/payer/payouts/pending
+  body: none
+  auth: inherit
+}
+
+script:post-response {
+var jsonData = res.getBody();
+
+test("Got pending payouts", function () {
+    expect(res.getStatus()).to.equal(200);
+    expect(jsonData).to.be.an('array');
+});
+
+if (jsonData.length > 0) {
+    bru.setVar("payout_id", jsonData[0].id);
+    console.log("Selected payout: " + jsonData[0].payoutNumber + " (" + jsonData[0].id + ")");
+} else {
+    console.log("No pending payouts found");
+}
+}

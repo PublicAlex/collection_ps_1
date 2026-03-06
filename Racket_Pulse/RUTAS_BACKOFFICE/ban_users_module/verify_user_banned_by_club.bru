@@ -1,0 +1,10 @@
+meta {
+  name: verify user banned by club
+  type: http
+}
+
+get {
+  url: {{host}}/club_user_bans/check/5/3
+  body: none
+  auth: inherit
+}

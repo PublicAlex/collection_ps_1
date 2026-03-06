@@ -1,0 +1,14 @@
+meta {
+  name: get user pending matches
+  type: http
+}
+
+get {
+  url: {{host}}/matches/user/6/pending?sortBy=start_date&sortOrder=ASC
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}

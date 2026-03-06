@@ -1,0 +1,16 @@
+meta {
+  name: init
+  type: http
+}
+
+post {
+  url: {{host}}/club_users/registration/start
+  body: json
+  auth: inherit
+}
+
+body:json {
+{
+  "email": "admin@elitepadelclub.com"
+}
+}

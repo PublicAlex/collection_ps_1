@@ -1,0 +1,10 @@
+meta {
+  name: search bar example
+  type: http
+}
+
+get {
+  url: {{host}}/billing-plans/club/1/invoices?invoiceNumber=005&status=unpaid&page=1&limit=20&search=005
+  body: none
+  auth: inherit
+}

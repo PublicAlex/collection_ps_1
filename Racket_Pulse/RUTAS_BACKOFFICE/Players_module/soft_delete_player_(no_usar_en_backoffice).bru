@@ -1,0 +1,10 @@
+meta {
+  name: soft delete player (no usar en backoffice)
+  type: http
+}
+
+delete {
+  url: {{host}}/users/{id}/soft
+  body: none
+  auth: inherit
+}

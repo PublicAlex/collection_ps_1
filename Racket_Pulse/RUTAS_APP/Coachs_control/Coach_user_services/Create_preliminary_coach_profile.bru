@@ -1,0 +1,29 @@
+meta {
+  name: Create preliminary coach profile
+  type: http
+}
+
+post {
+  url: {{host}}/club_users/coach
+  body: json
+  auth: inherit
+}
+
+body:json {
+{
+  "club_id": 1,
+  "email": "azton97@gmail.com",
+  "name": "Carlos",
+  "last_name": "Fernández",
+  "phone": "+34666123456",
+  "biography": "Coach profesional especializado en técnica y táctica de padel",
+  "experience_years": 8,
+  "certification_level": "PTR Level 3",
+  "languages": ["español", "inglés"],
+  "base_hourly_rate": 55.00,
+  "currency": "EUR",
+  "min_student_level": 2,
+  "max_student_level": 9,
+  "specialties": ["technique", "tactics", "power"]
+}
+}

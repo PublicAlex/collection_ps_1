@@ -1,0 +1,32 @@
+meta {
+  name: Reset Payout
+  type: http
+}
+
+patch {
+  url: {{base_url}}/payer/payouts/{{payout_id}}/reset
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+{
+  "reason": "Razón del reset",
+  "notes": "Notas adicionales (opcional)"
+}
+}
+
+script:post-response {
+test("Status code is 200", function () {
+    expect(res.getStatus()).to.equal(200);
+});
+
+test("Payout status is cancelled", function () {
+    var jsonData = res.getBody();
+    expect(jsonData.status).to.eql('cancelled');
+});
+}

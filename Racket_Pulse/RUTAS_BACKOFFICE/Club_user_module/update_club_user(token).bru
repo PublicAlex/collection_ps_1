@@ -1,0 +1,19 @@
+meta {
+  name: update club user(token)
+  type: http
+}
+
+patch {
+  url: {{host}}/club_users/25?clubId=1
+  body: json
+  auth: inherit
+}
+
+body:json {
+{
+        
+            "name": "Juanjo coach",
+            "last_name": "test",
+            "role": "manager"
+}
+}

@@ -1,0 +1,10 @@
+meta {
+  name: get activity per day/week/month
+  type: http
+}
+
+get {
+  url: {{host}}/matches/dashboard/chart/club/1?startDate=2025-09-15&endDate=2025-11-31&groupBy=day&gameTypes=open&courtIds=5
+  body: none
+  auth: inherit
+}

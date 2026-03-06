@@ -1,0 +1,29 @@
+meta {
+  name: 4. Process Payout
+  type: http
+}
+
+patch {
+  url: {{base_url}}/payer/payouts/{{payout_id}}/process
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+{
+    "externalReference": "REF-TX-FULL-FLOW-{{$timestamp}}",
+    "notes": "Processed via Full Flow Test"
+}
+}
+
+script:post-response {
+test("Payout processed", function () {
+    expect(res.getStatus()).to.equal(200);
+    var jsonData = res.getBody();
+    expect(jsonData.status).to.eql('completed');
+});
+}

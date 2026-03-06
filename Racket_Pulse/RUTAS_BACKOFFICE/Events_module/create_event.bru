@@ -1,0 +1,41 @@
+meta {
+  name: create event
+  type: http
+}
+
+post {
+  url: {{host}}/events
+  body: json
+  auth: inherit
+}
+
+headers {
+  Accept: application/json
+  Content-Type: application/json
+  Authorization: Bearer YOUR_JWT_TOKEN
+}
+
+body:json {
+{
+  "name": "Summer Tournament 2025",
+  "description": "Friendly tournament for all levels with prizes",
+  "event_type": "tournament",
+  "from_date": "2025-07-16T09:00:00.000Z",
+  "to_date": "2025-08-16T18:00:00.000Z",
+  "club_id": 1,
+  "country_iso": "COP",
+  "min_level": 2.0,
+  "max_level": 5.0,
+  "gender": "all",
+  "format": "single_elimination",
+  "category": "mixed",
+  "price": 50.0,
+  "registration_start": "2025-06-01T09:00:00.000Z",
+  "registration_end": "2025-07-10T18:00:00.000Z",
+  "cancellation_deadline": "2025-07-05T18:00:00.000Z",
+  "event_image": "https://www.padelfip.com/wp-content/uploads/2025/01/WhatsApp-Image-2025-01-29-at-13.32.12-212x300.jpeg",
+  "creator_id": 1,
+  "event_subtype": "Championship",
+  "income": 0
+}
+}

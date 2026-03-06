@@ -1,0 +1,25 @@
+meta {
+  name: register club
+  type: http
+}
+
+post {
+  url: {{host}}/club_users/registration/a232be12-ebe0-4930-ba3e-652aedca3c3f/club
+  body: json
+  auth: inherit
+}
+
+body:json {
+{
+  "clubName": "Elite Tennis Club Downtown 3",
+  "location": "Bogotá, Zona Rosa, Colombia 3", // de forma textual una representacion de la direccion (solo texto)
+  "locationCoordinate": "4.6097,-74.0817", // asignación del cooordenadas usando golocation o el serviio del mapa
+  "clubLogo": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==",
+
+
+  "language": "en", // es,in,ru,... Idioma principal del club (código ISO 639-1)',
+  "club_url": "club-deportivo-ejemplo",   // URL única del club (slug)
+  "club_description": "descripcion xxxxxxxxxxxxx"
+
+}
+}

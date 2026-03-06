@@ -1,0 +1,24 @@
+meta {
+  name: update club
+  type: http
+}
+
+patch {
+  url: {{host}}/clubs/1
+  body: json
+  auth: inherit
+}
+
+body:json {
+{
+  "club_name": "Club Deportivo Los Pinos",
+  "club_description": "Club de tenis y pádel con instalaciones modernas, canchas de arcilla y césped sintético. Ofrecemos clases para todas las edades y niveles, así como torneos mensuales.",
+  "club_url": "club-deportivo-los-pinos",
+  "language": "es",
+  "is_public": true,
+  "location": "Avenida Principal 456, Sector Los Pinos, Neiva, Huila",
+  "location_coordinate": "2.9273,-75.2819",
+  "club_logo": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg=="
+}
+
+}

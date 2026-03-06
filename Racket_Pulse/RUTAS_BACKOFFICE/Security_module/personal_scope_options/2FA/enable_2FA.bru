@@ -1,0 +1,14 @@
+meta {
+  name: enable 2FA
+  type: http
+}
+
+post {
+  url: {{host}}/club_users/1/2fa/enable
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}

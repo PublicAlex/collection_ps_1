@@ -1,0 +1,31 @@
+meta {
+  name: 1. Login
+  type: http
+}
+
+post {
+  url: {{base_url}}/auth/login
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+{
+    "email": "admin@admin.com",
+    "password": "p3assw1ord_segura2"
+}
+}
+
+script:post-response {
+var jsonData = res.getBody();
+bru.setVar("access_token", jsonData.access_token);
+
+test("Login successful", function () {
+    expect(res.getStatus()).to.equal(201);
+    expect(jsonData).to.have.property('access_token');
+});
+}

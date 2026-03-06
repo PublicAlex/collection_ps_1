@@ -1,0 +1,10 @@
+meta {
+  name: revoke all active sessions of user
+  type: http
+}
+
+post {
+  url: {{host}}/club_users/:id/sessions/revoke-all
+  body: none
+  auth: inherit
+}

@@ -1,0 +1,22 @@
+meta {
+  name: process payout (execute)
+  type: http
+}
+
+patch {
+  url: {{host}}/admin/scheduled-payouts/{{payoutId}}/process
+  body: json
+  auth: inherit
+}
+
+headers {
+  Authorization: Bearer {{token}}
+  Content-Type: application/json
+}
+
+body:json {
+{
+    "externalReference": "REF-TX-FULL-FLOW-{{$timestamp}}",
+    "notes": "Processed successfully."
+}
+}

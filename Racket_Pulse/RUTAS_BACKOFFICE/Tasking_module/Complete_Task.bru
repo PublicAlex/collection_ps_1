@@ -1,0 +1,17 @@
+meta {
+  name: Complete Task
+  type: http
+}
+
+patch {
+  url: {{host}}/tasks/1/complete?user_id=1
+  body: json
+  auth: inherit
+}
+
+body:json {
+{
+  "status": "completed",
+  "completion_notes": "Task completed successfully"
+}
+}

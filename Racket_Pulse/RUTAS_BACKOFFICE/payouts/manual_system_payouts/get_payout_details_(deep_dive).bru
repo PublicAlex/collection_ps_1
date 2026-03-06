@@ -1,0 +1,15 @@
+meta {
+  name: get payout details (deep dive)
+  type: http
+}
+
+get {
+  url: {{host}}/admin/scheduled-payouts/12f6110e-e09e-49eb-9f07-b064949bdc40/invoice/download
+  body: none
+  auth: inherit
+}
+
+headers {
+  Authorization: Bearer {{token}}
+  X-Secret-Key: 8ajk128nas8dho19-lkasdh9n1jnoas091nsd@-
+}

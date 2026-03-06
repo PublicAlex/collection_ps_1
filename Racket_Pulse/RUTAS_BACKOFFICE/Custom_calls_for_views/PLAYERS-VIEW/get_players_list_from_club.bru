@@ -1,0 +1,10 @@
+meta {
+  name: get players list from club
+  type: http
+}
+
+get {
+  url: {{host}}/users/search/players?levelMin=0.0&levelMax=4.0&gamesMin=1&gamesMax=25&fromDate=2024-06-01&toDate=2025-12-31&clubId=1&sortBy=level&sortOrder=-&page=1&limit=3
+  body: none
+  auth: inherit
+}

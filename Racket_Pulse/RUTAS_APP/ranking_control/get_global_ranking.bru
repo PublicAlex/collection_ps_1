@@ -1,0 +1,10 @@
+meta {
+  name: get global ranking
+  type: http
+}
+
+get {
+  url: {{host}}/user-rankings/user/85/global?page=1&limit=20&minPlayerLevel=0&mixPlayerLevel=5&gender=male
+  body: none
+  auth: inherit
+}

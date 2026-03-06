@@ -1,0 +1,15 @@
+meta {
+  name: get event stats
+  type: http
+}
+
+get {
+  url: {{host}}/events/stats/club/1
+  body: none
+  auth: inherit
+}
+
+headers {
+  Accept: application/json
+  Content-Type: application/json
+}

@@ -1,0 +1,14 @@
+meta {
+  name: List All Users
+  type: http
+}
+
+get {
+  url: {{base_url}}/users
+  body: none
+  auth: inherit
+}
+
+headers {
+  Authorization: Bearer {{token}}
+}
