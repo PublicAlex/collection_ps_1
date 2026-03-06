@@ -1,0 +1,1281 @@
+{
+  "info": {
+    "_postman_id": "bed159fa-1c7b-4362-a654-a69bad1dde0c",
+    "name": "RacketPulse Admin",
+    "description": "Colección de endpoints para el módulo Login y Payer del panel de administración de RacketPulse",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "17673405",
+    "_collection_link": "https://go.postman.co/collection/17673405-bed159fa-1c7b-4362-a654-a69bad1dde0c?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Login",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "var jsonData = pm.response.json();",
+                  "",
+                  "if (jsonData.access_token) {",
+                  "    pm.collectionVariables.set(\"access_token\", jsonData.access_token);",
+                  "    console.log(\"Token saved successfully\");",
+                  "}",
+                  "",
+                  "pm.test(\"Status code is 201\", function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "",
+                  "pm.test(\"Response has access_token\", function () {",
+                  "    pm.expect(jsonData).to.have.property('access_token');",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"email\": \"admin@admin.com\",\n    \"password\": \"p3assw1ord_segura2\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/login",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            },
+            "description": "Login para obtener el token de acceso. El token se guarda automáticamente en las variables de la colección."
+          },
+          "response": []
+        }
+      ],
+      "description": "Endpoints de autenticación"
+    },
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"admin@admin.com\",\r\n  \"password\": \"p3assw1ord_segura2\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/login",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "List All Users",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/users",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Search Users",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"searchTerm\": \"admin\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/users/find",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "users",
+                "find"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Admin/staff User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"email\": \"newuser@example.com\",\n    \"password\": \"password123\",\n    \"name\": \"New\",\n    \"lastname\": \"User\",\n    \"role\": \"superadmin\" // superadmin o payer\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/users",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update User",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Updated Name\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/users/:id",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "users",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "2",
+                  "description": "ID of the user to update"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete User (Soft)",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/users/:id",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "users",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "2",
+                  "description": "ID of the user to delete"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Restore User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/users/:id/restore",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "users",
+                ":id",
+                "restore"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "2",
+                  "description": "ID of the user to restore"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Payouts - List",
+      "item": [
+        {
+          "name": "Get All Payouts",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response is an array\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.be.an('array');",
+                  "});",
+                  "",
+                  "// Save first payout ID for other tests",
+                  "var jsonData = pm.response.json();",
+                  "if (jsonData.length > 0) {",
+                  "    pm.collectionVariables.set(\"payout_id\", jsonData[0].id);",
+                  "    console.log(\"Payout ID saved: \" + jsonData[0].id);",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/payer/payouts",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "payer",
+                "payouts"
+              ]
+            },
+            "description": "Obtiene todos los payouts sin filtros"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Payouts - Filter by Status",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"All payouts have pending_review status\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    jsonData.forEach(function(payout) {",
+                  "        pm.expect(payout.status).to.eql('pending_review');",
+                  "    });",
+                  "});",
+                  "",
+                  "// Save first pending payout ID",
+                  "var jsonData = pm.response.json();",
+                  "if (jsonData.length > 0) {",
+                  "    pm.collectionVariables.set(\"payout_id\", jsonData[0].id);",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/payer/payouts?status=pending_review",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "payer",
+                "payouts"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "pending_review"
+                }
+              ]
+            },
+            "description": "Obtiene payouts filtrados por status pending_review"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Payouts - Filter by Club ID",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"All payouts belong to club 56\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    jsonData.forEach(function(payout) {",
+                  "        pm.expect(payout.clubId).to.eql(56);",
+                  "    });",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/payer/payouts?clubId=56",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "payer",
+                "payouts"
+              ],
+              "query": [
+                {
+                  "key": "clubId",
+                  "value": "56"
+                }
+              ]
+            },
+            "description": "Obtiene payouts filtrados por Club ID"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Payouts - Filter by Date Range",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/payer/payouts?status=pending_review&startDate=2024-01-01T00:00:00.000Z&endDate=2026-12-31T23:59:59.000Z",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "payer",
+                "payouts"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "pending_review"
+                },
+                {
+                  "key": "startDate",
+                  "value": "2024-01-01T00:00:00.000Z"
+                },
+                {
+                  "key": "endDate",
+                  "value": "2026-12-31T23:59:59.000Z"
+                }
+              ]
+            },
+            "description": "Obtiene payouts filtrados por rango de fechas y status"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Pending Payouts",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"All payouts are pending_review\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    jsonData.forEach(function(payout) {",
+                  "        pm.expect(payout.status).to.eql('pending_review');",
+                  "    });",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/payer/payouts/pending",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "payer",
+                "payouts",
+                "pending"
+              ]
+            },
+            "description": "Atajo para obtener solo payouts en estado pending_review"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Completed Payouts",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"All payouts are completed\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    jsonData.forEach(function(payout) {",
+                  "        pm.expect(payout.status).to.eql('completed');",
+                  "    });",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/payer/payouts?status=completed",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "payer",
+                "payouts"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "completed"
+                }
+              ]
+            },
+            "description": "Obtiene payouts completados"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Cancelled Payouts",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"All payouts are cancelled\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    jsonData.forEach(function(payout) {",
+                  "        pm.expect(payout.status).to.eql('cancelled');",
+                  "    });",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/payer/payouts?status=cancelled",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "payer",
+                "payouts"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "cancelled"
+                }
+              ]
+            },
+            "description": "Obtiene payouts cancelados"
+          },
+          "response": []
+        }
+      ],
+      "description": "Endpoints para listar y filtrar payouts"
+    },
+    {
+      "name": "Payouts - Detail",
+      "item": [
+        {
+          "name": "Get Payout By ID",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response has required fields\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('id');",
+                  "    pm.expect(jsonData).to.have.property('payoutNumber');",
+                  "    pm.expect(jsonData).to.have.property('clubId');",
+                  "    pm.expect(jsonData).to.have.property('grossAmount');",
+                  "    pm.expect(jsonData).to.have.property('netAmount');",
+                  "    pm.expect(jsonData).to.have.property('status');",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/payer/payouts/{{payout_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "payer",
+                "payouts",
+                "{{payout_id}}"
+              ]
+            },
+            "description": "Obtiene el detalle de un payout específico"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Payout By ID - With Bookings",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response includes bookings array\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('bookings');",
+                  "    pm.expect(jsonData.bookings).to.be.an('array');",
+                  "});",
+                  "",
+                  "pm.test(\"Response includes fullBankAccount\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('fullBankAccount');",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/payer/payouts/{{payout_id}}?includeBookings=true",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "payer",
+                "payouts",
+                "{{payout_id}}"
+              ],
+              "query": [
+                {
+                  "key": "includeBookings",
+                  "value": "true"
+                }
+              ]
+            },
+            "description": "Obtiene el detalle de un payout incluyendo información de bookings y cuenta bancaria completa"
+          },
+          "response": []
+        }
+      ],
+      "description": "Endpoints para obtener detalles de payouts"
+    },
+    {
+      "name": "Payouts - Actions",
+      "item": [
+        {
+          "name": "Approve Payout",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Payout status is approved\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.status).to.eql('approved');",
+                  "});",
+                  "",
+                  "pm.test(\"Payout has approvedAt timestamp\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('approvedAt');",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"notes\": \"Approved via Admin Panel\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/payer/payouts/{{payout_id}}/approve",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "payer",
+                "payouts",
+                "{{payout_id}}",
+                "approve"
+              ]
+            },
+            "description": "Aprueba un payout en estado pending_review. Cambia el status a 'approved'."
+          },
+          "response": []
+        },
+        {
+          "name": "Process Payout",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Payout status is completed\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.status).to.eql('completed');",
+                  "});",
+                  "",
+                  "pm.test(\"Payout has processedAt timestamp\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('processedAt');",
+                  "});",
+                  "",
+                  "pm.test(\"Payout has externalReference\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.externalReference).to.not.be.null;",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"externalReference\": \"REF-TX-{{$timestamp}}\",\n    \"notes\": \"Processed successfully via Admin Panel\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/payer/payouts/{{payout_id}}/process",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "payer",
+                "payouts",
+                "{{payout_id}}",
+                "process"
+              ]
+            },
+            "description": "Marca un payout aprobado como procesado/completado. Requiere externalReference (referencia de la transferencia bancaria)."
+          },
+          "response": []
+        },
+        {
+          "name": "Reset Payout",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Payout status is cancelled\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.status).to.eql('cancelled');",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"reason\": \"Razón del reset\",\n  \"notes\": \"Notas adicionales (opcional)\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/payer/payouts/{{payout_id}}/reset",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "payer",
+                "payouts",
+                "{{payout_id}}",
+                "reset"
+              ]
+            },
+            "description": "Cancela un payout. Requiere reason (motivo de cancelación)."
+          },
+          "response": []
+        },
+        {
+          "name": "Cancel Payout",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Payout status is cancelled\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.status).to.eql('cancelled');",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"reason\": \"Duplicate payout request\",\n    \"notes\": \"Cancelled via Admin Panel\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/payer/payouts/{{payout_id}}/cancel",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "payer",
+                "payouts",
+                "{{payout_id}}",
+                "cancel"
+              ]
+            },
+            "description": "Cancela un payout. Requiere reason (motivo de cancelación)."
+          },
+          "response": []
+        }
+      ],
+      "description": "Acciones sobre payouts: aprobar, procesar, cancelar"
+    },
+    {
+      "name": "Payouts - Invoice",
+      "item": [
+        {
+          "name": "Get Invoice",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response has invoice fields\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('id');",
+                  "    pm.expect(jsonData).to.have.property('invoiceNumber');",
+                  "    pm.expect(jsonData).to.have.property('subtotal');",
+                  "    pm.expect(jsonData).to.have.property('totalFees');",
+                  "    pm.expect(jsonData).to.have.property('totalAmount');",
+                  "    pm.expect(jsonData).to.have.property('pdfUrl');",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/payer/payouts/{{payout_id}}/invoice",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "payer",
+                "payouts",
+                "{{payout_id}}",
+                "invoice"
+              ]
+            },
+            "description": "Obtiene los detalles de la factura de un payout. Genera la factura si no existe."
+          },
+          "response": []
+        },
+        {
+          "name": "Download Invoice PDF",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Content-Type is PDF\", function () {",
+                  "    pm.expect(pm.response.headers.get('Content-Type')).to.include('application/pdf');",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/payer/payouts/{{payout_id}}/invoice/download",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "payer",
+                "payouts",
+                "{{payout_id}}",
+                "invoice",
+                "download"
+              ]
+            },
+            "description": "Descarga el PDF de la factura de un payout"
+          },
+          "response": []
+        }
+      ],
+      "description": "Endpoints para facturas de payouts"
+    },
+    {
+      "name": "Full Flow Test",
+      "item": [
+        {
+          "name": "1. Login",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "var jsonData = pm.response.json();",
+                  "pm.collectionVariables.set(\"access_token\", jsonData.access_token);",
+                  "",
+                  "pm.test(\"Login successful\", function () {",
+                  "    pm.response.to.have.status(201);",
+                  "    pm.expect(jsonData).to.have.property('access_token');",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"email\": \"admin@admin.com\",\n    \"password\": \"p3assw1ord_segura2\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/login",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "2. Get Pending Payouts",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "var jsonData = pm.response.json();",
+                  "",
+                  "pm.test(\"Got pending payouts\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "    pm.expect(jsonData).to.be.an('array');",
+                  "});",
+                  "",
+                  "if (jsonData.length > 0) {",
+                  "    pm.collectionVariables.set(\"payout_id\", jsonData[0].id);",
+                  "    console.log(\"Selected payout: \" + jsonData[0].payoutNumber + \" (\" + jsonData[0].id + \")\");",
+                  "} else {",
+                  "    console.log(\"No pending payouts found\");",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/payer/payouts/pending",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "payer",
+                "payouts",
+                "pending"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "3. Approve Payout",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Payout approved\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.status).to.eql('approved');",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"notes\": \"Approved via Full Flow Test\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/payer/payouts/{{payout_id}}/approve",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "payer",
+                "payouts",
+                "{{payout_id}}",
+                "approve"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "4. Process Payout",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Payout processed\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.status).to.eql('completed');",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"externalReference\": \"REF-TX-FULL-FLOW-{{$timestamp}}\",\n    \"notes\": \"Processed via Full Flow Test\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/payer/payouts/{{payout_id}}/process",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "payer",
+                "payouts",
+                "{{payout_id}}",
+                "process"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "5. Verify Completed",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Payout is completed\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.status).to.eql('completed');",
+                  "    pm.expect(jsonData.externalReference).to.not.be.null;",
+                  "    pm.expect(jsonData.approvedAt).to.not.be.null;",
+                  "    pm.expect(jsonData.processedAt).to.not.be.null;",
+                  "});",
+                  "",
+                  "console.log(\"Full flow completed successfully!\");"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/payer/payouts/{{payout_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "payer",
+                "payouts",
+                "{{payout_id}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "description": "Flujo completo de prueba: Login → Get Pending → Approve → Process → Verify"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{access_token}}",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:3003",
+      "type": "string"
+    },
+    {
+      "key": "access_token",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "payout_id",
+      "value": "",
+      "type": "string"
+    }
+  ]
+}
