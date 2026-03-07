@@ -1,0 +1,26 @@
+info:
+  name: club_user login_otp phone
+  type: http
+  seq: 4
+
+http:
+  method: POST
+  url: "{{host}}/auth/club_login_otp"
+  body:
+    type: json
+    data: "{\r
+
+      \  \"identifier\": \"+57 3102991583\",\r
+
+      \  \"method\": \"phone\",\r
+
+      \  \"code\": \"405657\"\r
+
+      }"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

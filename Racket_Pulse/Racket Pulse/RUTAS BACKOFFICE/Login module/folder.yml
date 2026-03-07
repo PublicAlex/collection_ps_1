@@ -1,0 +1,11 @@
+info:
+  name: Login module
+  type: folder
+  seq: 3
+
+request:
+  auth: inherit
+
+docs:
+  content: Módulo de ingreso para clubusers.
+  type: text/markdown

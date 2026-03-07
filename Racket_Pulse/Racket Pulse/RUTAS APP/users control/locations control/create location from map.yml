@@ -1,0 +1,68 @@
+info:
+  name: create location from map
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{host}}/user_locations/from_map"
+  body:
+    type: json
+    data: "{\r
+
+      \  \"user_id\": 1,  // solo agregar el id del user\r
+
+      \  \"location_name\": \"My Home\",   // el nombre que quiera colocarle a su ubicación (ej: ciudad x vacaciones)\r
+
+      \  \"latitude\": 2.9062021,   // .... todos los demas datos son los que retorna el módulo de mapa tal cual.\r
+
+      \  \"longitude\": -75.2615,\r
+
+      \  \"address\": \"Carrera 15B, El Vergel, Comuna Sur, Perímetro Urbano Neiva, Neiva, Norte, Huila, RAP (Especial) Central, 410006, Colombia\",\r
+
+      \  \"addressComponents\": {\r
+
+      \    \"street\": \"Carrera 15B\",\r
+
+      \    \"house_number\": null,\r
+
+      \    \"road\": \"Carrera 15B\",\r
+
+      \    \"neighbourhood\": \"El Vergel\",\r
+
+      \    \"village\": null,\r
+
+      \    \"city\": \"Perímetro Urbano Neiva\",\r
+
+      \    \"county\": \"Neiva\",\r
+
+      \    \"state\": \"Huila\",\r
+
+      \    \"country\": \"Colombia\",\r
+
+      \    \"country_code\": \"co\",\r
+
+      \    \"postcode\": \"410006\",\r
+
+      \    \"amenity\": null,\r
+
+      \    \"place_type\": \"residential\"\r
+
+      \  },\r
+
+      \  \"timestamp\": \"2025-06-13T21:10:34.239Z\",\r
+
+      \  \"source\": \"geolocation\",\r
+
+      \  \"is_current\": true, // definir si va a ser la ubicacion actual del jugador o no\r
+
+      \  \"is_favorite\": false // \r
+
+      }"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

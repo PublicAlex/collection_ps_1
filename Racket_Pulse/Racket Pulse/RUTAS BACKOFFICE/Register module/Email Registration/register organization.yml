@@ -1,0 +1,38 @@
+info:
+  name: register organization
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{host}}/club_users/registration/0e5510fe-c679-4ba6-8d02-e9244299b707/organization"
+  body:
+    type: json
+    data: "\r
+
+      {\r
+
+      \  \"organizationName\": \"Elite Tennis Network Colombia\",\r
+
+      \  \"countryId\": 1,  // cambiar a countryId \r
+
+      \  \"companyId\": \"VAT900123456-7\",\r
+
+      \  \"adminName\": \"Carlos\", // deberian agregar directamente el nombre o no? ... optional \r
+
+      \  \"adminLastName\": \"Rodriguez\", // same ... optional\r
+
+      \  \"adminEmail\": \"hohex84245z@forexru.com\",\r
+
+      \  \"adminPassword\": \"SecurePass123\",\r
+
+      \  \"adminPhone\": \"+573001234567\"\r
+
+      }"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,36 @@
+info:
+  name: Create Task
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: "{{host}}/tasks"
+  body:
+    type: json
+    data: "{\r
+
+      \  \"title\": \"Buy new balls 2\",\r
+
+      \  \"description\": \"Call Margaret to ask about new prices.\",\r
+
+      \  \"due_date\": \"2025-09-22T00:00:00.000Z\",\r
+
+      \  \"repeat_frequency\": \"monthly\",\r
+
+      \  \"priority\": \"medium\",\r
+
+      \  \"club_id\": 1,\r
+
+      \  \"created_by_id\": 1,\r
+
+      \  \"assigned_to_id\": 1\r
+
+      }"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

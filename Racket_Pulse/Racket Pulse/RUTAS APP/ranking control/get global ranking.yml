@@ -1,0 +1,36 @@
+info:
+  name: get global ranking
+  type: http
+  seq: 4
+
+http:
+  method: GET
+  url: "{{host}}/user-rankings/user/85/global?page=1&limit=20&minPlayerLevel=0&mixPlayerLevel=5&gender=male"
+  params:
+    - name: page
+      value: "1"
+      type: query
+    - name: limit
+      value: "20"
+      type: query
+    - name: search
+      value: L
+      type: query
+      disabled: true
+    - name: minPlayerLevel
+      value: "0"
+      type: query
+    - name: mixPlayerLevel
+      value: "5"
+      type: query
+    - name: gender
+      value: male
+      type: query
+      description: male, female, other
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

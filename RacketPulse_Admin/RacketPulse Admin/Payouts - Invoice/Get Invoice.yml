@@ -1,0 +1,35 @@
+info:
+  name: Get Invoice
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: "{{base_url}}/payer/payouts/{{payout_id}}/invoice"
+  auth: inherit
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        test("Status code is 200", function () {
+            expect(res.getStatus()).to.equal(200);
+        });
+
+        test("Response has invoice fields", function () {
+            var jsonData = res.getBody();
+            expect(jsonData).to.have.property('id');
+            expect(jsonData).to.have.property('invoiceNumber');
+            expect(jsonData).to.have.property('subtotal');
+            expect(jsonData).to.have.property('totalFees');
+            expect(jsonData).to.have.property('totalAmount');
+            expect(jsonData).to.have.property('pdfUrl');
+        });
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Obtiene los detalles de la factura de un payout. Genera la factura si no existe.

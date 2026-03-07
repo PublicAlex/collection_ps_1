@@ -1,0 +1,25 @@
+info:
+  name: Smooth Scores
+  type: http
+  seq: 5
+
+http:
+  method: POST
+  url: "{{elohost}}/api/v1/scores/smooth"
+  headers:
+    - name: X-API-Key
+      value: "1234"
+  body:
+    type: json
+    data: "{\r
+
+      \    \"scores_history\": [0.5, 0.6, 0.5, 0.4, 0.4, 0.5]\r
+
+      }"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

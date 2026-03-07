@@ -1,0 +1,38 @@
+info:
+  name: get Dashboard Stats
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: "{{host}}/matches/dashboard/stats/club/1?startDate=2025-04-01T00:00:00.000Z&endDate=2025-04-11T23:59:59.999Z&courtIds=1,2,3,4,5&gameTypes=open,tournament&playerLevels=0,3"
+  params:
+    - name: startDate
+      value: 2025-04-01T00:00:00.000Z
+      type: query
+    - name: endDate
+      value: 2025-04-11T23:59:59.999Z
+      type: query
+    - name: courtIds
+      value: 1,2,3,4,5
+      type: query
+    - name: gameTypes
+      value: open,tournament
+      type: query
+    - name: ""
+      value: ""
+      type: query
+      disabled: true
+    - name: ""
+      value: ""
+      type: query
+      disabled: true
+    - name: playerLevels
+      value: 0,3
+      type: query
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

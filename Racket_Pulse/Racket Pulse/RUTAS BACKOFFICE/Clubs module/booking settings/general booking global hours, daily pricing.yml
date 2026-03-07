@@ -1,0 +1,158 @@
+info:
+  name: general booking global hours, daily pricing
+  type: http
+  seq: 5
+
+http:
+  method: POST
+  url: "{{host}}/booking_configurations"
+  body:
+    type: json
+    data: "{\r
+
+      \  \"name\": \"Mixed Daily Pricing\",\r
+
+      \  \"is_hours_global\": true,\r
+
+      \  \"is_pricing_global\": false,\r
+
+      \  \"date_range\": {\r
+
+      \    \"start\": \"2025-01-01\",\r
+
+      \    \"end\": \"2025-12-31\"\r
+
+      \  },\r
+
+      \  \"working_hours\": {\r
+
+      \    \"start_time\": \"08:00\",\r
+
+      \    \"end_time\": \"20:00\",\r
+
+      \    \"min_reservation_time\": 60,\r
+
+      \    \"max_reservation_time\": 120,\r
+
+      \    \"break\": {\r
+
+      \      \"start\": \"12:00\",\r
+
+      \      \"end\": \"13:00\"\r
+
+      \    }\r
+
+      \  },\r
+
+      \  \"pricing_options\": [\r
+
+      \    {\r
+
+      \      \"day\": \"monday\",\r
+
+      \      \"price\": 40,\r
+
+      \      \"currency\": \"EUR\",\r
+
+      \      \"payment_method_options\": [\r
+
+      \        {\r
+
+      \          \"name\": \"stripe\",\r
+
+      \          \"enabled\": true\r
+
+      \        }\r
+
+      \      ],\r
+
+      \      \"is_closed\": false\r
+
+      \    },\r
+
+      \    {\r
+
+      \      \"day\": \"saturday\",\r
+
+      \      \"price\": 80,\r
+
+      \      \"currency\": \"EUR\",\r
+
+      \      \"payment_method_options\": [\r
+
+      \        {\r
+
+      \          \"name\": \"stripe\",\r
+
+      \          \"enabled\": true\r
+
+      \        }\r
+
+      \      ],\r
+
+      \      \"is_closed\": false\r
+
+      \    },\r
+
+      \    {\r
+
+      \      \"day\": \"sunday\",\r
+
+      \      \"price\": 75,\r
+
+      \      \"currency\": \"EUR\",\r
+
+      \      \"payment_method_options\": [\r
+
+      \        {\r
+
+      \          \"name\": \"stripe\",\r
+
+      \          \"enabled\": true\r
+
+      \        },\r
+
+      \        {\r
+
+      \          \"name\": \"paypal\",\r
+
+      \          \"enabled\": true\r
+
+      \        }\r
+
+      \      ],\r
+
+      \      \"is_closed\": true\r
+
+      \    }\r
+
+      \  ],\r
+
+      \  \"active_days\": [\r
+
+      \    \"monday\",\r
+
+      \    \"saturday\",\r
+
+      \    \"sunday\"\r
+
+      \  ],\r
+
+      \  \"max_players_per_game\": 4,\r
+
+      \  \"is_active\": true,\r
+
+      \  \"priority\": 3,\r
+
+      \  \"description\": \"Same hours every day, weekend premium pricing, Sunday temporarily closed but pricing config preserved\",\r
+
+      \  \"club_id\": 1\r
+
+      }"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

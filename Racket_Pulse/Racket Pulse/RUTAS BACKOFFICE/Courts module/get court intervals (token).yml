@@ -1,0 +1,19 @@
+info:
+  name: get court intervals (token)
+  type: http
+  seq: 5
+
+http:
+  method: GET
+  url: "{{host}}/club/1/court/4/intervals?date=2025-11-10"
+  params:
+    - name: date
+      value: 2025-11-10
+      type: query
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

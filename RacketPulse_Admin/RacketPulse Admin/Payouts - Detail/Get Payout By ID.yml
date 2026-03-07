@@ -1,0 +1,35 @@
+info:
+  name: Get Payout By ID
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: "{{base_url}}/payer/payouts/{{payout_id}}"
+  auth: inherit
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        test("Status code is 200", function () {
+            expect(res.getStatus()).to.equal(200);
+        });
+
+        test("Response has required fields", function () {
+            var jsonData = res.getBody();
+            expect(jsonData).to.have.property('id');
+            expect(jsonData).to.have.property('payoutNumber');
+            expect(jsonData).to.have.property('clubId');
+            expect(jsonData).to.have.property('grossAmount');
+            expect(jsonData).to.have.property('netAmount');
+            expect(jsonData).to.have.property('status');
+        });
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Obtiene el detalle de un payout específico

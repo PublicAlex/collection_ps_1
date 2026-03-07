@@ -1,0 +1,11 @@
+info:
+  name: Payouts - Invoice
+  type: folder
+  seq: 6
+
+request:
+  auth: inherit
+
+docs:
+  content: Endpoints para facturas de payouts
+  type: text/markdown

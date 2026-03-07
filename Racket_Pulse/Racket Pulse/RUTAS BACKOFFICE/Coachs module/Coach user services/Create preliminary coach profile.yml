@@ -1,0 +1,48 @@
+info:
+  name: Create preliminary coach profile
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{host}}/club_users/coach"
+  body:
+    type: json
+    data: "{\r
+
+      \  \"club_id\": 2,\r
+
+      \  \"email\": \"tojavil853@endibit.com\",\r
+
+      \  \"name\": \"Julio \",\r
+
+      \  \"last_name\": \"Coacher Master\",\r
+
+      \  \"phone\": \"+34666123456\",\r
+
+      \  \"biography\": \"Coach profesional especializado en técnica y táctica de padel para noobs\",\r
+
+      \  \"experience_years\": 8,\r
+
+      \  \"certification_level\": \"PTR Level 5\",\r
+
+      \  \"languages\": [\"español\", \"inglés\"],\r
+
+      \  \"base_hourly_rate\": 33.00,\r
+
+      \  \"currency\": \"EUR\",\r
+
+      \  \"min_student_level\": 2,\r
+
+      \  \"max_student_level\": 9,\r
+
+      \  \"specialties\": [\"technique\", \"tactics\", \"power\"]\r
+
+      }"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

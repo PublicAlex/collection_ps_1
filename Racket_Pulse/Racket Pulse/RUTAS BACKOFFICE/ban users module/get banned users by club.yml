@@ -1,0 +1,15 @@
+info:
+  name: get banned users by club
+  type: http
+  seq: 3
+
+http:
+  method: GET
+  url: "{{host}}/club_user_bans/club/3"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

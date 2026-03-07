@@ -1,0 +1,21 @@
+info:
+  name: courts control
+  type: folder
+  seq: 4
+
+request:
+  auth: inherit
+
+docs:
+  content: |-
+    Requests para el registro, lectura y control en general de las canchas.  
+    Se pueden efectuar operaciones como:  
+
+    - crear canchas.
+        
+    - obtener el listado de canchas registradas de un club.
+        
+    - registrar costos por el uso de una cancha empleando un rango de horas.
+        
+    - obtener listado de canchas disponibles para nueva reserva.
+  type: text/markdown

@@ -1,0 +1,40 @@
+info:
+  name: Reset Payout
+  type: http
+  seq: 3
+
+http:
+  method: PATCH
+  url: "{{base_url}}/payer/payouts/{{payout_id}}/reset"
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "reason": "Razón del reset",
+        "notes": "Notas adicionales (opcional)"
+      }
+  auth: inherit
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        test("Status code is 200", function () {
+            expect(res.getStatus()).to.equal(200);
+        });
+
+        test("Payout status is cancelled", function () {
+            var jsonData = res.getBody();
+            expect(jsonData.status).to.eql('cancelled');
+        });
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Cancela un payout. Requiere reason (motivo de cancelación).

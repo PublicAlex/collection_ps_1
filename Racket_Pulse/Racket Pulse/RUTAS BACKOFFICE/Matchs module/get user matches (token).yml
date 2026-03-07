@@ -1,0 +1,52 @@
+info:
+  name: get user matches (token)
+  type: http
+  seq: 8
+
+http:
+  method: GET
+  url: "{{host}}/matches/user/2?rivalLevelMin=0&rivalLevelMax=5.5&selectedClub=all&selectedResult=lose&selectedSide=right&dateFrom=2025-02-27T00:00:00.000Z&dateTo=2025-06-28T23:59:59.999Z&search=padel&sortBy=court&sortOrder=ASC"
+  params:
+    - name: rivalLevelMin
+      value: "0"
+      type: query
+    - name: rivalLevelMax
+      value: "5.5"
+      type: query
+    - name: selectedClub
+      value: all
+      type: query
+      description: all ó clubid
+    - name: selectedResult
+      value: lose
+      type: query
+      description: "'win', 'lose', 'pending', 'ongoing', 'completed', 'cancelled'"
+    - name: selectedSide
+      value: right
+      type: query
+      description: "'left', 'right'"
+    - name: dateFrom
+      value: 2025-02-27T00:00:00.000Z
+      type: query
+    - name: dateTo
+      value: 2025-06-28T23:59:59.999Z
+      type: query
+    - name: search
+      value: padel
+      type: query
+      description: search in  match key, sport, game_mode o court
+    - name: sortBy
+      value: court
+      type: query
+      description: "'match_key', 'sport', 'game_mode', 'court', 'start_date', 'end_date'"
+    - name: sortOrder
+      value: ASC
+      type: query
+      description: ASC, DESC
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

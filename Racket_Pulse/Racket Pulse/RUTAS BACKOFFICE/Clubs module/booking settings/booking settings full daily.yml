@@ -1,0 +1,188 @@
+info:
+  name: booking settings full daily
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: "{{host}}/booking_configurations"
+  body:
+    type: json
+    data: "{\r
+
+      \  \"name\": \"Daily Configuration\",\r
+
+      \  \"is_hours_global\": false,\r
+
+      \  \"is_pricing_global\": false,\r
+
+      \  \"date_range\": {\r
+
+      \    \"start\": \"2025-01-01\",\r
+
+      \    \"end\": \"2025-12-31\"\r
+
+      \  },\r
+
+      \  \"working_hours\": [\r
+
+      \    {\r
+
+      \      \"day\": \"monday\",\r
+
+      \      \"start_time\": \"08:00\",\r
+
+      \      \"end_time\": \"20:00\",\r
+
+      \      \"min_reservation_time\": 60,\r
+
+      \      \"max_reservation_time\": 120,\r
+
+      \      \"break\": {\r
+
+      \        \"start\": \"12:00\",\r
+
+      \        \"end\": \"13:00\"\r
+
+      \      },\r
+
+      \      \"is_closed\": false\r
+
+      \    },\r
+
+      \    {\r
+
+      \      \"day\": \"friday\",\r
+
+      \      \"start_time\": \"08:00\",\r
+
+      \      \"end_time\": \"22:00\",\r
+
+      \      \"min_reservation_time\": 90,\r
+
+      \      \"max_reservation_time\": 180,\r
+
+      \      \"is_closed\": false\r
+
+      \    },\r
+
+      \    {\r
+
+      \      \"day\": \"sunday\",\r
+
+      \      \"start_time\": \"10:00\",\r
+
+      \      \"end_time\": \"18:00\",\r
+
+      \      \"min_reservation_time\": 60,\r
+
+      \      \"max_reservation_time\": 120,\r
+
+      \      \"is_closed\": true\r
+
+      \    }\r
+
+      \  ],\r
+
+      \  \"pricing_options\": [\r
+
+      \    {\r
+
+      \      \"day\": \"monday\",\r
+
+      \      \"price\": 40,\r
+
+      \      \"currency\": \"EUR\",\r
+
+      \      \"payment_method_options\": [\r
+
+      \        {\r
+
+      \          \"name\": \"stripe\",\r
+
+      \          \"enabled\": true\r
+
+      \        }\r
+
+      \      ],\r
+
+      \      \"is_closed\": false\r
+
+      \    },\r
+
+      \    {\r
+
+      \      \"day\": \"friday\",\r
+
+      \      \"price\": 70,\r
+
+      \      \"currency\": \"EUR\",\r
+
+      \      \"payment_method_options\": [\r
+
+      \        {\r
+
+      \          \"name\": \"stripe\",\r
+
+      \          \"enabled\": true\r
+
+      \        }\r
+
+      \      ],\r
+
+      \      \"is_closed\": false\r
+
+      \    },\r
+
+      \    {\r
+
+      \      \"day\": \"sunday\",\r
+
+      \      \"price\": 60,\r
+
+      \      \"currency\": \"EUR\",\r
+
+      \      \"payment_method_options\": [\r
+
+      \        {\r
+
+      \          \"name\": \"stripe\",\r
+
+      \          \"enabled\": true\r
+
+      \        },\r
+
+      \        {\r
+
+      \          \"name\": \"paypal\",\r
+
+      \          \"enabled\": false\r
+
+      \        }\r
+
+      \      ],\r
+
+      \      \"is_closed\": true\r
+
+      \    }\r
+
+      \  ],\r
+
+      \  \"max_players_per_game\": 4,\r
+
+      \  \"is_active\": true,\r
+
+      \  \"priority\": 3,\r
+
+      \  \"description\": \"Different hours and prices per day, Sunday temporarily closed but config preserved\",\r
+
+      \  \"club_id\": 1\r
+
+      }"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,28 @@
+info:
+  name: post score vote (token)
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{host}}/match_score_proposals/vote"
+  body:
+    type: json
+    data: "{\r
+
+      \  \"user_id\": 1,\r
+
+      \  \"match_id\": 104,  // Por defecto cuando solo se envía un voto usando el match_id, usará como referencia por defecto la propuesta más votada\r
+
+      \  \"approved\": true\r
+
+      \  //\"proposal_id\": 99   // campo opcional \r
+
+      }"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

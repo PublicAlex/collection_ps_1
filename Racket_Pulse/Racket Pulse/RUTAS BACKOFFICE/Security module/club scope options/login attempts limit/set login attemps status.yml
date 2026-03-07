@@ -1,0 +1,28 @@
+info:
+  name: set login attemps status
+  type: http
+  seq: 2
+
+http:
+  method: PATCH
+  url: "{{host}}/club_users/1/security-settings/failed-login-attempts"
+  body:
+    type: json
+    data: "{\r
+
+      \    \"limitFailedLoginAttempts\": true, // o false\r
+
+      \    \"clubId\": 1  //   enviar para propagar a todo el club\r
+
+      \r
+
+      }"
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

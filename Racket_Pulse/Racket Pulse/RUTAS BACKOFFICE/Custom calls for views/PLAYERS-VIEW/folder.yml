@@ -1,0 +1,11 @@
+info:
+  name: PLAYERS-VIEW
+  type: folder
+  seq: 3
+
+request:
+  auth: inherit
+
+docs:
+  content: Rutas para alimentar el backoffice en su vista de Players
+  type: text/markdown

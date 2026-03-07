@@ -1,0 +1,42 @@
+info:
+  name: Get Payouts - Filter by Status
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: "{{base_url}}/payer/payouts?status=pending_review"
+  params:
+    - name: status
+      value: pending_review
+      type: query
+  auth: inherit
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        test("Status code is 200", function () {
+            expect(res.getStatus()).to.equal(200);
+        });
+
+        test("All payouts have pending_review status", function () {
+            var jsonData = res.getBody();
+            jsonData.forEach(function(payout) {
+                expect(payout.status).to.eql('pending_review');
+            });
+        });
+
+        // Save first pending payout ID
+        var jsonData = res.getBody();
+        if (jsonData.length > 0) {
+            bru.setVar("payout_id", jsonData[0].id);
+        }
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Obtiene payouts filtrados por status pending_review

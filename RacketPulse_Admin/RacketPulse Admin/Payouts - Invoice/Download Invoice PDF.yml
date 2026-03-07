@@ -1,0 +1,29 @@
+info:
+  name: Download Invoice PDF
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: "{{base_url}}/payer/payouts/{{payout_id}}/invoice/download"
+  auth: inherit
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        test("Status code is 200", function () {
+            expect(res.getStatus()).to.equal(200);
+        });
+
+        test("Content-Type is PDF", function () {
+            expect(res.getHeader('Content-Type')).to.include('application/pdf');
+        });
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Descarga el PDF de la factura de un payout

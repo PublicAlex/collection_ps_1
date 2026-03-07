@@ -1,0 +1,28 @@
+info:
+  name: login/register-apple
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: "{{host}}/auth/apple-auth"
+  body:
+    type: json
+    data: "{\r
+
+      \  \"full_name\": \"Juan Pérez\",\r
+
+      \  \"email\": \"usuario@example.com\",\r
+
+      \  \"appleId\": \"001231.abcd1234.0123\",\r
+
+      \  \"identityToken\": \"eyJraWQiOiJlWGF1bm1MIiwiYWxnIjoiUlMyNT...\"\r
+
+      }"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

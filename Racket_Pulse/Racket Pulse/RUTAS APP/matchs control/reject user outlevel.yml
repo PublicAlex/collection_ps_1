@@ -1,0 +1,24 @@
+info:
+  name: reject user outlevel
+  type: http
+  seq: 12
+
+http:
+  method: POST
+  url: "{{host}}/match_teams/180/reject-player"
+  body:
+    type: json
+    data: "{\r
+
+      \    \"player_id\":2,\r
+
+      \    \"voting_player_id\":39\r
+
+      }"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

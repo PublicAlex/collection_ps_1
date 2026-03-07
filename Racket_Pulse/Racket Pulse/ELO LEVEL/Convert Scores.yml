@@ -1,0 +1,33 @@
+info:
+  name: Convert Scores
+  type: http
+  seq: 4
+
+http:
+  method: POST
+  url: "{{elohost}}/api/v1/scores/convert-to-level"
+  headers:
+    - name: X-API-Key
+      value: "1234"
+  body:
+    type: json
+    data: "{\r
+
+      \    \"scores\": [\r
+
+      \        0.5016797841484301,\r
+
+      \        0.13928840921873353\r
+
+      \    ],\r
+
+      \    \"n_levels\": 70\r
+
+      }"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

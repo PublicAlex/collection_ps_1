@@ -1,0 +1,25 @@
+info:
+  name: get payout details (deep dive)
+  type: http
+  seq: 4
+
+http:
+  method: GET
+  url: "{{host}}/admin/scheduled-payouts/12f6110e-e09e-49eb-9f07-b064949bdc40/invoice/download"
+  headers:
+    - name: Authorization
+      value: Bearer {{token}}
+    - name: X-Secret-Key
+      value: 8ajk128nas8dho19-lkasdh9n1jnoas091nsd@-
+  params:
+    - name: includeBookings
+      value: "true"
+      type: query
+      disabled: true
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

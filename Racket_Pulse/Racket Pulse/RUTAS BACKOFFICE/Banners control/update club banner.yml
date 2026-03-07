@@ -1,0 +1,24 @@
+info:
+  name: update club banner
+  type: http
+  seq: 3
+
+http:
+  method: PATCH
+  url: "{{host}}/clubs/1/banners/1"
+  body:
+    type: json
+    data: "{\r
+
+      \    \"title\": \"Nuevo Título\", \r
+
+      \    \"isActive\": false\r
+
+      }"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

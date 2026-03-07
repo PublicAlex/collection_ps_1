@@ -1,0 +1,28 @@
+info:
+  name: assign organization-club
+  type: http
+  seq: 7
+
+http:
+  method: POST
+  url: "{{host}}/club_gestor"
+  body:
+    type: json
+    data: "{\r
+
+      \  \"clubId\": 1,\r
+
+      \  \"organizationId\": 1,\r
+
+      \  \"role\": \"manager\",\r
+
+      \  \"clubUserId\": 1\r
+
+      }"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

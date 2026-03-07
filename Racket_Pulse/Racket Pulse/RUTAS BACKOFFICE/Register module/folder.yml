@@ -1,0 +1,11 @@
+info:
+  name: Register module
+  type: folder
+  seq: 2
+
+request:
+  auth: inherit
+
+docs:
+  content: Módulo de registro para organizaciones (espacio de trabajo), clubs y clubs users.
+  type: text/markdown

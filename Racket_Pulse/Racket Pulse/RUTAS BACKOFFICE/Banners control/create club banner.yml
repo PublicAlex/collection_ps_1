@@ -1,0 +1,34 @@
+info:
+  name: create club banner
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{host}}/clubs/1/banners"
+  body:
+    type: json
+    data: "{\r
+
+      \    \"title\": \"Summer Tournament 2026 club 1\",\r
+
+      \    \"description\": \"Join our summer tournament and win amazing prizes!\",\r
+
+      \    \"imageUrl\": \"https://content3.jdmagicbox.com/v2/comp/mumbai/m8/022pxx22.xx22.240306041200.s9m8/catalogue/colaba-padelpark-mumbai-padel-courts-9euccoivaj.jpg\",\r
+
+      \    \"redirectLink\": \"https://google.com\",\r
+
+      \    \"isActive\": true,\r
+
+      \    \"displayOrder\": 1\r
+
+      }"
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

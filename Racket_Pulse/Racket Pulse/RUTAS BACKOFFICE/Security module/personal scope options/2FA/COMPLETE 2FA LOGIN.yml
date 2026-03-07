@@ -1,0 +1,24 @@
+info:
+  name: COMPLETE 2FA LOGIN
+  type: http
+  seq: 5
+
+http:
+  method: POST
+  url: "{{host}}/auth/club/2fa/complete"
+  body:
+    type: json
+    data: "{\r
+
+      \  \"tempToken\": \"fdcb48c440d1b4d53dd0a766391ac1284d9aa4188e39c95e51e1e8ece6b1396a\",\r
+
+      \  \"token\": \"424672\"\r
+
+      }"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

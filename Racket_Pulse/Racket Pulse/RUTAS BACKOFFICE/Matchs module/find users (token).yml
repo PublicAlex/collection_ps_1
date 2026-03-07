@@ -1,0 +1,38 @@
+info:
+  name: find users (token)
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{host}}/users/find?search=&clubId=1&userIds=1,2,3,4"
+  headers:
+    - name: Authorization
+      value: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ1c3VhcmlvQGV4YW1wbGUuY29tIiwibmFtZSI6Ikp1YW4gUMOpcmV6IiwidHlwZSI6InVzZXIiLCJpYXQiOjE3Mzk3NjAzNjYsImV4cCI6MTczOTc2Mzk2Nn0.X9RNaX-pz47dHbc8TX6EpDhiR2U5Kbn046xDH0DNqGc
+  params:
+    - name: search
+      value: ""
+      type: query
+      description: termino de busqueda
+    - name: clubId
+      value: "1"
+      type: query
+      description: opcional, busca players de un club
+    - name: userIds
+      value: 1,2,3,4
+      type: query
+      description: opcional, filtra por players con juegos en común
+    - name: ""
+      value: ""
+      type: query
+      disabled: true
+  body:
+    type: json
+    data: ""
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

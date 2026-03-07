@@ -1,0 +1,7 @@
+info:
+  name: backoffice progress status
+  type: folder
+  seq: 1
+
+request:
+  auth: inherit

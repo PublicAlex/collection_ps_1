@@ -1,0 +1,30 @@
+info:
+  name: create match payment
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{host}}/payments"
+  body:
+    type: json
+    data: "{\r
+
+      \  \"user_id\": 1,    // asignamos un pago pendiente para el user con id\r
+
+      \  \"match_id\": 223,  // referenciando el match id\r
+
+      \  \"club_id\": 1,  // y tambien referenciando al club\r
+
+      \  \"success_url\": \"https://dev.api.racketpulse.com/payments/confirm\",\r
+
+      \  \"cancel_url\": \"https://dev.api.racketpulse.com/payments/cancel\"\r
+
+      }"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

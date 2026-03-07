@@ -1,0 +1,35 @@
+info:
+  name: 4. Process Payout
+  type: http
+  seq: 4
+
+http:
+  method: PATCH
+  url: "{{base_url}}/payer/payouts/{{payout_id}}/process"
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+          "externalReference": "REF-TX-FULL-FLOW-{{$timestamp}}",
+          "notes": "Processed via Full Flow Test"
+      }
+  auth: inherit
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        test("Payout processed", function () {
+            expect(res.getStatus()).to.equal(200);
+            var jsonData = res.getBody();
+            expect(jsonData.status).to.eql('completed');
+        });
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,47 @@
+info:
+  name: get club ranking
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: "{{host}}/user-rankings/club/1?page=1&limit=20&gender=male&userId=85"
+  headers:
+    - name: Authorization
+      value: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ1c3VhcmlvQGV4YW1wbGUuY29tIiwibmFtZSI6Ikp1YW4gUMOpcmV6IiwidHlwZSI6InVzZXIiLCJpYXQiOjE3Mzk3NjAzNjYsImV4cCI6MTczOTc2Mzk2Nn0.X9RNaX-pz47dHbc8TX6EpDhiR2U5Kbn046xDH0DNqGc
+  params:
+    - name: page
+      value: "1"
+      type: query
+      description: paginador
+    - name: limit
+      value: "20"
+      type: query
+      description: limite
+    - name: search
+      value: Juan
+      type: query
+      description: buscador de nombres
+      disabled: true
+    - name: gender
+      value: male
+      type: query
+      description: male,female,other
+    - name: minPlayerLevel
+      value: "0"
+      type: query
+      disabled: true
+    - name: maxPlayerLevel
+      value: "5"
+      type: query
+      disabled: true
+    - name: userId
+      value: "85"
+      type: query
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

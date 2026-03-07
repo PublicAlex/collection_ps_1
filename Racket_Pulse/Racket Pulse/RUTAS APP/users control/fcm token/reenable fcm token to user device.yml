@@ -1,0 +1,24 @@
+info:
+  name: reenable fcm token to user device
+  type: http
+  seq: 3
+
+http:
+  method: PATCH
+  url: "{{host}}/device_tokens/users/1/current_device/activate"
+  body:
+    type: json
+    data: "{\r
+
+      \  \"token\": \"dGVzdF90b2tlbl9mY2sdfwerXBsZQd12\"\r
+
+      }\r
+
+      \r\n"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

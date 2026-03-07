@@ -1,0 +1,7 @@
+info:
+  name: ban users module
+  type: folder
+  seq: 17
+
+request:
+  auth: inherit

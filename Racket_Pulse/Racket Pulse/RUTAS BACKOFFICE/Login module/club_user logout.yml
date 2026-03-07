@@ -1,0 +1,17 @@
+info:
+  name: club_user logout
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{host}}/auth/club/logout"
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

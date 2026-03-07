@@ -1,0 +1,27 @@
+info:
+  name: find users (token)
+  type: http
+  seq: 4
+
+http:
+  method: POST
+  url: "{{host}}/users/find"
+  headers:
+    - name: Authorization
+      value: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ1c3VhcmlvQGV4YW1wbGUuY29tIiwibmFtZSI6Ikp1YW4gUMOpcmV6IiwidHlwZSI6InVzZXIiLCJpYXQiOjE3Mzk3NjAzNjYsImV4cCI6MTczOTc2Mzk2Nn0.X9RNaX-pz47dHbc8TX6EpDhiR2U5Kbn046xDH0DNqGc
+  body:
+    type: json
+    data: "{\r
+
+      \    \"searchTerm\":\"\", // busca dentro de los campos de full_name, email y phone.\r
+
+      \    \"matchId\": 158\r
+
+      }"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

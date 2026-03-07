@@ -1,0 +1,32 @@
+info:
+  name: search bar example
+  type: http
+  seq: 6
+
+http:
+  method: GET
+  url: "{{host}}/billing-plans/club/1/invoices?invoiceNumber=005&status=unpaid&page=1&limit=20&search=005"
+  params:
+    - name: invoiceNumber
+      value: "005"
+      type: query
+    - name: status
+      value: unpaid
+      type: query
+    - name: page
+      value: "1"
+      type: query
+    - name: limit
+      value: "20"
+      type: query
+    - name: search
+      value: "005"
+      type: query
+      description: número de factura ,descripción
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

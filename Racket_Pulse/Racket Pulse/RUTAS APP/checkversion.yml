@@ -1,0 +1,24 @@
+info:
+  name: checkversion
+  type: http
+  seq: 14
+
+http:
+  method: POST
+  url: "{{host}}/check_version"
+  body:
+    type: json
+    data: "{\r
+
+      \  \"so\": \"ios\",\r
+
+      \  \"current_version\": 0.4\r
+
+      }"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

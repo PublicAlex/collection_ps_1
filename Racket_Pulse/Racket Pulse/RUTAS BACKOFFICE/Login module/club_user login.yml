@@ -1,0 +1,43 @@
+info:
+  name: club_user login
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{host}}/auth/club_login"
+  body:
+    type: json
+    data: "{\r
+
+      \  \"email\": \"clubpadel@example.com\",\r
+
+      \  \"password\": \"securepassword123\"\r
+
+      }"
+  auth: inherit
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        var jsonData = res.getBody();
+
+        if (jsonData.access_token) {
+            bru.setVar("access_token", jsonData.access_token);
+            console.log("Token saved successfully");
+        }
+
+        test("Status code is 201", function () {
+            expect(res.getStatus()).to.equal(201);
+        });
+
+        test("Response has access_token", function () {
+            expect(jsonData).to.have.property('access_token');
+        });
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

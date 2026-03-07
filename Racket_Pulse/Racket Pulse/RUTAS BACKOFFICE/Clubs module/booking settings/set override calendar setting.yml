@@ -1,0 +1,38 @@
+info:
+  name: set override calendar setting
+  type: http
+  seq: 9
+
+http:
+  method: POST
+  url: "{{host}}/booking_configurations"
+  body:
+    type: json
+    data: "{\r
+
+      \  \"name\": \"Tournament Weekend 2\",  // se puede poner otro nombre pero se recomienda dejar el mismo del que se desea clonar y ya, se deja asi para que pueda variar ligeramente de quererse en un futuro\r
+
+      \  \"clone_from_config_id\": 90,    // ID de la config a copiar\r
+
+      \  \"overrides_config_id\": 85,     // ID de la config que se reemplazara\r
+
+      \  \"date_range\": {\r
+
+      \    \"start\": \"2025-12-26\",  // dia de inicio   // en caso de solo un dia, poner el mismo valor para start y end\r
+
+      \    \"end\": \"2025-12-27\" // dia de cierre\r
+
+      \  },\r
+
+      \  \"club_id\": 38\r
+
+      }\r\n"
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

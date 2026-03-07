@@ -1,0 +1,11 @@
+info:
+  name: INDEX
+  type: folder
+  seq: 1
+
+request:
+  auth: inherit
+
+docs:
+  content: Ruta principal para verificar la ejecución del servicio backend
+  type: text/markdown

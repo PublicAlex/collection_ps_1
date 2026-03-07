@@ -1,0 +1,33 @@
+info:
+  name: Invitar jugadores
+  type: http
+  seq: 4
+
+http:
+  method: POST
+  url: "{{host}}/matches/invitations/send"
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "matchId": 787,
+        "matchKey": "4J86HT",
+        "recipients": [10, 104, 105]
+      }
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: |-
+  Sends match invitations to app users by ID. Each recipient gets a MATCH_INVITATION notification.
+
+  Replace recipient IDs with real user IDs from your DB.

@@ -1,0 +1,24 @@
+info:
+  name: reject out level player
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{host}}/match_teams/78/reject-player"
+  body:
+    type: json
+    data: "{\r
+
+      \"voting_player_id\":1, // jugador que está votando \r
+
+      \"player_id\":2 // jugador que se encuentra en estado pendiente\r
+
+      }"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

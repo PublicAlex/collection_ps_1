@@ -1,0 +1,7 @@
+info:
+  name: club scope options
+  type: folder
+  seq: 1
+
+request:
+  auth: inherit

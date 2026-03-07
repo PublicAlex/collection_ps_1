@@ -1,0 +1,26 @@
+info:
+  name: Search Users
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: "{{base_url}}/users/find"
+  headers:
+    - name: Authorization
+      value: Bearer {{token}}
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+          "searchTerm": "admin"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

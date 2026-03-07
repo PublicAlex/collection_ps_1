@@ -1,0 +1,7 @@
+info:
+  name: Email Registration
+  type: folder
+  seq: 2
+
+request:
+  auth: inherit

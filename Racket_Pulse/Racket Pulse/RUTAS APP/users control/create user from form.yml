@@ -1,0 +1,195 @@
+info:
+  name: create user from form
+  type: http
+  seq: 6
+
+http:
+  method: POST
+  url: "{{host}}/users"
+  body:
+    type: json
+    data: "{\r
+
+      \  \"email\": \"usuario6@example.com\",\r
+
+      \  \"password\": \"contraseñaSegura123\",\r
+
+      \  \"phone\": \"+57 3203063879\",\r
+
+      \  \"nationality_id\": 120,\r
+
+      \  \"name\": \"Juan Carlos\",\r
+
+      \  \"lastname\": \"Rodríguez Hurtado\",\r
+
+      \  \"gender\": \"male\",\r
+
+      \  \"height\": 178.5,\r
+
+      \  \"birthday\": \"1990-05-15T00:00:00.000Z\",\r
+
+      \  \"location\": \"Bogotá, Colombia\",\r
+
+      \  \"location_coordinate\": \"4.7110,-74.0721\",\r
+
+      \  \"postal_code\": \"110111\",\r
+
+      \  \"preferred_range\": 15,\r
+
+      \  \"racket_brand\": \"Head\",\r
+
+      \  \"racket_model\": \"Speed Pro\",\r
+
+      \  \"shoes_brand\": \"Asics\",\r
+
+      \  \"shoes_model\": \"Gel Resolution 8\",\r
+
+      \  \"currentPartner\": \"Ricardo Pérez\",\r
+
+      \  \"playingHand\": \"right\",\r
+
+      \  \"preferredCourtSide\": \"left\",\r
+
+      \  \"gameModePreference\": \"friendly\",\r
+
+      \  \"preferredTimeframe\": \"morning\",\r
+
+      \  \"playerLevel\": 2.2\r
+
+      }"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: create user from form
+    request:
+      url: "{{host}}/users"
+      method: POST
+      body:
+        type: json
+        data: "{\r
+
+          \  \"email\": \"usuario6@example.com\",\r
+
+          \  \"password\": \"contraseñaSegura123\",\r
+
+          \  \"phone\": \"+57 3203063879\",\r
+
+          \  \"nationality_id\": 120,\r
+
+          \  \"name\": \"Juan Carlos\",\r
+
+          \  \"lastname\": \"Rodríguez Hurtado\",\r
+
+          \  \"gender\": \"male\",\r
+
+          \  \"height\": 178.5,\r
+
+          \  \"birthday\": \"1990-05-15T00:00:00.000Z\",\r
+
+          \  \"location\": \"Bogotá, Colombia\",\r
+
+          \  \"location_coordinate\": \"4.7110,-74.0721\",\r
+
+          \  \"postal_code\": \"110111\",\r
+
+          \  \"preferred_range\": 15,\r
+
+          \  \"racket_brand\": \"Head\",\r
+
+          \  \"racket_model\": \"Speed Pro\",\r
+
+          \  \"shoes_brand\": \"Asics\",\r
+
+          \  \"shoes_model\": \"Gel Resolution 8\",\r
+
+          \  \"currentPartner\": \"Ricardo Pérez\",\r
+
+          \  \"playingHand\": \"right\",\r
+
+          \  \"preferredCourtSide\": \"left\",\r
+
+          \  \"gameModePreference\": \"friendly\",\r
+
+          \  \"preferredTimeframe\": \"morning\",\r
+
+          \  \"playerLevel\": 2.2\r
+
+          }"
+    response:
+      statusText: "201"
+      headers:
+        - name: Server
+          value: openresty
+        - name: Date
+          value: Fri, 04 Jul 2025 01:00:20 GMT
+        - name: Content-Type
+          value: application/json; charset=utf-8
+        - name: Content-Length
+          value: "1012"
+        - name: Connection
+          value: keep-alive
+        - name: X-Powered-By
+          value: Express
+        - name: Vary
+          value: Origin
+        - name: Access-Control-Allow-Credentials
+          value: "true"
+        - name: ETag
+          value: W/"3f4-7qrBSQ0IpXg3RTVk7SKC9wRgBJU"
+        - name: X-Served-By
+          value: dev.api.racketpulse.com
+      body:
+        type: json
+        data: |-
+          {
+              "statusCode": 201,
+              "message": "User created successfully",
+              "data": {
+                  "email": "usuario6@example.com",
+                  "name": "Juan Carlos",
+                  "lastname": "Rodríguez Hurtado",
+                  "full_name": "Juan Carlos Rodríguez Hurtado",
+                  "gender": "male",
+                  "phone": "+57 3203063879",
+                  "height": 178.5,
+                  "birthday": "1990-05-15T00:00:00.000Z",
+                  "location": "Bogotá, Colombia",
+                  "location_coordinate": "4.7110,-74.0721",
+                  "postal_code": "110111",
+                  "preferred_range": 15,
+                  "racket_brand": "Head",
+                  "racket_model": "Speed Pro",
+                  "shoes_brand": "Asics",
+                  "shoes_model": "Gel Resolution 8",
+                  "currentPartner": "Ricardo Pérez",
+                  "playingHand": "right",
+                  "preferredCourtSide": "left",
+                  "gameModePreference": "friendly",
+                  "preferredTimeframe": "morning",
+                  "playerLevel": 2.2,
+                  "nationality": {
+                      "id": 120,
+                      "name": "Moldavia",
+                      "iso_code": "MDA"
+                  },
+                  "photo": null,
+                  "courtPreference": null,
+                  "lightsPreference": null,
+                  "courtColorPreference": null,
+                  "favoriteClubs": null,
+                  "playerScore": null,
+                  "id": 41,
+                  "terms_acceptance": "2025-07-04T01:00:20.453Z",
+                  "initialLevelSet": false,
+                  "matchesPlayed": 0,
+                  "hoursPlayed": 0,
+                  "ranking_exp": 0,
+                  "isFastLoginUser": false
+              }
+          }

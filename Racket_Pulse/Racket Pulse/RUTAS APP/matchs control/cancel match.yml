@@ -1,0 +1,18 @@
+info:
+  name: cancel match
+  type: http
+  seq: 13
+
+http:
+  method: PUT
+  url: "{{host}}/matches/1111"
+  body:
+    type: json
+    data: "{\r\n  \"status\": \"cancelled\"\r\n}"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

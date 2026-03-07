@@ -1,0 +1,22 @@
+info:
+  name: force payout
+  type: http
+  seq: 4
+
+http:
+  method: POST
+  url: "{{host}}/clubs/2/payouts"
+  body:
+    type: json
+    data: "{\r
+
+      \  \"amount\": 1500.00  // Transferir 1,500 EUR\r
+
+      }"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

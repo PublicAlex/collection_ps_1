@@ -1,0 +1,22 @@
+info:
+  name: update organizations
+  type: http
+  seq: 4
+
+http:
+  method: PATCH
+  url: "{{host}}/organizations/1"
+  body:
+    type: json
+    data: "{\r
+
+      \  \"name\": \"Updated Padel Organization\"\r
+
+      }"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

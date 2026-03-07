@@ -1,0 +1,65 @@
+info:
+  name: get availables pending matches
+  type: http
+  seq: 5
+
+http:
+  method: GET
+  url: "{{host}}/matches/availables/pending?gender=Mens&sortBy=proximity&sortOrder=ASC&startDate=2025-05-10T00:00:00Z&endDate=2025-05-15T00:00:00Z&userId=13"
+  params:
+    - name: latitude
+      value: "40.462777"
+      type: query
+      disabled: true
+    - name: longitude
+      value: "-3.665601"
+      type: query
+      disabled: true
+    - name: maxDistance
+      value: "15"
+      type: query
+      description: "Valor predeterminado: 10"
+      disabled: true
+    - name: minLevel
+      value: "1"
+      type: query
+      description: Filtra partidos donde el nivel máximo del partido es mayor o igual a este valor
+      disabled: true
+    - name: maxLevel
+      value: "5"
+      type: query
+      description: Filtra partidos donde el nivel mínimo del partido es menor o igual a este valor
+      disabled: true
+    - name: courtPosition
+      value: right
+      type: query
+      description: "Opciones: left, right"
+      disabled: true
+    - name: gender
+      value: Mens
+      type: query
+      description: "Opciones: Mens, Womans"
+    - name: sortBy
+      value: proximity
+      type: query
+      description: "Opciones: proximity,date, level, available_spots"
+    - name: sortOrder
+      value: ASC
+      type: query
+      description: "Opciones: ASC , DESC"
+    - name: startDate
+      value: 2025-05-10T00:00:00Z
+      type: query
+    - name: endDate
+      value: 2025-05-15T00:00:00Z
+      type: query
+    - name: userId
+      value: "13"
+      type: query
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

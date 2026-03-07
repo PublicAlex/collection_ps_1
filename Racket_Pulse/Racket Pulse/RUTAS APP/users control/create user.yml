@@ -1,0 +1,24 @@
+info:
+  name: create user
+  type: http
+  seq: 5
+
+http:
+  method: POST
+  url: "{{host}}/users"
+  body:
+    type: json
+    data: "{\r
+
+      \  \"email\": \"usuario5@example.com\",\r
+
+      \  \"password\": \"contraseñaSegura123\"\r
+
+      }"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

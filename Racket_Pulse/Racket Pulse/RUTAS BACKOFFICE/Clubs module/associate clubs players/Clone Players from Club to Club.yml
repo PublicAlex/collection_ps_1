@@ -1,0 +1,144 @@
+info:
+  name: Clone Players from Club to Club
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{host}}/users/clone-players/from/:sourceClubId/to/:targetClubId"
+  headers:
+    - name: Content-Type
+      value: application/json
+  params:
+    - name: sourceClubId
+      value: "1"
+      type: path
+      description: ID del club origen (de donde se copian los jugadores)
+    - name: targetClubId
+      value: "2"
+      type: path
+      description: ID del club destino (a donde se copian los jugadores)
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: Success - All players cloned
+    request:
+      url: http://
+      method: POST
+    response:
+      statusText: "200"
+      body:
+        type: text
+        data: |-
+          {
+            "statusCode": 200,
+            "message": "Clone completed: 50 found, 45 cloned, 5 already associated, 0 failed",
+            "data": {
+              "totalFound": 50,
+              "cloned": 45,
+              "alreadyAssociated": 5,
+              "failed": []
+            }
+          }
+  - name: Success - No players in source club
+    request:
+      url: http://
+      method: POST
+    response:
+      statusText: "200"
+      body:
+        type: text
+        data: |-
+          {
+            "statusCode": 200,
+            "message": "Clone completed: 0 found, 0 cloned, 0 already associated, 0 failed",
+            "data": {
+              "totalFound": 0,
+              "cloned": 0,
+              "alreadyAssociated": 0,
+              "failed": []
+            }
+          }
+  - name: Success - All already associated
+    request:
+      url: http://
+      method: POST
+    response:
+      statusText: "200"
+      body:
+        type: text
+        data: |-
+          {
+            "statusCode": 200,
+            "message": "Clone completed: 50 found, 0 cloned, 50 already associated, 0 failed",
+            "data": {
+              "totalFound": 50,
+              "cloned": 0,
+              "alreadyAssociated": 50,
+              "failed": []
+            }
+          }
+  - name: Error - Source club not found
+    request:
+      url: http://
+      method: POST
+    response:
+      statusText: "404"
+      body:
+        type: text
+        data: |-
+          {
+            "statusCode": 404,
+            "message": "Source club with ID 999 not found",
+            "error": "Not Found"
+          }
+  - name: Error - Target club not found
+    request:
+      url: http://
+      method: POST
+    response:
+      statusText: "404"
+      body:
+        type: text
+        data: |-
+          {
+            "statusCode": 404,
+            "message": "Target club with ID 999 not found",
+            "error": "Not Found"
+          }
+  - name: Error - Same source and target
+    request:
+      url: http://
+      method: POST
+    response:
+      statusText: "400"
+      body:
+        type: text
+        data: |-
+          {
+            "statusCode": 400,
+            "message": "Source and target clubs must be different",
+            "error": "Bad Request"
+          }
+
+docs: |-
+  Copia todos los jugadores asociados al club origen hacia el club destino. Los jugadores quedarán asociados a ambos clubs después de esta operación.
+
+  **Roles permitidos:** organization, manager
+
+  **Funcionamiento:**
+  1. Busca todos los usuarios que tienen `sourceClubId` en su array `associatedClubIds`
+  2. Para cada usuario encontrado, agrega `targetClubId` a su array (si no lo tiene ya)
+  3. Retorna estadísticas de la operación
+
+  **Notas:**
+  - No elimina la asociación con el club origen
+  - Si un jugador ya está en el club destino, cuenta como `alreadyAssociated`
+  - La operación es idempotente (puede ejecutarse múltiples veces sin duplicar)
+  - Los clubs origen y destino deben ser diferentes

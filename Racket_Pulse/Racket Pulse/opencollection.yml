@@ -1,0 +1,30 @@
+opencollection: 1.0.0
+
+info:
+  name: Racket Pulse
+
+request:
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+  variables:
+    - name: ""
+      value: ""
+    - name: host
+      value: https://dev.api.racketpulse.com
+    - name: elohost
+      value: https://elo.racketpulse.com/
+    - name: token
+      value: ""
+    - name: access_token
+      value: ""
+    - name: clubId
+      value: ""
+    - name: acces_token
+      value: ""
+bundled: false
+extensions:
+  bruno:
+    ignore:
+      - node_modules
+      - .git

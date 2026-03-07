@@ -1,0 +1,7 @@
+info:
+  name: low level player approve or reject
+  type: folder
+  seq: 7
+
+request:
+  auth: inherit

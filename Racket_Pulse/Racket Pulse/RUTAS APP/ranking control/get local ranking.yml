@@ -1,0 +1,54 @@
+info:
+  name: get local ranking
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: "{{host}}/user-rankings/local/nearby?page=1&limit=20&userId=85&radius=100&minPlayerLevel=1&maxPlayerLevel=5&latitude=4.6097&longitude=-74.0817"
+  headers:
+    - name: Authorization
+      value: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ1c3VhcmlvQGV4YW1wbGUuY29tIiwibmFtZSI6Ikp1YW4gUMOpcmV6IiwidHlwZSI6InVzZXIiLCJpYXQiOjE3Mzk3NjAzNjYsImV4cCI6MTczOTc2Mzk2Nn0.X9RNaX-pz47dHbc8TX6EpDhiR2U5Kbn046xDH0DNqGc
+  params:
+    - name: page
+      value: "1"
+      type: query
+    - name: limit
+      value: "20"
+      type: query
+    - name: userId
+      value: "85"
+      type: query
+    - name: radius
+      value: "100"
+      type: query
+      description: rango de proximidad con otros jugadores para crear el listado de ranking local
+    - name: minPlayerLevel
+      value: "1"
+      type: query
+    - name: maxPlayerLevel
+      value: "5"
+      type: query
+    - name: latitude
+      value: "4.6097"
+      type: query
+    - name: longitude
+      value: "-74.0817"
+      type: query
+    - name: search
+      value: a
+      type: query
+      description: buscador de nombres de jugadores
+      disabled: true
+    - name: gender
+      value: other
+      type: query
+      description: male, female, other
+      disabled: true
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

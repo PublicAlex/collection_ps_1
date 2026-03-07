@@ -1,0 +1,26 @@
+info:
+  name: send error report
+  type: http
+  seq: 15
+
+http:
+  method: POST
+  url: "{{host}}/error_reports/report_error"
+  body:
+    type: json
+    data: "{\r
+
+      \  \"category\": \"Technical Issue\", // categorías/tipos de reportes\r
+
+      \  \"description\": \"The appeasdasdasdasdasdasdasd\",\r
+
+      \  \"user_id\": 1  // id del user que genera el reporte\r
+
+      }"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

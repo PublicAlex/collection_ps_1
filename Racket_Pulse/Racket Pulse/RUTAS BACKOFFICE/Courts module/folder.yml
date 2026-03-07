@@ -1,0 +1,21 @@
+info:
+  name: Courts module
+  type: folder
+  seq: 8
+
+request:
+  auth: inherit
+
+docs:
+  content: |-
+    Rutas para el registro, lectura y control en general de las canchas.  
+    Se pueden efectuar operaciones como:
+
+    - crear canchas.
+        
+    - obtener el listado de canchas registradas de un club.
+        
+    - registrar precio por el uso de una cancha empleando un rango de fechas y horas.
+        
+    - obtener listado de canchas disponibles para nuevas reservas.
+  type: text/markdown

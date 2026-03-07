@@ -1,0 +1,19 @@
+info:
+  name: get team users to report
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: "{{host}}/player_level_reports/match/20/participants?currentUserId=1"
+  params:
+    - name: currentUserId
+      value: "1"
+      type: query
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

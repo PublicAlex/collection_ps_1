@@ -1,0 +1,47 @@
+info:
+  name: club_user login_otp email
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: "{{host}}/auth/club_login_otp"
+  body:
+    type: json
+    data: "{\r
+
+      \  \"identifier\": \"ogmptqscah@illubd.com\",\r
+
+      \  \"method\": \"email\"\r
+
+      \  //\"code\": \"123456\"\r
+
+      \r
+
+      }"
+  auth: inherit
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        var jsonData = res.getBody();
+
+        if (jsonData.access_token) {
+            bru.setVar("access_token", jsonData.access_token);
+            console.log("Token saved successfully");
+        }
+
+        test("Status code is 201", function () {
+            expect(res.getStatus()).to.equal(201);
+        });
+
+        test("Response has access_token", function () {
+            expect(jsonData).to.have.property('access_token');
+        });
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

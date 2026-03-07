@@ -1,0 +1,21 @@
+info:
+  name: delete user location
+  type: http
+  seq: 5
+
+http:
+  method: DELETE
+  url: '{{host}}/user_locations/"location id"'
+  params:
+    - name: ""
+      value: ""
+      type: query
+      description: es un soft delete (cambio de estado en is_active)
+      disabled: true
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

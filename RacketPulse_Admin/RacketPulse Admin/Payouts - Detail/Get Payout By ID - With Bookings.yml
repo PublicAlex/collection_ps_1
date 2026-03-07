@@ -1,0 +1,40 @@
+info:
+  name: Get Payout By ID - With Bookings
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: "{{base_url}}/payer/payouts/{{payout_id}}?includeBookings=true"
+  params:
+    - name: includeBookings
+      value: "true"
+      type: query
+  auth: inherit
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        test("Status code is 200", function () {
+            expect(res.getStatus()).to.equal(200);
+        });
+
+        test("Response includes bookings array", function () {
+            var jsonData = res.getBody();
+            expect(jsonData).to.have.property('bookings');
+            expect(jsonData.bookings).to.be.an('array');
+        });
+
+        test("Response includes fullBankAccount", function () {
+            var jsonData = res.getBody();
+            expect(jsonData).to.have.property('fullBankAccount');
+        });
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Obtiene el detalle de un payout incluyendo información de bookings y cuenta bancaria completa

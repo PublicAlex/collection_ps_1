@@ -1,0 +1,22 @@
+info:
+  name: reorder club banners
+  type: http
+  seq: 5
+
+http:
+  method: PUT
+  url: "{{host}}/clubs/1/banners/reorder"
+  body:
+    type: json
+    data: "{ \r
+
+      \    \"bannerIds\": [3, 1, 2]\r
+
+      }\r\n"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

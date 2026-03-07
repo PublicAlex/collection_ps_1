@@ -1,0 +1,108 @@
+info:
+  name: booking settings full global
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{host}}/booking_configurations"
+  body:
+    type: json
+    data: "{\r
+
+      \  \"name\": \"Configuration to 2026\",\r
+
+      \  \"is_hours_global\": true,\r
+
+      \  \"is_pricing_global\": true,\r
+
+      \  \"date_range\": {\r
+
+      \    \"start\": \"2025-09-09\",\r
+
+      \    \"end\": \"2025-12-31\"\r
+
+      \  },\r
+
+      \  \"working_hours\": {\r
+
+      \    \"start_time\": \"08:00\",\r
+
+      \    \"end_time\": \"20:00\",\r
+
+      \    \"min_reservation_time\": 60,\r
+
+      \    \"max_reservation_time\": 120,\r
+
+      \    \"break\": {\r
+
+      \      \"start\": \"12:00\",\r
+
+      \      \"end\": \"13:00\"\r
+
+      \    }\r
+
+      \  },\r
+
+      \  \"pricing_options\": {\r
+
+      \    \"price\": 50,\r
+
+      \    \"currency\": \"EUR\",\r
+
+      \    \"payment_method_options\": [\r
+
+      \      {\r
+
+      \        \"name\": \"stripe\",\r
+
+      \        \"enabled\": true\r
+
+      \      },\r
+
+      \      {\r
+
+      \        \"name\": \"paypal\",\r
+
+      \        \"enabled\": false\r
+
+      \      }\r
+
+      \    ]\r
+
+      \  },\r
+
+      \  \"active_days\": [\r
+
+      \    \"monday\",\r
+
+      \    \"tuesday\",\r
+
+      \    \"wednesday\",\r
+
+      \    \"thursday\",\r
+
+      \    \"friday\",\r
+
+      \    \"saturday\"\r
+
+      \  ],\r
+
+      \  \"max_players_per_game\": 4,\r
+
+      \  \"is_active\": true,\r
+
+      \  \"priority\": 3, // prioridad intermedia 3 para todos los bookings creados manualmente\r
+
+      \  \"description\": \"Same hours and prices for all active days\",\r
+
+      \  \"club_id\": 7\r
+
+      }"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,40 @@
+info:
+  name: cancel set override calendar setting
+  type: http
+  seq: 8
+
+http:
+  method: POST
+  url: "{{host}}/booking_configurations"
+  body:
+    type: json
+    data: "{\r
+
+      \  \"name\": \"Closed\",\r
+
+      \  \"overrides_config_id\": 85, // ID de la configuración que se reemplazará\r
+
+      \  \"date_range\": \r
+
+      \  { \r
+
+      \    \"start\": \"2025-12-25\",  // dia de inicio   // en caso de solo un dia, poner el mismo valor para start y end\r
+
+      \    \"end\": \"2025-12-25\"   // dia de finalización\r
+
+      \  },\r
+
+      \  \"auto_close\": true,   // dejar este flag asi, para que se cierre automaticamente todo el rango de dias o dia seleccionado\r
+
+      \  \"club_id\": 38\r
+
+      }\r\n"
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

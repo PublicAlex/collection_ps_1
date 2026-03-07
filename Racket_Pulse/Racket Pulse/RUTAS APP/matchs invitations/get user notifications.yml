@@ -1,0 +1,27 @@
+info:
+  name: get user notifications
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: "{{host}}/notifications/user/6?includeRead=true&types=MATCH_INVITATION"
+  headers:
+    - name: Authorization
+      value: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ1c3VhcmlvQGV4YW1wbGUuY29tIiwibmFtZSI6Ikp1YW4gUMOpcmV6IiwidHlwZSI6InVzZXIiLCJpYXQiOjE3Mzk3NjAzNjYsImV4cCI6MTczOTc2Mzk2Nn0.X9RNaX-pz47dHbc8TX6EpDhiR2U5Kbn046xDH0DNqGc
+  params:
+    - name: includeRead
+      value: "true"
+      type: query
+      description: incluir los mensajes ya leidos por el user?
+    - name: types
+      value: MATCH_INVITATION
+      type: query
+      description: tipos de notificaciones
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,27 @@
+info:
+  name: Matchs module
+  type: folder
+  seq: 9
+
+request:
+  auth: inherit
+
+docs:
+  content: |-
+    Rutas para el registro, lectura y control en general de las canchas.  
+    Se pueden efectuar operaciones como:
+
+    - crear reservas (tambien definido como book, match, vs, etc) .
+        
+    - buscar jugadores (para asignar al juego o realizar invitaciones).
+        
+    - asignar jugadores a la reserva.
+        
+    - obtener listado de reservas de mi club.
+        
+    - obtener listado de reservas pendientes (ya agendadas y faltantes de empezar el juego) de un jugador especificado.
+        
+    - obtener informacion de una reserva especifica.
+        
+    - obtener todas las reservas de un jugador (reservas ya jugadas, canceladas, pendientes, etc).
+  type: text/markdown

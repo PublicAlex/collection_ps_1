@@ -1,0 +1,24 @@
+info:
+  name: get user pending matches
+  type: http
+  seq: 6
+
+http:
+  method: GET
+  url: "{{host}}/matches/user/6/pending?sortBy=start_date&sortOrder=ASC"
+  params:
+    - name: sortBy
+      value: start_date
+      type: query
+      description: "Opciones: start_date, end_date, date_created, id.  Por defecto: start_date"
+    - name: sortOrder
+      value: ASC
+      type: query
+      description: "Opciones: ASC, DESC, +, -.  Por defecto: DESC"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

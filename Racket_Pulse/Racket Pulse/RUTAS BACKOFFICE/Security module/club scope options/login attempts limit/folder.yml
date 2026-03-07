@@ -1,0 +1,7 @@
+info:
+  name: login attempts limit
+  type: folder
+  seq: 2
+
+request:
+  auth: inherit

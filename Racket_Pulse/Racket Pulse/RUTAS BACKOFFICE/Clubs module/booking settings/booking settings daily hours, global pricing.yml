@@ -1,0 +1,124 @@
+info:
+  name: booking settings daily hours, global pricing
+  type: http
+  seq: 4
+
+http:
+  method: POST
+  url: "{{host}}/booking_configurations"
+  body:
+    type: json
+    data: "{\r
+
+      \  \"name\": \"Mixed Daily Hours\",\r
+
+      \  \"is_hours_global\": false,\r
+
+      \  \"is_pricing_global\": true,\r
+
+      \  \"date_range\": {\r
+
+      \    \"start\": \"2025-01-01\",\r
+
+      \    \"end\": \"2025-12-31\"\r
+
+      \  },\r
+
+      \  \"working_hours\": [\r
+
+      \    {\r
+
+      \      \"day\": \"monday\",\r
+
+      \      \"start_time\": \"09:00\",\r
+
+      \      \"end_time\": \"17:00\",\r
+
+      \      \"min_reservation_time\": 60,\r
+
+      \      \"max_reservation_time\": 120,\r
+
+      \      \"is_closed\": false\r
+
+      \    },\r
+
+      \    {\r
+
+      \      \"day\": \"friday\",\r
+
+      \      \"start_time\": \"08:00\",\r
+
+      \      \"end_time\": \"22:00\",\r
+
+      \      \"min_reservation_time\": 90,\r
+
+      \      \"max_reservation_time\": 180,\r
+
+      \      \"break\": {\r
+
+      \        \"start\": \"14:00\",\r
+
+      \        \"end\": \"15:00\"\r
+
+      \      },\r
+
+      \      \"is_closed\": false\r
+
+      \    }\r
+
+      \  ],\r
+
+      \  \"pricing_options\": {\r
+
+      \    \"price\": 55,\r
+
+      \    \"currency\": \"EUR\",\r
+
+      \    \"payment_method_options\": [\r
+
+      \      {\r
+
+      \        \"name\": \"stripe\",\r
+
+      \        \"enabled\": true\r
+
+      \      },\r
+
+      \      {\r
+
+      \        \"name\": \"paypal\",\r
+
+      \        \"enabled\": true\r
+
+      \      }\r
+
+      \    ]\r
+
+      \  },\r
+
+      \  \"active_days\": [\r
+
+      \    \"monday\",\r
+
+      \    \"friday\"\r
+
+      \  ],\r
+
+      \  \"max_players_per_game\": 4,\r
+
+      \  \"is_active\": true,\r
+
+      \  \"priority\": 3,\r
+
+      \  \"description\": \"Flexible hours per day, consistent pricing\",\r
+
+      \  \"club_id\": 1\r
+
+      }"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

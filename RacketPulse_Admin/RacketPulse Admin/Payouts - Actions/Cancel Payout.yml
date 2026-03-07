@@ -1,0 +1,40 @@
+info:
+  name: Cancel Payout
+  type: http
+  seq: 4
+
+http:
+  method: PATCH
+  url: "{{base_url}}/payer/payouts/{{payout_id}}/cancel"
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+          "reason": "Duplicate payout request",
+          "notes": "Cancelled via Admin Panel"
+      }
+  auth: inherit
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        test("Status code is 200", function () {
+            expect(res.getStatus()).to.equal(200);
+        });
+
+        test("Payout status is cancelled", function () {
+            var jsonData = res.getBody();
+            expect(jsonData.status).to.eql('cancelled');
+        });
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Cancela un payout. Requiere reason (motivo de cancelación).
