@@ -14,19 +14,19 @@ auth:bearer {
 }
 
 body:json {
-{
-  "dates": ["2025-11-10"],
-  "court_id": 1,
-  "start_time": "10:00",
-  //"end_time": "21:00", // Opcional, si no se especifica se asume que el partido dura hasta el final del horario de la cancha
-  "interval": 60, // Duración del partido en minutos, no se usa si tenemos end_time
-  "match_description": "Partido amistoso de padel, en la cancha #1",
-  "type": "open", // Opciones: "open", "private", "training", "tournament", "external"
-  "minimum_level": 2.5, // Rango: 1.0 - 10.0 (con un decimal)
-  "maximum_level": 3.5, // Rango: 1.0 - 10.0 (con un decimal)
-  "game_mode": "competitive", // Opciones: "competitive", "friendly"
-  "player_filter": "all", // Opciones: "all", "mens", "womens"
-  "teams": [1,2,null,4] // ID de los usuarios para integrar al match , para omitir un espacio de se deja null 
-// team 1 (1 left, 2 rigth), team 2 (null left (omite), 4 rigth)
-}
+  {
+    "dates": ["2025-11-10"],
+    "court_id": 1,
+    "start_time": "10:00",
+    //"end_time": "21:00", // Opcional, si no se especifica se asume que el partido dura hasta el final del horario de la cancha
+    "interval": 60, // Duración del partido en minutos, no se usa si tenemos end_time
+    "match_description": "Partido amistoso de padel, en la cancha #1",
+    "type": "open", // Opciones: "open", "private", "training", "tournament", "external"
+    "minimum_level": 2.5, // Rango: 1.0 - 10.0 (con un decimal)
+    "maximum_level": 3.5, // Rango: 1.0 - 10.0 (con un decimal)
+    "game_mode": "competitive", // Opciones: "competitive", "friendly"
+    "player_filter": "all", // Opciones: "all", "mens", "womens"
+    "teams": [1,2,null,4] // ID de los usuarios para integrar al match , para omitir un espacio de se deja null 
+  // team 1 (1 left, 2 rigth), team 2 (null left (omite), 4 rigth)
+  }
 }

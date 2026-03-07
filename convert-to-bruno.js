@@ -139,8 +139,14 @@ function buildBruFile(item) {
 
   // body
   if (body.type === 'json' || body.type === 'text') {
+    // Indentar el contenido 2 espacios para que el } del JSON no confunda
+    // al parser de Bruno (que cierra el bloque con el primer } en col 0)
+    const indented = body.content
+      .split('\n')
+      .map(line => '  ' + line)
+      .join('\n');
     lines.push(`body:${body.type} {`);
-    lines.push(body.content);
+    lines.push(indented);
     lines.push('}');
     lines.push('');
   } else if (body.type === 'multipart-form') {

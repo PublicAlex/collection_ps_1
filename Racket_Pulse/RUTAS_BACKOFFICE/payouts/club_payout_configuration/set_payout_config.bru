@@ -10,24 +10,24 @@ post {
 }
 
 body:json {
-{
-  "destinationType": "bank_account",
-  "bankAccountDetails": {
-    "accountHolderName": "Nombre del Club o Empresa",
-    "accountNumber": "1231536234",                    // Vacío para Europa
-    "routingNumber": "8998781238782",                    // Vacío para Europa
-    "iban": "ES0700120345030000067890",    // Lleno para Europa
-    "country": "ES",
+  {
+    "destinationType": "bank_account",
+    "bankAccountDetails": {
+      "accountHolderName": "Nombre del Club o Empresa",
+      "accountNumber": "1231536234",                    // Vacío para Europa
+      "routingNumber": "8998781238782",                    // Vacío para Europa
+      "iban": "ES0700120345030000067890",    // Lleno para Europa
+      "country": "ES",
+      "currency": "EUR",
+      "bankName": "Banco Santander",
+      "swiftCode": "1234"
+    },
+    "payoutFrequency": "biweekly", // por defecto cada 2 semnas
+    "payoutDay": 1,
+    "minimumBalance": 5.00,
     "currency": "EUR",
-    "bankName": "Banco Santander",
-    "swiftCode": "1234"
-  },
-  "payoutFrequency": "biweekly", // por defecto cada 2 semnas
-  "payoutDay": 1,
-  "minimumBalance": 5.00,
-  "currency": "EUR",
-  "isActive": true
-}
+    "isActive": true
+  }
 }
 
 script:post-response {

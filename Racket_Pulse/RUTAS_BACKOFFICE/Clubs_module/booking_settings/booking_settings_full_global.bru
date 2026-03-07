@@ -10,50 +10,50 @@ post {
 }
 
 body:json {
-{
-  "name": "Configuration to 2026",
-  "is_hours_global": true,
-  "is_pricing_global": true,
-  "date_range": {
-    "start": "2025-09-09",
-    "end": "2025-12-31"
-  },
-  "working_hours": {
-    "start_time": "08:00",
-    "end_time": "20:00",
-    "min_reservation_time": 60,
-    "max_reservation_time": 120,
-    "break": {
-      "start": "12:00",
-      "end": "13:00"
-    }
-  },
-  "pricing_options": {
-    "price": 50,
-    "currency": "EUR",
-    "payment_method_options": [
-      {
-        "name": "stripe",
-        "enabled": true
-      },
-      {
-        "name": "paypal",
-        "enabled": false
+  {
+    "name": "Configuration to 2026",
+    "is_hours_global": true,
+    "is_pricing_global": true,
+    "date_range": {
+      "start": "2025-09-09",
+      "end": "2025-12-31"
+    },
+    "working_hours": {
+      "start_time": "08:00",
+      "end_time": "20:00",
+      "min_reservation_time": 60,
+      "max_reservation_time": 120,
+      "break": {
+        "start": "12:00",
+        "end": "13:00"
       }
-    ]
-  },
-  "active_days": [
-    "monday",
-    "tuesday",
-    "wednesday",
-    "thursday",
-    "friday",
-    "saturday"
-  ],
-  "max_players_per_game": 4,
-  "is_active": true,
-  "priority": 3, // prioridad intermedia 3 para todos los bookings creados manualmente
-  "description": "Same hours and prices for all active days",
-  "club_id": 7
-}
+    },
+    "pricing_options": {
+      "price": 50,
+      "currency": "EUR",
+      "payment_method_options": [
+        {
+          "name": "stripe",
+          "enabled": true
+        },
+        {
+          "name": "paypal",
+          "enabled": false
+        }
+      ]
+    },
+    "active_days": [
+      "monday",
+      "tuesday",
+      "wednesday",
+      "thursday",
+      "friday",
+      "saturday"
+    ],
+    "max_players_per_game": 4,
+    "is_active": true,
+    "priority": 3, // prioridad intermedia 3 para todos los bookings creados manualmente
+    "description": "Same hours and prices for all active days",
+    "club_id": 7
+  }
 }
