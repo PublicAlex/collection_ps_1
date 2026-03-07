@@ -17,18 +17,18 @@ body:json {
 }
 
 script:post-response {
-var jsonData = res.getBody();
+  var jsonData = res.getBody();
 
-if (jsonData.access_token) {
+  if (jsonData.access_token) {
     bru.setVar("access_token", jsonData.access_token);
     console.log("Token saved successfully");
-}
+  }
 
-test("Status code is 201", function () {
+  test("Status code is 201", function () {
     expect(res.getStatus()).to.equal(201);
-});
+  });
 
-test("Response has access_token", function () {
+  test("Response has access_token", function () {
     expect(jsonData).to.have.property('access_token');
-});
+  });
 }

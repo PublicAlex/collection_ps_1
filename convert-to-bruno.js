@@ -105,7 +105,7 @@ function buildBruFile(item) {
 
   // meta
   lines.push('meta {');
-  lines.push(`  name: ${item.name}`);
+  lines.push(`  name: ${item.name.replace(/\//g, '-')}`);
   lines.push('  type: http');
   lines.push('}');
   lines.push('');
@@ -178,15 +178,17 @@ function buildBruFile(item) {
   const { preRequest, postResponse } = parseEvents(item.event);
 
   if (preRequest.trim()) {
+    const indentedPre = preRequest.split('\n').map(l => '  ' + l).join('\n');
     lines.push('script:pre-request {');
-    lines.push(preRequest);
+    lines.push(indentedPre);
     lines.push('}');
     lines.push('');
   }
 
   if (postResponse.trim()) {
+    const indentedPost = postResponse.split('\n').map(l => '  ' + l).join('\n');
     lines.push('script:post-response {');
-    lines.push(postResponse);
+    lines.push(indentedPost);
     lines.push('}');
     lines.push('');
   }
