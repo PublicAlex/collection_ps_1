@@ -1,0 +1,38 @@
+info:
+  name: Get club Tasks
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: "{{host}}/tasks?club_id=1&due_before=2025-10-30T23:59:59.000Z&due_after=2025-08-01T00:00:00.000Z&page=1&limit=10&completed_limit=5"
+  params:
+    - name: club_id
+      value: "1"
+      type: query
+    - name: due_before
+      value: 2025-10-30T23:59:59.000Z
+      type: query
+    - name: due_after
+      value: 2025-08-01T00:00:00.000Z
+      type: query
+    - name: page
+      value: "1"
+      type: query
+    - name: limit
+      value: "10"
+      type: query
+    - name: status
+      value: pending
+      type: query
+      disabled: true
+    - name: completed_limit
+      value: "5"
+      type: query
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

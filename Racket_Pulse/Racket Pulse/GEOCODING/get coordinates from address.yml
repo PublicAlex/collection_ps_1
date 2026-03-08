@@ -1,0 +1,24 @@
+info:
+  name: get coordinates from address
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{host}}/geocoding/forward"
+  body:
+    type: json
+    data: "{\r
+
+      \  \"query\": \"Neiva, Huila, Colombia\",\r
+
+      \  \"limit\": 10\r
+
+      }"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

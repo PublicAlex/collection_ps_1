@@ -1,0 +1,44 @@
+info:
+  name: Approve Payout
+  type: http
+  seq: 1
+
+http:
+  method: PATCH
+  url: "{{base_url}}/payer/payouts/{{payout_id}}/approve"
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+          "notes": "Approved via Admin Panel"
+      }
+  auth: inherit
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        test("Status code is 200", function () {
+            expect(res.getStatus()).to.equal(200);
+        });
+
+        test("Payout status is approved", function () {
+            var jsonData = res.getBody();
+            expect(jsonData.status).to.eql('approved');
+        });
+
+        test("Payout has approvedAt timestamp", function () {
+            var jsonData = res.getBody();
+            expect(jsonData).to.have.property('approvedAt');
+        });
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Aprueba un payout en estado pending_review. Cambia el status a 'approved'.

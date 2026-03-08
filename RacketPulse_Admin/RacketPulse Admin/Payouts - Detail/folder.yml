@@ -1,0 +1,11 @@
+info:
+  name: Payouts - Detail
+  type: folder
+  seq: 4
+
+request:
+  auth: inherit
+
+docs:
+  content: Endpoints para obtener detalles de payouts
+  type: text/markdown

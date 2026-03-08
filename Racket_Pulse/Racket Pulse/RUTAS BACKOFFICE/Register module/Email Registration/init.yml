@@ -1,0 +1,22 @@
+info:
+  name: init
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{host}}/club_users/registration/start"
+  body:
+    type: json
+    data: "{\r
+
+      \  \"email\": \"admin@elitepadelclub.com\"\r
+
+      }"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

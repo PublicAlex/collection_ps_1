@@ -1,0 +1,50 @@
+info:
+  name: create match (token)
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: "{{host}}/matches"
+  body:
+    type: json
+    data: "{\r
+
+      \  \"dates\": [\"2025-12-20\"],\r
+
+      \  \"court_id\": 34,\r
+
+      \  \"start_time\": \"16:00\",\r
+
+      \  //\"end_time\": \"14:00\",\r
+
+      \  \"payment_method\": \"stripe\", // elegir el metodo a usar (quedara registrado en el match y se valdiará en base a este)\r
+
+      \  \"interval\": 60,\r
+
+      \  \"match_description\": \"Partido amistoso de padel, en la cancha #1\",\r
+
+      \  \"type\": \"open\", // Opciones: \"open\", \"private\", \"training\", \"tournament\", \"external\"\r
+
+      \  \"minimum_level\": 2.5, // Rango: 1.0 - 10.0 (con un decimal)\r
+
+      \  \"maximum_level\": 3.5, // Rango: 1.0 - 10.0 (con un decimal)\r
+
+      \  \"game_mode\": \"competitive\", // Opciones: \"competitive\", \"friendly\"\r
+
+      \  \"player_filter\": \"all\", // Opciones: \"all\", \"men\", \"women\"\r
+
+      \  \"creator_id\": 4, // ID del usuario creador del partido\r
+
+      \  \"players_can_invite\": false  // por defecto al no enviarlo, siempre será true. Se debe especificar false en caso de requerir limitar\r
+
+      }"
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,42 @@
+info:
+  name: Update Task
+  type: http
+  seq: 4
+
+http:
+  method: PATCH
+  url: "{{host}}/tasks/2?user_id=1"
+  params:
+    - name: user_id
+      value: "1"
+      type: query
+  body:
+    type: json
+    data: "{\r
+
+      \  \"title\": \"Buy new balls\",\r
+
+      \  \"description\": \"Call Margaret to ask about new prices.\",\r
+
+      \  \"due_date\": \"2025-04-22T00:00:00.000Z\",\r
+
+      \  \"repeat_frequency\": \"monthly\",\r
+
+      \  \"priority\": \"medium\",\r
+
+      \  \"assigned_to_id\": 789,\r
+
+      \  \"club_id\": 123,\r
+
+      \  \"created_by_id\": 456,\r
+
+      \  \"status\": \"completed\"\r
+
+      }"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

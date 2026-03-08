@@ -1,0 +1,18 @@
+info:
+  name: Tasking module
+  type: folder
+  seq: 15
+
+request:
+  auth: inherit
+
+docs:
+  content: |-
+    Módulo para el control de los servicios de Tasks para el backoffice
+
+    Dentro de este módulo encontrará las rutas para:
+
+    - sss
+        
+    - ss
+  type: text/markdown

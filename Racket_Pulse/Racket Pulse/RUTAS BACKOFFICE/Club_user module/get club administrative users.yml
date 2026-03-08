@@ -1,0 +1,47 @@
+info:
+  name: get club administrative users
+  type: http
+  seq: 8
+
+http:
+  method: GET
+  url: "{{host}}/club_gestor/club/1/users?role=all&fromDate=2024-01-01&sortBy=email&sortOrder=DESC&page=1&limit=5"
+  params:
+    - name: search
+      value: perez
+      type: query
+      description: filtro nombre
+      disabled: true
+    - name: role
+      value: all
+      type: query
+      description: filtor rol
+    - name: fromDate
+      value: 2024-01-01
+      type: query
+      description: filtro last login min
+    - name: toDate
+      value: 2024-12-31
+      type: query
+      description: filtro last login max
+      disabled: true
+    - name: sortBy
+      value: email
+      type: query
+    - name: sortOrder
+      value: DESC
+      type: query
+      description: ASC, DESC, - , +
+    - name: page
+      value: "1"
+      type: query
+    - name: limit
+      value: "5"
+      type: query
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

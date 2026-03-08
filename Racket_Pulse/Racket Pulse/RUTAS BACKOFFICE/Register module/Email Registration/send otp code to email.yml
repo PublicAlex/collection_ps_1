@@ -1,0 +1,15 @@
+info:
+  name: send otp code to email
+  type: http
+  seq: 4
+
+http:
+  method: POST
+  url: "{{host}}/club_users/registration/a232be12-ebe0-4930-ba3e-652aedca3c3f/send-otp"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

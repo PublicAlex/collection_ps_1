@@ -1,0 +1,24 @@
+info:
+  name: set recovery option phone
+  type: http
+  seq: 4
+
+http:
+  method: POST
+  url: "{{host}}/club_users/:id/recovery-options/phone"
+  params:
+    - name: id
+      value: ""
+      type: path
+  body:
+    type: json
+    data: ""
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

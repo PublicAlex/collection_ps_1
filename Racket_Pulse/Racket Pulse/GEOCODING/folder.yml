@@ -1,0 +1,11 @@
+info:
+  name: GEOCODING
+  type: folder
+  seq: 6
+
+request:
+  auth: inherit
+
+docs:
+  content: Servicio de Geocoding mediante buscador de direcciones usando nominatim
+  type: text/markdown

@@ -1,0 +1,20 @@
+info:
+  name: verify enable of 2FA
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{host}}/club_users/1/2fa/verify"
+  body:
+    type: json
+    data: "{\r\n  \"token\": \"765929\"\r\n}"
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

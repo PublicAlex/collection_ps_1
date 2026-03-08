@@ -1,0 +1,52 @@
+info:
+  name: send players level report
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{host}}/player_level_reports"
+  body:
+    type: json
+    data: "{\r
+
+      \  \"match_id\": 20,\r
+
+      \  \"userReporter\": 1,  // se usan de ejemplo los ids de users que pertenecen al match con id 20\r
+
+      \  \"ratings\": [\r
+
+      \    {\r
+
+      \      \"idUser\": 2,\r
+
+      \      \"rating\": \"up\"\r
+
+      \    },\r
+
+      \    {\r
+
+      \      \"idUser\": 5,\r
+
+      \      \"rating\": \"down\"\r
+
+      \    },\r
+
+      \    {\r
+
+      \      \"idUser\": 6,\r
+
+      \      \"rating\": \"down\"\r
+
+      \    }\r
+
+      \  ]\r
+
+      }"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

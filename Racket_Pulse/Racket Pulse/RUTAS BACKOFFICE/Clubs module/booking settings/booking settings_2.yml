@@ -1,0 +1,15 @@
+info:
+  name: booking settings_2
+  type: http
+  seq: 7
+
+http:
+  method: DELETE
+  url: "{{host}}/booking_configurations/111"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

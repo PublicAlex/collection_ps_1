@@ -1,0 +1,14 @@
+info:
+  name: Clubs module
+  type: folder
+  seq: 6
+
+request:
+  auth: inherit
+
+docs:
+  content: |-
+    Módulo de registro de clubs (solo información general del club).  
+      
+    Permite crear de forma individual un club sin enlace automático a una organización o club_user previo.
+  type: text/markdown

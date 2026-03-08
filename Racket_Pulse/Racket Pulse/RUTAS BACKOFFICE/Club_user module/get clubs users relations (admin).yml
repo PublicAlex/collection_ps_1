@@ -1,0 +1,17 @@
+info:
+  name: get clubs users relations (admin)
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: "{{host}}/club_gestor"
+  auth:
+    type: bearer
+    token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJjbHVicGFkZWwxMEBleGFtcGxlLmNvbSIsImltYWdlIjoidXBsb2Fkcy9wcm9maWxlcy9pbWFnZS03MDQ5MjMyMi1kM2M0LTRiNmMtYTc1My1iZmY0Y2QzNjJjMjYucG5nIiwibmFtZSI6Ikp1YW4gUMOpcmV6IiwidHlwZSI6ImNsdWIiLCJjbHVicyI6W3siY2x1YklkIjoyLCJjbHViTmFtZSI6IkNsdWIgZGUgUMOhZGVsIEVsaXRlIiwiY2x1YkxvZ28iOiJ1cGxvYWRzL3Byb2ZpbGVzL2ltYWdlLTcwNDkyMzIyLWQzYzQtNGI2Yy1hNzUzLWJmZjRjZDM2MmMyNi5wbmciLCJyb2xlIjoibWFuYWdlciJ9XSwiY2x1YlJvbGVzIjp7IjIiOiJtYW5hZ2VyIn0sIm9yZ2FuaXphdGlvbnMiOlt7Im9yZ2FuaXphdGlvbklkIjoyLCJvcmdhbml6YXRpb25OYW1lIjoiUGFkZWwgQ2VudHJvIE9yZ2FuaXphdGlvbiJ9XSwicGhvbmUiOiIrMzQ2MTIzNDU2NzgiLCJpYXQiOjE3NDEyMzk0MDUsImV4cCI6MTc0MTI0MzAwNX0.4VilJ1I6rZdoA5dkl-F-rLmUVKHnmF7R0aga3hkWnCo
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

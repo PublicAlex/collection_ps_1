@@ -1,0 +1,28 @@
+info:
+  name: change to another billing plan
+  type: http
+  seq: 5
+
+http:
+  method: POST
+  url: "{{host}}/billing-plans/change"
+  body:
+    type: json
+    data: "{\r
+
+      \    \"clubId\": 20,\r
+
+      \    \"newBillingPlanId\": \"862e602b-ad0f-46ea-9f5c-f400534767e9\",\r
+
+      \    \"newBillingCycle\": \"monthly\",\r
+
+      \    \"prorationBehavior\": \"create_prorations\"\r
+
+      }"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,30 @@
+info:
+  name: Create Admin/staff User
+  type: http
+  seq: 4
+
+http:
+  method: POST
+  url: "{{base_url}}/users"
+  headers:
+    - name: Authorization
+      value: Bearer {{token}}
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+          "email": "newuser@example.com",
+          "password": "password123",
+          "name": "New",
+          "lastname": "User",
+          "role": "superadmin" // superadmin o payer
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

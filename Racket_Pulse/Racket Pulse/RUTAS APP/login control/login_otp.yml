@@ -1,0 +1,24 @@
+info:
+  name: login_otp
+  type: http
+  seq: 4
+
+http:
+  method: POST
+  url: "{{host}}/auth/login_otp"
+  body:
+    type: json
+    data: "{\r
+
+      \  \"email\": \"aragonantar@gmail.com\"  // enviar unicamente el email para envío de código OTP al email del usuario\r
+
+      \ // ,\"password\": \"735488\"          // descomentar y enviar junto con el email, tambien el password para verificar código\r
+
+      }"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

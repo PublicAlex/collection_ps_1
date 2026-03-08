@@ -1,0 +1,47 @@
+info:
+  name: "view case 2: admin view (filter by date/status)"
+  type: http
+  seq: 3
+
+http:
+  method: GET
+  url: "{{host}}/admin/scheduled-payouts?status=pending_review&startDate=2024-01-01T00:00:00.000Z&endDate=2026-12-31T23:59:59.000Z"
+  headers:
+    - name: Authorization
+      value: Bearer {{token}}
+    - name: X-Secret-Key
+      value: 8ajk128nas8dho19-lkasdh9n1jnoas091nsd@-
+  params:
+    - name: status
+      value: pending_review
+      type: query
+    - name: clubId
+      value: "56"
+      type: query
+      disabled: true
+    - name: startDate
+      value: 2024-01-01T00:00:00.000Z
+      type: query
+    - name: endDate
+      value: 2026-12-31T23:59:59.000Z
+      type: query
+    - name: ""
+      value: ""
+      type: query
+      disabled: true
+  auth: inherit
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        var jsonData = res.getBody();
+        if (jsonData.length > 0) {
+            bru.setEnvVar("payoutId", jsonData[0].id);
+        }
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

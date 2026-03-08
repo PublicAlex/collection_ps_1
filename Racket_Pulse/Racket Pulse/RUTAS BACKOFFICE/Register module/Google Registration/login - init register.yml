@@ -1,0 +1,28 @@
+info:
+  name: login / init register
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{host}}/club_users/registration/google_login_register"
+  body:
+    type: json
+    data: "{\r
+
+      \  \"full_name\": \"Coper Nicus\",\r
+
+      \  \"email\": \"rarov97036@anysilo.com\",\r
+
+      \  \"photo\": \"https://lh3.googleusercontent.com/a-/AOh14GgRs_BS9oeB56diTvKw_8rCZD3XMHvlU-8YN2=s96-c\",\r
+
+      \  \"googleId\": \"1253453452351\"\r
+
+      }"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

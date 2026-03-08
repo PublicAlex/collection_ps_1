@@ -1,0 +1,42 @@
+info:
+  name: create match payment
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{host}}/fiuu/payments"
+  body:
+    type: json
+    data: "{\r
+
+      \  \"userId\": 1,\r
+
+      \  \"clubId\": 1,\r
+
+      \  \"amount\": 35.5,\r
+
+      \  \"currency\": \"MYR\",\r
+
+      \  \"platformFeePercentage\": 10,\r
+
+      \  \"matchId\": 459,\r
+
+      \  \"description\": \"Court reservation payment\",\r
+
+      \  \"paymentChannel\": \"credit\",\r
+
+      \  \"customerName\": \"John Doe\",\r
+
+      \  \"customerEmail\": \"john@example.com\",\r
+
+      \  \"customerPhone\": \"+60123456789\"\r
+
+      }"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

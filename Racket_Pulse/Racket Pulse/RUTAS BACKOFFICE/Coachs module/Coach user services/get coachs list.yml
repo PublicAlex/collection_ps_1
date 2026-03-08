@@ -1,0 +1,50 @@
+info:
+  name: get coachs list
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: "{{host}}/coach_profiles?min_price=1&max_price=99&min_rating=0&page=1&limit=10&sort_order=ASC&search=cx2&specialties=tactics,technique"
+  params:
+    - name: club_id
+      value: "1"
+      type: query
+      disabled: true
+    - name: min_price
+      value: "1"
+      type: query
+    - name: max_price
+      value: "99"
+      type: query
+    - name: min_rating
+      value: "0"
+      type: query
+    - name: page
+      value: "1"
+      type: query
+    - name: limit
+      value: "10"
+      type: query
+    - name: sort_field
+      value: name
+      type: query
+      disabled: true
+    - name: sort_order
+      value: ASC
+      type: query
+    - name: search
+      value: cx2
+      type: query
+      description: filtra en nombres, biografia, club name
+    - name: specialties
+      value: tactics,technique
+      type: query
+      description: separados por coma
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

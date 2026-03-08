@@ -1,0 +1,22 @@
+info:
+  name: New Request_1
+  type: http
+  seq: 5
+
+http:
+  method: PUT
+  url: "{{host}}/banners/reorder"
+  body:
+    type: json
+    data: "{ \r
+
+      \    \"bannerIds\": [5, 2, 8]\r
+
+      }"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

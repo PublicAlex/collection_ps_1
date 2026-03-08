@@ -1,0 +1,28 @@
+info:
+  name: trigger payout
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{host}}/admin/scheduled-payouts/trigger"
+  headers:
+    - name: Authorization
+      value: Bearer {{token}}
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+          "clubId": 56,
+          "periodStart": "2025-01-01T00:00:00.000Z",
+          "periodEnd": "2026-12-31T23:59:59.000Z"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

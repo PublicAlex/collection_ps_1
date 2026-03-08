@@ -1,0 +1,28 @@
+info:
+  name: Complete Task
+  type: http
+  seq: 5
+
+http:
+  method: PATCH
+  url: "{{host}}/tasks/1/complete?user_id=1"
+  params:
+    - name: user_id
+      value: "1"
+      type: query
+  body:
+    type: json
+    data: "{\r
+
+      \  \"status\": \"completed\",\r
+
+      \  \"completion_notes\": \"Task completed successfully\"\r
+
+      }"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

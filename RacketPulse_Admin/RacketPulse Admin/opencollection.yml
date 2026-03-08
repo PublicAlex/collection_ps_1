@@ -1,0 +1,26 @@
+opencollection: 1.0.0
+
+info:
+  name: RacketPulse Admin
+
+request:
+  auth:
+    type: bearer
+    token: "{{access_token}}"
+  variables:
+    - name: base_url
+      value: http://localhost:3003
+    - name: access_token
+      value: ""
+    - name: payout_id
+      value: ""
+
+docs:
+  content: Colección de endpoints para el módulo Login y Payer del panel de administración de RacketPulse
+  type: text/markdown
+bundled: false
+extensions:
+  bruno:
+    ignore:
+      - node_modules
+      - .git

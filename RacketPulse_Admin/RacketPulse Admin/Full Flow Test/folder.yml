@@ -1,0 +1,11 @@
+info:
+  name: Full Flow Test
+  type: folder
+  seq: 7
+
+request:
+  auth: inherit
+
+docs:
+  content: "Flujo completo de prueba: Login → Get Pending → Approve → Process → Verify"
+  type: text/markdown

@@ -1,0 +1,28 @@
+info:
+  name: user banned_1
+  type: http
+  seq: 2
+
+http:
+  method: DELETE
+  url: "{{host}}/club_user_bans"
+  body:
+    type: json
+    data: "{\r
+
+      \  \"userId\": 3611, // jugador a desbanear\r
+
+      \  \"clubId\": 109\r
+
+      }\r
+
+      \r\n"
+  auth:
+    type: bearer
+    token: "{{acces_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

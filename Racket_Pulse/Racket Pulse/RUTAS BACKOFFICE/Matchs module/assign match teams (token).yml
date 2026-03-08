@@ -1,0 +1,28 @@
+info:
+  name: assign match teams (token)
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: "{{host}}/match_teams"
+  body:
+    type: json
+    data: "{\r
+
+      \  \"match_id\": 170, // match de ejemplo previamente creado con ID #17\r
+
+      \  \"user_id\": 1,   // usuario de ejemplo previamente creado con ID #1\r
+
+      \  \"team\": \"team1\",\r
+
+      \  \"position\": \"left\"\r
+
+      }"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

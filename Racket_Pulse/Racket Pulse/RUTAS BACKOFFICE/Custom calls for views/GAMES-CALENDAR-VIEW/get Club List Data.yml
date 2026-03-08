@@ -1,0 +1,48 @@
+info:
+  name: get Club List Data
+  type: http
+  seq: 4
+
+http:
+  method: GET
+  url: "{{host}}/matches/calendar/list/club/1?sortOrder=-&sortBy=court_level"
+  params:
+    - name: startDate
+      value: 2025-04-01T00:00:00.000Z
+      type: query
+      disabled: true
+    - name: endDate
+      value: 2025-05-15T00:00:00.000Z
+      type: query
+      disabled: true
+    - name: page
+      value: "1"
+      type: query
+      disabled: true
+    - name: limit
+      value: "10"
+      type: query
+      disabled: true
+    - name: status
+      value: confirmed
+      type: query
+      description: confirmed ó cancelled ó pending ó completed
+      disabled: true
+    - name: search
+      value: Copernicu
+      type: query
+      description: opción de search para los campos (book id, court name, player name)
+      disabled: true
+    - name: sortOrder
+      value: "-"
+      type: query
+    - name: sortBy
+      value: court_level
+      type: query
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

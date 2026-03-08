@@ -1,0 +1,35 @@
+info:
+  name: Update Scores
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: "{{elohost}}/api/v1/scores/update"
+  headers:
+    - name: X-API-Key
+      value: "1234"
+  body:
+    type: json
+    data: "{\r
+
+      \  \"scores_team_1\": [0.72, 0.45],\r
+
+      \  \"scores_team_2\": [0.61, 0.38],\r
+
+      \  \"outcome\": [6, 3],\r
+
+      \  \"tournament_weight\": 1.0,    // doble de peso que torneo amateurs\r
+
+      \  \"reliabilities_team_1\": [0.80, 0.10],    // porcentaje de fiabilidad de cada jugador\r
+
+      \  \"reliabilities_team_2\": [0.55, 0.00] \r
+
+      }"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

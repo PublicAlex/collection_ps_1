@@ -1,0 +1,18 @@
+info:
+  name: booking settings_1
+  type: http
+  seq: 6
+
+http:
+  method: PATCH
+  url: "{{host}}/booking_configurations/1"
+  body:
+    type: json
+    data: // use the required body
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

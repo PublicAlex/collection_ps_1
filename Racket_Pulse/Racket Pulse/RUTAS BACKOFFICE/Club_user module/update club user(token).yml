@@ -1,0 +1,32 @@
+info:
+  name: update club user(token)
+  type: http
+  seq: 6
+
+http:
+  method: PATCH
+  url: "{{host}}/club_users/25?clubId=1"
+  params:
+    - name: clubId
+      value: "1"
+      type: query
+  body:
+    type: json
+    data: "{\r
+
+      \        \r
+
+      \            \"name\": \"Juanjo coach\",\r
+
+      \            \"last_name\": \"test\",\r
+
+      \            \"role\": \"manager\"\r
+
+      }"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,272 @@
+info:
+  name: update club notification settings
+  type: http
+  seq: 2
+
+http:
+  method: PUT
+  url: "{{host}}/club-notification-preferences/club/1"
+  body:
+    type: json
+    data: "{\r
+
+      \    \"whatsappNumber\": null,\r
+
+      \    \"pushWebhookUrl\": null,\r
+
+      \    \"pushSubscription\": null,\r
+
+      \    \"allNotificationsEnabled\": true,\r
+
+      \    \"newReservationEnabled\": true,\r
+
+      \    \"newReservationChannels\": [\r
+
+      \        {\r
+
+      \            \"name\": \"email\",\r
+
+      \            \"enabled\": false\r
+
+      \        },\r
+
+      \        {\r
+
+      \            \"name\": \"dashboard\",\r
+
+      \            \"enabled\": false\r
+
+      \        }\r
+
+      \    ],\r
+
+      \    \"newReservationRoles\": [\r
+
+      \        \"organization\",\r
+
+      \        \"manager\",\r
+
+      \        \"receptionist\"\r
+
+      \    ],\r
+
+      \    \"reservationCancelledEnabled\": true,\r
+
+      \    \"reservationCancelledChannels\": [\r
+
+      \        {\r
+
+      \            \"name\": \"email\",\r
+
+      \            \"enabled\": false\r
+
+      \        },\r
+
+      \        {\r
+
+      \            \"name\": \"dashboard\",\r
+
+      \            \"enabled\": false\r
+
+      \        }\r
+
+      \    ],\r
+
+      \    \"reservationCancelledRoles\": [\r
+
+      \        \"organization\",\r
+
+      \        \"manager\",\r
+
+      \        \"receptionist\"\r
+
+      \    ],\r
+
+      \    \"courtUnavailableEnabled\": false,\r
+
+      \    \"courtUnavailableChannels\": [],\r
+
+      \    \"courtUnavailableRoles\": [\r
+
+      \        \"organization\",\r
+
+      \        \"manager\"\r
+
+      \    ],\r
+
+      \    \"fullDayBookedEnabled\": true,\r
+
+      \    \"fullDayBookedChannels\": [\r
+
+      \        {\r
+
+      \            \"name\": \"email\",\r
+
+      \            \"enabled\": false\r
+
+      \        }\r
+
+      \    ],\r
+
+      \    \"fullDayBookedRoles\": [\r
+
+      \        \"organization\",\r
+
+      \        \"manager\"\r
+
+      \    ],\r
+
+      \    \"lowParticipationEnabled\": false,\r
+
+      \    \"lowParticipationChannels\": [],\r
+
+      \    \"lowParticipationRoles\": [\r
+
+      \        \"organization\",\r
+
+      \        \"manager\"\r
+
+      \    ],\r
+
+      \    \"tournamentReviewEnabled\": true,\r
+
+      \    \"tournamentReviewChannels\": [\r
+
+      \        {\r
+
+      \            \"name\": \"email\",\r
+
+      \            \"enabled\": false\r
+
+      \        },\r
+
+      \        {\r
+
+      \            \"name\": \"dashboard\",\r
+
+      \            \"enabled\": false\r
+
+      \        }\r
+
+      \    ],\r
+
+      \    \"tournamentReviewRoles\": [\r
+
+      \        \"organization\",\r
+
+      \        \"manager\"\r
+
+      \    ],\r
+
+      \    \"manualResultPendingEnabled\": true,\r
+
+      \    \"manualResultPendingChannels\": [\r
+
+      \        {\r
+
+      \            \"name\": \"email\",\r
+
+      \            \"enabled\": false\r
+
+      \        },\r
+
+      \        {\r
+
+      \            \"name\": \"dashboard\",\r
+
+      \            \"enabled\": false\r
+
+      \        }\r
+
+      \    ],\r
+
+      \    \"manualResultPendingRoles\": [\r
+
+      \        \"organization\",\r
+
+      \        \"manager\"\r
+
+      \    ],\r
+
+      \    \"paymentFailedEnabled\": true,\r
+
+      \    \"paymentFailedChannels\": [\r
+
+      \        {\r
+
+      \            \"name\": \"email\",\r
+
+      \            \"enabled\": false\r
+
+      \        },\r
+
+      \        {\r
+
+      \            \"name\": \"dashboard\",\r
+
+      \            \"enabled\": false\r
+
+      \        },\r
+
+      \        {\r
+
+      \            \"name\": \"push\",\r
+
+      \            \"enabled\": false\r
+
+      \        }\r
+
+      \    ],\r
+
+      \    \"paymentFailedRoles\": [\r
+
+      \        \"organization\",\r
+
+      \        \"manager\"\r
+
+      \    ],\r
+
+      \    \"newUserRegisteredEnabled\": true,\r
+
+      \    \"newUserRegisteredChannels\": [\r
+
+      \        {\r
+
+      \            \"name\": \"email\",\r
+
+      \            \"enabled\": false\r
+
+      \        },\r
+
+      \        {\r
+
+      \            \"name\": \"dashboard\",\r
+
+      \            \"enabled\": false\r
+
+      \        }\r
+
+      \    ],\r
+
+      \    \"newUserRegisteredRoles\": [\r
+
+      \        \"organization\",\r
+
+      \        \"manager\",\r
+
+      \        \"receptionist\"\r
+
+      \    ],\r
+
+      \    \"createdAt\": \"2025-12-27T01:49:36.341Z\",\r
+
+      \    \"updatedAt\": \"2025-12-27T01:49:36.341Z\"\r
+
+      }"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,91 @@
+info:
+  name: update payout config
+  type: http
+  seq: 3
+
+http:
+  method: PATCH
+  url: "{{host}}/clubs/1/payout-config"
+  body:
+    type: json
+    data: "{\r
+
+      \  \"destinationType\": \"bank_account\",\r
+
+      \  \"bankAccountDetails\": {\r
+
+      \    \"accountHolderName\": \"Nombre del Club o Empresa\",\r
+
+      \    \"accountNumber\": \"\",                    // Vacío para Europa\r
+
+      \    \"routingNumber\": \"\",                    // Vacío para Europa\r
+
+      \    \"iban\": \"ES0700120345030000067890\",    // Lleno para Europa\r
+
+      \    \"country\": \"ES\",\r
+
+      \    \"currency\": \"EUR\",\r
+
+      \    \"bankName\": \"Banco Santander\",\r
+
+      \    \"swiftCode\": \"\"\r
+
+      \  },\r
+
+      \  \"payoutFrequency\": \"weekly\",\r
+
+      \  \"payoutDay\": 1,\r
+
+      \  \"minimumBalance\": 100.00,\r
+
+      \  \"currency\": \"EUR\",\r
+
+      \  \"isActive\": true\r
+
+      }"
+  auth: inherit
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        // usar este listado de paises como ejemplo de paises en teoria validos para efectuar los payouts con stripe
+
+        const VALID_COUNTRY_CURRENCY_MAP = {
+          // Asia-Pacífico
+          'AU': 'AUD', 'BN': 'BND', 'HK': 'HKD', 'IN': 'INR', 'ID': 'IDR',
+          'JP': 'JPY', 'MY': 'MYR', 'NZ': 'NZD', 'PH': 'PHP', 'SG': 'SGD',
+          'KR': 'KRW', 'TH': 'THB', 'VN': 'VND',
+          
+          // Europa (zona EUR)
+          'AT': 'EUR', 'BE': 'EUR', 'HR': 'EUR', 'CY': 'EUR', 'EE': 'EUR',
+          'FI': 'EUR', 'FR': 'EUR', 'DE': 'EUR', 'GR': 'EUR', 'IE': 'EUR',
+          'IT': 'EUR', 'LV': 'EUR', 'LT': 'EUR', 'LU': 'EUR', 'MT': 'EUR',
+          'NL': 'EUR', 'PT': 'EUR', 'SK': 'EUR', 'SI': 'EUR', 'ES': 'EUR',
+          
+          // Europa (otras monedas)
+          'BG': 'BGN', 'CZ': 'CZK', 'DK': 'DKK', 'HU': 'HUF', 'NO': 'NOK',
+          'PL': 'PLN', 'RO': 'RON', 'SE': 'SEK', 'CH': 'CHF', 'GB': 'GBP',
+          
+          // Américas
+          'AR': 'ARS', 'BR': 'BRL', 'CA': 'CAD', 'CL': 'CLP', 'CO': 'COP',
+          'CR': 'CRC', 'MX': 'MXN', 'PA': 'PAB', 'PE': 'PEN', 'UY': 'UYU', 'US': 'USD',
+          
+          // Medio Oriente & África
+          'BH': 'BHD', 'EG': 'EGP', 'IL': 'ILS', 'KE': 'KES', 'KW': 'KWD',
+          'MA': 'MAD', 'NG': 'NGN', 'QA': 'QAR', 'SA': 'SAR', 'ZA': 'ZAR', 'AE': 'AED'
+        };
+
+
+        // paises que requieren iban (europeos)
+        const COUNTRIES_REQUIRING_IBAN = [
+          'AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR',
+          'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 'NO', 'PL', 'PT', 'RO',
+          'SK', 'SI', 'ES', 'SE', 'CH', 'GB'
+        ];
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

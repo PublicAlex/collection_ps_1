@@ -1,0 +1,32 @@
+info:
+  name: create banner
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{host}}/banners"
+  body:
+    type: json
+    data: "{ \r
+
+      \    \"title\": \"Promo Navidad Global\", \r
+
+      \    \"description\": \"Descuentos en toda la app\", \r
+
+      \    \"imageUrl\": \"https://...\", \r
+
+      \    \"redirectLink\": \"https://...\", \r
+
+      \    \"isActive\": true, \r
+
+      \    \"displayOrder\": 1\r
+
+      }"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

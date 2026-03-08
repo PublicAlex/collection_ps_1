@@ -1,0 +1,24 @@
+info:
+  name: accept user outlevel
+  type: http
+  seq: 11
+
+http:
+  method: POST
+  url: "{{host}}/match_teams/180/approve-player"
+  body:
+    type: json
+    data: "{\r
+
+      \    \"player_id\":46,\r
+
+      \    \"voting_player_id\":1\r
+
+      }"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

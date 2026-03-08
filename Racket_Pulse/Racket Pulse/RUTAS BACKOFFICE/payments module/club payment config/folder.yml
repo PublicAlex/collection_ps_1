@@ -1,0 +1,7 @@
+info:
+  name: club payment config
+  type: folder
+  seq: 1
+
+request:
+  auth: inherit

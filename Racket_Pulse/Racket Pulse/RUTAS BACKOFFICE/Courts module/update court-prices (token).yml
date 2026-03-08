@@ -1,0 +1,52 @@
+info:
+  name: update court-prices (token)
+  type: http
+  seq: 3
+
+http:
+  method: PUT
+  url: "{{host}}/courts/24/with-prices"
+  body:
+    type: json
+    data: "{\r
+
+      \  \"court_name\": \"Cancha VIP Actualizada\",\r
+
+      \  \"court_type\": \"cover\", \r
+
+      \  \"status\": \"enabled\",\r
+
+      \  \"color\": \"red\",\r
+
+      \  \"has_lights\": true,\r
+
+      \  \"priceConfiguration\": {\r
+
+      \    \"price\": 45,\r
+
+      \    \"description\": \"VIP rates with extended hours\",\r
+
+      \    \"startTime\": \"06:00\",\r
+
+      \    \"endTime\": \"23:00\",\r
+
+      \    \"min_duration\": 30,\r
+
+      \    \"max_duration\": 180,\r
+
+      \    \"max_players_per_game\": 4,\r
+
+      \    \"currency\": \"EUR\",\r
+
+      \    \"activeDays\": [\"monday\", \"tuesday\", \"wednesday\", \"thursday\", \"friday\", \"saturday\", \"sunday\"]\r
+
+      \  }\r
+
+      }"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

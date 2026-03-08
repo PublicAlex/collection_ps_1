@@ -1,0 +1,7 @@
+info:
+  name: payments module
+  type: folder
+  seq: 11
+
+request:
+  auth: inherit

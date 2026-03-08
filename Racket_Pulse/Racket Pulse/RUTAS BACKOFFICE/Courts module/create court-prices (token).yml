@@ -1,0 +1,54 @@
+info:
+  name: create court-prices (token)
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{host}}/courts/with-prices"
+  body:
+    type: json
+    data: "{\r
+
+      \  \"court_name\": \"Cancha Ejecutiva 33\",\r
+
+      \  \"court_type\": \"cover\",\r
+
+      \  \"status\": \"enabled\",\r
+
+      \  \"color\": \"blue\",\r
+
+      \  \"has_lights\": true,\r
+
+      \  \"club_id\": 1,\r
+
+      \  \"priceConfiguration\": { // with or without price configuration...\r
+
+      \    \"price\": 35,\r
+
+      \    \"description\": \"Weekday business hours\",\r
+
+      \    \"startTime\": \"06:00\",\r
+
+      \    \"endTime\": \"18:00\",\r
+
+      \    \"min_duration\": 60,\r
+
+      \    \"max_duration\": 120,\r
+
+      \    \"max_players_per_game\": 4,\r
+
+      \    \"currency\": \"EUR\",\r
+
+      \    \"activeDays\": [\"monday\", \"tuesday\", \"wednesday\", \"thursday\", \"friday\", \"saturday\", \"sunday\"]\r
+
+      \  }\r
+
+      }"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

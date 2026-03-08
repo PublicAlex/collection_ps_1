@@ -1,0 +1,7 @@
+info:
+  name: Coachs module
+  type: folder
+  seq: 13
+
+request:
+  auth: inherit

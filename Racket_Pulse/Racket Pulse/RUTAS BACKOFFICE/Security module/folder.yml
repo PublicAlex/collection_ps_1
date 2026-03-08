@@ -1,0 +1,7 @@
+info:
+  name: Security module
+  type: folder
+  seq: 20
+
+request:
+  auth: inherit

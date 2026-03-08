@@ -1,0 +1,7 @@
+info:
+  name: personal scope options
+  type: folder
+  seq: 2
+
+request:
+  auth: inherit

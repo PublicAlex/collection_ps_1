@@ -1,0 +1,30 @@
+info:
+  name: 5. Verify Completed
+  type: http
+  seq: 5
+
+http:
+  method: GET
+  url: "{{base_url}}/payer/payouts/{{payout_id}}"
+  auth: inherit
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        test("Payout is completed", function () {
+            expect(res.getStatus()).to.equal(200);
+            var jsonData = res.getBody();
+            expect(jsonData.status).to.eql('completed');
+            expect(jsonData.externalReference).to.not.be.null;
+            expect(jsonData.approvedAt).to.not.be.null;
+            expect(jsonData.processedAt).to.not.be.null;
+        });
+
+        console.log("Full flow completed successfully!");
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

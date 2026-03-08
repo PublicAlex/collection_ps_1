@@ -1,0 +1,19 @@
+info:
+  name: complete backoffice to do item
+  type: http
+  seq: 2
+
+http:
+  method: PATCH
+  url: "{{host}}/tasks/setup_progress/:clubId:stepId/redo"
+  params:
+    - name: clubId:stepId
+      value: ""
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

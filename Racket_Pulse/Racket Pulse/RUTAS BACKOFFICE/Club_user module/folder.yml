@@ -1,0 +1,14 @@
+info:
+  name: Club_user module
+  type: folder
+  seq: 7
+
+request:
+  auth: inherit
+
+docs:
+  content: |-
+    Módulo de registro de club_user (realciona una organización con un club ademas de permitir agregar datos del club_user en especifico).  
+      
+    Permite crear de forma individual un club_user enlazando a un club y una organización creados previamente.
+  type: text/markdown

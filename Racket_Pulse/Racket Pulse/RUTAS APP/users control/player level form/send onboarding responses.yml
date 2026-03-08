@@ -1,0 +1,62 @@
+info:
+  name: send onboarding responses
+  type: http
+  seq: 4
+
+http:
+  method: POST
+  url: "{{host}}/level_onboarding/process_complete"
+  body:
+    type: json
+    data: "\r
+
+      {\r
+
+      \  \"step1Level\": 4,   // step 1 result\r
+
+      \  \"step2Description\": \"level_4_competitive_amateur\",  // step 2 decription key\r
+
+      \  \"step3Answers\": [  // step 3 responses to refine the player level\r
+
+      \    {\r
+
+      \      \"questionKey\": \"playFrequency\",\r
+
+      \      \"answerKey\": \"3_or_more_times_per_week\", \r
+
+      \      \"answerValue\": \"3 or more times per week\"\r
+
+      \    },\r
+
+      \    {\r
+
+      \      \"questionKey\": \"opponentLevel\",\r
+
+      \      \"answerKey\": \"Amateur_or_semi-professional_players\",\r
+
+      \      \"answerValue\": \"Amateur or semi-professional players\"\r
+
+      \    },\r
+
+      \    {\r
+
+      \      \"questionKey\": \"competitiveExperience\", \r
+
+      \      \"answerKey\": \"I_regularly_compete_in_amateur_events\",\r
+
+      \      \"answerValue\": \"I regularly compete in amateur events\"\r
+
+      \    }\r
+
+      \  ],\r
+
+      \  \"userId\": 1\r
+
+      }"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

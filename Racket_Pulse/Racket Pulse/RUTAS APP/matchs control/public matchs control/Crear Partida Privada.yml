@@ -1,0 +1,40 @@
+info:
+  name: Crear Partida Privada
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{host}}/matches"
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "court_id": 158,
+        "date": "2026-03-18",
+        "start_time": "18:00",
+        "end_time": "19:00",
+        "type": "private",
+        "payment_required": false // tipo de reserva cash quemado
+      }
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: |-
+  Creates a private match in the unofficial club's virtual court.
+
+  Automatically bypasses:
+  - Billing validation (no plan required)
+  - Availability/booking config validation
+
+  Only 'private' type is allowed for unofficial clubs.

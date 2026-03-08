@@ -1,0 +1,11 @@
+info:
+  name: Custom calls for views
+  type: folder
+  seq: 1
+
+request:
+  auth: inherit
+
+docs:
+  content: Estas llamadas no retornar directamente operaciones básicas crud de un modelo, si no que se realizan integraciones multi modelos para generar estadisticas,
+  type: text/markdown

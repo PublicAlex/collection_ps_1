@@ -1,0 +1,17 @@
+info:
+  name: enable 2FA
+  type: http
+  seq: 6
+
+http:
+  method: POST
+  url: "{{host}}/club_users/1/2fa/enable"
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

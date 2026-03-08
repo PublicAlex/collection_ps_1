@@ -1,0 +1,123 @@
+info:
+  name: create event
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{host}}/events"
+  headers:
+    - name: Accept
+      value: application/json
+    - name: Content-Type
+      value: application/json
+    - name: Authorization
+      value: Bearer YOUR_JWT_TOKEN
+  body:
+    type: json
+    data: "{\r
+
+      \  \"name\": \"Summer Tournament 2025\",\r
+
+      \  \"description\": \"Friendly tournament for all levels with prizes\",\r
+
+      \  \"event_type\": \"tournament\",\r
+
+      \  \"from_date\": \"2025-07-16T09:00:00.000Z\",\r
+
+      \  \"to_date\": \"2025-08-16T18:00:00.000Z\",\r
+
+      \  \"club_id\": 1,\r
+
+      \  \"country_iso\": \"COP\",\r
+
+      \  \"min_level\": 2.0,\r
+
+      \  \"max_level\": 5.0,\r
+
+      \  \"gender\": \"all\",\r
+
+      \  \"format\": \"single_elimination\",\r
+
+      \  \"category\": \"mixed\",\r
+
+      \  \"price\": 50.0,\r
+
+      \  \"registration_start\": \"2025-06-01T09:00:00.000Z\",\r
+
+      \  \"registration_end\": \"2025-07-10T18:00:00.000Z\",\r
+
+      \  \"cancellation_deadline\": \"2025-07-05T18:00:00.000Z\",\r
+
+      \  \"event_image\": \"https://www.padelfip.com/wp-content/uploads/2025/01/WhatsApp-Image-2025-01-29-at-13.32.12-212x300.jpeg\",\r
+
+      \  \"creator_id\": 1,\r
+
+      \  \"event_subtype\": \"Championship\",\r
+
+      \  \"income\": 0\r
+
+      }"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: "Generated from cURL: curl --location '{{host}}/events' \\\r
+
+  --header 'Accept: application/json' \\\r
+
+  --header 'Content-Type: application/json' \\\r
+
+  --header 'Authorization: Bearer YOUR_JWT_TOKEN' \\\r
+
+  --data '{\r
+
+  \  \"name\": \"Summer Tournament 2025\",\r
+
+  \  \"description\": \"Friendly tournament for all levels with prizes\",\r
+
+  \  \"event_type\": \"tournament\",\r
+
+  \  \"from_date\": \"2025-07-15T09:00:00.000Z\",\r
+
+  \  \"to_date\": \"2025-07-16T18:00:00.000Z\",\r
+
+  \  \"club_id\": 1,\r
+
+  \  \"country_iso\": \"COP\",\r
+
+  \  \"min_level\": 2.0,\r
+
+  \  \"max_level\": 5.0,\r
+
+  \  \"gender\": \"all\",\r
+
+  \  \"format\": \"single_elimination\",\r
+
+  \  \"participants_count\": 32,\r
+
+  \  \"category\": \"mixed\",\r
+
+  \  \"price\": 50.0,\r
+
+  \  \"registration_start\": \"2025-06-01T09:00:00.000Z\",\r
+
+  \  \"registration_end\": \"2025-07-10T18:00:00.000Z\",\r
+
+  \  \"cancellation_deadline\": \"2025-07-05T18:00:00.000Z\",\r
+
+  \  \"event_image\": \"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQ... or https://example.com/image.jpg\",\r
+
+  \  \"creator_id\": 1,\r
+
+  \  \"event_subtype\": \"Championship\",\r
+
+  \  \"income\": 0\r
+
+  }'\r
+
+  # Uses: Create tournaments, events, clinics. Same day events (from_date = to_date). Image as base64 or URL. All fields optional except name, dates, club_id"

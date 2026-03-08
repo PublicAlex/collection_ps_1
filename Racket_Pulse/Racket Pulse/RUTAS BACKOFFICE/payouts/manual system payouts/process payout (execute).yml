@@ -1,0 +1,27 @@
+info:
+  name: process payout (execute)
+  type: http
+  seq: 7
+
+http:
+  method: PATCH
+  url: "{{host}}/admin/scheduled-payouts/{{payoutId}}/process"
+  headers:
+    - name: Authorization
+      value: Bearer {{token}}
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+          "externalReference": "REF-TX-FULL-FLOW-{{$timestamp}}",
+          "notes": "Processed successfully."
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

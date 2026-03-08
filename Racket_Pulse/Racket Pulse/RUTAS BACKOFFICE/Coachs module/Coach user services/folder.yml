@@ -1,0 +1,11 @@
+info:
+  name: Coach user services
+  type: folder
+  seq: 1
+
+request:
+  auth: inherit
+
+docs:
+  content: Este servicio permite gestionar el listado y obtencion de información concerniente a los entrenadores (listarlos, detalles, creación)
+  type: text/markdown

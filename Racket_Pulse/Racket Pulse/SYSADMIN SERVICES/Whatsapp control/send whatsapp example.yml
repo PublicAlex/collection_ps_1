@@ -1,0 +1,24 @@
+info:
+  name: send whatsapp example
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: "{{host}}/whatsapp/send_txt_test"
+  body:
+    type: json
+    data: "{\r
+
+      \  \"phone\": \"+57 3203063817\",\r
+
+      \  \"message\": \"👋 *Hola, Alexander2!* Espero que estés teniendo un gran día.\\n\\n📌 Aquí tienes algunos ejemplos de formato en WhatsApp:\\n\\n🔹 *Negrita* y _cursiva_ para resaltar texto.\\n🔹 ~Texto tachado~ si necesitas mostrar correcciones.\\n🔹 ```Texto monoespaciado``` para código o información técnica.\\n🔹 Listas con emojis:\\n   ✅ Terminar el reporte\\n   ✅ Llamar a clientes\\n   ❌ Revisar correos\\n\\n📢 *Mensaje importante:* 🚨 *No compartas tu código con nadie.*\\n\\nTu código de verificación es: ```123456```.\\n\\n🔗 Aquí tienes un enlace útil: https://racketscore.com/acept-termns\\n\\n@1234567890 (mención en grupos, si aplica).\\n\\n¡Nos vemos pronto! 😊\"\r
+
+      }"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

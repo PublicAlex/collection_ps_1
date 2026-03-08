@@ -1,0 +1,31 @@
+info:
+  name: Update User
+  type: http
+  seq: 5
+
+http:
+  method: PATCH
+  url: "{{base_url}}/users/:id"
+  headers:
+    - name: Authorization
+      value: Bearer {{token}}
+    - name: Content-Type
+      value: application/json
+  params:
+    - name: id
+      value: "2"
+      type: path
+      description: ID of the user to update
+  body:
+    type: json
+    data: |-
+      {
+          "name": "Updated Name"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

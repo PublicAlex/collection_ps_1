@@ -1,0 +1,45 @@
+info:
+  name: Login
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{base_url}}/auth/login"
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+          "email": "admin@admin.com",
+          "password": "p3assw1ord_segura2"
+      }
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        var jsonData = res.getBody();
+
+        if (jsonData.access_token) {
+            bru.setVar("access_token", jsonData.access_token);
+            console.log("Token saved successfully");
+        }
+
+        test("Status code is 201", function () {
+            expect(res.getStatus()).to.equal(201);
+        });
+
+        test("Response has access_token", function () {
+            expect(jsonData).to.have.property('access_token');
+        });
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Login para obtener el token de acceso. El token se guarda automáticamente en las variables de la colección.

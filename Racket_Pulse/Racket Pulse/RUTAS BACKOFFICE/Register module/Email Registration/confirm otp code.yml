@@ -1,0 +1,18 @@
+info:
+  name: confirm otp code
+  type: http
+  seq: 5
+
+http:
+  method: POST
+  url: "{{host}}/club_users/registration/c409eff8-bb67-4334-a1b6-157ef93405ea/verify-otp"
+  body:
+    type: json
+    data: "{\r\n  \"otpCode\": \"124083\"\r\n}"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

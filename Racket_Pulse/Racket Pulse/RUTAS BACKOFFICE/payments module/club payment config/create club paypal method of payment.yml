@@ -1,0 +1,30 @@
+info:
+  name: create club paypal method of payment
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{host}}/club_payment_configs"
+  body:
+    type: json
+    data: "{\r
+
+      \  \"club_id\": 1,\r
+
+      \  \"paypal_client_id\": \"AV8hUnhohie8fVxk6UaiEd60k7ZzBavnzo1ekUe7rxCBsysb406IO2QdBUA2\",\r
+
+      \  \"paypal_client_secret\":\"EMOqSQCEmv5XcPZWEcH6ZaJ0qlWrw46ZprjenWZmVrE3JXJiTJTxCnvJu6We0KjND1gcxMo\",\r
+
+      \  \"paypal_environment\": \"sandbox\",\r
+
+      \  \"is_active\": true\r
+
+      }"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

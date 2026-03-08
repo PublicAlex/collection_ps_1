@@ -1,0 +1,15 @@
+info:
+  name: recalculate hours/games played by user
+  type: http
+  seq: 6
+
+http:
+  method: POST
+  url: "{{host}}/match_score_proposals/user/recalculate-all-users-stats"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,47 @@
+info:
+  name: login/register-google
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{host}}/auth/google-auth"
+  body:
+    type: json
+    data: "{\r
+
+      \  \"full_name\": \"Juan Pérez\",\r
+
+      \  \"email\": \"juanperezzxcs@gmail.com\",\r
+
+      \  \"photo\": \"https://lh3.googleusercontent.com/a-/AOh14GgRs_BS9oeB56diTvKw_8rCZD3XMHvlU-8YN2=s96-c\",\r
+
+      \  \"googleId\": \"12534534523541\"\r
+
+      }"
+  auth: inherit
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        var jsonData = res.getBody();
+
+        if (jsonData.access_token) {
+            bru.setVar("access_token", jsonData.access_token);
+            console.log("Token saved successfully");
+        }
+
+        test("Status code is 201", function () {
+            expect(res.getStatus()).to.equal(201);
+        });
+
+        test("Response has access_token", function () {
+            expect(jsonData).to.have.property('access_token');
+        });
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

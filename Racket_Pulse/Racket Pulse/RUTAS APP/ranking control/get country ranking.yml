@@ -1,0 +1,39 @@
+info:
+  name: get country ranking
+  type: http
+  seq: 3
+
+http:
+  method: GET
+  url: "{{host}}/user-rankings/user/20/country?page=1&limit=20"
+  params:
+    - name: page
+      value: "1"
+      type: query
+    - name: limit
+      value: "20"
+      type: query
+    - name: search
+      value: a
+      type: query
+      disabled: true
+    - name: minPlayerLevel
+      value: "0"
+      type: query
+      disabled: true
+    - name: maxPlayerLevel
+      value: "5"
+      type: query
+      disabled: true
+    - name: gender
+      value: male
+      type: query
+      description: male, female, other
+      disabled: true
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

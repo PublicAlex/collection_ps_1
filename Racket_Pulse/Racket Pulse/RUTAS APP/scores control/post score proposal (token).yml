@@ -1,0 +1,44 @@
+info:
+  name: post score proposal (token)
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{host}}/match_score_proposals"
+  body:
+    type: json
+    data: "{\r
+
+      \  \"match_id\": 170,   // identificador del match\r
+
+      \  \"user_id\": 1,   // identificador del user que registra el score propuesto\r
+
+      \  \"team1_scores\": [\r
+
+      \    \"9\",\r
+
+      \    \"1\",\r
+
+      \    \"8\"\r
+
+      \  ],\r
+
+      \  \"team2_scores\": [\r
+
+      \    \"3\",\r
+
+      \    \"2\",\r
+
+      \    \"4\"\r
+
+      \  ]\r
+
+      }"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

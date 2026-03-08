@@ -1,0 +1,50 @@
+info:
+  name: Process Payout
+  type: http
+  seq: 2
+
+http:
+  method: PATCH
+  url: "{{base_url}}/payer/payouts/{{payout_id}}/process"
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+          "externalReference": "REF-TX-{{$timestamp}}",
+          "notes": "Processed successfully via Admin Panel"
+      }
+  auth: inherit
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        test("Status code is 200", function () {
+            expect(res.getStatus()).to.equal(200);
+        });
+
+        test("Payout status is completed", function () {
+            var jsonData = res.getBody();
+            expect(jsonData.status).to.eql('completed');
+        });
+
+        test("Payout has processedAt timestamp", function () {
+            var jsonData = res.getBody();
+            expect(jsonData).to.have.property('processedAt');
+        });
+
+        test("Payout has externalReference", function () {
+            var jsonData = res.getBody();
+            expect(jsonData.externalReference).to.not.be.null;
+        });
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Marca un payout aprobado como procesado/completado. Requiere externalReference (referencia de la transferencia bancaria).

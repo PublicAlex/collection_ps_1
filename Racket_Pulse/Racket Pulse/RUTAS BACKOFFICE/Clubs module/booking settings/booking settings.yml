@@ -1,0 +1,29 @@
+info:
+  name: booking settings
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: "{{host}}/booking_configurations/club/1?id=10&is_hours_global=true&is_pricing_global=true"
+  params:
+    - name: id
+      value: "10"
+      type: query
+    - name: name
+      value: Default
+      type: query
+      disabled: true
+    - name: is_hours_global
+      value: "true"
+      type: query
+    - name: is_pricing_global
+      value: "true"
+      type: query
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

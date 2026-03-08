@@ -1,0 +1,30 @@
+info:
+  name: create fcm token to user device
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{host}}/device_tokens/users/1"
+  body:
+    type: json
+    data: "{\r
+
+      \  \"token\": \"dGVzdF90b2tlbl9mY2sdfwerXBsZQd12\", // device token\r
+
+      \  \"deviceType\": \"android\",\r
+
+      \  \"deviceName\": \"iPhone 15 Pro\", // opcional**\r
+
+      \  \"appVersion\": \"1.2.3\",// opcional \r
+
+      \  \"osVersion\": \"iOS 17.0\"// opcional \r
+
+      }"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

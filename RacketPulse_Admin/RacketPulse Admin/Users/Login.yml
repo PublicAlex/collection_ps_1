@@ -1,0 +1,24 @@
+info:
+  name: Login
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{base_url}}/auth/login"
+  body:
+    type: json
+    data: "{\r
+
+      \  \"email\": \"admin@admin.com\",\r
+
+      \  \"password\": \"p3assw1ord_segura2\"\r
+
+      }"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

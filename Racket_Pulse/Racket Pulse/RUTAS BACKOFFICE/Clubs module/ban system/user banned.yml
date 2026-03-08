@@ -1,0 +1,28 @@
+info:
+  name: user banned
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{host}}/club_user_bans"
+  body:
+    type: json
+    data: "{\r
+
+      \  \"userId\": 3611,\r
+
+      \  \"clubId\": 109,\r
+
+      \  \"reason\": \"No pagó\" // opcional\r
+
+      }"
+  auth:
+    type: bearer
+    token: "{{acces_token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

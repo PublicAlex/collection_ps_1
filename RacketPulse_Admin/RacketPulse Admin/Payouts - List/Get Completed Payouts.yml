@@ -1,0 +1,36 @@
+info:
+  name: Get Completed Payouts
+  type: http
+  seq: 6
+
+http:
+  method: GET
+  url: "{{base_url}}/payer/payouts?status=completed"
+  params:
+    - name: status
+      value: completed
+      type: query
+  auth: inherit
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        test("Status code is 200", function () {
+            expect(res.getStatus()).to.equal(200);
+        });
+
+        test("All payouts are completed", function () {
+            var jsonData = res.getBody();
+            jsonData.forEach(function(payout) {
+                expect(payout.status).to.eql('completed');
+            });
+        });
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Obtiene payouts completados

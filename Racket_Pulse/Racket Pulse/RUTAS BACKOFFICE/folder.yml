@@ -1,0 +1,14 @@
+info:
+  name: RUTAS BACKOFFICE
+  type: folder
+  seq: 3
+
+request:
+  auth: inherit
+
+docs:
+  content: |-
+    Estas rutas permite acceder a los servicios correspondientes a la gestión de usuarios tipo jugadores (players).
+
+    Actualmente solo la ruta get user está asegurada con jwt y validación de datos propios, los demas se dejan libres de token temporalmente para pruebas.
+  type: text/markdown

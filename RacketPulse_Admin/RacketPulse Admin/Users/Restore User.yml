@@ -1,0 +1,23 @@
+info:
+  name: Restore User
+  type: http
+  seq: 7
+
+http:
+  method: POST
+  url: "{{base_url}}/users/:id/restore"
+  headers:
+    - name: Authorization
+      value: Bearer {{token}}
+  params:
+    - name: id
+      value: "2"
+      type: path
+      description: ID of the user to restore
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

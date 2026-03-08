@@ -1,0 +1,95 @@
+info:
+  name: update user (token)
+  type: http
+  seq: 9
+
+http:
+  method: PATCH
+  url: "{{host}}/users/5"
+  headers:
+    - name: Authorization
+      value: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ1c3VhcmlvQGV4YW1wbGUuY29tIiwibmFtZSI6Ikp1YW4gUMOpcmV6IiwidHlwZSI6InVzZXIiLCJpYXQiOjE3Mzk3NjAzNjYsImV4cCI6MTczOTc2Mzk2Nn0.X9RNaX-pz47dHbc8TX6EpDhiR2U5Kbn046xDH0DNqGc
+  body:
+    type: json
+    data: "{\r
+
+      \  \"email\": \"usuario@example.com\",\r
+
+      \r
+
+      \  //informacion del jugador\r
+
+      \  \"full_name\": \"Juan Pérez\",\r
+
+      \  \"gender\": \"male\",\r
+
+      \  \"phone\": \"+521234567890\",\r
+
+      \  \"photo\": \"base64.png, ...jpeg, ...jpg\",\r
+
+      \  \"height\": 1.75,\r
+
+      \  \"birthday\": \"1990-01-01\",\r
+
+      \  \"location\": \"Ciudad de México\",\r
+
+      \  \"location_coordinate\": \"-99.1332,19.4326\",\r
+
+      \  \"preferred_range\": 15,\r
+
+      \  \"terms_acceptance\": true,\r
+
+      \  \"nationality_id\": 1,\r
+
+      \r
+
+      \  // informacion del equipo (aun no)\r
+
+      \  \"racket_brand\": \"Babolat\",\r
+
+      \  \"racket_model\": \"Babolat Viper\",\r
+
+      \  \"shoes_brand\": \"Adidas\",\r
+
+      \  \"shoes_model\": \"Adidas Barricade\",\r
+
+      \  \"currentPartner\": \"Carlos López\",\r
+
+      \r
+
+      \  // informacion de preferencias de juego\r
+
+      \  \"playingHand\": \"left\", //best hand values\r
+
+      \  \"preferredCourtSide\": \"left\", // prefered court side values\r
+
+      \  \"gameModePreference\": \"competitive\", // game mode values\r
+
+      \  \"preferredTimeframe\": \"morning\", // timeframe values\r
+
+      \r
+
+      \r
+
+      \  // preferencias de canchas\r
+
+      \  \"courtPreference\": \"cover\", // ....\r
+
+      \  \"lightsPreference\": \"available\", // ...\r
+
+      \  \"courtColorPreference\": \"blue\" // texto, no enums.\r
+
+      \r
+
+      \r
+
+      \r
+
+      }"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
