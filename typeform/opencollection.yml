@@ -1,0 +1,19 @@
+opencollection: 1.0.0
+
+info:
+  name: typeform
+
+request:
+  variables:
+    - name: baseUrl
+      value: ""
+    - name: BASE_URL
+      value: ""
+    - name: secretKey
+      value: ""
+bundled: false
+extensions:
+  bruno:
+    ignore:
+      - node_modules
+      - .git

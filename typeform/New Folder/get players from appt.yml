@@ -1,0 +1,33 @@
+info:
+  name: get players from appt
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: "{{BASE_URL}}/wp-json/migrations/v1/players?roles=jugador&limit=30&offset=0&include_history=1&history_compact=1"
+  params:
+    - name: roles
+      value: jugador
+      type: query
+    - name: limit
+      value: "30"
+      type: query
+    - name: offset
+      value: "0"
+      type: query
+    - name: include_history
+      value: "1"
+      type: query
+    - name: history_compact
+      value: "1"
+      type: query
+  auth:
+    type: bearer
+    token: 094e7a9f233fbf6b6c95efabd98f3d506ad51e3679d4cc47713513e77a5f3d0a
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

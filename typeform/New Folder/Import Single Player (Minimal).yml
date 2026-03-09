@@ -1,0 +1,29 @@
+info:
+  name: Import Single Player (Minimal)
+  type: http
+  seq: 5
+
+http:
+  method: POST
+  url: "{{baseUrl}}/external/appt/players"
+  headers:
+    - name: X-Secret-Key
+      value: "{{secretKey}}"
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "user_email": "minimal@example.com",
+        "display_name": "Minimal Player"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Ejemplo mínimo de importación con solo los campos requeridos.

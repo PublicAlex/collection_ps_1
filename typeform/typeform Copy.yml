@@ -1,0 +1,1727 @@
+info:
+  name: typeform Copy
+  type: http
+  seq: 3
+
+http:
+  method: GET
+  url: http://mireview.dyndns.org:7180/api/typeform
+  headers:
+    - name: Authorization
+      value: Bearer 2707|ysUXDJlLHptzYiRMFOcaFuiI9gNWL3k0RYD06KJp
+  body:
+    type: json
+    data: "{\r
+
+      \  \"event_id\": \"01K19E1ZW6B3DM313560APNZGF\",\r
+
+      \  \"event_type\": \"form_response\",\r
+
+      \  \"form_response\": {\r
+
+      \    \"form_id\": \"VyMQ7Zx4\",\r
+
+      \    \"token\": \"01K19E1ZW6B3DM313560APNZGF\",\r
+
+      \    \"landed_at\": \"2025-07-28T21:12:14Z\",\r
+
+      \    \"submitted_at\": \"2025-07-28T21:12:14Z\",\r
+
+      \    \"calculated\": {\r
+
+      \      \"score\": 0\r
+
+      \    },\r
+
+      \    \"variables\": [\r
+
+      \      {\r
+
+      \        \"key\": \"counter_20ecbef2_8e8b_4958_bbfd_1fb1394e48ff\",\r
+
+      \        \"type\": \"number\",\r
+
+      \        \"number\": 0\r
+
+      \      },\r
+
+      \      {\r
+
+      \        \"key\": \"score\",\r
+
+      \        \"type\": \"number\",\r
+
+      \        \"number\": 0\r
+
+      \      },\r
+
+      \      {\r
+
+      \        \"key\": \"winning_outcome_id\",\r
+
+      \        \"type\": \"text\",\r
+
+      \        \"text\": \"02549f80-392b-4a2b-9f00-170832f022a4\"\r
+
+      \      }\r
+
+      \    ],\r
+
+      \    \"definition\": {\r
+
+      \      \"id\": \"VyMQ7Zx4\",\r
+
+      \      \"title\": \"Mi nuevo formulario\",\r
+
+      \      \"fields\": [\r
+
+      \        {\r
+
+      \          \"id\": \"SjgNnEde2K7D\",\r
+
+      \          \"ref\": \"553b5ba8-4822-4880-9fec-6f3cec766ff0\",\r
+
+      \          \"type\": \"short_text\",\r
+
+      \          \"title\": \"Nombre\",\r
+
+      \          \"properties\": {}\r
+
+      \        },\r
+
+      \        {\r
+
+      \          \"id\": \"WQ3Rx2qPKAsY\",\r
+
+      \          \"ref\": \"316d44a4-e87b-467e-b8a9-74ff6a159def\",\r
+
+      \          \"type\": \"short_text\",\r
+
+      \          \"title\": \"Organización\",\r
+
+      \          \"properties\": {}\r
+
+      \        },\r
+
+      \        {\r
+
+      \          \"id\": \"txvCncfjcRdp\",\r
+
+      \          \"ref\": \"d0d9ae12-de39-4942-87ad-597b21d8853d\",\r
+
+      \          \"type\": \"dropdown\",\r
+
+      \          \"title\": \"Tipo de actor\",\r
+
+      \          \"properties\": {}\r
+
+      \        },\r
+
+      \        {\r
+
+      \          \"id\": \"pc6Z6t1XGdGe\",\r
+
+      \          \"ref\": \"10116f77-2740-46c3-bedb-f1dce7e5ddbf\",\r
+
+      \          \"type\": \"dropdown\",\r
+
+      \          \"title\": \"Ciudad\",\r
+
+      \          \"properties\": {}\r
+
+      \        },\r
+
+      \        {\r
+
+      \          \"id\": \"YPTIg1cIwKWh\",\r
+
+      \          \"ref\": \"5d1307d0-0167-4312-89db-0f6cd6fb0c56\",\r
+
+      \          \"type\": \"short_text\",\r
+
+      \          \"title\": \"Correo electrónico\",\r
+
+      \          \"properties\": {}\r
+
+      \        },\r
+
+      \        {\r
+
+      \          \"id\": \"y7HTRROJ5JfE\",\r
+
+      \          \"ref\": \"380c3554-59d2-4857-a4b4-bc233a15e0ff\",\r
+
+      \          \"type\": \"picture_choice\",\r
+
+      \          \"title\": \"Las transiciones se entienden en tres (3) preguntas centrales\",\r
+
+      \          \"properties\": {},\r
+
+      \          \"choices\": [\r
+
+      \            {\r
+
+      \              \"id\": \"gkwtfH3OSKNf\",\r
+
+      \              \"ref\": \"2410aed1-b667-4e0c-af65-d5fed0f8f835\",\r
+
+      \              \"label\": \"¿Qué es? Definición\"\r
+
+      \            },\r
+
+      \            {\r
+
+      \              \"id\": \"djrdFMFs2YrX\",\r
+
+      \              \"ref\": \"ce2a3ce8-97ce-4793-8955-6e75e52c6b3a\",\r
+
+      \              \"label\": \"¿Quiénes? Actores\"\r
+
+      \            },\r
+
+      \            {\r
+
+      \              \"id\": \"UCHBSMdZVwRf\",\r
+
+      \              \"ref\": \"d916e64f-c72c-482f-b931-3f19df28ae9a\",\r
+
+      \              \"label\": \"¿Cómo? Proceso\"\r
+
+      \            }\r
+
+      \          ]\r
+
+      \        },\r
+
+      \        {\r
+
+      \          \"id\": \"yoCzNt9WBQOn\",\r
+
+      \          \"ref\": \"2857924a-538f-43b4-9029-583d93ba24f6\",\r
+
+      \          \"type\": \"multiple_choice\",\r
+
+      \          \"title\": \"Naturaleza de la transición\",\r
+
+      \          \"properties\": {},\r
+
+      \          \"choices\": [\r
+
+      \            {\r
+
+      \              \"id\": \"QM2IsjJAIvFP\",\r
+
+      \              \"ref\": \"71e5ed03-5a6c-4ef4-8daf-0d0f19d9725b\",\r
+
+      \              \"label\": \"\\\"Lo más importante en la transición es proteger los ecosistemas, incluso por encima de las necesidades humanas inmediatas.\\\"\"\r
+
+      \            },\r
+
+      \            {\r
+
+      \              \"id\": \"9yI7mpYKhJGa\",\r
+
+      \              \"ref\": \"645590a5-428c-4bd5-9139-939507e0e969\",\r
+
+      \              \"label\": \"\\\"Debemos cuidar el ambiente, pero sin olvidar a las personas que pueden verse afectadas por los cambios.\\\"\"\r
+
+      \            },\r
+
+      \            {\r
+
+      \              \"id\": \"t0cF2NHjqFmX\",\r
+
+      \              \"ref\": \"262f15dc-67a5-4959-a6a2-0ed8526fc70c\",\r
+
+      \              \"label\": \"\\\"La transición debe cuidar tanto la naturaleza como a las personas al mismo tiempo.\\\"\"\r
+
+      \            },\r
+
+      \            {\r
+
+      \              \"id\": \"xJkE8MxkjjLN\",\r
+
+      \              \"ref\": \"28e9b793-5bd8-41fb-aec6-9d856d27e1d6\",\r
+
+      \              \"label\": \"\\\"Para cuidar el clima, primero debemos reducir la desigualdad y crear empleos verdes.\\\"\"\r
+
+      \            },\r
+
+      \            {\r
+
+      \              \"id\": \"WU1yuF4ZGDpd\",\r
+
+      \              \"ref\": \"36e51fff-94e1-4e2c-8539-ee1a6db7c4f6\",\r
+
+      \              \"label\": \"\\\"El cambio climático es un problema de injusticia social, y la transición debe centrarse en mejorar la vida de las personas más vulnerables.\\\"\"\r
+
+      \            }\r
+
+      \          ]\r
+
+      \        },\r
+
+      \        {\r
+
+      \          \"id\": \"tHcrfEoG3DOh\",\r
+
+      \          \"ref\": \"4c510a95-7473-4b33-9aa7-db8879e9c095\",\r
+
+      \          \"type\": \"multiple_choice\",\r
+
+      \          \"title\": \"Tipos de transición\",\r
+
+      \          \"properties\": {},\r
+
+      \          \"choices\": [\r
+
+      \            {\r
+
+      \              \"id\": \"qByOhSv6BaGD\",\r
+
+      \              \"ref\": \"ee06f1b8-dea0-402f-8c99-b29854a4933d\",\r
+
+      \              \"label\": \"\\\"La transición debe ser una ruptura profunda con el modelo actual, para restaurar el equilibrio del planeta y detener el colapso ecológico.\\\"\"\r
+
+      \            },\r
+
+      \            {\r
+
+      \              \"id\": \"xXBk1s5oFiTs\",\r
+
+      \              \"ref\": \"45e88e8b-8b40-4d94-9573-41da0c7c89df\",\r
+
+      \              \"label\": \"\\\"Debemos avanzar hacia una economía baja en carbono mediante innovación tecnológica y regulación ambiental, sin detener el crecimiento económico.\\\"\"\r
+
+      \            },\r
+
+      \            {\r
+
+      \              \"id\": \"BFY46QeLncIf\",\r
+
+      \              \"ref\": \"51e31e82-d19c-469a-b8fb-e183b611dfc1\",\r
+
+      \              \"label\": \"\\\"La transición debe cambiar la relación entre humanos y naturaleza, haciendo compatibles el bienestar social y los límites ecológicos.\\\"\"\r
+
+      \            },\r
+
+      \            {\r
+
+      \              \"id\": \"RBaBPrEoEAOy\",\r
+
+      \              \"ref\": \"c3b2ed36-aed8-44e6-88de-0e664bd6d196\",\r
+
+      \              \"label\": \"\\\"La transición debe cambiar nuestros estilos de vida y patrones de consumo para que todos vivamos bien, dentro de las capacidades del planeta.\\\"\"\r
+
+      \            },\r
+
+      \            {\r
+
+      \              \"id\": \"MBM5T9kTym1H\",\r
+
+      \              \"ref\": \"3b492577-4b49-4960-a1b0-f36eaf3283cd\",\r
+
+      \              \"label\": \"\\\"La verdadera transición debe corregir las desigualdades estructurales, priorizando a quienes más han sufrido los impactos del sistema actual.\\\"\"\r
+
+      \            }\r
+
+      \          ]\r
+
+      \        },\r
+
+      \        {\r
+
+      \          \"id\": \"qRIsMMPzhV1B\",\r
+
+      \          \"ref\": \"83dd972d-af0b-4c82-b622-09f04a5f556c\",\r
+
+      \          \"type\": \"multiple_choice\",\r
+
+      \          \"title\": \"Ritmo\",\r
+
+      \          \"properties\": {},\r
+
+      \          \"choices\": [\r
+
+      \            {\r
+
+      \              \"id\": \"qO7wVpKI5765\",\r
+
+      \              \"ref\": \"6f53bb5a-3897-4f10-8377-3b6cb95b7246\",\r
+
+      \              \"label\": \"\\\"La transición debe comenzar ya, antes de que los daños al planeta sean irreversibles.\\\"\"\r
+
+      \            },\r
+
+      \            {\r
+
+      \              \"id\": \"l4EneVcnf7lL\",\r
+
+      \              \"ref\": \"46846e1a-e71e-42f3-b657-6f1001a2cad0\",\r
+
+      \              \"label\": \"\\\"Necesitamos transiciones rápidas, pero bien organizadas para no generar impactos negativos en las personas.\\\"\"\r
+
+      \            },\r
+
+      \            {\r
+
+      \              \"id\": \"YIo4RbPDHuZw\",\r
+
+      \              \"ref\": \"6fe0b4ef-c2ef-48a7-a583-3471e2e86e8a\",\r
+
+      \              \"label\": \"\\\"La transición debe avanzar paso a paso, equilibrando el cuidado ambiental con el bienestar social.\\\"\"\r
+
+      \            },\r
+
+      \            {\r
+
+      \              \"id\": \"WdcCTtqUseAX\",\r
+
+      \              \"ref\": \"283dceb9-369e-4552-8e58-4a99665f6467\",\r
+
+      \              \"label\": \"\\\"Las transiciones toman tiempo porque implican cambios en cómo vivimos, trabajamos y nos relacionamos.\\\"\"\r
+
+      \            },\r
+
+      \            {\r
+
+      \              \"id\": \"th6V1BRvtDoi\",\r
+
+      \              \"ref\": \"3d286053-fdfe-4a1a-9e93-cbb6339c1cd3\",\r
+
+      \              \"label\": \"\\\"La transición debe construirse con paciencia, priorizando la reparación de desigualdades históricas antes que la velocidad.\\\"\"\r
+
+      \            }\r
+
+      \          ]\r
+
+      \        },\r
+
+      \        {\r
+
+      \          \"id\": \"qkA6nNBaQoZ7\",\r
+
+      \          \"ref\": \"5008b1c8-797c-4e32-97ec-7de4605f7c85\",\r
+
+      \          \"type\": \"multiple_choice\",\r
+
+      \          \"title\": \"Escala\",\r
+
+      \          \"properties\": {},\r
+
+      \          \"choices\": [\r
+
+      \            {\r
+
+      \              \"id\": \"FLWTfCcJHmss\",\r
+
+      \              \"ref\": \"313522ce-7779-4010-99c0-3ed224523f02\",\r
+
+      \              \"label\": \"\\\"La transición debe abordarse desde una perspectiva global, ya que los efectos y soluciones del cambio climático trascienden fronteras.\\\"\"\r
+
+      \            },\r
+
+      \            {\r
+
+      \              \"id\": \"a3WbFCFPaDMM\",\r
+
+      \              \"ref\": \"dae94d96-3a6e-4790-aa29-85d7cbfb50d1\",\r
+
+      \              \"label\": \"\\\"Los Estados deben liderar la transición con políticas públicas integrales, adaptadas a las condiciones y prioridades del país.\\\"\"\r
+
+      \            },\r
+
+      \            {\r
+
+      \              \"id\": \"71Wpih00mwoO\",\r
+
+      \              \"ref\": \"7758290a-6edc-4c7e-9496-7505368ad732\",\r
+
+      \              \"label\": \"\\\"Es necesario hacer cambios desde los territorios, por sus realidades propias, y desde lo global, para lograr una transformación climática más amplia.\\\"\"\r
+
+      \            },\r
+
+      \            {\r
+
+      \              \"id\": \"V5HHnF3NQ1Ha\",\r
+
+      \              \"ref\": \"ae234065-e017-4da2-8a51-c2b9ad71bc98\",\r
+
+      \              \"label\": \"\\\"La transición necesita arraigarse en lo local, donde se viven directamente los impactos y se pueden construir soluciones concretas.\\\"\"\r
+
+      \            },\r
+
+      \            {\r
+
+      \              \"id\": \"lFaycz0b03C0\",\r
+
+      \              \"ref\": \"9f430cf9-00f0-489c-84c1-d728efd137cb\",\r
+
+      \              \"label\": \"\\\"La transición debe centrarse en los espacios históricamente invisibilizados, donde el cambio es más urgente y necesario.\\\"\"\r
+
+      \            }\r
+
+      \          ]\r
+
+      \        },\r
+
+      \        {\r
+
+      \          \"id\": \"rAFbjxNlKok8\",\r
+
+      \          \"ref\": \"a00daff9-6391-463b-ba8b-9771ea372172\",\r
+
+      \          \"type\": \"multiple_choice\",\r
+
+      \          \"title\": \"Actores involucrados\",\r
+
+      \          \"properties\": {},\r
+
+      \          \"choices\": [\r
+
+      \            {\r
+
+      \              \"id\": \"XQgspeUcxRO6\",\r
+
+      \              \"ref\": \"c338e360-cf30-42a6-89c4-5d3efef4a521\",\r
+
+      \              \"label\": \"\\\"La transición solo es posible si todos los actores —gobiernos, empresas, comunidades, organizaciones y academia— participan de forma activa y con responsabilidades compartidas.\\\"\"\r
+
+      \            },\r
+
+      \            {\r
+
+      \              \"id\": \"8BTA0QGd26JX\",\r
+
+      \              \"ref\": \"f2449f02-3b1b-44b8-a362-ec1ed5682aa6\",\r
+
+      \              \"label\": \"\\\"Los procesos de transición deben construirse en alianza entre el Estado y las comunidades, permitiendo participación pero con liderazgo institucional.\\\"\"\r
+
+      \            },\r
+
+      \            {\r
+
+      \              \"id\": \"OvRS9DF1RGSR\",\r
+
+      \              \"ref\": \"164acc06-9a49-4805-a88b-6159fa7425f8\",\r
+
+      \              \"label\": \"\\\"Se requiere la participación de varios actores, pero con un actor coordinador que oriente y articule los esfuerzos, sin perder la diversidad de voces.\\\"\"\r
+
+      \            },\r
+
+      \            {\r
+
+      \              \"id\": \"Y6hHrQLmxWqV\",\r
+
+      \              \"ref\": \"f35ffaa4-6c61-4cac-ae2f-a22436272b7f\",\r
+
+      \              \"label\": \"\\\"Un actor debe asumir el liderazgo de la transición —como el Estado o las comunidades—, recibiendo aportes de otros, pero sin depender de ellos.\\\"\"\r
+
+      \            },\r
+
+      \            {\r
+
+      \              \"id\": \"vHBwr3SPXCiE\",\r
+
+      \              \"ref\": \"edb066a8-d437-41fc-a944-b67ac77eb5eb\",\r
+
+      \              \"label\": \"\\\"La transición debe ser dirigida por un solo actor con legitimidad y capacidad, para garantizar coherencia y evitar interferencias externas.\\\"\"\r
+
+      \            }\r
+
+      \          ]\r
+
+      \        },\r
+
+      \        {\r
+
+      \          \"id\": \"3heJYKbXUziW\",\r
+
+      \          \"ref\": \"db374eb4-32e6-457c-9e5d-f70deb1e87b2\",\r
+
+      \          \"type\": \"multiple_choice\",\r
+
+      \          \"title\": \"Rol Estado\",\r
+
+      \          \"properties\": {},\r
+
+      \          \"choices\": [\r
+
+      \            {\r
+
+      \              \"id\": \"MbWH7gM0wQ5I\",\r
+
+      \              \"ref\": \"17a3f192-a042-46b6-b0ee-86d2df6e0309\",\r
+
+      \              \"label\": \"\\\"El Estado debe limitarse a generar las condiciones básicas para que otros actores —como el mercado, la sociedad civil o las comunidades— lideren los procesos de transición.\\\"\"\r
+
+      \            },\r
+
+      \            {\r
+
+      \              \"id\": \"Wf8U45yfN5f7\",\r
+
+      \              \"ref\": \"97b4ec51-8ad5-4dd8-bf74-e00f9d49547c\",\r
+
+      \              \"label\": \"\\\"El Estado debe actuar como mediador y conector entre sectores, garantizando que la transición sea incluyente, sin imponer rutas únicas.\\\"\"\r
+
+      \            },\r
+
+      \            {\r
+
+      \              \"id\": \"RCMYn5DXzh3E\",\r
+
+      \              \"ref\": \"9dbcac2d-3fe0-42cc-8daf-d0f0a81eb8b8\",\r
+
+      \              \"label\": \"\\\"El Estado debe tener un rol activo, guiando la transición con políticas claras, pero permitiendo que comunidades, empresas y otros actores definan cómo implementarlas.\\\"\"\r
+
+      \            },\r
+
+      \            {\r
+
+      \              \"id\": \"CQcfv9DudpZl\",\r
+
+      \              \"ref\": \"ba0d2976-7b31-4188-84a8-1d61ac33eb4b\",\r
+
+      \              \"label\": \"\\\"El Estado debe liderar la transición con decisiones firmes, inversiones públicas y regulación, pero escuchando a los territorios y actores sociales.\\\"\"\r
+
+      \            },\r
+
+      \            {\r
+
+      \              \"id\": \"Z6GGlfxdOoTL\",\r
+
+      \              \"ref\": \"d4282388-abef-4bd6-a376-c60357e040da\",\r
+
+      \              \"label\": \"\\\"Solo el Estado tiene la legitimidad y capacidad para dirigir la transición de forma coherente y justa; debe asumir el control total del proceso.\\\"\"\r
+
+      \            }\r
+
+      \          ]\r
+
+      \        },\r
+
+      \        {\r
+
+      \          \"id\": \"nacJxKep9HZ6\",\r
+
+      \          \"ref\": \"6f846b69-c6eb-475b-8adc-4854ad8017e0\",\r
+
+      \          \"type\": \"multiple_choice\",\r
+
+      \          \"title\": \"Rol Empresas\",\r
+
+      \          \"properties\": {},\r
+
+      \          \"choices\": [\r
+
+      \            {\r
+
+      \              \"id\": \"nYy2CwC2IJsc\",\r
+
+      \              \"ref\": \"c85b1e5e-6e50-4e7c-8882-d604de23e1b6\",\r
+
+      \              \"label\": \"\\\"Las empresas deben limitarse a cumplir regulaciones; no pueden liderar la transición porque sus intereses económicos no siempre se alinean con el bien común.\\\"\"\r
+
+      \            },\r
+
+      \            {\r
+
+      \              \"id\": \"bJkXZVABgFOk\",\r
+
+      \              \"ref\": \"e24db4c5-7bcf-451f-bc15-b5511e5dcf39\",\r
+
+      \              \"label\": \"\\\"Las empresas pueden participar en la transición, pero deben estar fuertemente reguladas por el Estado para asegurar que sus acciones no generen más desigualdad o daño ambiental.\\\"\"\r
+
+      \            },\r
+
+      \            {\r
+
+      \              \"id\": \"qA7Ww8HFKF52\",\r
+
+      \              \"ref\": \"1d23c11e-120a-4491-8de6-5bf0444ca625\",\r
+
+      \              \"label\": \"\\\"Las empresas tienen un papel importante, pero compartido: deben actuar junto al Estado y la sociedad civil para lograr una transición equilibrada y justa.\\\"\"\r
+
+      \            },\r
+
+      \            {\r
+
+      \              \"id\": \"Zj8zrbITGacd\",\r
+
+      \              \"ref\": \"688a605c-7ccd-4491-bd69-15cd0d2201d8\",\r
+
+      \              \"label\": \"\\\"Las empresas pueden acelerar la transición a través de innovación, inversión y escalamiento de soluciones, siempre que integren criterios sociales y ambientales en su modelo de negocio.\\\"\"\r
+
+      \            },\r
+
+      \            {\r
+
+      \              \"id\": \"DU2zl3rgar3F\",\r
+
+      \              \"ref\": \"f36c4677-9f30-4ba1-8d13-efc2361ed583\",\r
+
+      \              \"label\": \"\\\"La verdadera transformación vendrá del sector empresarial; la eficiencia, tecnología, generación de valor y capacidad de adaptación del mercado son clave para enfrentar el cambio climático.\\\"\"\r
+
+      \            }\r
+
+      \          ]\r
+
+      \        },\r
+
+      \        {\r
+
+      \          \"id\": \"O4rzkJUbply0\",\r
+
+      \          \"ref\": \"f7530e88-0690-421a-a7c0-038b9e0f2818\",\r
+
+      \          \"type\": \"multiple_choice\",\r
+
+      \          \"title\": \"Rol Comunidades\",\r
+
+      \          \"properties\": {},\r
+
+      \          \"choices\": [\r
+
+      \            {\r
+
+      \              \"id\": \"thqaFiZlQFyn\",\r
+
+      \              \"ref\": \"3a03f13b-c799-434c-8a94-0349e2258402\",\r
+
+      \              \"label\": \"“Las comunidades deben adaptarse a los planes definidos por expertos, gobiernos o empresas, ya que no tienen la capacidad técnica para liderar procesos complejos.”\"\r
+
+      \            },\r
+
+      \            {\r
+
+      \              \"id\": \"Ro8C1jcvcsWn\",\r
+
+      \              \"ref\": \"3e359d38-2d19-494a-9dcf-f0818591d8a2\",\r
+
+      \              \"label\": \"\\\"Las comunidades pueden implementar acciones de transición, pero dentro de marcos definidos por actores institucionales o técnicos.\\\"\"\r
+
+      \            },\r
+
+      \            {\r
+
+      \              \"id\": \"BgnvNv7EBwem\",\r
+
+      \              \"ref\": \"946c9100-0d61-4385-8de6-91d9b0208890\",\r
+
+      \              \"label\": \"\\\"Las comunidades deben compartir responsabilidades en los procesos de transición, ya que entienden mejor su territorio y pueden liderar procesos desde lo local.\\\"\"\r
+
+      \            },\r
+
+      \            {\r
+
+      \              \"id\": \"uXTXSJOCHMOZ\",\r
+
+      \              \"ref\": \"0c4a1d1d-e78c-4c64-ad3f-21954a6d3fb6\",\r
+
+      \              \"label\": \"\\\"Las comunidades deben participar activamente para que la transición sea efectiva y sostenible, aportando conocimiento, experiencia y legitimidad local.\\\"\"\r
+
+      \            },\r
+
+      \            {\r
+
+      \              \"id\": \"bFD4NmHsOcAw\",\r
+
+      \              \"ref\": \"55fc45cb-6c3b-47c3-8408-dd4a39751068\",\r
+
+      \              \"label\": \"\\\"Las comunidades deben ser protagonistas de la transición, decidiendo por sí mismas cómo transformar su forma de vida, su economía y su relación con el entorno.\\\"\"\r
+
+      \            }\r
+
+      \          ]\r
+
+      \        },\r
+
+      \        {\r
+
+      \          \"id\": \"2ktuE4cJBaDR\",\r
+
+      \          \"ref\": \"bae93355-e334-4765-a967-d53eebc2f424\",\r
+
+      \          \"type\": \"multiple_choice\",\r
+
+      \          \"title\": \"OSC\",\r
+
+      \          \"properties\": {},\r
+
+      \          \"choices\": [\r
+
+      \            {\r
+
+      \              \"id\": \"aD1Hch3XtoEl\",\r
+
+      \              \"ref\": \"f59910cb-8d88-4b7c-a970-1e9253758367\",\r
+
+      \              \"label\": \"“Las organizaciones de la sociedad civil pueden opinar o acompañar, pero no deben interferir en las decisiones técnicas o de gobierno sobre la transición.\\\"\"\r
+
+      \            },\r
+
+      \            {\r
+
+      \              \"id\": \"LH5TKuGBPKXW\",\r
+
+      \              \"ref\": \"2c83bc84-d2b7-46ff-be5c-4fedbd4b2e0e\",\r
+
+      \              \"label\": \"\\\"Las OSC pueden cumplir una función útil como veedoras, generando presión social o ayudando a traducir decisiones institucionales hacia las comunidades.\\\"\"\r
+
+      \            },\r
+
+      \            {\r
+
+      \              \"id\": \"9tn9AeiVjiVq\",\r
+
+      \              \"ref\": \"6422178a-ff26-403c-8b49-206902087555\",\r
+
+      \              \"label\": \"\\\"Las OSC deben participar activamente junto con el Estado, las empresas y comunidades en el diseño e implementación de la transición.\\\"\"\r
+
+      \            },\r
+
+      \            {\r
+
+      \              \"id\": \"7bEcORf9C9wq\",\r
+
+      \              \"ref\": \"d53f17f1-3e64-48cd-997e-ae19aa0e1ff2\",\r
+
+      \              \"label\": \"\\\"Las OSC juegan un papel clave en conectar actores, generar conciencia, movilizar comunidades y democratizar las transiciones desde abajo.\\\"\"\r
+
+      \            },\r
+
+      \            {\r
+
+      \              \"id\": \"xfnxLAcW4gGo\",\r
+
+      \              \"ref\": \"ffdf3ce7-2359-4d67-8ad4-a595bee80276\",\r
+
+      \              \"label\": \"\\\"Las organizaciones sociales deben liderar las transiciones como expresión de poder ciudadano, impulsando cambios estructurales desde la base social y la justicia climática.\\\"\"\r
+
+      \            }\r
+
+      \          ]\r
+
+      \        },\r
+
+      \        {\r
+
+      \          \"id\": \"6x4H9m16AOze\",\r
+
+      \          \"ref\": \"07f8da00-cc71-4afe-aea5-7743896c5150\",\r
+
+      \          \"type\": \"multiple_choice\",\r
+
+      \          \"title\": \"Toma de decisiones\",\r
+
+      \          \"properties\": {},\r
+
+      \          \"choices\": [\r
+
+      \            {\r
+
+      \              \"id\": \"Hij7MBNxOASC\",\r
+
+      \              \"ref\": \"881e7c58-c502-47a4-a96d-0d253bf2c87b\",\r
+
+      \              \"label\": \"\\\"Las decisiones sobre la transición deben ser tomadas por expertos y autoridades centrales, ya que requieren conocimientos técnicos y visión global.\\\"\"\r
+
+      \            },\r
+
+      \            {\r
+
+      \              \"id\": \"7LNByHTghQWT\",\r
+
+      \              \"ref\": \"4bf06e12-58db-4c89-b911-4113a701f47e\",\r
+
+      \              \"label\": \"\\\"El Estado debe liderar la transición, incorporando aportes de otros sectores a través de mecanismos consultivos, sin perder la dirección técnica del proceso.\\\"\"\r
+
+      \            },\r
+
+      \            {\r
+
+      \              \"id\": \"NiF98YuFOefz\",\r
+
+      \              \"ref\": \"d1a598cd-df03-4b34-a14b-640f748a43b4\",\r
+
+      \              \"label\": \"\\\"Las decisiones deben ser producto del diálogo entre Estado, empresas, comunidades y sociedad civil, con mecanismos reales de corresponsabilidad.\\\"\"\r
+
+      \            },\r
+
+      \            {\r
+
+      \              \"id\": \"nNssjI6jgidN\",\r
+
+      \              \"ref\": \"c133b769-cc26-41ab-a0f1-e0eeedd4d8ee\",\r
+
+      \              \"label\": \"\\\"Las decisiones deben construirse desde los territorios y con participación activa de los actores locales, articulando saberes y prioridades diversas, con participación de la institucionalidad.\\\"\"\r
+
+      \            },\r
+
+      \            {\r
+
+      \              \"id\": \"TT3kkZaTmvCD\",\r
+
+      \              \"ref\": \"7d48e62b-46c0-45c7-a725-602e996e916f\",\r
+
+      \              \"label\": \"\\\"Las transiciones deben ser decididas directamente por las comunidades y movimientos sociales, como ejercicio de soberanía y justicia territorial.\\\"\"\r
+
+      \            }\r
+
+      \          ]\r
+
+      \        },\r
+
+      \        {\r
+
+      \          \"id\": \"KghuAE3dqgnS\",\r
+
+      \          \"ref\": \"758a68c0-d2ab-4e6a-8827-b5b8aef330bf\",\r
+
+      \          \"type\": \"multiple_choice\",\r
+
+      \          \"title\": \"Espacios\",\r
+
+      \          \"properties\": {},\r
+
+      \          \"choices\": [\r
+
+      \            {\r
+
+      \              \"id\": \"o67mukLd7Mm8\",\r
+
+      \              \"ref\": \"49bc22ce-2078-444b-9851-f513576f3a19\",\r
+
+      \              \"label\": \"\\\"Los espacios institucionales actuales —gobiernos, organismos multilaterales, foros técnicos— ya tienen la legitimidad y capacidad para liderar la transición.\\\"\"\r
+
+      \            },\r
+
+      \            {\r
+
+      \              \"id\": \"Mtg36dmClmzd\",\r
+
+      \              \"ref\": \"74b7697c-5cd9-462a-87be-1009e1f0bd19\",\r
+
+      \              \"label\": \"\\\"Los espacios existentes son útiles, pero necesitan abrirse más a otros actores y renovar su legitimidad mediante mayor inclusión y transparencia.\\\"\"\r
+
+      \            },\r
+
+      \            {\r
+
+      \              \"id\": \"Z4tGyKnWHjlw\",\r
+
+      \              \"ref\": \"7bfaf90d-3b30-4aea-bde9-c699f53f9e7a\",\r
+
+      \              \"label\": \"\\\"La transición debe apoyarse tanto en instituciones ya establecidas como en nuevos espacios de participación creados desde lo territorial y sectorial.\\\"\"\r
+
+      \            },\r
+
+      \            {\r
+
+      \              \"id\": \"K3wGzvGxskXX\",\r
+
+      \              \"ref\": \"686ba4af-e70c-4e3f-aa12-50991f4bdacf\",\r
+
+      \              \"label\": \"\\\"La gran mayoría de espacios existentes carecen de legitimidad; la transición requiere espacios más democráticos desde los territorios y las comunidades.\\\"\"\r
+
+      \            },\r
+
+      \            {\r
+
+      \              \"id\": \"ZG1Pn9S2qM1b\",\r
+
+      \              \"ref\": \"50a4542f-e375-4588-93c2-1cafa4e8a7db\",\r
+
+      \              \"label\": \"\\\"Los espacios legítimos para la transición deben ser creados por los pueblos y movimientos sociales, al margen de las instituciones tradicionales que han fallado.\\\"\"\r
+
+      \            }\r
+
+      \          ]\r
+
+      \        },\r
+
+      \        {\r
+
+      \          \"id\": \"eGQiuoOqVv1t\",\r
+
+      \          \"ref\": \"9908e10c-9196-48cb-a2e4-3d0d14291719\",\r
+
+      \          \"type\": \"multiple_choice\",\r
+
+      \          \"title\": \"Marcos\",\r
+
+      \          \"properties\": {},\r
+
+      \          \"choices\": [\r
+
+      \            {\r
+
+      \              \"id\": \"2SqBcFiZj6qX\",\r
+
+      \              \"ref\": \"980342c3-299c-4c95-964d-71a050daa424\",\r
+
+      \              \"label\": \"\\\"Ya existen los tratados, leyes y políticas necesarios para impulsar la transición; lo que falta es voluntad y aplicación efectiva.\\\"\"\r
+
+      \            },\r
+
+      \            {\r
+
+      \              \"id\": \"PPtYdt2YUzax\",\r
+
+      \              \"ref\": \"b44d9c82-255f-4cae-a4ad-30b136b6e0fa\",\r
+
+      \              \"label\": \"\\\"Las normas actuales son una buena base, pero deben modernizarse para responder a los desafíos específicos del cambio climático y los contextos locales.\\\"\"\r
+
+      \            },\r
+
+      \            {\r
+
+      \              \"id\": \"QKH2FvdphlXm\",\r
+
+      \              \"ref\": \"54196455-8528-4535-984a-b504df1da0b7\",\r
+
+      \              \"label\": \"\\\"La transición necesita articular leyes nacionales e internacionales con nuevos marcos adaptados a sectores estratégicos o realidades regionales.\\\"\"\r
+
+      \            },\r
+
+      \            {\r
+
+      \              \"id\": \"Ba8gRsPKOEPF\",\r
+
+      \              \"ref\": \"27afc1d2-f23e-459d-bda2-840b93799ae2\",\r
+
+      \              \"label\": \"\\\"Los marcos legales actuales no reflejan la diversidad de los territorios ni las voces comunitarias; es necesario construir nuevas normativas desde lo local.\\\"\"\r
+
+      \            },\r
+
+      \            {\r
+
+      \              \"id\": \"FRRtGQdYMkqN\",\r
+
+      \              \"ref\": \"7e66d603-1a2c-4135-9e68-677c7f2c0b5c\",\r
+
+      \              \"label\": \"\\\"Los marcos normativos vigentes han sostenido el modelo que queremos cambiar; debemos crear nuevas reglas desde las comunidades, con base en justicia climática, derechos de la naturaleza y autonomía.\\\"\"\r
+
+      \            }\r
+
+      \          ]\r
+
+      \        },\r
+
+      \        {\r
+
+      \          \"id\": \"kdOJsbZ2NNE3\",\r
+
+      \          \"ref\": \"e760bb3b-7721-407f-b56f-162bf2ab7a33\",\r
+
+      \          \"type\": \"multiple_choice\",\r
+
+      \          \"title\": \"Colaboración\",\r
+
+      \          \"properties\": {},\r
+
+      \          \"choices\": [\r
+
+      \            {\r
+
+      \              \"id\": \"rPILp5YKKFSw\",\r
+
+      \              \"ref\": \"184ba6c8-4ce5-4e50-97c8-4129e5f245a5\",\r
+
+      \              \"label\": \"\\\"La transición climática solo será posible si todos los países y territorios cooperan y se coordinan globalmente.\\\"\"\r
+
+      \            },\r
+
+      \            {\r
+
+      \              \"id\": \"FjVL3ypEaCOG\",\r
+
+      \              \"ref\": \"7673bb87-d6e7-4d61-bb0a-93c36e18e1f5\",\r
+
+      \              \"label\": \"\\\"La transición requiere alianzas entre regiones, sectores y comunidades que compartan tecnologías, recursos y aprendizajes.\\\"\"\r
+
+      \            },\r
+
+      \            {\r
+
+      \              \"id\": \"epUlzlgHCx3v\",\r
+
+      \              \"ref\": \"7aabf26e-7923-482a-a3a9-bb217680db39\",\r
+
+      \              \"label\": \"\\\"La transición debe combinar colaboración internacional con capacidad local para decidir qué cambios hacer y cómo hacerlos.\\\"\"\r
+
+      \            },\r
+
+      \            {\r
+
+      \              \"id\": \"WZN52gn58zuC\",\r
+
+      \              \"ref\": \"afba18f8-e99b-48b5-ab52-2b25baee79c4\",\r
+
+      \              \"label\": \"\\\"Los territorios deben tener el control de sus procesos de transición, pero sin aislarse de las redes de apoyo y aprendizaje global.\\\"\"\r
+
+      \            },\r
+
+      \            {\r
+
+      \              \"id\": \"NhFbWbW0fJNy\",\r
+
+      \              \"ref\": \"8d675aed-cefb-4c96-8542-4f40bfc2faed\",\r
+
+      \              \"label\": \"\\\"Cada comunidad debe definir su propio camino de transición, con base en su cultura, sus necesidades y su autonomía, sin imposiciones externas.\\\"\"\r
+
+      \            }\r
+
+      \          ]\r
+
+      \        },\r
+
+      \        {\r
+
+      \          \"id\": \"e0du0Cby8xyd\",\r
+
+      \          \"ref\": \"f9a4da9c-e441-4241-9775-53f54a0afe0d\",\r
+
+      \          \"type\": \"multiple_choice\",\r
+
+      \          \"title\": \"Priorización\",\r
+
+      \          \"properties\": {},\r
+
+      \          \"choices\": [\r
+
+      \            {\r
+
+      \              \"id\": \"4NXGmBIW9LhV\",\r
+
+      \              \"ref\": \"42acce20-6f32-4daa-a9bf-6df51ae6908b\",\r
+
+      \              \"label\": \"\\\"Las acciones climáticas deben postergarse hasta garantizar la reparación integral de los impactos sociales y ambientales acumulados.\\\"\"\r
+
+      \            },\r
+
+      \            {\r
+
+      \              \"id\": \"BtrTtJ1GkqMU\",\r
+
+      \              \"ref\": \"31a6bd78-d4ea-42ca-9eb3-fefd0a1c5edd\",\r
+
+      \              \"label\": \"\\\"La acción climática debe implementarse en paralelo con mecanismos de justicia ambiental y social que atiendan impactos históricos.\\\"\"\r
+
+      \            },\r
+
+      \            {\r
+
+      \              \"id\": \"WhYAWoEFkCib\",\r
+
+      \              \"ref\": \"1859ce9d-bf4e-48c8-8803-98cd9d6bdb0c\",\r
+
+      \              \"label\": \"\\\"La transición climática debe equilibrar la urgencia de actuar con la atención a los efectos sociales y ambientales asociados.\\\"\"\r
+
+      \            },\r
+
+      \            {\r
+
+      \              \"id\": \"w9Jo6VdfZqfh\",\r
+
+      \              \"ref\": \"ffb7f99c-b045-443c-963a-5ecb8743c2b3\",\r
+
+      \              \"label\": \"\\\"La respuesta climática debe priorizar acciones inmediatas, incorporando medidas progresivas de mitigación de impactos.\\\"\"\r
+
+      \            },\r
+
+      \            {\r
+
+      \              \"id\": \"PP2quJZTeypF\",\r
+
+      \              \"ref\": \"7ff9c244-c2e5-4285-802b-5d8dc84cab6d\",\r
+
+      \              \"label\": \"\\\"La prioridad es avanzar con rapidez en la acción climática, asumiendo que los impactos se abordarán de forma complementaria.\\\"\"\r
+
+      \            }\r
+
+      \          ]\r
+
+      \        }\r
+
+      \      ],\r
+
+      \      \"outcome\": {\r
+
+      \        \"variable\": \"winning_outcome_id\",\r
+
+      \        \"choices\": [\r
+
+      \          {\r
+
+      \            \"id\": \"k0qMj0p0Hsz3\",\r
+
+      \            \"ref\": \"02549f80-392b-4a2b-9f00-170832f022a4\",\r
+
+      \            \"title\": \"Agradecemos tu participación\",\r
+
+      \            \"counter_variable\": \"counter_20ecbef2_8e8b_4958_bbfd_1fb1394e48ff\",\r
+
+      \            \"thankyou_screen_ref\": \"459f8353-02e1-4f70-8ee8-da272b73c85e\"\r
+
+      \          }\r
+
+      \        ]\r
+
+      \      },\r
+
+      \      \"endings\": [\r
+
+      \        {\r
+
+      \          \"id\": \"a2GOoTSqptj3\",\r
+
+      \          \"ref\": \"459f8353-02e1-4f70-8ee8-da272b73c85e\",\r
+
+      \          \"title\": \"Agradecemos tu participación\",\r
+
+      \          \"type\": \"thankyou_screen\",\r
+
+      \          \"properties\": {\r
+
+      \            \"button_text\": \"Finalizar\",\r
+
+      \            \"show_button\": true,\r
+
+      \            \"share_icons\": true,\r
+
+      \            \"button_mode\": \"default_redirect\"\r
+
+      \          }\r
+
+      \        }\r
+
+      \      ],\r
+
+      \      \"settings\": {\r
+
+      \        \"partial_responses_to_all_integrations\": true\r
+
+      \      }\r
+
+      \    },\r
+
+      \    \"answers\": [\r
+
+      \      {\r
+
+      \        \"type\": \"text\",\r
+
+      \        \"text\": \"Lorem ipsum dolor\",\r
+
+      \        \"field\": {\r
+
+      \          \"id\": \"SjgNnEde2K7D\",\r
+
+      \          \"type\": \"short_text\",\r
+
+      \          \"ref\": \"553b5ba8-4822-4880-9fec-6f3cec766ff0\"\r
+
+      \        }\r
+
+      \      },\r
+
+      \      {\r
+
+      \        \"type\": \"text\",\r
+
+      \        \"text\": \"Lorem ipsum dolor\",\r
+
+      \        \"field\": {\r
+
+      \          \"id\": \"WQ3Rx2qPKAsY\",\r
+
+      \          \"type\": \"short_text\",\r
+
+      \          \"ref\": \"316d44a4-e87b-467e-b8a9-74ff6a159def\"\r
+
+      \        }\r
+
+      \      },\r
+
+      \      {\r
+
+      \        \"type\": \"choice\",\r
+
+      \        \"choice\": {\r
+
+      \          \"id\": \"EuVfH8ZPzxZM\",\r
+
+      \          \"label\": \"1. Organizaciones de la Sociedad Civil\",\r
+
+      \          \"ref\": \"c5ac8aaf-6a24-4258-a4e7-be20db9b1c6d\"\r
+
+      \        },\r
+
+      \        \"field\": {\r
+
+      \          \"id\": \"txvCncfjcRdp\",\r
+
+      \          \"type\": \"dropdown\",\r
+
+      \          \"ref\": \"d0d9ae12-de39-4942-87ad-597b21d8853d\"\r
+
+      \        }\r
+
+      \      },\r
+
+      \      {\r
+
+      \        \"type\": \"choice\",\r
+
+      \        \"choice\": {\r
+
+      \          \"id\": \"cMpqV3O4ba0u\",\r
+
+      \          \"label\": \"Apartadó (Antioquia)\",\r
+
+      \          \"ref\": \"e1283a56-a452-44b7-bc1d-7f174e4f5a80\"\r
+
+      \        },\r
+
+      \        \"field\": {\r
+
+      \          \"id\": \"pc6Z6t1XGdGe\",\r
+
+      \          \"type\": \"dropdown\",\r
+
+      \          \"ref\": \"10116f77-2740-46c3-bedb-f1dce7e5ddbf\"\r
+
+      \        }\r
+
+      \      },\r
+
+      \      {\r
+
+      \        \"type\": \"text\",\r
+
+      \        \"text\": \"Lorem ipsum dolor\",\r
+
+      \        \"field\": {\r
+
+      \          \"id\": \"YPTIg1cIwKWh\",\r
+
+      \          \"type\": \"short_text\",\r
+
+      \          \"ref\": \"5d1307d0-0167-4312-89db-0f6cd6fb0c56\"\r
+
+      \        }\r
+
+      \      },\r
+
+      \      {\r
+
+      \        \"type\": \"choice\",\r
+
+      \        \"choice\": {\r
+
+      \          \"id\": \"gkwtfH3OSKNf\",\r
+
+      \          \"label\": \"¿Qué es? Definición\",\r
+
+      \          \"ref\": \"2410aed1-b667-4e0c-af65-d5fed0f8f835\"\r
+
+      \        },\r
+
+      \        \"field\": {\r
+
+      \          \"id\": \"y7HTRROJ5JfE\",\r
+
+      \          \"type\": \"picture_choice\",\r
+
+      \          \"ref\": \"380c3554-59d2-4857-a4b4-bc233a15e0ff\"\r
+
+      \        }\r
+
+      \      },\r
+
+      \      {\r
+
+      \        \"type\": \"choice\",\r
+
+      \        \"choice\": {\r
+
+      \          \"id\": \"QM2IsjJAIvFP\",\r
+
+      \          \"label\": \"\\\"Lo más importante en la transición es proteger los ecosistemas, incluso por encima de las necesidades humanas inmediatas.\\\"\",\r
+
+      \          \"ref\": \"71e5ed03-5a6c-4ef4-8daf-0d0f19d9725b\"\r
+
+      \        },\r
+
+      \        \"field\": {\r
+
+      \          \"id\": \"yoCzNt9WBQOn\",\r
+
+      \          \"type\": \"multiple_choice\",\r
+
+      \          \"ref\": \"2857924a-538f-43b4-9029-583d93ba24f6\"\r
+
+      \        }\r
+
+      \      },\r
+
+      \      {\r
+
+      \        \"type\": \"choice\",\r
+
+      \        \"choice\": {\r
+
+      \          \"id\": \"qByOhSv6BaGD\",\r
+
+      \          \"label\": \"\\\"La transición debe ser una ruptura profunda con el modelo actual, para restaurar el equilibrio del planeta y detener el colapso ecológico.\\\"\",\r
+
+      \          \"ref\": \"ee06f1b8-dea0-402f-8c99-b29854a4933d\"\r
+
+      \        },\r
+
+      \        \"field\": {\r
+
+      \          \"id\": \"tHcrfEoG3DOh\",\r
+
+      \          \"type\": \"multiple_choice\",\r
+
+      \          \"ref\": \"4c510a95-7473-4b33-9aa7-db8879e9c095\"\r
+
+      \        }\r
+
+      \      },\r
+
+      \      {\r
+
+      \        \"type\": \"choice\",\r
+
+      \        \"choice\": {\r
+
+      \          \"id\": \"qO7wVpKI5765\",\r
+
+      \          \"label\": \"\\\"La transición debe comenzar ya, antes de que los daños al planeta sean irreversibles.\\\"\",\r
+
+      \          \"ref\": \"6f53bb5a-3897-4f10-8377-3b6cb95b7246\"\r
+
+      \        },\r
+
+      \        \"field\": {\r
+
+      \          \"id\": \"qRIsMMPzhV1B\",\r
+
+      \          \"type\": \"multiple_choice\",\r
+
+      \          \"ref\": \"83dd972d-af0b-4c82-b622-09f04a5f556c\"\r
+
+      \        }\r
+
+      \      },\r
+
+      \      {\r
+
+      \        \"type\": \"choice\",\r
+
+      \        \"choice\": {\r
+
+      \          \"id\": \"FLWTfCcJHmss\",\r
+
+      \          \"label\": \"\\\"La transición debe abordarse desde una perspectiva global, ya que los efectos y soluciones del cambio climático trascienden fronteras.\\\"\",\r
+
+      \          \"ref\": \"313522ce-7779-4010-99c0-3ed224523f02\"\r
+
+      \        },\r
+
+      \        \"field\": {\r
+
+      \          \"id\": \"qkA6nNBaQoZ7\",\r
+
+      \          \"type\": \"multiple_choice\",\r
+
+      \          \"ref\": \"5008b1c8-797c-4e32-97ec-7de4605f7c85\"\r
+
+      \        }\r
+
+      \      },\r
+
+      \      {\r
+
+      \        \"type\": \"choice\",\r
+
+      \        \"choice\": {\r
+
+      \          \"id\": \"XQgspeUcxRO6\",\r
+
+      \          \"label\": \"\\\"La transición solo es posible si todos los actores —gobiernos, empresas, comunidades, organizaciones y academia— participan de forma activa y con responsabilidades compartidas.\\\"\",\r
+
+      \          \"ref\": \"c338e360-cf30-42a6-89c4-5d3efef4a521\"\r
+
+      \        },\r
+
+      \        \"field\": {\r
+
+      \          \"id\": \"rAFbjxNlKok8\",\r
+
+      \          \"type\": \"multiple_choice\",\r
+
+      \          \"ref\": \"a00daff9-6391-463b-ba8b-9771ea372172\"\r
+
+      \        }\r
+
+      \      },\r
+
+      \      {\r
+
+      \        \"type\": \"choice\",\r
+
+      \        \"choice\": {\r
+
+      \          \"id\": \"MbWH7gM0wQ5I\",\r
+
+      \          \"label\": \"\\\"El Estado debe limitarse a generar las condiciones básicas para que otros actores —como el mercado, la sociedad civil o las comunidades— lideren los procesos de transición.\\\"\",\r
+
+      \          \"ref\": \"17a3f192-a042-46b6-b0ee-86d2df6e0309\"\r
+
+      \        },\r
+
+      \        \"field\": {\r
+
+      \          \"id\": \"3heJYKbXUziW\",\r
+
+      \          \"type\": \"multiple_choice\",\r
+
+      \          \"ref\": \"db374eb4-32e6-457c-9e5d-f70deb1e87b2\"\r
+
+      \        }\r
+
+      \      },\r
+
+      \      {\r
+
+      \        \"type\": \"choice\",\r
+
+      \        \"choice\": {\r
+
+      \          \"id\": \"nYy2CwC2IJsc\",\r
+
+      \          \"label\": \"\\\"Las empresas deben limitarse a cumplir regulaciones; no pueden liderar la transición porque sus intereses económicos no siempre se alinean con el bien común.\\\"\",\r
+
+      \          \"ref\": \"c85b1e5e-6e50-4e7c-8882-d604de23e1b6\"\r
+
+      \        },\r
+
+      \        \"field\": {\r
+
+      \          \"id\": \"nacJxKep9HZ6\",\r
+
+      \          \"type\": \"multiple_choice\",\r
+
+      \          \"ref\": \"6f846b69-c6eb-475b-8adc-4854ad8017e0\"\r
+
+      \        }\r
+
+      \      },\r
+
+      \      {\r
+
+      \        \"type\": \"choice\",\r
+
+      \        \"choice\": {\r
+
+      \          \"id\": \"thqaFiZlQFyn\",\r
+
+      \          \"label\": \"“Las comunidades deben adaptarse a los planes definidos por expertos, gobiernos o empresas, ya que no tienen la capacidad técnica para liderar procesos complejos.”\",\r
+
+      \          \"ref\": \"3a03f13b-c799-434c-8a94-0349e2258402\"\r
+
+      \        },\r
+
+      \        \"field\": {\r
+
+      \          \"id\": \"O4rzkJUbply0\",\r
+
+      \          \"type\": \"multiple_choice\",\r
+
+      \          \"ref\": \"f7530e88-0690-421a-a7c0-038b9e0f2818\"\r
+
+      \        }\r
+
+      \      },\r
+
+      \      {\r
+
+      \        \"type\": \"choice\",\r
+
+      \        \"choice\": {\r
+
+      \          \"id\": \"aD1Hch3XtoEl\",\r
+
+      \          \"label\": \"“Las organizaciones de la sociedad civil pueden opinar o acompañar, pero no deben interferir en las decisiones técnicas o de gobierno sobre la transición.\\\"\",\r
+
+      \          \"ref\": \"f59910cb-8d88-4b7c-a970-1e9253758367\"\r
+
+      \        },\r
+
+      \        \"field\": {\r
+
+      \          \"id\": \"2ktuE4cJBaDR\",\r
+
+      \          \"type\": \"multiple_choice\",\r
+
+      \          \"ref\": \"bae93355-e334-4765-a967-d53eebc2f424\"\r
+
+      \        }\r
+
+      \      },\r
+
+      \      {\r
+
+      \        \"type\": \"choice\",\r
+
+      \        \"choice\": {\r
+
+      \          \"id\": \"Hij7MBNxOASC\",\r
+
+      \          \"label\": \"\\\"Las decisiones sobre la transición deben ser tomadas por expertos y autoridades centrales, ya que requieren conocimientos técnicos y visión global.\\\"\",\r
+
+      \          \"ref\": \"881e7c58-c502-47a4-a96d-0d253bf2c87b\"\r
+
+      \        },\r
+
+      \        \"field\": {\r
+
+      \          \"id\": \"6x4H9m16AOze\",\r
+
+      \          \"type\": \"multiple_choice\",\r
+
+      \          \"ref\": \"07f8da00-cc71-4afe-aea5-7743896c5150\"\r
+
+      \        }\r
+
+      \      },\r
+
+      \      {\r
+
+      \        \"type\": \"choice\",\r
+
+      \        \"choice\": {\r
+
+      \          \"id\": \"o67mukLd7Mm8\",\r
+
+      \          \"label\": \"\\\"Los espacios institucionales actuales —gobiernos, organismos multilaterales, foros técnicos— ya tienen la legitimidad y capacidad para liderar la transición.\\\"\",\r
+
+      \          \"ref\": \"49bc22ce-2078-444b-9851-f513576f3a19\"\r
+
+      \        },\r
+
+      \        \"field\": {\r
+
+      \          \"id\": \"KghuAE3dqgnS\",\r
+
+      \          \"type\": \"multiple_choice\",\r
+
+      \          \"ref\": \"758a68c0-d2ab-4e6a-8827-b5b8aef330bf\"\r
+
+      \        }\r
+
+      \      },\r
+
+      \      {\r
+
+      \        \"type\": \"choice\",\r
+
+      \        \"choice\": {\r
+
+      \          \"id\": \"2SqBcFiZj6qX\",\r
+
+      \          \"label\": \"\\\"Ya existen los tratados, leyes y políticas necesarios para impulsar la transición; lo que falta es voluntad y aplicación efectiva.\\\"\",\r
+
+      \          \"ref\": \"980342c3-299c-4c95-964d-71a050daa424\"\r
+
+      \        },\r
+
+      \        \"field\": {\r
+
+      \          \"id\": \"eGQiuoOqVv1t\",\r
+
+      \          \"type\": \"multiple_choice\",\r
+
+      \          \"ref\": \"9908e10c-9196-48cb-a2e4-3d0d14291719\"\r
+
+      \        }\r
+
+      \      },\r
+
+      \      {\r
+
+      \        \"type\": \"choice\",\r
+
+      \        \"choice\": {\r
+
+      \          \"id\": \"rPILp5YKKFSw\",\r
+
+      \          \"label\": \"\\\"La transición climática solo será posible si todos los países y territorios cooperan y se coordinan globalmente.\\\"\",\r
+
+      \          \"ref\": \"184ba6c8-4ce5-4e50-97c8-4129e5f245a5\"\r
+
+      \        },\r
+
+      \        \"field\": {\r
+
+      \          \"id\": \"kdOJsbZ2NNE3\",\r
+
+      \          \"type\": \"multiple_choice\",\r
+
+      \          \"ref\": \"e760bb3b-7721-407f-b56f-162bf2ab7a33\"\r
+
+      \        }\r
+
+      \      },\r
+
+      \      {\r
+
+      \        \"type\": \"choice\",\r
+
+      \        \"choice\": {\r
+
+      \          \"id\": \"4NXGmBIW9LhV\",\r
+
+      \          \"label\": \"\\\"Las acciones climáticas deben postergarse hasta garantizar la reparación integral de los impactos sociales y ambientales acumulados.\\\"\",\r
+
+      \          \"ref\": \"42acce20-6f32-4daa-a9bf-6df51ae6908b\"\r
+
+      \        },\r
+
+      \        \"field\": {\r
+
+      \          \"id\": \"e0du0Cby8xyd\",\r
+
+      \          \"type\": \"multiple_choice\",\r
+
+      \          \"ref\": \"f9a4da9c-e441-4241-9775-53f54a0afe0d\"\r
+
+      \        }\r
+
+      \      }\r
+
+      \    ],\r
+
+      \    \"ending\": {\r
+
+      \      \"id\": \"a2GOoTSqptj3\",\r
+
+      \      \"ref\": \"459f8353-02e1-4f70-8ee8-da272b73c85e\"\r
+
+      \    }\r
+
+      \  }\r
+
+      }"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

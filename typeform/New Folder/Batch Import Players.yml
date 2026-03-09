@@ -1,0 +1,131 @@
+info:
+  name: Batch Import Players
+  type: http
+  seq: 6
+
+http:
+  method: POST
+  url: "{{baseUrl}}/external/appt/players/batch"
+  headers:
+    - name: X-Secret-Key
+      value: "{{secretKey}}"
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      [
+        {
+          "id": 1001,
+          "user_email": "player1@appt.com",
+          "display_name": "Player One",
+          "meta": {
+            "first_name": "Player",
+            "last_name": "One",
+            "gender": "M",
+            "country-code": "AU",
+            "points": "1200"
+          }
+        },
+        {
+          "id": 1002,
+          "user_email": "player2@appt.com",
+          "display_name": "Player Two",
+          "meta": {
+            "first_name": "Player",
+            "last_name": "Two",
+            "gender": "F",
+            "country-code": "JP",
+            "points": "980"
+          }
+        },
+        {
+          "id": 1003,
+          "user_email": "player3@appt.com",
+          "display_name": "Player Three",
+          "meta": {
+            "first_name": "Player",
+            "last_name": "Three",
+            "gender": "M",
+            "country-code": "ES",
+            "hand-user": "L",
+            "points": "2100"
+          }
+        }
+      ]
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: Batch Success
+    request:
+      url: "{{baseUrl}}/external/appt/players/batch"
+      method: POST
+      headers:
+        - name: X-Secret-Key
+          value: "{{secretKey}}"
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          [
+            {"user_email": "batch1@example.com", "display_name": "Batch 1"},
+            {"user_email": "batch2@example.com", "display_name": "Batch 2"},
+            {"user_email": "existing@example.com", "display_name": "Existing"}
+          ]
+    response:
+      statusText: "200"
+      body:
+        type: text
+        data: |-
+          {
+            "statusCode": 200,
+            "message": "Batch import completed: 2 created, 1 skipped, 0 errors",
+            "stats": {
+              "total": 3,
+              "created": 2,
+              "skipped": 1,
+              "errors": 0
+            },
+            "results": [
+              {
+                "email": "batch1@example.com",
+                "success": true,
+                "userId": 457,
+                "isNewUser": true
+              },
+              {
+                "email": "batch2@example.com",
+                "success": true,
+                "userId": 458,
+                "isNewUser": true
+              },
+              {
+                "email": "existing@example.com",
+                "success": true,
+                "userId": 123,
+                "isNewUser": false
+              }
+            ]
+          }
+
+docs: |-
+  Importa múltiples jugadores en una sola petición.
+
+  ## Request Body:
+  Array de objetos con el mismo formato que el endpoint individual.
+
+  ## Response:
+  Retorna estadísticas del batch:
+  - `total`: Total de jugadores procesados
+  - `created`: Nuevos jugadores creados
+  - `skipped`: Jugadores que ya existían
+  - `errors`: Errores durante la importación
+
+  También incluye un array `results` con el detalle de cada jugador.

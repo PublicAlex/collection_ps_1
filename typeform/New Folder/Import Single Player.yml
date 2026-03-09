@@ -1,0 +1,167 @@
+info:
+  name: Import Single Player
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: "{{baseUrl}}/external/appt/players"
+  headers:
+    - name: X-Secret-Key
+      value: "{{secretKey}}"
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "id": 12345,
+        "user_login": "player2@example.com",
+        "user_email": "player2@example.com",
+        "display_name": "John Doe",
+        "user_registered": "2024-01-15 10:30:00",
+        "meta": {
+          "first_name": "John2",
+          "last_name": "Doe2",
+          "gender": "M",
+          "birthday": "1990-05-15",
+          "country": "Australia",
+          "country-code": "AU",
+          "country-residence": "Australia",
+          "country-code-residence": "AU",
+          "height": "180",
+          "hand-user": "R",
+          "tshirt_size": "L",
+          "license": "yes-license",
+          "whatsapp": "412345678",
+          "prefix_phone": "+61",
+          "profile_picture": "https://example.com/photos/player.jpg",
+          "profile_picture_featured": "https://example.com/photos/player-featured.png",
+          "profile_picture_type": "image/png",
+          "rank": "25",
+          "rank_mix": "0",
+          "ranking": "national",
+          "points": "1500",
+          "points_mix": "200",
+          "points_amateur": "0",
+          "points_professional": "1500",
+          "assigned_subscription": "1",
+          "date_subscription": "2025-01-01T00:00:00",
+          "date_subscription_expiration": "2026-01-01 00:00:00"
+        }
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: Player Created
+    request:
+      url: "{{baseUrl}}/external/appt/players"
+      method: POST
+      headers:
+        - name: X-Secret-Key
+          value: "{{secretKey}}"
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "user_email": "newplayer@example.com",
+            "display_name": "New Player"
+          }
+    response:
+      statusText: "201"
+      body:
+        type: text
+        data: |-
+          {
+            "statusCode": 201,
+            "message": "Player imported successfully",
+            "data": {
+              "userId": 456,
+              "email": "newplayer@example.com",
+              "isNewUser": true
+            }
+          }
+  - name: Player Already Exists
+    request:
+      url: "{{baseUrl}}/external/appt/players"
+      method: POST
+      headers:
+        - name: X-Secret-Key
+          value: "{{secretKey}}"
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "user_email": "existing@example.com",
+            "display_name": "Existing Player"
+          }
+    response:
+      statusText: "200"
+      body:
+        type: text
+        data: |-
+          {
+            "statusCode": 200,
+            "message": "Player already exists, skipped",
+            "data": {
+              "userId": 123,
+              "email": "existing@example.com",
+              "isNewUser": false
+            }
+          }
+  - name: Unauthorized
+    request:
+      url: "{{baseUrl}}/external/appt/players"
+      method: POST
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "user_email": "player@example.com",
+            "display_name": "Player"
+          }
+    response:
+      statusText: "401"
+      body:
+        type: text
+        data: |-
+          {
+            "statusCode": 401,
+            "message": "Missing X-Secret-Key header",
+            "error": "Unauthorized"
+          }
+
+docs: |-
+  Importa un jugador individual desde APPT.
+
+  ## Campos requeridos:
+  - `user_email`: Email del jugador (único)
+  - `display_name`: Nombre completo
+
+  ## Campos opcionales (meta):
+  - `first_name`, `last_name`: Nombre y apellido separados
+  - `gender`: M o F
+  - `birthday`: Fecha en formato YYYY-MM-DD
+  - `country-code`: Código ISO Alpha-2 del país (AU, JP, ES, etc.)
+  - `height`: Altura en cm
+  - `hand-user`: R (derecha) o L (izquierda)
+  - `whatsapp`, `prefix_phone`: Teléfono
+  - `profile_picture_featured`: URL de foto de perfil
+  - `points`: Puntos de ranking
+
+  ## Comportamiento:
+  - Si el email ya existe: retorna 200 (skipped)
+  - Si es nuevo: retorna 201 (created)

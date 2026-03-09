@@ -1,0 +1,157 @@
+info:
+  name: Update Player Level
+  type: http
+  seq: 4
+
+http:
+  method: POST
+  url: "{{baseUrl}}/external/appt/players/update-levels"
+  headers:
+    - name: X-Secret-Key
+      value: "{{secretKey}}"
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |
+      [
+        {
+          "user_email": "adomenechmenacho@gmail.com",
+          "display_name": "Alejandro Domenech Menacho",
+          "points_history": [
+            {
+              "tournament_id": 917,
+              "category": "PRO_MALE",
+              "round": "R 16 ",
+              "points": 100,
+              "winner_tournament": false,
+              "category_tournament": "",
+              "date": "2024-03-08"
+            },
+            {
+              "tournament_id": 1862,
+              "category": "PRO_MALE",
+              "round": "R 4 (QUARTER FINALIST)",
+              "points": 360,
+              "winner_tournament": false,
+              "category_tournament": "",
+              "date": "2024-09-26"
+            }
+          ]
+        }
+      ]
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: Player Created
+    request:
+      url: "{{baseUrl}}/external/appt/players"
+      method: POST
+      headers:
+        - name: X-Secret-Key
+          value: "{{secretKey}}"
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "user_email": "newplayer@example.com",
+            "display_name": "New Player"
+          }
+    response:
+      statusText: "201"
+      body:
+        type: text
+        data: |-
+          {
+            "statusCode": 201,
+            "message": "Player imported successfully",
+            "data": {
+              "userId": 456,
+              "email": "newplayer@example.com",
+              "isNewUser": true
+            }
+          }
+  - name: Player Already Exists
+    request:
+      url: "{{baseUrl}}/external/appt/players"
+      method: POST
+      headers:
+        - name: X-Secret-Key
+          value: "{{secretKey}}"
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "user_email": "existing@example.com",
+            "display_name": "Existing Player"
+          }
+    response:
+      statusText: "200"
+      body:
+        type: text
+        data: |-
+          {
+            "statusCode": 200,
+            "message": "Player already exists, skipped",
+            "data": {
+              "userId": 123,
+              "email": "existing@example.com",
+              "isNewUser": false
+            }
+          }
+  - name: Unauthorized
+    request:
+      url: "{{baseUrl}}/external/appt/players"
+      method: POST
+      headers:
+        - name: Content-Type
+          value: application/json
+      body:
+        type: json
+        data: |-
+          {
+            "user_email": "player@example.com",
+            "display_name": "Player"
+          }
+    response:
+      statusText: "401"
+      body:
+        type: text
+        data: |-
+          {
+            "statusCode": 401,
+            "message": "Missing X-Secret-Key header",
+            "error": "Unauthorized"
+          }
+
+docs: |-
+  Importa un jugador individual desde APPT.
+
+  ## Campos requeridos:
+  - `user_email`: Email del jugador (único)
+  - `display_name`: Nombre completo
+
+  ## Campos opcionales (meta):
+  - `first_name`, `last_name`: Nombre y apellido separados
+  - `gender`: M o F
+  - `birthday`: Fecha en formato YYYY-MM-DD
+  - `country-code`: Código ISO Alpha-2 del país (AU, JP, ES, etc.)
+  - `height`: Altura en cm
+  - `hand-user`: R (derecha) o L (izquierda)
+  - `whatsapp`, `prefix_phone`: Teléfono
+  - `profile_picture_featured`: URL de foto de perfil
+  - `points`: Puntos de ranking
+
+  ## Comportamiento:
+  - Si el email ya existe: retorna 200 (skipped)
+  - Si es nuevo: retorna 201 (created)
