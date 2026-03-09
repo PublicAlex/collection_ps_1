@@ -1,7 +1,7 @@
 info:
   name: Full Flow Test
   type: folder
-  seq: 7
+  seq: 3
 
 request:
   auth: inherit

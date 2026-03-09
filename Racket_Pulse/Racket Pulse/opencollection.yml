@@ -22,11 +22,11 @@ request:
     - name: ""
       value: ""
     - name: host
-      value: https://dev.api.racketpulse.com
+      value: 127.0.0.1:3000
     - name: elohost
       value: https://elo.racketpulse.com/
     - name: token
-      value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzY1MSwiZW1haWwiOiJqdWFucGVyZXp6eGNzQGdtYWlsLmNvbSIsImltYWdlIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EtL0FPaDE0R2dSc19CUzlvZUI1NmRpVHZLd184ckNaRDNYTUh2bFUtOFlOMj1zOTYtYyIsIm5hbWUiOiJKdWFuIFDDqXJleiIsInVzZXJOYW1lIjoiSnVhbiIsInVzZXJMYXN0TmFtZSI6IlDDqXJleiIsInR5cGUiOiJ1c2VyIiwiaXNGYXN0TG9naW4iOnRydWUsImlhdCI6MTc3MzA4ODYyNSwiZXhwIjoxNzczMDkwNDI1fQ.azOPeZOGG3kzM3ad3iiQWWCCkSTOb00npeJfzo4IkEA
+      value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzY1MSwiZW1haWwiOiJqdWFucGVyZXp6eGNzQGdtYWlsLmNvbSIsImltYWdlIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EtL0FPaDE0R2dSc19CUzlvZUI1NmRpVHZLd184ckNaRDNYTUh2bFUtOFlOMj1zOTYtYyIsIm5hbWUiOiJKdWFuIFDDqXJleiIsInVzZXJOYW1lIjoiSnVhbiIsInVzZXJMYXN0TmFtZSI6IlDDqXJleiIsInR5cGUiOiJ1c2VyIiwiaXNGYXN0TG9naW4iOnRydWUsImlhdCI6MTc3MzA5MjYzMCwiZXhwIjoxNzczMDk0NDMwfQ.S8JcKVOIiQbkOrblWysL8hG2BFFZoIoCja8OXyEa3uk
     - name: access_token
       value: ""
     - name: clubId
