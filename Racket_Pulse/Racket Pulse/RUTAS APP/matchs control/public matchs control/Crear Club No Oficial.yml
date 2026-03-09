@@ -13,7 +13,7 @@ http:
     type: json
     data: |
       {
-        "club_name": "Los Amigos 333",
+        "club_name": "Los Amigos 323",
         "location": "Carrer Segurana, Xàtiva, València, España",
         "location_coordinate": "38.9881694,-0.5156206",
 
