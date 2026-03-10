@@ -5,7 +5,7 @@ info:
 
 http:
   method: GET
-  url: "{{host}}/clubs?isUnofficial=true"
+  url: "{{host}}/clubs?isUnofficial=true&search=los amig"
   headers:
     - name: accept
       value: application/json, text/plain, */*
@@ -47,6 +47,9 @@ http:
       value: "true"
       type: query
       disabled: true
+    - name: search
+      value: los amig
+      type: query
   auth:
     type: bearer
     token: "{{token}}"

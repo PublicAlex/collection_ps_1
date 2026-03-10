@@ -22,7 +22,7 @@ request:
     - name: ""
       value: ""
     - name: host
-      value: 127.0.0.1:3000
+      value: https://dev.api.racketpulse.com
     - name: elohost
       value: https://elo.racketpulse.com/
     - name: token
