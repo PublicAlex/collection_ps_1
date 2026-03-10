@@ -5,7 +5,7 @@ info:
 
 http:
   method: GET
-  url: "{{host}}/matches/dashboard/chart/club/109?startDate=2026-02-10&endDate=2026-03-10&groupBy=day&gameTypes=open,canceled&playerLevelFrom=1.0&playerLevelTo=3.0"
+  url: "{{host}}/matches/dashboard/chart/club/109?startDate=2026-02-10&endDate=2026-03-10&groupBy=day&gameTypes=open,private,training,tournament,external,cancelled&playerLevelFrom=0.0&playerLevelTo=7.0"
   params:
     - name: startDate
       value: 2026-02-10
@@ -17,13 +17,13 @@ http:
       value: day
       type: query
     - name: gameTypes
-      value: open,canceled
+      value: open,private,training,tournament,external,cancelled
       type: query
     - name: playerLevelFrom
-      value: "1.0"
+      value: "0.0"
       type: query
     - name: playerLevelTo
-      value: "3.0"
+      value: "7.0"
       type: query
     - name: courtIds
       value: "5"
