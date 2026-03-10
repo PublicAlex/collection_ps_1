@@ -5,36 +5,39 @@ info:
 
 http:
   method: GET
-  url: "{{host}}/matches/dashboard/chart/club/1?startDate=2025-09-15&endDate=2025-11-31&groupBy=day&gameTypes=open&courtIds=5"
+  url: "{{host}}/matches/dashboard/chart/club/109?startDate=2026-02-10&endDate=2026-03-10&groupBy=day&gameTypes=open,canceled&playerLevelFrom=1.0&playerLevelTo=3.0"
   params:
     - name: startDate
-      value: 2025-09-15
+      value: 2026-02-10
       type: query
     - name: endDate
-      value: 2025-11-31
+      value: 2026-03-10
       type: query
     - name: groupBy
       value: day
       type: query
     - name: gameTypes
-      value: open
+      value: open,canceled
       type: query
-      description: open, tournament, private, training, external, coaching
     - name: playerLevelFrom
       value: "1.0"
       type: query
-      disabled: true
     - name: playerLevelTo
       value: "3.0"
       type: query
-      disabled: true
     - name: courtIds
       value: "5"
       type: query
-  auth: inherit
+      disabled: true
+  auth:
+    type: bearer
+    token: "{{token}}"
 
 settings:
   encodeUrl: true
   timeout: 0
   followRedirects: true
   maxRedirects: 5
+
+docs: |
+  gametypes ['open', 'private', 'training', 'tournament', 'external', 'cancelled']
