@@ -1,0 +1,25 @@
+info:
+  name: reorder banners
+  type: http
+  seq: 7
+
+http:
+  method: PUT
+  url: "{{base_url}}/banners/reorder"
+  body:
+    type: json
+    data: |
+      {
+        "banners": [
+          { "id": 1, "order": 0 },
+          { "id": 3, "order": 1 },
+          { "id": 2, "order": 2 }
+        ]
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

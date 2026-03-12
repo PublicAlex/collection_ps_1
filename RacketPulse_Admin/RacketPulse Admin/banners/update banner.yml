@@ -1,0 +1,25 @@
+info:
+  name: update banner
+  type: http
+  seq: 6
+
+http:
+  method: PATCH
+  url: "{{base_url}}/banners/1"
+  body:
+    type: json
+    data: |
+      {
+        "title": "New title",        // opcional
+        "imageUrl": "https://...",   // opcional
+        "linkUrl": "https://...",    // opcional
+        "isActive": false,           // opcional
+        "order": 2                   // opcional
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

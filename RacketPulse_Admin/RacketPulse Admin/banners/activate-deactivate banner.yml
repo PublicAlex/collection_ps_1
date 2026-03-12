@@ -1,0 +1,15 @@
+info:
+  name: activate/deactivate banner
+  type: http
+  seq: 5
+
+http:
+  method: PATCH
+  url: "{{base_url}}/banners/1/toggle-active"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

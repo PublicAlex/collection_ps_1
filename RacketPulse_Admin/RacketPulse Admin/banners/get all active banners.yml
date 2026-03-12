@@ -1,0 +1,15 @@
+info:
+  name: get all active banners
+  type: http
+  seq: 4
+
+http:
+  method: GET
+  url: "{{base_url}}/banners/active"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

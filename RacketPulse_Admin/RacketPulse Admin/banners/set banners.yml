@@ -1,0 +1,26 @@
+info:
+  name: set banners
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{base_url}}/banners"
+  body:
+    type: json
+    data: |
+      {
+        "title": "Summer promotion",
+        "imageUrl": "https://example.com/banner.jpg",
+        "linkUrl": "https://example.com",   // opcional
+        "clubId": 5,                         // opcional, null = global
+        "isActive": true,                    // opcional, default true
+        "order": 0                           // opcional, default 0
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

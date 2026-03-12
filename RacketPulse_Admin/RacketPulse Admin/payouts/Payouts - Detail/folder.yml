@@ -1,7 +1,7 @@
 info:
   name: Payouts - Detail
   type: folder
-  seq: 2
+  seq: 3
 
 request:
   auth: inherit

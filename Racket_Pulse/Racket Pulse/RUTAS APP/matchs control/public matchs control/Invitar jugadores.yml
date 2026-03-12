@@ -11,11 +11,15 @@ http:
       value: application/json
   body:
     type: json
-    data: |-
+    data: |
       {
         "matchId": 787,
         "matchKey": "4J86HT",
-        "recipients": [10, 104, 105]
+        "recipients": [
+          10,
+          104,
+          { "phone": "+5491112345678", "name": "Juan Pérez" } // ó un número telefónico para enviar whatsapp
+        ]
       }
   auth:
     type: bearer
