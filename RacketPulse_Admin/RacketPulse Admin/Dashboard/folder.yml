@@ -1,7 +1,7 @@
 info:
-  name: payouts
+  name: Dashboard
   type: folder
-  seq: 3
+  seq: 5
 
 request:
   auth: inherit
