@@ -10,12 +10,14 @@ http:
     type: json
     data: |
       {
-        "title": "Summer promotion",
-        "imageUrl": "https://example.com/banner.jpg",
-        "linkUrl": "https://example.com",   // opcional
-        "clubId": 5,                         // opcional, null = global
-        "isActive": true,                    // opcional, default true
-        "order": 0                           // opcional, default 0
+        "imageUrl": "https://example.com/banner.jpg",   // requerido
+        "title": "Summer promotion",                     // opcional
+        "description": "Texto descriptivo",              // opcional
+        "redirectLink": "https://example.com",           // opcional
+        "isActive": true,                                // opcional, default true
+        "displayOrder": 0,                               // opcional, default 0
+        "startDate": "2025-06-01T00:00:00.000Z",        // opcional, null = sin restricción
+        "endDate": "2025-08-31T23:59:59.000Z"           // opcional, null = sin expiración
       }
   auth: inherit
 
