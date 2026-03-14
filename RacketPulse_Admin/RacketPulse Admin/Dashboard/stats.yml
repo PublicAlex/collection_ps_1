@@ -6,7 +6,16 @@ info:
 http:
   method: GET
   url: "{{base_url}}/matches/dashboard/stats?startDate=2026-01-01T00:00:00.000Z&endDate=2026-03-13T23:59:59.999Z"
-  auth: inherit
+  params:
+    - name: startDate
+      value: 2026-01-01T00:00:00.000Z
+      type: query
+    - name: endDate
+      value: 2026-03-13T23:59:59.999Z
+      type: query
+  auth:
+    type: bearer
+    token: "{{token}}"
 
 settings:
   encodeUrl: true

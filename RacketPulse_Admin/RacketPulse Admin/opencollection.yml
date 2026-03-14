@@ -2,6 +2,17 @@ opencollection: 1.0.0
 
 info:
   name: RacketPulse Admin
+config:
+  proxy:
+    inherit: true
+    config:
+      protocol: http
+      hostname: ""
+      port: ""
+      auth:
+        username: ""
+        password: ""
+      bypassProxy: ""
 
 request:
   auth:
@@ -9,11 +20,13 @@ request:
     token: "{{access_token}}"
   variables:
     - name: base_url
-      value: http://localhost:3003
+      value: https://dev.api.admin.racketpulse.com
     - name: access_token
       value: ""
     - name: payout_id
       value: ""
+    - name: token
+      value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJuYW1lIjoiU3VwZXIgQWRtaW4iLCJyb2xlIjoic3VwZXJhZG1pbiIsImlhdCI6MTc3MzQ1NTU4MiwiZXhwIjoxNzczNDU3MzgyfQ.RKQ1Dtx8VXNcKk79fD6oyr8_ypWKTlUWm9ahUH1nSe4
 
 docs:
   content: Colección de endpoints para el módulo Login y Payer del panel de administración de RacketPulse
